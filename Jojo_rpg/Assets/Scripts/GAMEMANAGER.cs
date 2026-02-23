@@ -4,6 +4,8 @@ public class GAMEMANAGER : MonoBehaviour
 {
     public static GAMEMANAGER instance;
 
+    public GameObject[] party;
+
     private void Awake()
     {
         if (instance == null)

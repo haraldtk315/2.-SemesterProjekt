@@ -984,7 +984,7 @@ GameObject:
   - component: {fileID: 2024807290}
   m_Layer: 0
   m_Name: GAMEMANAGER
-  m_TagString: Untagged
+  m_TagString: GM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1001,6 +1001,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0476ed799e74ec940841b112b961ca58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  party:
+  - {fileID: -2253911629886400664, guid: 10df24b64c8fad047a484a4123f82f91, type: 3}
+  - {fileID: -2253911629886400664, guid: 98c7e7d6602998a43a487ed3abe6f123, type: 3}
+  - {fileID: 0}
+  - {fileID: -2253911629886400664, guid: 01ec3351cb1e52d4f83ddaf1e5c7f850, type: 3}
 --- !u!4 &2024807291
 Transform:
   m_ObjectHideFlags: 0
