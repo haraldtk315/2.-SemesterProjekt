@@ -3,13 +3,12 @@ using UnityEngine;
 public class BATTLEHANDLER : MonoBehaviour
 {
     [SerializeField] private Transform center;
-
     [SerializeField] private GameObject[] SPAWNS;
-
     [SerializeField] private GameObject[] SPAWNS_ENEMY;
 
     //GAMEMANAGER
     public GAMEMANAGER GM;
+    public Camera Cam;
 
     //PARTY INFORMATION
     private int party_size = 0;
@@ -22,6 +21,7 @@ public class BATTLEHANDLER : MonoBehaviour
     private void Start()
     {
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
+        Cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
         SpawnCharactors();
     }
@@ -47,7 +47,7 @@ public class BATTLEHANDLER : MonoBehaviour
         {
             if (party_size == 1)
             {
-                Instantiate(SINGLE_PLAYER, SPAWNS[4].transform.position, Quaternion.identity);
+                InstantiateChamp(4, true);
                 break;
             }
 
@@ -56,7 +56,7 @@ public class BATTLEHANDLER : MonoBehaviour
                 continue;
             }
 
-            Instantiate(GM.party[i], SPAWNS[i].transform.position, Quaternion.identity);
+            InstantiateChamp(i, true);
         }
 
         //ENEMY SPAWNS
@@ -66,12 +66,32 @@ public class BATTLEHANDLER : MonoBehaviour
         {
             if (enemy_count == 1)
             {
-                Instantiate(only_monster, SPAWNS_ENEMY[4].transform.position, Quaternion.identity);
+                InstantiateChamp(4, false);
                 break;
             }
 
-            GameObject monster = Instantiate(only_monster, SPAWNS_ENEMY[i].transform.position, Quaternion.identity);
+            InstantiateChamp(i, false);
+        }
+    }
+
+    private void InstantiateChamp(int position_spawn, bool Player)
+    {
+        //player charactors = true
+        if (Player)
+        {
+            GameObject Ally = Instantiate(GM.party[position_spawn], SPAWNS[position_spawn].transform.position, Quaternion.identity);
+            Ally.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
+            Ally.GetComponent<CHAMP_INFO>().Team_player = true;
+        }
+
+
+        //Enemy charactors = false
+        if (!Player)
+        {
+            GameObject monster = Instantiate(only_monster, SPAWNS_ENEMY[position_spawn].transform.position, Quaternion.identity);
             monster.GetComponent<SpriteRenderer>().flipX = true;
+            monster.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
+            monster.GetComponent<CHAMP_INFO>().Team_player = false;
         }
     }
 }

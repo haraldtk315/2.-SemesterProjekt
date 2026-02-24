@@ -1002,10 +1002,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   party:
-  - {fileID: -2253911629886400664, guid: 10df24b64c8fad047a484a4123f82f91, type: 3}
-  - {fileID: -2253911629886400664, guid: 98c7e7d6602998a43a487ed3abe6f123, type: 3}
+  - {fileID: 4422497482393448783, guid: 12fca42dd3960db49b8030ef697093ff, type: 3}
+  - {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
   - {fileID: 0}
-  - {fileID: -2253911629886400664, guid: 01ec3351cb1e52d4f83ddaf1e5c7f850, type: 3}
+  - {fileID: 5156567506917586551, guid: 620d45e6efa996f4d83f30e04332427d, type: 3}
 --- !u!4 &2024807291
 Transform:
   m_ObjectHideFlags: 0
