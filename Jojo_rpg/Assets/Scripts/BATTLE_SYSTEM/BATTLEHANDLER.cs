@@ -45,12 +45,6 @@ public class BATTLEHANDLER : MonoBehaviour
 
         for (int i = 0; i < GM.party.Length; i++)
         {
-            if (party_size == 1)
-            {
-                InstantiateChamp(4, true);
-                break;
-            }
-
             if (GM.party[i] == null)
             {
                 continue;
@@ -79,9 +73,16 @@ public class BATTLEHANDLER : MonoBehaviour
         //player charactors = true
         if (Player)
         {
-            GameObject Ally = Instantiate(GM.party[position_spawn], SPAWNS[position_spawn].transform.position, Quaternion.identity);
-            Ally.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
-            Ally.GetComponent<CHAMP_INFO>().Team_player = true;
+            if (party_size == 1)
+            {
+                GameObject Ally = Instantiate(SINGLE_PLAYER, SPAWNS[4].transform.position, Quaternion.identity);
+            }
+            else
+            {
+                GameObject Ally = Instantiate(GM.party[position_spawn], SPAWNS[position_spawn].transform.position, Quaternion.identity);
+                Ally.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
+                Ally.GetComponent<CHAMP_INFO>().Team_player = true;
+            }
         }
 
 
@@ -94,4 +95,6 @@ public class BATTLEHANDLER : MonoBehaviour
             monster.GetComponent<CHAMP_INFO>().Team_player = false;
         }
     }
+
+
 }
