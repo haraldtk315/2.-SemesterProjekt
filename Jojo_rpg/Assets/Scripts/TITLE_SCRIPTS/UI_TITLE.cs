@@ -3,11 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class UI_TITLE : MonoBehaviour
 {
-    [SerializeField] private string BattleSystem = "FIGHT";
+    private const string BATTLESYSTEM = "FIGHT";
+    private const string OVERWORLD = "OVERWORLD";
 
     public void TestBattleSystem()
     {
-        SceneManager.LoadScene(BattleSystem);
+        SceneManager.LoadScene(BATTLESYSTEM);
     }
+
+    public void TestOverworldSystem()
+    {
+        SceneManager.LoadScene(OVERWORLD);
+    }
+   
 }
 

@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 516139150}
   - component: {fileID: 516139149}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BATTLE_SYSTEM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1129,7 +1129,7 @@ GameObject:
   - component: {fileID: 1486964256}
   - component: {fileID: 1486964255}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: OVERWORLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1201,7 +1201,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2070915509}
         m_TargetAssemblyTypeName: UI_TITLE, Assembly-CSharp
-        m_MethodName: TestBattleSystem
+        m_MethodName: TestOverworldSystem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1465,7 +1465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441d342b57dabe140a121566a45cb6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TITLE
-  BattleSystem: FIGHT
 --- !u!4 &2070915510
 Transform:
   m_ObjectHideFlags: 0
