@@ -15,6 +15,8 @@ public class BATTLEHANDLER : MonoBehaviour
     public GameObject Cam_holder;
     public Animator Cam_ani;
 
+    public RenderTexture Cam_rend;
+
     //PARTY INFORMATION
     private int party_size = 0;
     private GameObject SINGLE_PLAYER;
@@ -35,6 +37,12 @@ public class BATTLEHANDLER : MonoBehaviour
 
 
         Cam_holder.transform.position = new Vector3(ORDER[0].transform.position.x, -1.25f, 3);
+    }
+
+    private void Update()
+    {
+        Vector2 test = new Vector2(1920 / 1000, 1080 / 1000);
+        Cam_rend.texelSize.Scale(test);
     }
 
     private void SpawnCharactors()
