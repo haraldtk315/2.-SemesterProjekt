@@ -17,6 +17,7 @@ public class BATTLEHANDLER : MonoBehaviour
     public Animator Cam_ani;
 
     public RawImage Texture;
+    public GameObject Buttons;
 
     //PARTY INFORMATION
     private int party_size = 0;
@@ -30,21 +31,26 @@ public class BATTLEHANDLER : MonoBehaviour
 
     private void Start()
     {
+        Buttons.SetActive(false);
+
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
         Cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         Cam_ani = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
 
         SpawnCharactors();
-
-
-        Cam_holder.transform.position = new Vector3(ORDER[0].transform.position.x, -1.25f, 3);
-
         Invoke("RemoveText", 1.75f);
     }
 
     private void RemoveText()
     {
         Texture.enabled = false;
+        Invoke("SET_CAM_LOCATION", 2f);
+    }
+
+    private void SET_CAM_LOCATION()
+    {
+        Cam_holder.transform.position = new Vector3(ORDER[0].transform.position.x, -1.25f, 3);
+        Buttons.SetActive(true);
     }
 
     private void SpawnCharactors()
