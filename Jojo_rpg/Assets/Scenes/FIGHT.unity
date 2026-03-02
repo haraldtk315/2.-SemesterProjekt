@@ -1376,7 +1376,7 @@ MonoBehaviour:
   Cam: {fileID: 0}
   Cam_holder: {fileID: 1303587943}
   Cam_ani: {fileID: 0}
-  Cam_rend: {fileID: 8400000, guid: 526fe122e30165741b46c7236c7510ee, type: 2}
+  Texture: {fileID: 1151427839}
   enemy_count: 0
   only_monster: {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
 --- !u!4 &915982188

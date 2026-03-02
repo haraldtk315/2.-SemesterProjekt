@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BATTLEHANDLER : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class BATTLEHANDLER : MonoBehaviour
     public GameObject Cam_holder;
     public Animator Cam_ani;
 
-    public RenderTexture Cam_rend;
+    public RawImage Texture;
 
     //PARTY INFORMATION
     private int party_size = 0;
@@ -37,12 +38,13 @@ public class BATTLEHANDLER : MonoBehaviour
 
 
         Cam_holder.transform.position = new Vector3(ORDER[0].transform.position.x, -1.25f, 3);
+
+        Invoke("RemoveText", 1.75f);
     }
 
-    private void Update()
+    private void RemoveText()
     {
-        Vector2 test = new Vector2(1920 / 1000, 1080 / 1000);
-        Cam_rend.texelSize.Scale(test);
+        Texture.enabled = false;
     }
 
     private void SpawnCharactors()
