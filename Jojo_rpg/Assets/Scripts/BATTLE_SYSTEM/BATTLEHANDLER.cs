@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BATTLEHANDLER : MonoBehaviour
 {
@@ -8,11 +10,20 @@ public class BATTLEHANDLER : MonoBehaviour
 
     //GAMEMANAGER
     public GAMEMANAGER GM;
+
+    //Cam
     public Camera Cam;
+    public GameObject Cam_holder;
+    public Animator Cam_ani;
+
+    public RawImage Texture;
+    public GameObject Buttons;
 
     //PARTY INFORMATION
     private int party_size = 0;
     private GameObject SINGLE_PLAYER;
+    private GameObject[] ORDER = {null, null, null, null, null};
+    
 
     //ENEMY INFORMATION
     [SerializeField] private int enemy_count = 0;
@@ -20,10 +31,26 @@ public class BATTLEHANDLER : MonoBehaviour
 
     private void Start()
     {
+        Buttons.SetActive(false);
+
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
         Cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        Cam_ani = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
 
         SpawnCharactors();
+        Invoke("RemoveText", 1.75f);
+    }
+
+    private void RemoveText()
+    {
+        Texture.enabled = false;
+        Invoke("SET_CAM_LOCATION", 2f);
+    }
+
+    private void SET_CAM_LOCATION()
+    {
+        Cam_holder.transform.position = new Vector3(ORDER[0].transform.position.x, -1.25f, 3);
+        Buttons.SetActive(true);
     }
 
     private void SpawnCharactors()
@@ -36,7 +63,7 @@ public class BATTLEHANDLER : MonoBehaviour
                 continue;
             }
 
-            if (GM.party[i] != this)
+            if (GM.party[i] != null)
             {
                 party_size++;
                 SINGLE_PLAYER = GM.party[i];
@@ -76,12 +103,16 @@ public class BATTLEHANDLER : MonoBehaviour
             if (party_size == 1)
             {
                 GameObject Ally = Instantiate(SINGLE_PLAYER, SPAWNS[4].transform.position, Quaternion.identity);
+
+                ORDER[0] = Ally;
             }
             else
             {
                 GameObject Ally = Instantiate(GM.party[position_spawn], SPAWNS[position_spawn].transform.position, Quaternion.identity);
                 Ally.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
                 Ally.GetComponent<CHAMP_INFO>().Team_player = true;
+
+                ORDER[position_spawn] = Ally;
             }
         }
 
