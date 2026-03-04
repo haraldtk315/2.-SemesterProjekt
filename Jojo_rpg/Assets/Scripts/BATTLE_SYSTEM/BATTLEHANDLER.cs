@@ -127,5 +127,23 @@ public class BATTLEHANDLER : MonoBehaviour
         }
     }
 
+    public void ATTACK()
+    {
 
+    }
+
+    public void SPECIAL()
+    {
+
+    }
+
+    public void ITEM()
+    {
+
+    }
+
+    public void RUN()
+    {
+
+    }
 }
