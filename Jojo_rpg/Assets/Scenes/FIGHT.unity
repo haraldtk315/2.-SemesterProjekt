@@ -1413,7 +1413,7 @@ MonoBehaviour:
   Cam_holder: {fileID: 1303587943}
   Cam_ani: {fileID: 0}
   Texture: {fileID: 1151427839}
-  Buttons: {fileID: 2025642595}
+  MAIN_Buttons: {fileID: 2025642595}
   enemy_count: 0
   only_monster: {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
 --- !u!4 &915982188
@@ -3484,7 +3484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2025642596}
   m_Layer: 5
-  m_Name: BUTTONS
+  m_Name: MAIN_BUTTONS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

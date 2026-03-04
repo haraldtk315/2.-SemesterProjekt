@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,21 +18,35 @@ public class BATTLEHANDLER : MonoBehaviour
     public Animator Cam_ani;
 
     public RawImage Texture;
-    public GameObject Buttons;
+    public GameObject MAIN_Buttons;
 
     //PARTY INFORMATION
     private int party_size = 0;
     private GameObject SINGLE_PLAYER;
     private GameObject[] ORDER = {null, null, null, null, null};
+    private GameObject[] MONSTER_ORDER = { null, null, null, null, null };
+
+    private int ON_CURRENT_CHAMP = 0;
     
 
     //ENEMY INFORMATION
     [SerializeField] private int enemy_count = 0;
     public GameObject only_monster;
 
+    enum STATEMACHINE
+    {
+        INPUT,
+        SELECT,
+        TARGET,
+        RHYTHM,
+        BATTLE,
+    }
+    
+    STATEMACHINE CURRENT_STATE = STATEMACHINE.INPUT;
+
     private void Start()
     {
-        Buttons.SetActive(false);
+        MAIN_Buttons.SetActive(false);
 
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
         Cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -49,8 +64,7 @@ public class BATTLEHANDLER : MonoBehaviour
 
     private void SET_CAM_LOCATION()
     {
-        Cam_holder.transform.position = new Vector3(ORDER[0].transform.position.x, -1.25f, 3);
-        Buttons.SetActive(true);
+        StateMachine(CURRENT_STATE);
     }
 
     private void SpawnCharactors()
@@ -124,12 +138,49 @@ public class BATTLEHANDLER : MonoBehaviour
             monster.GetComponent<SpriteRenderer>().flipX = true;
             monster.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
             monster.GetComponent<CHAMP_INFO>().Team_player = false;
+
+            MONSTER_ORDER[position_spawn] = monster;
+        }
+    }
+
+
+    void StateMachine(STATEMACHINE Current)
+    {
+        if (Current == STATEMACHINE.INPUT)
+        {
+            MAIN_Buttons.SetActive(true);
+            Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x, -1.25f, 3);
+        }
+
+        if (Current == STATEMACHINE.SELECT)
+        {
+
+        }
+
+        if (Current == STATEMACHINE.TARGET)
+        {
+            MAIN_Buttons.SetActive(false);
+            Cam_holder.transform.position = Vector3.zero;
+
+            for (int i = 0; i < MONSTER_ORDER.Length; i++)
+            {
+                if (MONSTER_ORDER[i] == null)
+                {
+                    continue;
+                }
+
+                if (MONSTER_ORDER[i] != null)
+                {
+                    MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(true);
+                }
+            }
         }
     }
 
     public void ATTACK()
     {
-
+        CURRENT_STATE = STATEMACHINE.TARGET;
+        StateMachine(CURRENT_STATE);
     }
 
     public void SPECIAL()
