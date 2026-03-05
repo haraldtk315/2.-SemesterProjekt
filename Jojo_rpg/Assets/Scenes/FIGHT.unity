@@ -473,7 +473,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 142153577}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 915982187}
+        m_TargetAssemblyTypeName: BATTLEHANDLER, Assembly-CSharp
+        m_MethodName: ATTACK
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &142153577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -945,7 +957,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 567562920}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 915982187}
+        m_TargetAssemblyTypeName: BATTLEHANDLER, Assembly-CSharp
+        m_MethodName: ITEM
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &567562920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1259,7 +1283,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 820323304}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 915982187}
+        m_TargetAssemblyTypeName: BATTLEHANDLER, Assembly-CSharp
+        m_MethodName: SPECIAL
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &820323304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1377,7 +1413,7 @@ MonoBehaviour:
   Cam_holder: {fileID: 1303587943}
   Cam_ani: {fileID: 0}
   Texture: {fileID: 1151427839}
-  Buttons: {fileID: 2025642595}
+  MAIN_Buttons: {fileID: 2025642595}
   enemy_count: 0
   only_monster: {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
 --- !u!4 &915982188
@@ -2380,7 +2416,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1378997671}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 915982187}
+        m_TargetAssemblyTypeName: BATTLEHANDLER, Assembly-CSharp
+        m_MethodName: RUN
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1378997671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3436,7 +3484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2025642596}
   m_Layer: 5
-  m_Name: BUTTONS
+  m_Name: MAIN_BUTTONS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
