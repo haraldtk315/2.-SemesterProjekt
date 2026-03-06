@@ -5,6 +5,7 @@ public class CHAMP_INFO : MonoBehaviour
     public Animator ANI;
     public GameObject TARGETINDICATOR;
     public Collider Collider;
+    public GAMEMANAGER GM;
 
     public string Name;
     public int MaxHp;
@@ -14,5 +15,8 @@ public class CHAMP_INFO : MonoBehaviour
 
     private int hp;
 
-
+    private void Start()
+    {
+        GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
+    }
 }
