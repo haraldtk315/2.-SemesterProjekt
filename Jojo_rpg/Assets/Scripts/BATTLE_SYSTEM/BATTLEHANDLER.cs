@@ -33,7 +33,7 @@ public class BATTLEHANDLER : MonoBehaviour
     [SerializeField] private int enemy_count = 0;
     public GameObject only_monster;
 
-    enum STATEMACHINE
+    public enum STATEMACHINE
     {
         INPUT,
         SELECT,
@@ -42,7 +42,7 @@ public class BATTLEHANDLER : MonoBehaviour
         BATTLE,
     }
     
-    STATEMACHINE CURRENT_STATE = STATEMACHINE.INPUT;
+    public STATEMACHINE CURRENT_STATE = STATEMACHINE.INPUT;
 
     private void Start()
     {
@@ -146,17 +146,20 @@ public class BATTLEHANDLER : MonoBehaviour
 
     void StateMachine(STATEMACHINE Current)
     {
+        //AWAITING INPUT FROM PLAYER
         if (Current == STATEMACHINE.INPUT)
         {
             MAIN_Buttons.SetActive(true);
             Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x, -1.25f, 3);
         }
 
+        //SELECT MOVE
         if (Current == STATEMACHINE.SELECT)
         {
 
         }
 
+        //TARGET A MONSTER TO ATTACK
         if (Current == STATEMACHINE.TARGET)
         {
             MAIN_Buttons.SetActive(false);
@@ -174,6 +177,12 @@ public class BATTLEHANDLER : MonoBehaviour
                     MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(true);
                 }
             }
+        }
+
+        //DAMAGE HAPPENDS
+        if (Current == STATEMACHINE.BATTLE)
+        {
+            Debug.Log("IN BATTLE");
         }
     }
 

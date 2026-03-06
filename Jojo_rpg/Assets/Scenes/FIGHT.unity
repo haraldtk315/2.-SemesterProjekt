@@ -1378,7 +1378,7 @@ GameObject:
   - component: {fileID: 915982187}
   m_Layer: 0
   m_Name: BATTLEHANDLER
-  m_TagString: Untagged
+  m_TagString: BH
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1416,6 +1416,7 @@ MonoBehaviour:
   MAIN_Buttons: {fileID: 2025642595}
   enemy_count: 0
   only_monster: {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
+  CURRENT_STATE: 0
 --- !u!4 &915982188
 Transform:
   m_ObjectHideFlags: 0
