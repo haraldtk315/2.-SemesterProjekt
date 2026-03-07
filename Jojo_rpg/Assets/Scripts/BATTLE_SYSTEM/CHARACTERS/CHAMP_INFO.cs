@@ -28,5 +28,7 @@ public class CHAMP_INFO : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log("CLICKED");
+
+        BH.TARGET_CLICKED(this.gameObject);
     }
 }

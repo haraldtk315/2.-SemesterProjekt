@@ -59,10 +59,10 @@ public class BATTLEHANDLER : MonoBehaviour
     private void RemoveText()
     {
         Texture.enabled = false;
-        Invoke("SET_CAM_LOCATION", 2f);
+        Invoke("START_STATEMACHINE", 2f);
     }
 
-    private void SET_CAM_LOCATION()
+    private void START_STATEMACHINE()
     {
         StateMachine(CURRENT_STATE);
     }
@@ -182,10 +182,33 @@ public class BATTLEHANDLER : MonoBehaviour
         //DAMAGE HAPPENDS
         if (Current == STATEMACHINE.BATTLE)
         {
+            for (int i = 0; i < MONSTER_ORDER.Length; i++)
+            {
+                if (MONSTER_ORDER[i] == null)
+                {
+                    continue;
+                }
+
+                if (MONSTER_ORDER[i] != null)
+                {
+                    MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(false);
+                }
+            }
+
             Debug.Log("IN BATTLE");
         }
     }
 
+    public void TARGET_CLICKED(GameObject Target)
+    {
+
+        if (CURRENT_STATE == STATEMACHINE.TARGET)
+        {
+            StateMachine(STATEMACHINE.BATTLE);
+        }
+    }
+
+    //buttons
     public void ATTACK()
     {
         CURRENT_STATE = STATEMACHINE.TARGET;
