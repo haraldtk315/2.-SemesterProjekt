@@ -19,6 +19,9 @@ public class CHAMP_INFO : MonoBehaviour
 
     private int hp;
 
+    public BASIC_ATTACKS[] ATTACKS;
+    public SPECIALS[] SPECIALS;
+
     private void Start()
     {
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
@@ -31,4 +34,6 @@ public class CHAMP_INFO : MonoBehaviour
 
         BH.TARGET_CLICKED(this.gameObject);
     }
+
+    
 }

@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
@@ -18,16 +19,20 @@ public class BATTLEHANDLER : MonoBehaviour
     public Animator Cam_ani;
 
     public RawImage Texture;
+
+    //BUTTONS
     public GameObject MAIN_Buttons;
+    public GameObject SELECT_Buttons;
+
+    public GameObject[] MOVES_BUTTON;
 
     //PARTY INFORMATION
     private int party_size = 0;
     private GameObject SINGLE_PLAYER;
-    private GameObject[] ORDER = {null, null, null, null, null};
-    private GameObject[] MONSTER_ORDER = { null, null, null, null, null };
+    public GameObject[] ORDER = {null, null, null, null, null};
+    public GameObject[] MONSTER_ORDER = { null, null, null, null, null };
 
     private int ON_CURRENT_CHAMP = 0;
-    
 
     //ENEMY INFORMATION
     [SerializeField] private int enemy_count = 0;
@@ -36,12 +41,14 @@ public class BATTLEHANDLER : MonoBehaviour
     public enum STATEMACHINE
     {
         INPUT,
-        SELECT,
+        SELECT_NORMAL,
+        SELECT_SPECIAL,
         TARGET,
         RHYTHM,
         BATTLE,
     }
     
+    //EHM IF THINGS DON'T WORK IT IS BECAUSE IT ALWAYS STARTS AS INPUT!!!!!
     public STATEMACHINE CURRENT_STATE = STATEMACHINE.INPUT;
 
     private void Start()
@@ -64,6 +71,20 @@ public class BATTLEHANDLER : MonoBehaviour
 
     private void START_STATEMACHINE()
     {
+        for (int i = 0; i < ORDER.Length; i++)
+        {
+            if (ORDER[i] == null)
+            {
+                continue;
+            }
+
+            if (ORDER[i] != null)
+            {
+                ON_CURRENT_CHAMP = i;
+                break;
+            }
+        }
+
         StateMachine(CURRENT_STATE);
     }
 
@@ -153,16 +174,65 @@ public class BATTLEHANDLER : MonoBehaviour
             Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x, -1.25f, 3);
         }
 
-        //SELECT MOVE
-        if (Current == STATEMACHINE.SELECT)
+        //SELECT ATTACK MOVES
+        if (Current == STATEMACHINE.SELECT_NORMAL)
         {
+            SELECT_Buttons.SetActive(true);
 
+            for (int i = 0; i < MOVES_BUTTON.Length; i++)
+            {
+                if (MOVES_BUTTON[i] == null)
+                {
+                    Debug.Log("THERE IS NO BUTTON");
+                    continue;
+                }
+
+                if (ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i] == null)
+                {
+                    MOVES_BUTTON[i].SetActive(false);
+                    continue;
+                }
+
+                //Takes the script on the button and ands the attack into the button script, so that we can use that information later
+                MOVES_BUTTON[i].GetComponent<BUTTON_HOLDER>().ATTACK = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i];
+
+                MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].name + "\n" + " DAMAGE: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].damage.ToString();
+                MOVES_BUTTON[i].SetActive(true);
+            }
+        }
+
+        //SELECT SPECIAL MOVES
+        if (Current == STATEMACHINE.SELECT_SPECIAL) 
+        {
+            SELECT_Buttons.SetActive(true);
+
+            for (int i = 0; i < MOVES_BUTTON.Length; i++)
+            {
+                if (MOVES_BUTTON[i] == null)
+                {
+                    Debug.Log("THERE IS NO BUTTON");
+                    continue;
+                }
+
+                if (ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i] == null)
+                {
+                    MOVES_BUTTON[i].SetActive(false);
+                    continue;
+                }
+
+                //Takes the script on the button and ands the attack into the button script, so that we can use that information later
+                MOVES_BUTTON[i].GetComponent<BUTTON_HOLDER>().SPECIALS = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i];
+
+                MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].name + "\n" + " DAMAGE: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].damage.ToString();
+                MOVES_BUTTON[i].SetActive(true);
+            }
         }
 
         //TARGET A MONSTER TO ATTACK
         if (Current == STATEMACHINE.TARGET)
         {
             MAIN_Buttons.SetActive(false);
+            SELECT_Buttons.SetActive(false);
             Cam_holder.transform.position = Vector3.zero;
 
             for (int i = 0; i < MONSTER_ORDER.Length; i++)
@@ -211,13 +281,14 @@ public class BATTLEHANDLER : MonoBehaviour
     //buttons
     public void ATTACK()
     {
-        CURRENT_STATE = STATEMACHINE.TARGET;
+        CURRENT_STATE = STATEMACHINE.SELECT_NORMAL;
         StateMachine(CURRENT_STATE);
     }
 
     public void SPECIAL()
     {
-
+        CURRENT_STATE = STATEMACHINE.SELECT_SPECIAL;
+        StateMachine(CURRENT_STATE);
     }
 
     public void ITEM()
@@ -228,5 +299,28 @@ public class BATTLEHANDLER : MonoBehaviour
     public void RUN()
     {
 
+    }
+
+    public void MOVESELECT(GameObject button)
+    {
+       if (button.GetComponent<BUTTON_HOLDER>().ATTACK != null)
+       {
+
+       }
+
+       if (button.GetComponent<BUTTON_HOLDER>().SPECIALS != null)
+       {
+
+       }
+
+        CURRENT_STATE = STATEMACHINE.TARGET;
+        StateMachine(CURRENT_STATE);
+    }
+
+    public void BACK()
+    {
+        SELECT_Buttons.SetActive(false);
+        CURRENT_STATE = STATEMACHINE.INPUT;
+        StateMachine(CURRENT_STATE);
     }
 }
