@@ -191,8 +191,16 @@ MonoBehaviour:
   Team_player: 0
   dead: 0
   hp: 10
-  ATTACKS: []
-  SPECIALS: []
+  ATTACKS:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SPECIALS:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!65 &7473174485203630193
 BoxCollider:
   m_ObjectHideFlags: 0

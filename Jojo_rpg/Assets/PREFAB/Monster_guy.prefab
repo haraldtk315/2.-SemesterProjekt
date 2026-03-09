@@ -199,8 +199,16 @@ MonoBehaviour:
   Team_player: 0
   dead: 0
   hp: 5
-  ATTACKS: []
-  SPECIALS: []
+  ATTACKS:
+  - {fileID: 11400000, guid: addbc45983685b04aac9d4aee51940f8, type: 2}
+  - {fileID: 11400000, guid: 2523632bf6c6b154599f6c223575ffe1, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  SPECIALS:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!65 &6946313584576756745
 BoxCollider:
   m_ObjectHideFlags: 0
