@@ -2097,6 +2097,9 @@ MonoBehaviour:
   Cam: {fileID: 0}
   Cam_holder: {fileID: 1303587943}
   Cam_ani: {fileID: 0}
+  x_value: 0
+  y_value: 1.25
+  z_value: 5
   Texture: {fileID: 1151427839}
   MAIN_Buttons: {fileID: 2025642595}
   SELECT_Buttons: {fileID: 1104305739}
@@ -2117,8 +2120,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  ON_CURRENT_CHAMP: 0
+  Current_ATTACK: {fileID: 0}
+  Current_SPECIAL: {fileID: 0}
   enemy_count: 0
   only_monster: {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
+  TARGET_ENEMY: {fileID: 0}
   CURRENT_STATE: 0
 --- !u!4 &915982188
 Transform:

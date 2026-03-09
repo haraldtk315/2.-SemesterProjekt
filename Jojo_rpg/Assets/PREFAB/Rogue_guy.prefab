@@ -181,11 +181,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CHAMP_INFO
   ANI: {fileID: 0}
   TARGETINDICATOR: {fileID: 2847103714788228523}
+  Collider: {fileID: 0}
+  GM: {fileID: 0}
+  BH: {fileID: 0}
   Name: 
-  MaxHp: 0
+  MaxHp: 10
   Level: 0
   Party_order: 0
   Team_player: 0
+  dead: 0
+  hp: 10
+  ATTACKS: []
+  SPECIALS: []
 --- !u!65 &7473174485203630193
 BoxCollider:
   m_ObjectHideFlags: 0

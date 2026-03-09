@@ -184,6 +184,8 @@ MonoBehaviour:
   Level: 0
   Party_order: 0
   Team_player: 0
+  dead: 0
+  hp: 10
   ATTACKS:
   - {fileID: 11400000, guid: 127680fcd8ac1374cbc22230013d7272, type: 2}
   - {fileID: 11400000, guid: 8c1e3951ad0dca946b2d66596c69ffba, type: 2}

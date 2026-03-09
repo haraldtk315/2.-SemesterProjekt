@@ -18,6 +18,10 @@ public class BATTLEHANDLER : MonoBehaviour
     public GameObject Cam_holder;
     public Animator Cam_ani;
 
+    public float x_value = 0;
+    public float y_value = 0;
+    public float z_value = 0;
+
     public RawImage Texture;
 
     //BUTTONS
@@ -32,11 +36,15 @@ public class BATTLEHANDLER : MonoBehaviour
     public GameObject[] ORDER = {null, null, null, null, null};
     public GameObject[] MONSTER_ORDER = { null, null, null, null, null };
 
-    private int ON_CURRENT_CHAMP = 0;
+    public int ON_CURRENT_CHAMP = 0;
+    public BASIC_ATTACKS Current_ATTACK;
+    public SPECIALS Current_SPECIAL;
 
     //ENEMY INFORMATION
     [SerializeField] private int enemy_count = 0;
     public GameObject only_monster;
+
+    public GameObject TARGET_ENEMY;
 
     public enum STATEMACHINE
     {
@@ -46,6 +54,7 @@ public class BATTLEHANDLER : MonoBehaviour
         TARGET,
         RHYTHM,
         BATTLE,
+        NEXT,
     }
     
     //EHM IF THINGS DON'T WORK IT IS BECAUSE IT ALWAYS STARTS AS INPUT!!!!!
@@ -156,7 +165,7 @@ public class BATTLEHANDLER : MonoBehaviour
         if (!Player)
         {
             GameObject monster = Instantiate(only_monster, SPAWNS_ENEMY[position_spawn].transform.position, Quaternion.identity);
-            monster.GetComponent<SpriteRenderer>().flipX = true;
+            monster.transform.eulerAngles = new Vector3(0, 180, 0);
             monster.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
             monster.GetComponent<CHAMP_INFO>().Team_player = false;
 
@@ -171,7 +180,7 @@ public class BATTLEHANDLER : MonoBehaviour
         if (Current == STATEMACHINE.INPUT)
         {
             MAIN_Buttons.SetActive(true);
-            Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x, -1.25f, 3);
+            Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x + x_value, ORDER[ON_CURRENT_CHAMP].transform.position.y - y_value, ORDER[ON_CURRENT_CHAMP].transform.position.z + z_value);
         }
 
         //SELECT ATTACK MOVES
@@ -195,6 +204,7 @@ public class BATTLEHANDLER : MonoBehaviour
 
                 //Takes the script on the button and ands the attack into the button script, so that we can use that information later
                 MOVES_BUTTON[i].GetComponent<BUTTON_HOLDER>().ATTACK = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i];
+                MOVES_BUTTON[i].GetComponent<BUTTON_HOLDER>().SPECIALS = null;
 
                 MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].name + "\n" + " DAMAGE: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].damage.ToString();
                 MOVES_BUTTON[i].SetActive(true);
@@ -222,6 +232,7 @@ public class BATTLEHANDLER : MonoBehaviour
 
                 //Takes the script on the button and ands the attack into the button script, so that we can use that information later
                 MOVES_BUTTON[i].GetComponent<BUTTON_HOLDER>().SPECIALS = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i];
+                MOVES_BUTTON[i].GetComponent<BUTTON_HOLDER>().ATTACK = null;
 
                 MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].name + "\n" + " DAMAGE: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].damage.ToString();
                 MOVES_BUTTON[i].SetActive(true);
@@ -245,6 +256,7 @@ public class BATTLEHANDLER : MonoBehaviour
                 if (MONSTER_ORDER[i] != null)
                 {
                     MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(true);
+                    
                 }
             }
         }
@@ -265,15 +277,43 @@ public class BATTLEHANDLER : MonoBehaviour
                 }
             }
 
+            TARGET_ENEMY.GetComponent<CHAMP_INFO>().hp -= Current_ATTACK.damage;
+            TARGET_ENEMY.GetComponent<CHAMP_INFO>().ON_HIT();
+
             Debug.Log("IN BATTLE");
+
+            CURRENT_STATE = STATEMACHINE.NEXT;
+            StateMachine(STATEMACHINE.NEXT);
+        }
+
+        if (Current == STATEMACHINE.NEXT)
+        {
+            for (int i = ON_CURRENT_CHAMP + 1; i < ORDER.Length; i++)
+            {
+                if (ORDER[i] == null)
+                {
+                    continue;
+                }
+
+                if (ORDER[i] != null)
+                {
+                    ON_CURRENT_CHAMP = i;
+                    break;
+                }
+            }
+
+            CURRENT_STATE = STATEMACHINE.INPUT;
+            StateMachine(STATEMACHINE.INPUT);
         }
     }
 
     public void TARGET_CLICKED(GameObject Target)
     {
+        TARGET_ENEMY = Target;
 
         if (CURRENT_STATE == STATEMACHINE.TARGET)
         {
+            CURRENT_STATE = STATEMACHINE.BATTLE;
             StateMachine(STATEMACHINE.BATTLE);
         }
     }
@@ -305,12 +345,12 @@ public class BATTLEHANDLER : MonoBehaviour
     {
        if (button.GetComponent<BUTTON_HOLDER>().ATTACK != null)
        {
-
+            Current_ATTACK = button.GetComponent<BUTTON_HOLDER>().ATTACK;
        }
 
        if (button.GetComponent<BUTTON_HOLDER>().SPECIALS != null)
        {
-
+            Current_SPECIAL = button.GetComponent<BUTTON_HOLDER>().SPECIALS;
        }
 
         CURRENT_STATE = STATEMACHINE.TARGET;

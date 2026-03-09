@@ -16,8 +16,9 @@ public class CHAMP_INFO : MonoBehaviour
     public int Level;
     public int Party_order;
     public bool Team_player;
+    public bool dead = false;
 
-    private int hp;
+    public int hp;
 
     public BASIC_ATTACKS[] ATTACKS;
     public SPECIALS[] SPECIALS;
@@ -26,6 +27,7 @@ public class CHAMP_INFO : MonoBehaviour
     {
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
         BH = GameObject.FindGameObjectWithTag("BH").GetComponent<BATTLEHANDLER>();
+
     }
 
     private void OnMouseDown()
@@ -35,5 +37,12 @@ public class CHAMP_INFO : MonoBehaviour
         BH.TARGET_CLICKED(this.gameObject);
     }
 
-    
+    public void ON_HIT()
+    {
+        if (hp <= 0)
+        {
+            dead = true;
+            
+        }
+    }
 }
