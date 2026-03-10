@@ -2,6 +2,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BATTLEHANDLER : MonoBehaviour
@@ -58,7 +59,8 @@ public class BATTLEHANDLER : MonoBehaviour
         RHYTHM,
         BATTLE,
         NEXT,
-        ENEMY
+        ENEMY,
+        END
     }
     
     //EHM IF THINGS DON'T WORK IT IS BECAUSE IT ALWAYS STARTS AS INPUT!!!!!
@@ -330,8 +332,8 @@ public class BATTLEHANDLER : MonoBehaviour
             if (ON_TARGET_ENEMY + 1 >= MONSTER_ORDER.Length)
             {
                 ON_CURRENT_CHAMP = 0;
-                CURRENT_STATE = STATEMACHINE.INPUT;
-                START_STATEMACHINE();
+                CURRENT_STATE = STATEMACHINE.END;
+                StateMachine(STATEMACHINE.END);
             }
             else 
             {
@@ -370,6 +372,47 @@ public class BATTLEHANDLER : MonoBehaviour
                         }
                     }
                 }
+            }
+        }
+
+        if (Current == STATEMACHINE.END)
+        {
+            bool lost = true;
+
+            //CHECKING IF ALL PLAYER CHARACTORS ARE DEAD
+            for (int i = 0; i < ORDER.Length; i++)
+            {
+                if (ORDER[i] != null && ORDER[i].GetComponent<CHAMP_INFO>().dead == false)
+                {
+                    lost = false;
+                }
+            }
+
+            bool win = true;
+
+            //CHECKING IF ALL ENEMIES ARE DEAD
+            for (int i = 0; i < MONSTER_ORDER.Length; i++)
+            {
+                if (MONSTER_ORDER[i] != null && MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().dead == false)
+                {
+                    win = false;
+                }
+            }
+
+            if (lost == true)
+            {
+                SceneManager.LoadScene("TITLE");
+            }
+
+            if (win == true)
+            {
+                SceneManager.LoadScene("OVERWORLD");
+            }
+
+            if (win == false && lost == false)
+            {
+                CURRENT_STATE = STATEMACHINE.INPUT;
+                START_STATEMACHINE();
             }
         }
     }

@@ -188,22 +188,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CHAMP_INFO
   ANI: {fileID: 0}
+  SR: {fileID: 0}
   TARGETINDICATOR: {fileID: 6691375036129562606}
   Collider: {fileID: 0}
   GM: {fileID: 0}
   BH: {fileID: 0}
-  Name: Goober
-  MaxHp: 10
+  Name: ZOMBIE
+  MaxHp: 15
   Level: 0
   Party_order: 0
   Team_player: 0
   dead: 0
-  hp: 10
+  hp: 15
   ATTACKS:
   - {fileID: 11400000, guid: addbc45983685b04aac9d4aee51940f8, type: 2}
   - {fileID: 11400000, guid: 2523632bf6c6b154599f6c223575ffe1, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: addbc45983685b04aac9d4aee51940f8, type: 2}
+  - {fileID: 11400000, guid: 2523632bf6c6b154599f6c223575ffe1, type: 2}
   SPECIALS:
   - {fileID: 0}
   - {fileID: 0}

@@ -5,6 +5,10 @@ using UnityEngine;
 public class CHAMP_INFO : MonoBehaviour
 {
     public Animator ANI;
+    const string IDLE = "IDLE";
+    const string DEAD = "DEAD";
+    const string ATTACK = "ATTACK";
+
     public SpriteRenderer SR;
     public GameObject TARGETINDICATOR;
     public Collider Collider;
@@ -29,6 +33,7 @@ public class CHAMP_INFO : MonoBehaviour
     {
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
         BH = GameObject.FindGameObjectWithTag("BH").GetComponent<BATTLEHANDLER>();
+        ANI = GetComponent<Animator>();
         SR = GetComponent<SpriteRenderer>();
     }
 
