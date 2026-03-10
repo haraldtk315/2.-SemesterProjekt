@@ -290,6 +290,11 @@ public class BATTLEHANDLER : MonoBehaviour
 
         if (Current == STATEMACHINE.NEXT)
         {
+            if (ON_CURRENT_CHAMP + 1 > ORDER.Length)
+            {
+
+            }
+
             for (int i = ON_CURRENT_CHAMP + 1; i < ORDER.Length; i++)
             {
                 if (ORDER[i] == null)
@@ -300,12 +305,11 @@ public class BATTLEHANDLER : MonoBehaviour
                 if (ORDER[i] != null)
                 {
                     ON_CURRENT_CHAMP = i;
+                    CURRENT_STATE = STATEMACHINE.INPUT;
+                    StateMachine(STATEMACHINE.INPUT);
                     break;
                 }
             }
-
-            CURRENT_STATE = STATEMACHINE.INPUT;
-            StateMachine(STATEMACHINE.INPUT);
         }
     }
 
