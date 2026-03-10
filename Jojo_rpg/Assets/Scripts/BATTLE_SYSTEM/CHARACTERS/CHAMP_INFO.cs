@@ -1,9 +1,11 @@
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class CHAMP_INFO : MonoBehaviour
 {
     public Animator ANI;
+    public SpriteRenderer SR;
     public GameObject TARGETINDICATOR;
     public Collider Collider;
 
@@ -27,7 +29,12 @@ public class CHAMP_INFO : MonoBehaviour
     {
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
         BH = GameObject.FindGameObjectWithTag("BH").GetComponent<BATTLEHANDLER>();
+        SR = GetComponent<SpriteRenderer>();
+    }
 
+    private void Update()
+    {
+        ON_HIT();
     }
 
     private void OnMouseDown()
@@ -42,7 +49,7 @@ public class CHAMP_INFO : MonoBehaviour
         if (hp <= 0)
         {
             dead = true;
-            
+            SR.enabled = false;
         }
     }
 }

@@ -1689,9 +1689,9 @@ MonoBehaviour:
   party:
   - {fileID: 5156567506917586551, guid: 620d45e6efa996f4d83f30e04332427d, type: 3}
   - {fileID: 5156567506917586551, guid: 620d45e6efa996f4d83f30e04332427d, type: 3}
-  - {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
-  - {fileID: 5156567506917586551, guid: 620d45e6efa996f4d83f30e04332427d, type: 3}
-  - {fileID: 5156567506917586551, guid: 620d45e6efa996f4d83f30e04332427d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &2024807291
 Transform:
   m_ObjectHideFlags: 0

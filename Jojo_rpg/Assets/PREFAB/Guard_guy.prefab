@@ -175,17 +175,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CHAMP_INFO
   ANI: {fileID: 0}
+  SR: {fileID: 0}
   TARGETINDICATOR: {fileID: 4284888101089911530}
   Collider: {fileID: 0}
   GM: {fileID: 0}
   BH: {fileID: 0}
   Name: Knight
-  MaxHp: 10
+  MaxHp: 30
   Level: 0
   Party_order: 0
   Team_player: 0
   dead: 0
-  hp: 10
+  hp: 30
   ATTACKS:
   - {fileID: 11400000, guid: 127680fcd8ac1374cbc22230013d7272, type: 2}
   - {fileID: 11400000, guid: 8c1e3951ad0dca946b2d66596c69ffba, type: 2}

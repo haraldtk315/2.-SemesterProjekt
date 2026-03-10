@@ -45,6 +45,9 @@ public class BATTLEHANDLER : MonoBehaviour
     public GameObject only_monster;
 
     public GameObject TARGET_ENEMY;
+    public BASIC_ATTACKS[] ENEMY_MOVES;
+    public int Enemy_Attack;
+    public int ON_TARGET_ENEMY = 0;
 
     public enum STATEMACHINE
     {
@@ -55,6 +58,7 @@ public class BATTLEHANDLER : MonoBehaviour
         RHYTHM,
         BATTLE,
         NEXT,
+        ENEMY
     }
     
     //EHM IF THINGS DON'T WORK IT IS BECAUSE IT ALWAYS STARTS AS INPUT!!!!!
@@ -80,9 +84,11 @@ public class BATTLEHANDLER : MonoBehaviour
 
     private void START_STATEMACHINE()
     {
+        Debug.Log("STATEMACHINE HAS STARTED");
+
         for (int i = 0; i < ORDER.Length; i++)
         {
-            if (ORDER[i] == null)
+            if (ORDER[i] == null || ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
             {
                 continue;
             }
@@ -250,7 +256,7 @@ public class BATTLEHANDLER : MonoBehaviour
 
             for (int i = 0; i < MONSTER_ORDER.Length; i++)
             {
-                if (MONSTER_ORDER[i] == null)
+                if (MONSTER_ORDER[i] == null || MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
                 {
                     continue;
                 }
@@ -280,7 +286,7 @@ public class BATTLEHANDLER : MonoBehaviour
             }
 
             TARGET_ENEMY.GetComponent<CHAMP_INFO>().hp -= Current_ATTACK.damage;
-            TARGET_ENEMY.GetComponent<CHAMP_INFO>().ON_HIT();
+            TARGET_ENEMY.GetComponent<CHAMP_INFO>().ON_HIT(); //MAKING SURE THE TARGET IS DEAD!!!
 
             Debug.Log("IN BATTLE");
 
@@ -290,24 +296,79 @@ public class BATTLEHANDLER : MonoBehaviour
 
         if (Current == STATEMACHINE.NEXT)
         {
-            if (ON_CURRENT_CHAMP + 1 > ORDER.Length)
+            if (ON_CURRENT_CHAMP + 1 >= ORDER.Length)
             {
-
+                ON_TARGET_ENEMY = 0;
+                CURRENT_STATE = STATEMACHINE.ENEMY;
+                StateMachine(STATEMACHINE.ENEMY);
             }
-
-            for (int i = ON_CURRENT_CHAMP + 1; i < ORDER.Length; i++)
+            else
             {
-                if (ORDER[i] == null)
+                for (int i = ON_CURRENT_CHAMP + 1; i < ORDER.Length; i++)
                 {
-                    continue;
-                }
+                    if (ORDER[i] == null || ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
+                    {
+                        ON_CURRENT_CHAMP++;
+                        CURRENT_STATE = STATEMACHINE.NEXT;
+                        StateMachine(STATEMACHINE.NEXT); 
+                        break;
+                    }
 
-                if (ORDER[i] != null)
+                    if (ORDER[i] != null)
+                    {
+                        ON_CURRENT_CHAMP = i;
+                        CURRENT_STATE = STATEMACHINE.INPUT;
+                        StateMachine(STATEMACHINE.INPUT);
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (Current == STATEMACHINE.ENEMY)
+        {
+            if (ON_TARGET_ENEMY + 1 >= MONSTER_ORDER.Length)
+            {
+                ON_CURRENT_CHAMP = 0;
+                CURRENT_STATE = STATEMACHINE.INPUT;
+                START_STATEMACHINE();
+            }
+            else 
+            {
+                for (int i = ON_TARGET_ENEMY; i < MONSTER_ORDER.Length; i++)
                 {
-                    ON_CURRENT_CHAMP = i;
-                    CURRENT_STATE = STATEMACHINE.INPUT;
-                    StateMachine(STATEMACHINE.INPUT);
-                    break;
+                    if (MONSTER_ORDER[i] == null || MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
+                    {
+                        ON_TARGET_ENEMY++;
+                        CURRENT_STATE = STATEMACHINE.ENEMY;
+                        StateMachine(STATEMACHINE.ENEMY);
+                        break;
+                    }
+
+                    ENEMY_MOVES = MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().ATTACKS;
+
+                    Enemy_Attack = Random.Range(0, ENEMY_MOVES.Length);
+                    if (ENEMY_MOVES[Enemy_Attack] == null)
+                    {
+                        Enemy_Attack = 0;
+                    }
+
+                    //ATTACK
+                    for (int j = 0; j < ORDER.Length; j++)
+                    {
+                        if (ORDER[j] != null && ORDER[j].GetComponent<CHAMP_INFO>().dead == false)
+                        {
+                            //THE ATTACK HAPPENDS
+                            ORDER[j].GetComponent<CHAMP_INFO>().hp -= ENEMY_MOVES[Enemy_Attack].damage;
+                            ORDER[j].GetComponent<CHAMP_INFO>().ON_HIT(); //TO MAKE SURE THEY UPDATE THEIR BOOLEANS
+                            Debug.Log(j.ToString() + "GOT ATTACKED");
+
+                            ON_TARGET_ENEMY++;
+                            CURRENT_STATE = STATEMACHINE.ENEMY;
+                            StateMachine(STATEMACHINE.ENEMY);
+                            break;
+                        }
+                    }
                 }
             }
         }
