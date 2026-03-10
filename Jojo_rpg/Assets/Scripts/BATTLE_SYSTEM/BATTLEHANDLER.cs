@@ -358,6 +358,11 @@ public class BATTLEHANDLER : MonoBehaviour
                     //ATTACK
                     for (int j = 0; j < ORDER.Length; j++)
                     {
+                        if (ORDER[j] == null || ORDER[j].GetComponent<CHAMP_INFO>().dead == true)
+                        {
+                            continue;
+                        }
+
                         if (ORDER[j] != null && ORDER[j].GetComponent<CHAMP_INFO>().dead == false)
                         {
                             //THE ATTACK HAPPENDS
@@ -371,6 +376,8 @@ public class BATTLEHANDLER : MonoBehaviour
                             break;
                         }
                     }
+
+                    
                 }
             }
         }
