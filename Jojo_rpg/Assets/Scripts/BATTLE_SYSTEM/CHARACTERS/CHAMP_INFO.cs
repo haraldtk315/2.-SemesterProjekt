@@ -12,6 +12,7 @@ public class CHAMP_INFO : MonoBehaviour
     public SpriteRenderer SR;
     public GameObject TARGETINDICATOR;
     public Collider Collider;
+    public ParticleSystem PAR;
 
     //MANAGERS
     public GAMEMANAGER GM;
@@ -33,8 +34,9 @@ public class CHAMP_INFO : MonoBehaviour
     {
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
         BH = GameObject.FindGameObjectWithTag("BH").GetComponent<BATTLEHANDLER>();
-        ANI = GetComponent<Animator>();
-        SR = GetComponent<SpriteRenderer>();
+        ANI = GetComponentInChildren<Animator>();
+        SR = GetComponentInChildren<SpriteRenderer>();
+        PAR = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Update()
@@ -56,5 +58,37 @@ public class CHAMP_INFO : MonoBehaviour
             dead = true;
             SR.enabled = false;
         }
+    }
+
+
+    //basic animations
+    public void NORMAL_HIT(GameObject TARGET)
+    {
+        ANI.Play(ATTACK);
+
+        if (TARGET.GetComponent<CHAMP_INFO>().PAR != null) //Only here just incase the TARGET does not have a particle effekt.
+        {
+            TARGET.GetComponent<CHAMP_INFO>().PAR.Play();
+        }
+    }
+
+
+    //Never used. It is a method that checks if the charactor is in idle animation. I made it while trying to figure out how to show animations without it going further in the statemachine.
+    public bool IsIDLE()
+    {
+        if (ANI.GetCurrentAnimatorStateInfo(0).IsName(IDLE))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //DECIDED ON USING THE LENGTH OF THE ANIMATION TO CALL AN INVOKE instead of IsIDLE.
+    public float GET_CURRENT_ANIMATION_LENGTH()
+    {
+        return ANI.GetCurrentAnimatorStateInfo(0).length;
     }
 }

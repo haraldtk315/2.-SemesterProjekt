@@ -49,6 +49,13 @@ public class BATTLEHANDLER : MonoBehaviour
     public int Enemy_Attack;
     public int ON_TARGET_ENEMY = 0;
 
+    public int CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE; //Major problems with animations on zombies since it is done insinde a for loop so we need a seperate state for the animation/attacks of monsters
+
+    //STATEMACHINE
+
+    float WAIT_TIME; //Used if we need small breaks between the states.
+    float Extra_time = 1; //Used since it is quite akward to end an animation immidiate
+
     public enum STATEMACHINE
     {
         INPUT,
@@ -59,6 +66,7 @@ public class BATTLEHANDLER : MonoBehaviour
         BATTLE,
         NEXT,
         ENEMY,
+        ENEMY_BATTLE, //THE ENEMY STATE ALONE WAS NOT ENOUGH TO MAKE SURE THE ENEMIES COULD HAVE THEIR OWN ANIMATIONS AND STUFF LIKE THAT SO WE NEED A LITTLE EXTRA STEP FOR ANIMATIONS
         END
     }
     
@@ -286,13 +294,12 @@ public class BATTLEHANDLER : MonoBehaviour
                 }
             }
 
-            TARGET_ENEMY.GetComponent<CHAMP_INFO>().hp -= Current_ATTACK.damage;
-            TARGET_ENEMY.GetComponent<CHAMP_INFO>().ON_HIT(); //MAKING SURE THE TARGET IS DEAD!!!
-
             Debug.Log("IN BATTLE");
 
-            CURRENT_STATE = STATEMACHINE.NEXT;
-            StateMachine(STATEMACHINE.NEXT);
+            //THE ATTACK + ANIMATION
+            TARGET_ATTACK(ORDER[ON_CURRENT_CHAMP], TARGET_ENEMY, Current_ATTACK.damage);
+
+            Invoke("STATEGOTONEXT", WAIT_TIME);
         }
 
         if (Current == STATEMACHINE.NEXT)
@@ -328,7 +335,7 @@ public class BATTLEHANDLER : MonoBehaviour
 
         if (Current == STATEMACHINE.ENEMY)
         {
-            if (ON_TARGET_ENEMY + 1 >= MONSTER_ORDER.Length)
+            if (ON_TARGET_ENEMY >= MONSTER_ORDER.Length)
             {
                 ON_CURRENT_CHAMP = 0;
                 CURRENT_STATE = STATEMACHINE.END;
@@ -364,21 +371,36 @@ public class BATTLEHANDLER : MonoBehaviour
 
                         if (ORDER[j] != null && ORDER[j].GetComponent<CHAMP_INFO>().dead == false)
                         {
+                            /*
                             //THE ATTACK HAPPENDS
                             ORDER[j].GetComponent<CHAMP_INFO>().hp -= ENEMY_MOVES[Enemy_Attack].damage;
                             ORDER[j].GetComponent<CHAMP_INFO>().ON_HIT(); //TO MAKE SURE THEY UPDATE THEIR BOOLEANS
-                            Debug.Log(j.ToString() + "GOT ATTACKED");
+                            */
+                            CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE = j;
 
-                            ON_TARGET_ENEMY++;
-                            CURRENT_STATE = STATEMACHINE.ENEMY;
-                            StateMachine(STATEMACHINE.ENEMY);
+                            CURRENT_STATE = STATEMACHINE.ENEMY_BATTLE;
+                            StateMachine(STATEMACHINE.ENEMY_BATTLE);
                             break;
                         }
                     }
 
-                    
+                    // If all the good people are dead ;c
+                    ON_TARGET_ENEMY++;
+                    CURRENT_STATE = STATEMACHINE.ENEMY;
+                    StateMachine(STATEMACHINE.ENEMY);
+                    break;
                 }
             }
+        }
+
+        if (Current == STATEMACHINE.ENEMY_BATTLE)
+        {
+            Cam_holder.transform.position = Vector3.zero;
+
+            Debug.Log("CURRENTLY IN ENEMY BATTLE STATE");
+            TARGET_ATTACK(MONSTER_ORDER[ON_TARGET_ENEMY], ORDER[CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE], ENEMY_MOVES[Enemy_Attack].damage);
+
+            Invoke("STATEGOTOENEMY", WAIT_TIME);
         }
 
         if (Current == STATEMACHINE.END)
@@ -421,6 +443,36 @@ public class BATTLEHANDLER : MonoBehaviour
                 START_STATEMACHINE();
             }
         }
+    }
+
+    private void STATEGOTOENEMY()
+    {
+        Debug.Log("THE ANIMATION AND ATTACK IS FINISHED");
+        ON_TARGET_ENEMY++;
+        CURRENT_STATE = STATEMACHINE.ENEMY;
+        StateMachine(STATEMACHINE.ENEMY);
+    }
+
+    private void STATEGOTONEXT()
+    {
+        CURRENT_STATE = STATEMACHINE.NEXT;
+        StateMachine(STATEMACHINE.NEXT);
+    }
+
+    //THE ATTACK
+    public void TARGET_ATTACK(GameObject SENDER, GameObject TARGET, int Damage)
+    {
+        //ZOOM OUT CAM
+        Cam_holder.transform.position = Vector3.zero;
+
+        //ANIMATION
+        SENDER.GetComponent<CHAMP_INFO>().NORMAL_HIT(TARGET);
+        WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
+
+        //DO DAMAGE TO TARGET
+        TARGET.GetComponent<CHAMP_INFO>().hp -= Damage;
+        TARGET.GetComponent<CHAMP_INFO>().ON_HIT(); //MAKING SURE THE TARGET IS DEAD!!!
+        Debug.Log(TARGET.GetComponent<CHAMP_INFO>().Name + " GOT ATTACKED BY " + SENDER.GetComponent<CHAMP_INFO>().Name + " " + Damage.ToString() + " DAMAGE DEALT");
     }
 
     public void TARGET_CLICKED(GameObject Target)
