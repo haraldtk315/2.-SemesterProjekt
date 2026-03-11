@@ -2126,6 +2126,9 @@ MonoBehaviour:
   enemy_count: 0
   only_monster: {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
   TARGET_ENEMY: {fileID: 0}
+  ENEMY_MOVES: []
+  Enemy_Attack: 0
+  ON_TARGET_ENEMY: 0
   CURRENT_STATE: 0
 --- !u!4 &915982188
 Transform:
@@ -4525,7 +4528,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1939000860}
   - component: {fileID: 1939000863}
-  - component: {fileID: 1939000862}
   - component: {fileID: 1939000861}
   m_Layer: 0
   m_Name: PIXELATED
@@ -4593,14 +4595,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &1939000862
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939000859}
-  m_Enabled: 1
 --- !u!20 &1939000863
 Camera:
   m_ObjectHideFlags: 0
