@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, IInteractable
 {
-    public string message = "Hej træner!";
+    public string[] message;
 
     public void Interact(PlayerInteract player)
     {
-        Debug.Log(message);
+        DIALOGUEHANDLER.instance.DialogueStart(message);
     }
 }

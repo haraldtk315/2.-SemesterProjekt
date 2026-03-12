@@ -1149,6 +1149,52 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &891574643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 891574645}
+  - component: {fileID: 891574644}
+  m_Layer: 0
+  m_Name: DIALOGUEHANDLER
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &891574644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891574643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef308ab1998999344979e617cf94e171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DIALOGUEHANDLER
+  dialogueBoxPrefab: {fileID: 6283736858765563332, guid: 15b077fac108065488584dea4f0a6e14, type: 3}
+  textSpeed: 0.05
+--- !u!4 &891574645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891574643}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 477.50244, y: 306.24454, z: 765.80164}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1103830995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,3 +1808,4 @@ SceneRoots:
   - {fileID: 417439844}
   - {fileID: 2070915510}
   - {fileID: 377960951}
+  - {fileID: 891574645}

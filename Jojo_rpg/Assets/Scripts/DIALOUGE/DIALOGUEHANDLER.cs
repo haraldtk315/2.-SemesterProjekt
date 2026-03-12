@@ -11,13 +11,17 @@ public class DIALOGUEHANDLER : MonoBehaviour
     public GameObject dialogueBoxPrefab;
     private GameObject dialogueBox;
     
-    private TextMeshPro dialogueBoxText => dialogueBox.GetComponentInChildren<TextMeshPro>();
+    private TextMeshProUGUI dialogueBoxText => dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
 
     public float textSpeed;
 
     private int currDialogueIndex;
 
     private string[] dialogue;
+
+    private bool dialogueActive = false;
+
+    InputAction nextAction;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,15 +36,31 @@ public class DIALOGUEHANDLER : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        // Connect to the new Unity input system action needed for dialogue
+        nextAction = InputSystem.actions.FindAction("Attack");
+    }
+
+    private void Update()
+    {
+        if (nextAction.WasPressedThisFrame())
+        {
+            OnNextAction();
+        }
     }
 
     public void DialogueStart(string[] _dialogue)
     {
-        dialogue = _dialogue;
-        currDialogueIndex = 0;
-        dialogueBox = Instantiate(dialogueBoxPrefab);
-        dialogueBoxText.text = "";
-        StartCoroutine(WriteDialogueToBox());
+        if (!dialogueActive)
+        {
+            dialogueActive = true;
+            dialogue = _dialogue;
+            currDialogueIndex = 0;
+            dialogueBox = Instantiate(dialogueBoxPrefab);
+            dialogueBox.transform.SetParent(FindAnyObjectByType<Canvas>().transform, false);
+            dialogueBoxText.text = "";
+            StartCoroutine(WriteDialogueToBox());
+        }
     }
 
     public void DialogueNextLine()
@@ -53,6 +73,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
         }
         else
         {
+            dialogueActive = false;
             dialogue = Array.Empty<string>();
             Destroy(dialogueBox);
         }
@@ -67,7 +88,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
         }
     }
 
-    public void OnAttack(InputValue input)
+    public void OnNextAction()
     {
         if (dialogueBoxText.text == dialogue[currDialogueIndex])
         {
