@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BASIC_ATTACKS
   name: Liver kick
   damage: 25
-  acc: 25
+  acc: 30
   Description: A kick to the liver. Very strong and very deadly.
