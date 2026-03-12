@@ -585,7 +585,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: 'Button
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2106,8 +2108,8 @@ MonoBehaviour:
   MOVES_BUTTON:
   - {fileID: 1147759004}
   - {fileID: 2057827959}
-  - {fileID: 1405585306}
   - {fileID: 1421982067}
+  - {fileID: 1405585306}
   ORDER:
   - {fileID: 0}
   - {fileID: 0}
@@ -2129,6 +2131,7 @@ MonoBehaviour:
   ENEMY_MOVES: []
   Enemy_Attack: 0
   ON_TARGET_ENEMY: 0
+  CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE: 0
   CURRENT_STATE: 0
 --- !u!4 &915982188
 Transform:

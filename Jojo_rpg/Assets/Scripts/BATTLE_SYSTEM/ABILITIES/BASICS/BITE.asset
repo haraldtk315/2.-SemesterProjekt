@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BASIC_ATTACKS
   name: BITE
   damage: 10
-  acc: 0
+  acc: 100
   Description: SCARY BITE. DON'T GET INFECTED

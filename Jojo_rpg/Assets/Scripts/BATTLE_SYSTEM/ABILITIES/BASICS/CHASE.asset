@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BASIC_ATTACKS
   name: CHASE
   damage: 10
-  acc: 0
+  acc: 90
   Description: 

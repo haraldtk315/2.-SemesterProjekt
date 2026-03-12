@@ -8,6 +8,7 @@ public class CHAMP_INFO : MonoBehaviour
     const string IDLE = "IDLE";
     const string DEAD = "DEAD";
     const string ATTACK = "ATTACK";
+    const string MISS = "MISS";
 
     public SpriteRenderer SR;
     public GameObject TARGETINDICATOR;
@@ -41,7 +42,7 @@ public class CHAMP_INFO : MonoBehaviour
 
     private void Update()
     {
-        ON_HIT();
+        ON_HIT(); // I think everything will still work without it, but it is much safer to check everyframe since it does not take that much processing power.
     }
 
     private void OnMouseDown()
@@ -61,7 +62,7 @@ public class CHAMP_INFO : MonoBehaviour
     }
 
 
-    //basic animations
+    //Basic ATTACK animation
     public void NORMAL_HIT(GameObject TARGET)
     {
         ANI.Play(ATTACK);
@@ -70,6 +71,12 @@ public class CHAMP_INFO : MonoBehaviour
         {
             TARGET.GetComponent<CHAMP_INFO>().PAR.Play();
         }
+    }
+
+    //Basic MISS animation
+    public void MISS_ATTACK()
+    {
+        ANI.Play(MISS);
     }
 
 

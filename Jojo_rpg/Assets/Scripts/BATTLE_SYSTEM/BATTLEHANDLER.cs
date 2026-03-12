@@ -1,3 +1,5 @@
+using NUnit.Framework.Internal;
+using System.Linq.Expressions;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -223,6 +225,7 @@ public class BATTLEHANDLER : MonoBehaviour
                 MOVES_BUTTON[i].GetComponent<BUTTON_HOLDER>().SPECIALS = null;
 
                 MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].name + "\n" + " DAMAGE: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].damage.ToString();
+                MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text += "  |  " + "ACC: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].acc + "%";
                 MOVES_BUTTON[i].SetActive(true);
             }
         }
@@ -297,7 +300,7 @@ public class BATTLEHANDLER : MonoBehaviour
             Debug.Log("IN BATTLE");
 
             //THE ATTACK + ANIMATION
-            TARGET_ATTACK(ORDER[ON_CURRENT_CHAMP], TARGET_ENEMY, Current_ATTACK.damage);
+            TARGET_ATTACK(ORDER[ON_CURRENT_CHAMP], TARGET_ENEMY, Current_ATTACK.damage, Current_ATTACK.acc);
 
             Invoke("STATEGOTONEXT", WAIT_TIME);
         }
@@ -398,7 +401,7 @@ public class BATTLEHANDLER : MonoBehaviour
             Cam_holder.transform.position = Vector3.zero;
 
             Debug.Log("CURRENTLY IN ENEMY BATTLE STATE");
-            TARGET_ATTACK(MONSTER_ORDER[ON_TARGET_ENEMY], ORDER[CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE], ENEMY_MOVES[Enemy_Attack].damage);
+            TARGET_ATTACK(MONSTER_ORDER[ON_TARGET_ENEMY], ORDER[CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE], ENEMY_MOVES[Enemy_Attack].damage, ENEMY_MOVES[Enemy_Attack].acc);
 
             Invoke("STATEGOTOENEMY", WAIT_TIME);
         }
@@ -439,12 +442,14 @@ public class BATTLEHANDLER : MonoBehaviour
 
             if (win == false && lost == false)
             {
-                CURRENT_STATE = STATEMACHINE.INPUT;
-                START_STATEMACHINE();
+                Debug.Log("GOING BACK TO PLAYER INPUT");
+                CancelInvoke(); //I think it is in the ENEMY state where something happends so that we have a function call that gets called twice leading to end state being called twice. This is a workaround solution.
+                Invoke("STATEGOTOINPUT", 2f);
             }
         }
     }
 
+    //ALL THE GOTO STATE METHODS
     private void STATEGOTOENEMY()
     {
         Debug.Log("THE ANIMATION AND ATTACK IS FINISHED");
@@ -459,20 +464,70 @@ public class BATTLEHANDLER : MonoBehaviour
         StateMachine(STATEMACHINE.NEXT);
     }
 
-    //THE ATTACK
-    public void TARGET_ATTACK(GameObject SENDER, GameObject TARGET, int Damage)
+    private void STATEGOTOINPUT()
+    {
+        CURRENT_STATE = STATEMACHINE.INPUT;
+        START_STATEMACHINE();
+    }
+
+    //THE BASIC ATTACK (Could potentially also work for the future special move)
+    public void TARGET_ATTACK(GameObject SENDER, GameObject TARGET, int Damage, int acc)
     {
         //ZOOM OUT CAM
         Cam_holder.transform.position = Vector3.zero;
 
-        //ANIMATION
-        SENDER.GetComponent<CHAMP_INFO>().NORMAL_HIT(TARGET);
-        WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
+        //WILL ATTACK HIT?
+        bool attack_HITS = Check_if_attack_lands(acc);
 
-        //DO DAMAGE TO TARGET
-        TARGET.GetComponent<CHAMP_INFO>().hp -= Damage;
-        TARGET.GetComponent<CHAMP_INFO>().ON_HIT(); //MAKING SURE THE TARGET IS DEAD!!!
-        Debug.Log(TARGET.GetComponent<CHAMP_INFO>().Name + " GOT ATTACKED BY " + SENDER.GetComponent<CHAMP_INFO>().Name + " " + Damage.ToString() + " DAMAGE DEALT");
+        //ANIMATION
+        if(attack_HITS == true)
+        {
+            SENDER.GetComponent<CHAMP_INFO>().NORMAL_HIT(TARGET);
+            WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
+
+            //DO DAMAGE TO TARGET (Could potentially be moved into the NORMAL_HIT() METHOD)
+            TARGET.GetComponent<CHAMP_INFO>().hp -= Damage;
+            TARGET.GetComponent<CHAMP_INFO>().ON_HIT(); //MAKING SURE THE TARGET IS DEAD!!!
+            Debug.Log(TARGET.GetComponent<CHAMP_INFO>().Name + " GOT ATTACKED BY " + SENDER.GetComponent<CHAMP_INFO>().Name + " " + Damage.ToString() + " DAMAGE DEALT");
+        }
+
+        if (attack_HITS == false)
+        {
+            SENDER.GetComponent<CHAMP_INFO>().MISS_ATTACK();
+            WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
+
+            Debug.Log(SENDER.GetComponent<CHAMP_INFO>().Name + " MISSED THEIR ATTACK," + " 0 DAMAGE WAS DEALT");
+        }
+    }
+
+    private bool Check_if_attack_lands(int acc)
+    {
+        if (acc == 100) 
+        { 
+            return true;
+        }
+
+        if (acc == 0)
+        {
+            return false;
+        }
+
+        //THE INSANE RANDOM NUM GENERATOR XD
+        int LUCKY_WHELL = Random.Range(0, 101);
+        Debug.Log("RANDOM NUM IS " + LUCKY_WHELL.ToString());
+
+        if (LUCKY_WHELL <= acc)
+        {
+            return true;
+        }
+
+        if (LUCKY_WHELL > acc)
+        {
+            return false;
+        }
+
+        Debug.Log("Check_if_attack_lands, might not be working right...");
+        return false;
     }
 
     public void TARGET_CLICKED(GameObject Target)
