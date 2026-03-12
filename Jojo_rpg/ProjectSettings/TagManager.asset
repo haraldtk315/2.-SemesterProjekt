@@ -14,8 +14,8 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
-  - 
+  - PickUps
+  - NPC
   - 
   - 
   - 
@@ -48,6 +48,9 @@ TagManager:
     locked: 0
   - name: Obstacles
     uniqueID: 2710822335
+    locked: 0
+  - name: Interactable
+    uniqueID: 1800511771
     locked: 0
   m_RenderingLayers:
   - Default

@@ -8,7 +8,7 @@ public class GridMovement2D : MonoBehaviour
     public LayerMask obstacleMask;    
 
     [Header("Optional")]
-    private bool allowHoldToMove = false;
+    private bool allowHoldToMove = true;
     private float inputBuffer = 0.1f;
 
     private Vector2 input;
@@ -46,14 +46,12 @@ public class GridMovement2D : MonoBehaviour
 
         if (raw != Vector2.zero)
         {
+            input = raw.normalized;
 
-            if (Time.time - lastInputTime > inputBuffer || allowHoldToMove)
-            {
-                GetComponent<PlayerInteract>()?.SetFacing(input);
-                input = raw.normalized;
-                lastInputTime = Time.time;
-                TryMove(input);
-            }
+            // opdater retning med det samme
+            GetComponent<PlayerInteract>()?.SetFacing(input);
+
+            TryMove(input);
         }
     }
 
