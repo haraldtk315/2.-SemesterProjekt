@@ -11,7 +11,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
     public GameObject dialogueBoxPrefab;
     private GameObject dialogueBox;
     
-    private TextMeshProUGUI dialogueBoxText => dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
+    private TextMeshProUGUI dialogueBoxText;
 
     public float textSpeed;
 
@@ -45,7 +45,10 @@ public class DIALOGUEHANDLER : MonoBehaviour
     {
         if (nextAction.WasPressedThisFrame())
         {
-            OnNextAction();
+            if (dialogueActive)
+            {
+                OnNextAction();
+            }
         }
     }
 
@@ -57,6 +60,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
             dialogue = _dialogue;
             currDialogueIndex = 0;
             dialogueBox = Instantiate(dialogueBoxPrefab);
+            dialogueBoxText = dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
             dialogueBox.transform.SetParent(FindAnyObjectByType<Canvas>().transform, false);
             dialogueBoxText.text = "";
             StartCoroutine(WriteDialogueToBox());
