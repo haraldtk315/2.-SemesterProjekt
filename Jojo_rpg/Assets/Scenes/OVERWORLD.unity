@@ -3379,7 +3379,10 @@ MonoBehaviour:
   - Some old guy with a cane did this too me!
   - ...
   - You look kinda tasty yknow...
-  ENEMIES:
+  enemies:
+  - {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
+  - {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!61 &1410749123

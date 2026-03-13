@@ -20,6 +20,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
     private int currDialogueIndex;
     private string[] dialogue;
     private bool dialogueActive = false;
+    
     public GameObject[] ENEMIES;
 
     private InputAction nextAction;

@@ -14,6 +14,7 @@ public class NPC : MonoBehaviour, IInteractable
     }
     public void Interact(PlayerInteract player)
     {
+        GameObject.FindGameObjectWithTag("DH").GetComponent<DIALOGUEHANDLER>().ENEMIES = enemies;
         DIALOGUEHANDLER.instance.DialogueStart(message, player.gameObject);
     }
 
