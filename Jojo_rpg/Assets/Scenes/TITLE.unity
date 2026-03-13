@@ -1161,7 +1161,7 @@ GameObject:
   - component: {fileID: 891574644}
   m_Layer: 0
   m_Name: DIALOGUEHANDLER
-  m_TagString: Untagged
+  m_TagString: DH
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1180,6 +1180,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DIALOGUEHANDLER
   dialogueBoxPrefab: {fileID: 6283736858765563332, guid: 15b077fac108065488584dea4f0a6e14, type: 3}
   textSpeed: 0.05
+  ENEMIES:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &891574645
 Transform:
   m_ObjectHideFlags: 0
