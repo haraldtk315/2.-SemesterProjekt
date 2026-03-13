@@ -55,6 +55,7 @@ public class BATTLEHANDLER : MonoBehaviour
     public int ON_TARGET_ENEMY = 0;
 
     public int CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE; //Major problems with animations on zombies since it is done insinde a for loop so we need a seperate state for the animation/attacks of monsters
+    public bool forced_combat = false;
 
     //STATEMACHINE
 
@@ -83,6 +84,7 @@ public class BATTLEHANDLER : MonoBehaviour
         MAIN_Buttons.SetActive(false);
 
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
+        DH = GameObject.FindGameObjectWithTag("DH").GetComponent<DIALOGUEHANDLER>();
         Cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         Cam_ani = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
 
@@ -145,7 +147,21 @@ public class BATTLEHANDLER : MonoBehaviour
         }
 
         //ENEMY SPAWNS
-        enemy_count = Random.Range(1, 6);
+        forced_combat = false;
+        enemy_count = 0;
+        for (int i = 0; i < DH.ENEMIES.Length; i++)
+        {
+            if (DH.ENEMIES[i] != null)
+            {
+                forced_combat = true;
+                enemy_count++;
+            }
+        }
+
+        if (forced_combat == false)
+        {
+            enemy_count = Random.Range(1, 6);
+        }
 
         for (int i = 0; i < enemy_count; i++)
         {
@@ -180,11 +196,21 @@ public class BATTLEHANDLER : MonoBehaviour
             }
         }
 
-
         //Enemy charactors = false
-        if (!Player)
+        if (!Player && forced_combat == false)
         {
             GameObject monster = Instantiate(only_monster, SPAWNS_ENEMY[position_spawn].transform.position, Quaternion.identity);
+            monster.transform.eulerAngles = new Vector3(0, 180, 0);
+            monster.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
+            monster.GetComponent<CHAMP_INFO>().Team_player = false;
+
+            MONSTER_ORDER[position_spawn] = monster;
+        }
+
+        //Forced_combat moment
+        if (!Player && forced_combat == true)
+        {
+            GameObject monster = Instantiate(DH.ENEMIES[position_spawn], SPAWNS_ENEMY[position_spawn].transform.position, Quaternion.identity);
             monster.transform.eulerAngles = new Vector3(0, 180, 0);
             monster.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
             monster.GetComponent<CHAMP_INFO>().Team_player = false;

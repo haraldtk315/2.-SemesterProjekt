@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class DIALOGUEHANDLER : MonoBehaviour
 {
@@ -18,6 +20,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
     private int currDialogueIndex;
     private string[] dialogue;
     private bool dialogueActive = false;
+    public GameObject[] ENEMIES;
 
     private InputAction nextAction;
 
@@ -110,6 +113,19 @@ public class DIALOGUEHANDLER : MonoBehaviour
         {
             currentPlayerControls.EnableControls();
             currentPlayerControls = null;
+        }
+
+        for (int i = 0; i  < ENEMIES.Length; i++)
+        {
+            if (ENEMIES[i] == null)
+            {
+                continue;
+            }
+
+            if (ENEMIES[i] != null)
+            {
+                SceneManager.LoadScene("FIGHT");
+            }
         }
     }
 
