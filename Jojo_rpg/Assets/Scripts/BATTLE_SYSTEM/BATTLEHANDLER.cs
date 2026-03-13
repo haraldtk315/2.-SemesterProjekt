@@ -15,6 +15,9 @@ public class BATTLEHANDLER : MonoBehaviour
     //GAMEMANAGER
     public GAMEMANAGER GM;
 
+    //DIALOGUEHANDLER
+    public DIALOGUEHANDLER DH;
+
     //Cam
     public Camera Cam;
     public GameObject Cam_holder;
