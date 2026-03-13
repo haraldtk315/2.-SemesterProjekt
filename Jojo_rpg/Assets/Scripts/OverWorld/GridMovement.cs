@@ -27,6 +27,7 @@ public class GridMovement2D : MonoBehaviour
         if (isMoving) return;
 
        
+   
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 

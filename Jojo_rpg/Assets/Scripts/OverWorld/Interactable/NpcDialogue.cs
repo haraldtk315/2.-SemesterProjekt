@@ -6,6 +6,6 @@ public class NPC : MonoBehaviour, IInteractable
 
     public void Interact(PlayerInteract player)
     {
-        DIALOGUEHANDLER.instance.DialogueStart(message);
+        DIALOGUEHANDLER.instance.DialogueStart(message, player.gameObject);
     }
 }

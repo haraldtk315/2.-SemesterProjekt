@@ -10,23 +10,21 @@ public class DIALOGUEHANDLER : MonoBehaviour
 
     public GameObject dialogueBoxPrefab;
     private GameObject dialogueBox;
-    
+
     private TextMeshProUGUI dialogueBoxText;
 
     public float textSpeed;
 
     private int currDialogueIndex;
-
     private string[] dialogue;
-
     private bool dialogueActive = false;
 
-    InputAction nextAction;
+    private InputAction nextAction;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private PlayerControlToggle currentPlayerControls;
+
     void Start()
     {
-        // Singleton pattern
         if (instance == null)
         {
             instance = this;
@@ -35,15 +33,15 @@ public class DIALOGUEHANDLER : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
 
-        // Connect to the new Unity input system action needed for dialogue
         nextAction = InputSystem.actions.FindAction("Attack");
     }
 
     private void Update()
     {
-        if (nextAction.WasPressedThisFrame())
+        if (nextAction != null && nextAction.WasPressedThisFrame())
         {
             if (dialogueActive)
             {
@@ -52,16 +50,33 @@ public class DIALOGUEHANDLER : MonoBehaviour
         }
     }
 
-    public void DialogueStart(string[] _dialogue)
+    public void DialogueStart(string[] _dialogue, GameObject player)
     {
         if (!dialogueActive)
         {
             dialogueActive = true;
             dialogue = _dialogue;
             currDialogueIndex = 0;
+
+            if (player != null)
+            {
+                currentPlayerControls = player.GetComponent<PlayerControlToggle>();
+
+                if (currentPlayerControls != null)
+                {
+                    currentPlayerControls.DisableControls();
+                }
+            }
+
             dialogueBox = Instantiate(dialogueBoxPrefab);
             dialogueBoxText = dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
-            dialogueBox.transform.SetParent(FindAnyObjectByType<Canvas>().transform, false);
+
+            Canvas canvas = FindAnyObjectByType<Canvas>();
+            if (canvas != null)
+            {
+                dialogueBox.transform.SetParent(canvas.transform, false);
+            }
+
             dialogueBoxText.text = "";
             StartCoroutine(WriteDialogueToBox());
         }
@@ -77,9 +92,24 @@ public class DIALOGUEHANDLER : MonoBehaviour
         }
         else
         {
-            dialogueActive = false;
-            dialogue = Array.Empty<string>();
+            EndDialogue();
+        }
+    }
+
+    private void EndDialogue()
+    {
+        dialogueActive = false;
+        dialogue = Array.Empty<string>();
+
+        if (dialogueBox != null)
+        {
             Destroy(dialogueBox);
+        }
+
+        if (currentPlayerControls != null)
+        {
+            currentPlayerControls.EnableControls();
+            currentPlayerControls = null;
         }
     }
 
