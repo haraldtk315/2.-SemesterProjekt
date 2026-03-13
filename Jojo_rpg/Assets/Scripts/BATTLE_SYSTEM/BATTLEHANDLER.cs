@@ -55,7 +55,7 @@ public class BATTLEHANDLER : MonoBehaviour
     public int ON_TARGET_ENEMY = 0;
 
     public int CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE; //Major problems with animations on zombies since it is done insinde a for loop so we need a seperate state for the animation/attacks of monsters
-    public bool forced_combat = false;
+    private bool forced_combat = false;
 
     //STATEMACHINE
 
@@ -151,6 +151,11 @@ public class BATTLEHANDLER : MonoBehaviour
         enemy_count = 0;
         for (int i = 0; i < DH.ENEMIES.Length; i++)
         {
+            if (DH.ENEMIES[i] == null)
+            {
+                continue;
+            }
+
             if (DH.ENEMIES[i] != null)
             {
                 forced_combat = true;
@@ -160,6 +165,7 @@ public class BATTLEHANDLER : MonoBehaviour
 
         if (forced_combat == false)
         {
+            Debug.Log("RANDOM ENCOUNTER");
             enemy_count = Random.Range(1, 6);
         }
 
