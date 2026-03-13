@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -608,11 +608,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7115769430741727086, guid: 15b077fac108065488584dea4f0a6e14, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -200
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 7115769430741727086, guid: 15b077fac108065488584dea4f0a6e14, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -255
+      value: -304.99997
       objectReference: {fileID: 0}
     - target: {fileID: 7115769430741727086, guid: 15b077fac108065488584dea4f0a6e14, type: 3}
       propertyPath: m_LocalPosition.x
@@ -648,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7115769430741727086, guid: 15b077fac108065488584dea4f0a6e14, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -122.5
+      value: -147.50002
       objectReference: {fileID: 0}
     - target: {fileID: 7115769430741727086, guid: 15b077fac108065488584dea4f0a6e14, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
