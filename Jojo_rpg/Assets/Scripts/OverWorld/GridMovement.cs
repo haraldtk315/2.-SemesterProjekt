@@ -9,7 +9,7 @@ public class GridMovement2D : MonoBehaviour
 
     [Header("Optional")]
     private bool allowHoldToMove = true;
-    private float inputBuffer = 0.1f;
+    //private float inputBuffer = 0.1f; ignoreret for nu
 
     private Vector2 input;
     private bool isMoving;

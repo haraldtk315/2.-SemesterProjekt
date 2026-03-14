@@ -12,13 +12,15 @@ public class MUSICMANAGER : MonoBehaviour
         {
             instance = this;
         }
-        else if (instance != this)
+        else
         {
             Destroy(this);
         }
 
         DontDestroyOnLoad(this);
     }
+
+    //hvorfor laver du singleton på denne mpåde? -harald
 
     // Update is called once per frame
     void Update()

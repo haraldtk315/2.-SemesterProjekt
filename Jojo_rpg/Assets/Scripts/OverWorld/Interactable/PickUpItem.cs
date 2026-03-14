@@ -7,12 +7,13 @@ public class PickupItem : MonoBehaviour, IInteractable
 
     public void Interact(PlayerInteract player)
     {
-        PlayerInventory inventory = player.GetComponent<PlayerInventory>();
-
-        if (inventory != null)
+        if (itemData == null)
         {
-            inventory.AddItem(itemData, amount);
-            Destroy(gameObject);
+            Debug.LogError("PickupItem has no ItemData assigned.");
+            return;
         }
+
+        GAMEMANAGER.instance.AddItem(itemData, amount);
+        Destroy(gameObject);
     }
 }
