@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 
 public class GAMEMANAGER : MonoBehaviour
 {
@@ -8,23 +10,41 @@ public class GAMEMANAGER : MonoBehaviour
     public GameObject[] party;
     public List<InventoryItem> inventory = new List<InventoryItem>();
 
+
+    // Return to overworld
+    public string returnSceneName;
+    public Vector3 returnPlayerPosition;
+    public Vector2 returnPlayerFacing;
+    public bool shouldRestorePlayer = false;
+
+    // World state
+    public HashSet<string> collectedPickups = new HashSet<string>();
+    public HashSet<string> defeatedNPCs = new HashSet<string>();
+
+    //current npc battle
+    public string currentNPCID;
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
-        DontDestroyOnLoad(this);
     }
-    //har ændret ldit i hvordan singleton spå ud vi kan sagtens rette det igen
-    // undrede mig mpåske bare over hvorfor du ikke skriver gameobjev´ct istedet? - harald
+    
+    public void SaveOverworldReturnPoint(Transform playerTransform, Vector2 facing)
+    {
 
-
+        returnSceneName = SceneManager.GetActiveScene().name;
+        returnPlayerPosition = playerTransform.position;
+        returnPlayerFacing = facing;
+        shouldRestorePlayer = true;
+    }
 
     // Inventory management
     public void AddItem(ItemData itemData, int amount)

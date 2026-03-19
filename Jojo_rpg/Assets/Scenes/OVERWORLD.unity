@@ -839,6 +839,50 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &550400784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 550400785}
+  - component: {fileID: 550400786}
+  m_Layer: 0
+  m_Name: RestoreOverworld
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &550400785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550400784}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.51093, y: 1.07328, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2012801881}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &550400786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550400784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0fd6da2646a9345b194edf7d42bdfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OVERWORLDRESTORE
 --- !u!1 &651220942
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f17da090cf3f34a8d600e020bf9eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickUp
+  pickupID: Potion
   itemData: {fileID: 11400000, guid: 497f16b5c006015469134abb9673db2f, type: 2}
   amount: 1
 --- !u!212 &651220945
@@ -2852,7 +2897,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1367258974}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2969,6 +3014,7 @@ Transform:
   m_Children:
   - {fileID: 1895220033}
   - {fileID: 387308867}
+  - {fileID: 1212891528}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1410749120
@@ -3017,12 +3063,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f17372304b0d8468a04722381085c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  npcID: zomb1
   message:
   - Hey you!
   - I'm like a Zombie isn't that crazy
   - Some old guy with a cane did this too me!
   - ...
   - You look kinda tasty yknow...
+  messageAfterBattle:
+  - waow what a battle
+  - hero you have bested me
+  - i will let you continue
   enemies:
   - {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
   - {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
@@ -3365,6 +3416,7 @@ Transform:
   - {fileID: 772119143}
   - {fileID: 430383496}
   - {fileID: 1570386009}
+  - {fileID: 550400785}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2021103726
@@ -3385,7 +3437,7 @@ GameObject:
   - component: {fileID: 2021103735}
   m_Layer: 6
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3752,5 +3804,4 @@ SceneRoots:
   - {fileID: 2012801881}
   - {fileID: 2021103731}
   - {fileID: 1367258974}
-  - {fileID: 1212891528}
   - {fileID: 1252672587}
