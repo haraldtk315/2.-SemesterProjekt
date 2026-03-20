@@ -5157,16 +5157,18 @@ MonoBehaviour:
   BH: {fileID: 0}
   Name: You
   MaxHp: 60
+  MaxFocus: 100
   Level: 0
   Party_order: 0
   Team_player: 0
   dead: 0
   hp: 60
+  focus: 0
   ATTACKS:
   - {fileID: 11400000, guid: 127680fcd8ac1374cbc22230013d7272, type: 2}
   - {fileID: 11400000, guid: 8c1e3951ad0dca946b2d66596c69ffba, type: 2}
   - {fileID: 11400000, guid: 73525379c3bbfdc4db4da6cec4ddc0c5, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: ae72d8166e198ec48a3f99243145cad7, type: 2}
   SPECIALS:
   - {fileID: 0}
   - {fileID: 0}

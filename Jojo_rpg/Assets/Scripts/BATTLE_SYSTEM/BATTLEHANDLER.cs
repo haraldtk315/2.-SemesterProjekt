@@ -87,6 +87,7 @@ public class BATTLEHANDLER : MonoBehaviour
     private void Start()
     {
         MAIN_Buttons.SetActive(false);
+        Player_UI.SetActive(false);
 
         //-Jeg kunne rigtig godt tænke mig at vi mpåske ikke brugte tags men referede til gameobjects istedet :D :D - harald
 
@@ -247,6 +248,7 @@ public class BATTLEHANDLER : MonoBehaviour
         if (Current == STATEMACHINE.INPUT)
         {
             MAIN_Buttons.SetActive(true);
+            Player_UI.SetActive(true);
             Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x + x_value, ORDER[ON_CURRENT_CHAMP].transform.position.y - y_value, ORDER[ON_CURRENT_CHAMP].transform.position.z + z_value);
             ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(true);
         }
@@ -255,6 +257,7 @@ public class BATTLEHANDLER : MonoBehaviour
         if (Current == STATEMACHINE.SELECT_NORMAL)
         {
             SELECT_Buttons.SetActive(true);
+            Player_UI.SetActive(false);
 
             for (int i = 0; i < MOVES_BUTTON.Length; i++)
             {
@@ -284,6 +287,7 @@ public class BATTLEHANDLER : MonoBehaviour
         if (Current == STATEMACHINE.SELECT_SPECIAL) 
         {
             SELECT_Buttons.SetActive(true);
+            Player_UI.SetActive(false);
 
             for (int i = 0; i < MOVES_BUTTON.Length; i++)
             {
@@ -311,23 +315,45 @@ public class BATTLEHANDLER : MonoBehaviour
         //TARGET A MONSTER TO ATTACK
         if (Current == STATEMACHINE.TARGET)
         {
+            //Important for player view
             MAIN_Buttons.SetActive(false);
             SELECT_Buttons.SetActive(false);
+            Player_UI.SetActive(true);
+
             Cam_holder.transform.position = Vector3.zero;
             ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(false);
 
-            for (int i = 0; i < MONSTER_ORDER.Length; i++)
+            //ATTACK IS SELF TARGET
+            if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.SELF)
             {
-                if (MONSTER_ORDER[i] == null || MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
-                {
-                    continue;
-                }
+                TARGET_ENEMY = ORDER[ON_CURRENT_CHAMP];
 
-                if (MONSTER_ORDER[i] != null)
+                CURRENT_STATE = STATEMACHINE.BATTLE;
+                StateMachine(STATEMACHINE.BATTLE);
+            }
+
+            //ATTACK IS SINGLE TARGET
+            if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.SINGLE_HIT)
+            {
+                for (int i = 0; i < MONSTER_ORDER.Length; i++)
                 {
-                    MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(true);
-                    
+                    if (MONSTER_ORDER[i] == null || MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
+                    {
+                        continue;
+                    }
+
+                    if (MONSTER_ORDER[i] != null)
+                    {
+                        MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(true);
+
+                    }
                 }
+            }
+
+            //ATTACK HITS ALL
+            if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.HIT_ALL)
+            {
+
             }
         }
 
@@ -350,7 +376,7 @@ public class BATTLEHANDLER : MonoBehaviour
             Debug.Log("IN BATTLE");
 
             //THE ATTACK + ANIMATION
-            TARGET_ATTACK(ORDER[ON_CURRENT_CHAMP], TARGET_ENEMY, Current_ATTACK.damage, Current_ATTACK.acc);
+            TARGET_ATTACK(ORDER[ON_CURRENT_CHAMP], TARGET_ENEMY, Current_ATTACK.damage, Current_ATTACK.acc, Current_ATTACK.focus);
 
             Invoke("STATEGOTONEXT", WAIT_TIME);
         }
@@ -451,7 +477,9 @@ public class BATTLEHANDLER : MonoBehaviour
             Cam_holder.transform.position = Vector3.zero;
 
             Debug.Log("CURRENTLY IN ENEMY BATTLE STATE");
+            Current_ATTACK = ENEMY_MOVES[Enemy_Attack];
             TARGET_ATTACK(MONSTER_ORDER[ON_TARGET_ENEMY], ORDER[CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE], ENEMY_MOVES[Enemy_Attack].damage, ENEMY_MOVES[Enemy_Attack].acc);
+            Current_ATTACK = null;
 
             Invoke("STATEGOTOENEMY", WAIT_TIME);
         }
@@ -534,7 +562,7 @@ public class BATTLEHANDLER : MonoBehaviour
     }
 
     //THE BASIC ATTACK (Could potentially also work for the future special move)
-    public void TARGET_ATTACK(GameObject SENDER, GameObject TARGET, int Damage, int acc)
+    public void TARGET_ATTACK(GameObject SENDER, GameObject TARGET, int Damage, int acc, int focus = 0)
     {
         //ZOOM OUT CAM
         Cam_holder.transform.position = Vector3.zero;
@@ -545,13 +573,24 @@ public class BATTLEHANDLER : MonoBehaviour
         //ANIMATION
         if(attack_HITS == true)
         {
-            SENDER.GetComponent<CHAMP_INFO>().NORMAL_HIT(TARGET, Damage);
-            WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
+            if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.SINGLE_HIT) 
+            {
+                SENDER.GetComponent<CHAMP_INFO>().NORMAL_HIT(TARGET, Damage);
+                WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
 
-            //DO DAMAGE TO TARGET (Could potentially be moved into the NORMAL_HIT() METHOD)
-            TARGET.GetComponent<CHAMP_INFO>().hp -= Damage;
-            TARGET.GetComponent<CHAMP_INFO>().ON_HIT(); //MAKING SURE THE TARGET IS DEAD!!!
-            Debug.Log(TARGET.GetComponent<CHAMP_INFO>().Name + " GOT ATTACKED BY " + SENDER.GetComponent<CHAMP_INFO>().Name + " " + Damage.ToString() + " DAMAGE DEALT");
+                //DO DAMAGE TO TARGET (Could potentially be moved into the NORMAL_HIT() METHOD)
+                TARGET.GetComponent<CHAMP_INFO>().hp -= Damage;
+                SENDER.GetComponent<CHAMP_INFO>().focus += focus;
+                TARGET.GetComponent<CHAMP_INFO>().ON_HIT(); //MAKING SURE THE TARGET IS DEAD!!!
+                Debug.Log(TARGET.GetComponent<CHAMP_INFO>().Name + " GOT ATTACKED BY " + SENDER.GetComponent<CHAMP_INFO>().Name + " " + Damage.ToString() + " DAMAGE DEALT");
+            }
+
+            if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.SELF)
+            {
+                SENDER.GetComponent<CHAMP_INFO>().SELF_BUFF();
+                SENDER.GetComponent<CHAMP_INFO>().focus += focus;
+                Debug.Log(SENDER.GetComponent<CHAMP_INFO>().Name + " Buffed themselves, " + focus.ToString() + " Focus was gained");
+            }
         }
 
         if (attack_HITS == false)

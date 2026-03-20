@@ -15,4 +15,6 @@ MonoBehaviour:
   name: CHASE
   damage: 10
   acc: 90
+  focus: 10
+  type: 0
   Description: 

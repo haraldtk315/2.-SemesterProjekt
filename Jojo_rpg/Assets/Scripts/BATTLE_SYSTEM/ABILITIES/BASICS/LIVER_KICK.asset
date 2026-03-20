@@ -15,4 +15,6 @@ MonoBehaviour:
   name: Liver kick
   damage: 25
   acc: 30
+  focus: 25
+  type: 0
   Description: A kick to the liver. Very strong and very deadly.

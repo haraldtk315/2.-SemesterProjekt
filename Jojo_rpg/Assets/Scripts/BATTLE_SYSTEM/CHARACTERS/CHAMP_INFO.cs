@@ -30,12 +30,14 @@ public class CHAMP_INFO : MonoBehaviour
 
     public string Name;
     public int MaxHp;
+    public int MaxFocus;
     public int Level;
     public int Party_order;
     public bool Team_player;
     public bool dead = false;
 
     public int hp;
+    public int focus;
 
     public BASIC_ATTACKS[] ATTACKS;
     public SPECIALS[] SPECIALS;
@@ -95,6 +97,11 @@ public class CHAMP_INFO : MonoBehaviour
         //health text
         Player_UI.GetComponent<PLAYER_UI>().HP_TEXT.text = hp.ToString() + "/" + MaxHp.ToString();
 
+        //Focus Sliders
+        Player_UI.GetComponent<PLAYER_UI>().FOCUS_SLIDE.maxValue = MaxFocus;
+        Player_UI.GetComponent<PLAYER_UI>().FOCUS_SLIDE.minValue = 0;
+        Player_UI.GetComponent<PLAYER_UI>().FOCUS_SLIDE.value = focus;
+
         if (dead == true)
         {
             Player_UI.GetComponent<PLAYER_UI>().DEATH_SCREEN.SetActive(true);
@@ -131,6 +138,11 @@ public class CHAMP_INFO : MonoBehaviour
 
         GameObject hit_effekt_miss = Instantiate(On_hit_effekt, transform.position, Quaternion.identity);
         hit_effekt_miss.GetComponent<Text_hit_effekt>().Miss();
+    }
+
+    public void SELF_BUFF()
+    {
+
     }
 
 

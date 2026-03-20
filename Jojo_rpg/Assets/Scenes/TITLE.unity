@@ -1771,11 +1771,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   party:
   - {fileID: 380776666666102203, guid: a59ebe726d51b03419dae3e4f23d968c, type: 3}
-  - {fileID: 0}
+  - {fileID: 380776666666102203, guid: a59ebe726d51b03419dae3e4f23d968c, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   inventory: []
+  returnSceneName: 
+  returnPlayerPosition: {x: 0, y: 0, z: 0}
+  returnPlayerFacing: {x: 0, y: 0}
+  shouldRestorePlayer: 0
+  currentNPCID: 
 --- !u!4 &2024807291
 Transform:
   m_ObjectHideFlags: 0
