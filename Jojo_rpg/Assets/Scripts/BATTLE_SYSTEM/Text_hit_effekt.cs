@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Text_hit_effekt : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class Text_hit_effekt : MonoBehaviour
 
     public float height_change = 10;
     public float side_step = 0;
+    public float fall_speed = 3;
+
+    public float alpha = 1;
+
+    public Color current_color;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,16 +26,28 @@ public class Text_hit_effekt : MonoBehaviour
     {
         TMP = GetComponent<TextMeshPro>();
         transform.position += new Vector3(0, 0, -1);
-        side_step += Random.Range(-0.1f, 0.1f);
+        side_step += Random.Range(-1.5f, 1.5f);
+
+        current_color = TMP.color;
     }
 
     // Update is called once per frame
     void Update()
     {
-        height_change += Random.Range(-0.1f, 0.1f);
+        height_change += Random.Range(-2.5f, 2.5f) * Time.deltaTime;
 
-        transform.position += new Vector3(side_step, height_change, 0);
-        height_change -= 1 * Time.deltaTime;
+        transform.position += new Vector3(side_step, height_change, 0) * Time.deltaTime;
+        height_change -= fall_speed * Time.deltaTime;
+
+        alpha -= Time.deltaTime / 2.25f;
+        
+        current_color.a = alpha;
+        TMP.color = current_color;
+
+        if (alpha <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void Miss()

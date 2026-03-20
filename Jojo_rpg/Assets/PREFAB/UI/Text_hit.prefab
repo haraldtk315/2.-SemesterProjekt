@@ -195,4 +195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   TMP: {fileID: 0}
-  height_change: 0.5
+  height_change: 5
+  side_step: 0
+  fall_speed: 5
