@@ -44,8 +44,8 @@ public class Text_hit_effekt : MonoBehaviour
         if (Overkill)
         {
             TMP.color = Color.red;
-            TMP.fontStyle = TMPro.FontStyles.Bold;
             TMP.text += "!";
+            TMP.fontStyle = TMPro.FontStyles.Bold;
         }
     }
 }
