@@ -2197,6 +2197,7 @@ MonoBehaviour:
   ON_TARGET_ENEMY: 0
   CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE: 0
   CURRENT_STATE: 0
+  On_hit_text: {fileID: 6696071498278047046, guid: 65df1a8dfb33df5458baadc1f6d57d39, type: 3}
 --- !u!4 &915982188
 Transform:
   m_ObjectHideFlags: 0
@@ -2279,13 +2280,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4e7f95ace7776994796cbda157ab1e73, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 945615520}
   m_SourcePrefab: {fileID: 100100000, guid: 4e7f95ace7776994796cbda157ab1e73, type: 3}
 --- !u!4 &945615518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4e7f95ace7776994796cbda157ab1e73, type: 3}
   m_PrefabInstance: {fileID: 945615517}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &945615519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4e7f95ace7776994796cbda157ab1e73, type: 3}
+  m_PrefabInstance: {fileID: 945615517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &945615520
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945615519}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.019999998, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0, z: -0.005}
 --- !u!1 &1004389306
 GameObject:
   m_ObjectHideFlags: 0

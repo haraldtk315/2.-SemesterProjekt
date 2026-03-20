@@ -79,6 +79,9 @@ public class BATTLEHANDLER : MonoBehaviour
     //EHM IF THINGS DON'T WORK IT IS BECAUSE IT ALWAYS STARTS AS INPUT!!!!!
     public STATEMACHINE CURRENT_STATE = STATEMACHINE.INPUT;
 
+    //Okay so like... This is actually for the instaniated players that they can access it.
+    public GameObject On_hit_text;
+
     private void Start()
     {
         MAIN_Buttons.SetActive(false);

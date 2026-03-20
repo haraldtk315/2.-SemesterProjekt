@@ -5180,6 +5180,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  On_hit_effekt: {fileID: 6696071498278047046, guid: 65df1a8dfb33df5458baadc1f6d57d39, type: 3}
 --- !u!65 &6946313584576756745
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class CHAMP_INFO : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class CHAMP_INFO : MonoBehaviour
 
     public BASIC_ATTACKS[] ATTACKS;
     public SPECIALS[] SPECIALS;
+
+    public GameObject On_hit_effekt;
 
     private void Start()
     {
@@ -82,6 +85,8 @@ public class CHAMP_INFO : MonoBehaviour
         if (TARGET.GetComponent<CHAMP_INFO>().PAR != null) //Only here just incase the TARGET does not have a particle effekt.
         {
             TARGET.GetComponent<CHAMP_INFO>().PAR.Play();
+            GameObject hit_effekt = Instantiate(On_hit_effekt, TARGET.transform.position, Quaternion.identity);
+            hit_effekt.GetComponent<Text_hit_effekt>().hit(Damage);
         }
     }
 
@@ -89,6 +94,9 @@ public class CHAMP_INFO : MonoBehaviour
     public void MISS_ATTACK()
     {
         ANI.Play(MISS);
+
+        GameObject hit_effekt_miss = Instantiate(On_hit_effekt, transform.position, Quaternion.identity);
+        hit_effekt_miss.GetComponent<Text_hit_effekt>().Miss();
     }
 
 
