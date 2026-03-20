@@ -1,6 +1,8 @@
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class CHAMP_INFO : MonoBehaviour
@@ -39,6 +41,7 @@ public class CHAMP_INFO : MonoBehaviour
     public SPECIALS[] SPECIALS;
 
     public GameObject On_hit_effekt;
+    public GameObject Player_UI;
 
     private void Start()
     {
@@ -48,6 +51,9 @@ public class CHAMP_INFO : MonoBehaviour
         SR = GetComponentInChildren<SpriteRenderer>();
         PAR = GetComponentInChildren<ParticleSystem>();
         AUD = GetComponent<AudioSource>();
+
+        //UI
+        On_hit_effekt = BH.On_hit_text;
     }
 
     private void Update()
@@ -64,6 +70,11 @@ public class CHAMP_INFO : MonoBehaviour
 
     public void ON_HIT()
     {
+        if (Team_player == true)
+        {
+            UI_UDATE();
+        }
+
         if (hp <= 0)
         {
             dead = true;
@@ -71,6 +82,29 @@ public class CHAMP_INFO : MonoBehaviour
         }
     }
 
+    public void UI_UDATE()
+    {
+        //Name
+        Player_UI.GetComponent<PLAYER_UI>().NAME.text = Name;
+
+        //Health sliders
+        Player_UI.GetComponent<PLAYER_UI>().HP_SLIDE.maxValue = MaxHp;
+        Player_UI.GetComponent<PLAYER_UI>().HP_SLIDE.minValue = 0;
+        Player_UI.GetComponent<PLAYER_UI>().HP_SLIDE.value = hp;
+
+        //health text
+        Player_UI.GetComponent<PLAYER_UI>().HP_TEXT.text = hp.ToString() + "/" + MaxHp.ToString();
+
+        if (dead == true)
+        {
+            Player_UI.GetComponent<PLAYER_UI>().DEATH_SCREEN.SetActive(true);
+        }
+        else
+        {
+            Player_UI.GetComponent<PLAYER_UI>().DEATH_SCREEN.SetActive(false);
+        }
+
+    }
 
     //Basic ATTACK animation
     public void NORMAL_HIT(GameObject TARGET, int Damage = 0)

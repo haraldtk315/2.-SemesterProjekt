@@ -81,6 +81,8 @@ public class BATTLEHANDLER : MonoBehaviour
 
     //Okay so like... This is actually for the instaniated players that they can access it.
     public GameObject On_hit_text;
+    public GameObject Player_UI;
+    public GameObject[] HEALTH_UI_FOR_PLAYERS;
 
     private void Start()
     {
@@ -195,13 +197,21 @@ public class BATTLEHANDLER : MonoBehaviour
             {
                 GameObject Ally = Instantiate(SINGLE_PLAYER, SPAWNS[4].transform.position, Quaternion.identity);
 
+                //Kinda messed up here but it should work ;3
                 ORDER[0] = Ally;
+                HEALTH_UI_FOR_PLAYERS[0].SetActive(true);
+                Ally.GetComponent<CHAMP_INFO>().Player_UI = HEALTH_UI_FOR_PLAYERS[0];
+                Ally.GetComponent<CHAMP_INFO>().Team_player = true;
             }
             else
             {
                 GameObject Ally = Instantiate(GM.party[position_spawn], SPAWNS[position_spawn].transform.position, Quaternion.identity);
                 Ally.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
                 Ally.GetComponent<CHAMP_INFO>().Team_player = true;
+
+                //player health and focus UI
+                HEALTH_UI_FOR_PLAYERS[position_spawn].SetActive(true);
+                Ally.GetComponent<CHAMP_INFO>().Player_UI = HEALTH_UI_FOR_PLAYERS[position_spawn];
 
                 ORDER[position_spawn] = Ally;
             }

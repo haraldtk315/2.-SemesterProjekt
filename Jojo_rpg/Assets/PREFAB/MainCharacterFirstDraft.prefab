@@ -5156,12 +5156,12 @@ MonoBehaviour:
   GM: {fileID: 0}
   BH: {fileID: 0}
   Name: You
-  MaxHp: 50
+  MaxHp: 60
   Level: 0
   Party_order: 0
   Team_player: 0
   dead: 0
-  hp: 50
+  hp: 60
   ATTACKS:
   - {fileID: 11400000, guid: 127680fcd8ac1374cbc22230013d7272, type: 2}
   - {fileID: 11400000, guid: 8c1e3951ad0dca946b2d66596c69ffba, type: 2}
@@ -5173,6 +5173,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   On_hit_effekt: {fileID: 6696071498278047046, guid: 65df1a8dfb33df5458baadc1f6d57d39, type: 3}
+  Player_UI: {fileID: 0}
 --- !u!65 &-6396718981686823676
 BoxCollider:
   m_ObjectHideFlags: 0
