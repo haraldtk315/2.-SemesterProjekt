@@ -474,8 +474,6 @@ public class BATTLEHANDLER : MonoBehaviour
 
             if (win == true)
             {
-                
-                
                     Debug.Log("Current trainer before save: " + GAMEMANAGER.instance.currentNPCID);
 
                     if (!string.IsNullOrEmpty(GAMEMANAGER.instance.currentNPCID))
@@ -534,7 +532,7 @@ public class BATTLEHANDLER : MonoBehaviour
         //ANIMATION
         if(attack_HITS == true)
         {
-            SENDER.GetComponent<CHAMP_INFO>().NORMAL_HIT(TARGET);
+            SENDER.GetComponent<CHAMP_INFO>().NORMAL_HIT(TARGET, Damage);
             WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
 
             //DO DAMAGE TO TARGET (Could potentially be moved into the NORMAL_HIT() METHOD)

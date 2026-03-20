@@ -302,6 +302,15 @@ MonoBehaviour:
   TARGETINDICATOR: {fileID: 4284888101089911530}
   Collider: {fileID: 0}
   PAR: {fileID: 0}
+  AUD: {fileID: 0}
+  Hitsounds:
+  - {fileID: 8300000, guid: 82a68707e4e222a4ba6a9e6cfaabb7dd, type: 3}
+  - {fileID: 8300000, guid: 2dc07f23813dd374389ead9bc4b0c9fc, type: 3}
+  - {fileID: 8300000, guid: f26132e2c89c1ef42bd362a5b43ba8f5, type: 3}
+  - {fileID: 8300000, guid: f8a1efdc9e6f0564d94f84a1ba787689, type: 3}
+  - {fileID: 8300000, guid: 1af13db080bd1c349a4b91328db234c5, type: 3}
+  - {fileID: 8300000, guid: d17d9533b848af945aa0f4ad13b7826c, type: 3}
+  - {fileID: 8300000, guid: 6737311595f0c0d4dbe6d9389dbd2502, type: 3}
   GM: {fileID: 0}
   BH: {fileID: 0}
   Name: Knight

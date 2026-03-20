@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class CHAMP_INFO : MonoBehaviour
 {
+    //Animator
     public Animator ANI;
     const string IDLE = "IDLE";
     const string DEAD = "DEAD";
     const string ATTACK = "ATTACK";
     const string MISS = "MISS";
 
+    //Sprites
     public SpriteRenderer SR;
     public GameObject TARGETINDICATOR;
     public Collider Collider;
     public ParticleSystem PAR;
+
+    //Audio
+    public AudioSource AUD;
+    public AudioClip[] Hitsounds;
 
     //MANAGERS
     public GAMEMANAGER GM;
@@ -38,6 +44,7 @@ public class CHAMP_INFO : MonoBehaviour
         ANI = GetComponentInChildren<Animator>();
         SR = GetComponentInChildren<SpriteRenderer>();
         PAR = GetComponentInChildren<ParticleSystem>();
+        AUD = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -63,9 +70,14 @@ public class CHAMP_INFO : MonoBehaviour
 
 
     //Basic ATTACK animation
-    public void NORMAL_HIT(GameObject TARGET)
+    public void NORMAL_HIT(GameObject TARGET, int Damage = 0)
     {
         ANI.Play(ATTACK);
+
+        int random = Random.Range(0, Hitsounds.Length);
+        AUD.clip = Hitsounds[random];
+        AUD.volume = (float)((Damage + 10) * 2.5f) / 100;
+        AUD.Play();
 
         if (TARGET.GetComponent<CHAMP_INFO>().PAR != null) //Only here just incase the TARGET does not have a particle effekt.
         {
