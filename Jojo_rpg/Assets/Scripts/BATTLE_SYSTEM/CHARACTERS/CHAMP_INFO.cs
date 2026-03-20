@@ -86,7 +86,7 @@ public class CHAMP_INFO : MonoBehaviour
         {
             TARGET.GetComponent<CHAMP_INFO>().PAR.Play();
             GameObject hit_effekt = Instantiate(On_hit_effekt, TARGET.transform.position, Quaternion.identity);
-            hit_effekt.GetComponent<Text_hit_effekt>().hit(Damage);
+            hit_effekt.GetComponent<Text_hit_effekt>().hit(Damage, TARGET.GetComponent<CHAMP_INFO>().MaxHp <= Damage);
         }
     }
 

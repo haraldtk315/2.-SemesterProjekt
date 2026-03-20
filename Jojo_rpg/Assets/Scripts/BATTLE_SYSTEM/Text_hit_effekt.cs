@@ -37,8 +37,15 @@ public class Text_hit_effekt : MonoBehaviour
         TMP.text = MISS;
     }
 
-    public void hit(int Damage = 0)
+    public void hit(int Damage = 0, bool Overkill = false)
     {
         TMP.text = Damage.ToString();
+
+        if (Overkill)
+        {
+            TMP.color = Color.red;
+            TMP.fontStyle = TMPro.FontStyles.Bold;
+            TMP.text += "!";
+        }
     }
 }
