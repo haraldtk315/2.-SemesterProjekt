@@ -27,13 +27,12 @@ public class Text_hit_effekt : MonoBehaviour
         TMP = GetComponent<TextMeshPro>();
         transform.position += new Vector3(0, 0, -1);
         side_step += Random.Range(-1.5f, 1.5f);
-
-        current_color = TMP.color;
     }
 
     // Update is called once per frame
     void Update()
     {
+        current_color = TMP.color;
         height_change += Random.Range(-2.5f, 2.5f) * Time.deltaTime;
 
         transform.position += new Vector3(side_step, height_change, 0) * Time.deltaTime;
