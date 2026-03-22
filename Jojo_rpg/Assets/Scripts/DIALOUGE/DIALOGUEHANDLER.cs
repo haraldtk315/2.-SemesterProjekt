@@ -12,8 +12,8 @@ public class DIALOGUEHANDLER : MonoBehaviour
 
     public GameObject dialogueBoxPrefab;
     private GameObject dialogueBox;
-
     private TextMeshProUGUI dialogueBoxText;
+    private GameObject destroyAfterDialogueObject;
 
     public float textSpeed;
 
@@ -24,7 +24,6 @@ public class DIALOGUEHANDLER : MonoBehaviour
     public GameObject[] ENEMIES;
 
     private InputAction nextAction;
-
     private PlayerControlToggle currentPlayerControls;
 
     void Start()
@@ -54,13 +53,15 @@ public class DIALOGUEHANDLER : MonoBehaviour
         }
     }
 
-    public void DialogueStart(string[] _dialogue, GameObject player)
+    public void DialogueStart(string[] _dialogue, GameObject player, GameObject[] enemies = null, GameObject destroyAfterDialogue = null)
     {
         if (!dialogueActive)
         {
             dialogueActive = true;
             dialogue = _dialogue;
             currDialogueIndex = 0;
+            ENEMIES = enemies;
+            destroyAfterDialogueObject = destroyAfterDialogue;
 
             if (player != null)
             {
@@ -116,18 +117,32 @@ public class DIALOGUEHANDLER : MonoBehaviour
             currentPlayerControls = null;
         }
 
-        for (int i = 0; i  < ENEMIES.Length; i++)
-        {
-            if (ENEMIES[i] == null)
-            {
-                continue;
-            }
+        bool ShouldStartFight = false;
 
-            if (ENEMIES[i] != null)
+        if (ENEMIES != null)
+        {
+            for (int i = 0; i < ENEMIES.Length; i++)
             {
-                SceneManager.LoadScene("FIGHT");
+                if (ENEMIES[i] != null)
+                {
+                   ShouldStartFight = true;
+                    break;
+                }
             }
         }
+        if (ShouldStartFight)
+        {
+            SceneManager.LoadScene("FIGHT");
+            destroyAfterDialogueObject = null;
+            return;
+        }
+
+        if (destroyAfterDialogueObject != null)
+        {
+            Destroy(destroyAfterDialogueObject);
+            destroyAfterDialogueObject = null;
+        }
+        ENEMIES = null;
     }
 
     IEnumerator WriteDialogueToBox()
