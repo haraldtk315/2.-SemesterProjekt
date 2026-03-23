@@ -39,6 +39,8 @@ public class CHAMP_INFO : MonoBehaviour
     public int hp;
     public int focus;
 
+    public float time;
+
     public BASIC_ATTACKS[] ATTACKS;
     public SPECIALS[] SPECIALS;
 
@@ -57,10 +59,14 @@ public class CHAMP_INFO : MonoBehaviour
         //UI
         On_hit_effekt = BH.On_hit_text;
     }
-
+   
+    
+    
     private void Update()
     {
         ON_HIT(); // I think everything will still work without it, but it is much safer to check everyframe since it does not take that much processing power.
+
+        time += Time.deltaTime / 2f; 
     }
 
     private void OnMouseDown()
@@ -103,6 +109,17 @@ public class CHAMP_INFO : MonoBehaviour
         Player_UI.GetComponent<PLAYER_UI>().FOCUS_SLIDE.maxValue = MaxFocus;
         Player_UI.GetComponent<PLAYER_UI>().FOCUS_SLIDE.minValue = 0;
         Player_UI.GetComponent<PLAYER_UI>().FOCUS_SLIDE.value = focus;
+
+        //rainbow focus (Maybe not worth it)
+        if (Player_UI.GetComponent<PLAYER_UI>().FOCUS_SLIDE.value >= Player_UI.GetComponent<PLAYER_UI>().FOCUS_SLIDE.maxValue)
+        {
+            if (time >= 1)
+            {
+                time = 0;
+            }
+
+            Player_UI.GetComponent<PLAYER_UI>().FILL_SLIDER_FOCUS.color = Player_UI.GetComponent<PLAYER_UI>().Grad_focus.Evaluate(time);
+        }
 
         if (dead == true)
         {

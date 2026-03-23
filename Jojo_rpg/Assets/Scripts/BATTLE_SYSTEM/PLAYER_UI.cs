@@ -10,6 +10,8 @@ public class PLAYER_UI : MonoBehaviour
     public Image FILL_SLIDER_HP;
 
     public Slider FOCUS_SLIDE;
+    public Gradient Grad_focus;
+    public Image FILL_SLIDER_FOCUS;
 
     public TextMeshProUGUI NAME;
     public Image ICON;

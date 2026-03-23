@@ -63,6 +63,7 @@ public class Text_hit_effekt : MonoBehaviour
             TMP.color = Color.red;
             TMP.text += "!";
             TMP.fontStyle = TMPro.FontStyles.Bold;
+            TMP.fontSize += 3;
         }
     }
 }
