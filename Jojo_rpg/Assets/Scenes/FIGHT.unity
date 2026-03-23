@@ -2169,14 +2169,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HEALTH_UI_display
       objectReference: {fileID: 0}
-    - target: {fileID: 2902995324064296869, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6080984464141633847, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 6839876899707929752, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
