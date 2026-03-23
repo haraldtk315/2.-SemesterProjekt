@@ -94,6 +94,8 @@ public class CHAMP_INFO : MonoBehaviour
         Player_UI.GetComponent<PLAYER_UI>().HP_SLIDE.minValue = 0;
         Player_UI.GetComponent<PLAYER_UI>().HP_SLIDE.value = hp;
 
+        Player_UI.GetComponent<PLAYER_UI>().FILL_SLIDER_HP.color = Player_UI.GetComponent<PLAYER_UI>().grad_hp.Evaluate((float) hp / (float) MaxHp);
+
         //health text
         Player_UI.GetComponent<PLAYER_UI>().HP_TEXT.text = hp.ToString() + "/" + MaxHp.ToString();
 

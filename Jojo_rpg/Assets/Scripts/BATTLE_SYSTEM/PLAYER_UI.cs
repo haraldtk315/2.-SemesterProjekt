@@ -6,6 +6,8 @@ public class PLAYER_UI : MonoBehaviour
 {
     public Slider HP_SLIDE;
     public TextMeshProUGUI HP_TEXT;
+    public Gradient grad_hp;
+    public Image FILL_SLIDER_HP;
 
     public Slider FOCUS_SLIDE;
 

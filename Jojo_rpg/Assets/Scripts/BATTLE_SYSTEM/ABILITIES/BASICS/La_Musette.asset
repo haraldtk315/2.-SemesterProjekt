@@ -15,6 +15,6 @@ MonoBehaviour:
   name: La Musette
   damage: 5
   acc: 100
-  focus: 35
+  focus: 30
   type: 0
   Description: 
