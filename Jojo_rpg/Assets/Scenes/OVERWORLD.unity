@@ -30240,7 +30240,7 @@ MonoBehaviour:
   moveSpeed: 10
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 392
 --- !u!50 &2021103728
 Rigidbody2D:
   serializedVersion: 5
