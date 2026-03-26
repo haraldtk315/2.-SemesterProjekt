@@ -5144,36 +5144,6 @@ MonoBehaviour:
   TARGETINDICATOR: {fileID: 8619122605633106518}
   Collider: {fileID: 0}
   PAR: {fileID: 3177860587670719854}
-  grad:
-    serializedVersion: 2
-    key0: {r: 0, g: 1, b: 0, a: 1}
-    key1: {r: 1, g: 1, b: 0, a: 1}
-    key2: {r: 1, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 32768
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
   AUD: {fileID: 0}
   Hitsounds:
   - {fileID: 8300000, guid: 82a68707e4e222a4ba6a9e6cfaabb7dd, type: 3}
@@ -5193,17 +5163,17 @@ MonoBehaviour:
   Team_player: 0
   dead: 0
   hp: 60
-  focus: 0
+  time: 0
   ATTACKS:
   - {fileID: 11400000, guid: 127680fcd8ac1374cbc22230013d7272, type: 2}
   - {fileID: 11400000, guid: 8c1e3951ad0dca946b2d66596c69ffba, type: 2}
   - {fileID: 11400000, guid: 73525379c3bbfdc4db4da6cec4ddc0c5, type: 2}
   - {fileID: 11400000, guid: ae72d8166e198ec48a3f99243145cad7, type: 2}
   SPECIALS:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 8003689d0ed9be649981e752ad70e792, type: 2}
+  - {fileID: 11400000, guid: 63b0bb79aa31e254fab82718a2298331, type: 2}
+  - {fileID: 11400000, guid: 2a35f63d0c48987409e75799336b58a3, type: 2}
+  - {fileID: 11400000, guid: 6a0d318107bcdb840a5c6eb51464a1d2, type: 2}
   On_hit_effekt: {fileID: 6696071498278047046, guid: 65df1a8dfb33df5458baadc1f6d57d39, type: 3}
   Player_UI: {fileID: 0}
 --- !u!65 &-6396718981686823676

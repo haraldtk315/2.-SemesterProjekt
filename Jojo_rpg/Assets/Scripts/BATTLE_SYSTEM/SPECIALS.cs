@@ -1,13 +1,12 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SPECIALS", menuName = "Scriptable Objects/SPECIALS")]
-public class SPECIALS : ScriptableObject
+public class SPECIALS : BASIC_ATTACKS
 {
-    public string name;
-    public int damage;
+    public int cost;
 
-    [TextArea]
-    [SerializeField] string Description;
-
-    public bool HIT_ALL;
+    public int Cost
+    {
+        get { return  cost; }
+    }
 }

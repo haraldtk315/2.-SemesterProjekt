@@ -68,7 +68,7 @@ public class BATTLEHANDLER : MonoBehaviour
         SELECT_NORMAL,
         SELECT_SPECIAL,
         TARGET,
-        RHYTHM,
+        MICROGAME,
         BATTLE,
         NEXT,
         ENEMY,
@@ -261,6 +261,8 @@ public class BATTLEHANDLER : MonoBehaviour
 
             for (int i = 0; i < MOVES_BUTTON.Length; i++)
             {
+                MOVES_BUTTON[i].GetComponent<Button>().enabled = true;
+
                 if (MOVES_BUTTON[i] == null)
                 {
                     Debug.Log("THERE IS NO BUTTON");
@@ -295,6 +297,15 @@ public class BATTLEHANDLER : MonoBehaviour
                 {
                     Debug.Log("THERE IS NO BUTTON");
                     continue;
+                }
+
+                if (ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].cost <= ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().focus)
+                {
+                    MOVES_BUTTON[i].GetComponent<Button>().enabled = true;
+                }
+                else
+                {
+                    MOVES_BUTTON[i].GetComponent<Button>().enabled = false;
                 }
 
                 if (ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i] == null)
@@ -638,6 +649,12 @@ public class BATTLEHANDLER : MonoBehaviour
 
         if (CURRENT_STATE == STATEMACHINE.TARGET)
         {
+            if (Current_ATTACK is SPECIALS)
+            {
+                SPECIALS currentSpecial = (SPECIALS)Current_ATTACK;
+                ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().focus -= currentSpecial.focus;
+                Debug.Log("I'm not the problem, you are!");
+            }
             CURRENT_STATE = STATEMACHINE.BATTLE;
             StateMachine(STATEMACHINE.BATTLE);
         }
@@ -675,7 +692,7 @@ public class BATTLEHANDLER : MonoBehaviour
 
        if (button.GetComponent<BUTTON_HOLDER>().SPECIALS != null)
        {
-            Current_SPECIAL = button.GetComponent<BUTTON_HOLDER>().SPECIALS;
+            Current_ATTACK = button.GetComponent<BUTTON_HOLDER>().SPECIALS;
        }
 
         CURRENT_STATE = STATEMACHINE.TARGET;
