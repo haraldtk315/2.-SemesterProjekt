@@ -414,7 +414,6 @@ public class BATTLEHANDLER : MonoBehaviour
             else
             {
                 TARGET_ATTACK(ORDER[ON_CURRENT_CHAMP], TARGET_ENEMY, Current_ATTACK.damage, Current_ATTACK.acc, Current_ATTACK.focus);
-                Debug.Log("Jeg kører ind i et træ!");
             }
 
 
