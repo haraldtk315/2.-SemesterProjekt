@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Still a test
   m_EditorClassIdentifier: Assembly-CSharp::SPECIALS
   attackName: Test 2
-  damage: 0
-  acc: 0
+  damage: 5
+  acc: 100
   focus: 0
   type: 0
   Description: wowza
-  cost: 100
+  cost: 25

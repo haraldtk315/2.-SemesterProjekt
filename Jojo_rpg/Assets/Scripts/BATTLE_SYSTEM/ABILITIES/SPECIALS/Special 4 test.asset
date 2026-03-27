@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Special 4 test
   m_EditorClassIdentifier: Assembly-CSharp::SPECIALS
   attackName: 
-  damage: 0
-  acc: 0
+  damage: 20
+  acc: 100
   focus: 0
   type: 0
   Description: 

@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class BATTLEHANDLER : MonoBehaviour
 {
+    public static BATTLEHANDLER instance;
+
     [SerializeField] private Transform center;
     [SerializeField] private GameObject[] SPAWNS;
     [SerializeField] private GameObject[] SPAWNS_ENEMY;
@@ -86,6 +88,18 @@ public class BATTLEHANDLER : MonoBehaviour
 
     private void Start()
     {
+        // Singleton pattern
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         MAIN_Buttons.SetActive(false);
         Player_UI.SetActive(false);
 
@@ -242,7 +256,7 @@ public class BATTLEHANDLER : MonoBehaviour
     }
 
 
-    void StateMachine(STATEMACHINE Current)
+    public void StateMachine(STATEMACHINE Current)
     {
         //AWAITING INPUT FROM PLAYER
         if (Current == STATEMACHINE.INPUT)
@@ -368,6 +382,12 @@ public class BATTLEHANDLER : MonoBehaviour
             }
         }
 
+        if (Current == STATEMACHINE.MICROGAME)
+        {
+            SPECIALS currentSpecial = (SPECIALS)Current_ATTACK;
+            MICROGAMEHANDLER.instance.StartMicrogame(currentSpecial.microgame);
+        }
+
         //DAMAGE HAPPENDS
         if (Current == STATEMACHINE.BATTLE)
         {
@@ -387,9 +407,18 @@ public class BATTLEHANDLER : MonoBehaviour
             Debug.Log("IN BATTLE");
 
             //THE ATTACK + ANIMATION
-            TARGET_ATTACK(ORDER[ON_CURRENT_CHAMP], TARGET_ENEMY, Current_ATTACK.damage, Current_ATTACK.acc, Current_ATTACK.focus);
+            if (Current_ATTACK is SPECIALS)
+            {
+                // Empty because else is what's needed here
+            }
+            else
+            {
+                TARGET_ATTACK(ORDER[ON_CURRENT_CHAMP], TARGET_ENEMY, Current_ATTACK.damage, Current_ATTACK.acc, Current_ATTACK.focus);
+                Debug.Log("Jeg kører ind i et træ!");
+            }
 
-            Invoke("STATEGOTONEXT", WAIT_TIME);
+
+                Invoke("STATEGOTONEXT", WAIT_TIME);
         }
 
         if (Current == STATEMACHINE.NEXT)
@@ -613,6 +642,7 @@ public class BATTLEHANDLER : MonoBehaviour
         }
     }
 
+
     private bool Check_if_attack_lands(int acc)
     {
         if (acc == 100) 
@@ -652,11 +682,16 @@ public class BATTLEHANDLER : MonoBehaviour
             if (Current_ATTACK is SPECIALS)
             {
                 SPECIALS currentSpecial = (SPECIALS)Current_ATTACK;
-                ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().focus -= currentSpecial.focus;
-                Debug.Log("I'm not the problem, you are!");
+                ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().focus = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().focus - currentSpecial.cost;
+                CURRENT_STATE = STATEMACHINE.MICROGAME;
+                StateMachine(STATEMACHINE.MICROGAME);
             }
-            CURRENT_STATE = STATEMACHINE.BATTLE;
-            StateMachine(STATEMACHINE.BATTLE);
+            else
+            {
+                CURRENT_STATE = STATEMACHINE.BATTLE;
+                StateMachine(STATEMACHINE.BATTLE);
+            }
+            
         }
     }
 
