@@ -125,15 +125,16 @@ public class DIALOGUEHANDLER : MonoBehaviour
             {
                 if (ENEMIES[i] != null)
                 {
-                   ShouldStartFight = true;
+                    ShouldStartFight = true;
                     break;
                 }
             }
         }
+
         if (ShouldStartFight)
         {
-            SceneManager.LoadScene("FIGHT");
             destroyAfterDialogueObject = null;
+            SceneManager.LoadScene("FIGHT");
             return;
         }
 
@@ -142,6 +143,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
             Destroy(destroyAfterDialogueObject);
             destroyAfterDialogueObject = null;
         }
+
         ENEMIES = null;
     }
 

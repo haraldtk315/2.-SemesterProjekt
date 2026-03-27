@@ -23,6 +23,7 @@ public class GAMEMANAGER : MonoBehaviour
 
     //current npc battle
     public string currentNPCID;
+    public string pendingPostBattleNPCID;
 
     private void Awake()
     {
