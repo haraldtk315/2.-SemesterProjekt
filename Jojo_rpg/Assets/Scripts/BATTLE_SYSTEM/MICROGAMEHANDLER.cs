@@ -15,6 +15,7 @@ public class MICROGAMEHANDLER : MonoBehaviour
     }
 
     public GameObject rapidPunchMicrogame;
+    public GameObject syringeMicrogame;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,6 +34,7 @@ public class MICROGAMEHANDLER : MonoBehaviour
 
         // Turns off all microgames on boot
         rapidPunchMicrogame.SetActive(false);
+        syringeMicrogame.SetActive(false);
     }
 
     // Update is called once per frame
@@ -47,6 +49,11 @@ public class MICROGAMEHANDLER : MonoBehaviour
         {
             rapidPunchMicrogame.SetActive(true);
         }
+
+        if (microgame == MICROGAMES.SYRINGE)
+        {
+            syringeMicrogame.SetActive(true);
+        }
     }
 
     public void EndMicrogame(MICROGAMES microgame, int damage, int acc = 100, int focus = 0)
@@ -54,6 +61,11 @@ public class MICROGAMEHANDLER : MonoBehaviour
         if (microgame == MICROGAMES.RAPID_PUNCH)
         {
             rapidPunchMicrogame.SetActive(false);
+        }
+
+        if (microgame == MICROGAMES.SYRINGE)
+        {
+            syringeMicrogame.SetActive(false);
         }
 
         BATTLEHANDLER.instance.CURRENT_STATE = BATTLEHANDLER.STATEMACHINE.BATTLE;

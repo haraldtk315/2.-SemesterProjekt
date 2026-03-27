@@ -18,4 +18,5 @@ MonoBehaviour:
   focus: 25
   type: 0
   Description: This is a test to implement microgames
-  cost: 25
+  cost: 0
+  microgame: 1
