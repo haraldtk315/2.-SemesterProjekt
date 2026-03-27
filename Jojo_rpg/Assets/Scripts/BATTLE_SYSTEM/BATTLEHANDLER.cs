@@ -555,20 +555,14 @@ public class BATTLEHANDLER : MonoBehaviour
 
             if (win == true)
             {
-                    Debug.Log("Current trainer before save: " + GAMEMANAGER.instance.currentNPCID);
+                if (!string.IsNullOrEmpty(GAMEMANAGER.instance.currentNPCID))
+                {
+                    GAMEMANAGER.instance.defeatedNPCs.Add(GAMEMANAGER.instance.currentNPCID);
+                    GAMEMANAGER.instance.pendingPostBattleNPCID = GAMEMANAGER.instance.currentNPCID;
+                    GAMEMANAGER.instance.currentNPCID = null;
+                }
 
-                    if (!string.IsNullOrEmpty(GAMEMANAGER.instance.currentNPCID))
-                    {
-                        GAMEMANAGER.instance.defeatedNPCs.Add(GAMEMANAGER.instance.currentNPCID);
-
-                        Debug.Log("Trainer added to defeatedNPCs: " + GAMEMANAGER.instance.currentNPCID);
-                        Debug.Log("Total defeated NPCs: " + GAMEMANAGER.instance.defeatedNPCs.Count);
-
-                        GAMEMANAGER.instance.currentNPCID = null;
-                    }
-
-                    SceneManager.LoadScene(GAMEMANAGER.instance.returnSceneName);
-                
+                SceneManager.LoadScene(GAMEMANAGER.instance.returnSceneName);
             }
 
             if (win == false && lost == false)
