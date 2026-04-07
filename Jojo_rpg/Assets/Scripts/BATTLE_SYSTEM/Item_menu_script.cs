@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item_menu_script : MonoBehaviour
 {
@@ -27,7 +28,10 @@ public class Item_menu_script : MonoBehaviour
 
         for (int i = 0; i < GM.inventory.Count; i++)
         {
-            Instantiate(Item_prefab, Vector3.zero, Quaternion.identity, Content.transform);
+            GameObject Item = Instantiate(Item_prefab, Vector3.zero, Quaternion.identity, Content.transform);
+            InventoryItem item_info = GM.inventory[i];
+            Item.GetComponentInChildren<TextMeshProUGUI>().text = item_info.itemData.displayName + "\n X: " + item_info.amount;
+            Item.GetComponent<Image>().sprite = item_info.itemData.icon;
         }
 
     }

@@ -721,6 +721,11 @@ public class BATTLEHANDLER : MonoBehaviour
         ITEM_PANEL.SetActive(Item_enabled);
     }
 
+    public void Item_click()
+    {
+        Debug.Log("The Button is working OMG no way This is so awesome, it is so cool. It is the most incredible button the world has ever seen");
+    }
+
     public void RUN()
     {
         Item_enable(false);
