@@ -35,6 +35,9 @@ public class BATTLEHANDLER : MonoBehaviour
     public GameObject MAIN_Buttons;
     public GameObject SELECT_Buttons;
 
+    public GameObject ITEM_PANEL;
+    public bool Item_enabled = false;
+
     public GameObject[] MOVES_BUTTON;
 
     //PARTY INFORMATION
@@ -693,22 +696,34 @@ public class BATTLEHANDLER : MonoBehaviour
     {
         CURRENT_STATE = STATEMACHINE.SELECT_NORMAL;
         StateMachine(CURRENT_STATE);
+        Item_enable(false);
     }
 
     public void SPECIAL()
     {
         CURRENT_STATE = STATEMACHINE.SELECT_SPECIAL;
         StateMachine(CURRENT_STATE);
+        Item_enable(false);
+        
     }
 
     public void ITEM()
     {
+        Item_enabled = !Item_enabled;
 
+        Item_enable(Item_enabled);
+    }
+
+    public void Item_enable(bool enable)
+    {
+        Item_enabled = enable;
+
+        ITEM_PANEL.SetActive(Item_enabled);
     }
 
     public void RUN()
     {
-
+        Item_enable(false);
     }
 
     public void MOVESELECT(GameObject button)
