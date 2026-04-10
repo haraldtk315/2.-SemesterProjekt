@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
@@ -10,20 +11,13 @@ public class Syringe : MonoBehaviour
     public GameObject artery;
     public float microgameTime;
 
-    public int syringeSpeed;
+    public float syringeSpeed;
 
+    private int damage;
     private bool hit;
     private bool syringeMovingLeft;
     private bool decend;
-    private RectTransform arteryTransform;
-    private RectTransform syringeTransform;
     private Coroutine endMicrogameRoutine;
-
-    private void Awake()
-    {
-        arteryTransform = artery.GetComponent<RectTransform>();
-        syringeTransform = syringe.GetComponent<RectTransform>();
-    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,51 +28,50 @@ public class Syringe : MonoBehaviour
     private void OnEnable()
     {
         hit = false;
-        arteryTransform.localPosition = new Vector3(Random.Range(-250, 250), -135);
-        syringeTransform.localPosition = Vector3.zero;
+        artery.transform.localPosition = new Vector3(Random.Range(-0.65f, 0.65f), 0.4f, -8f);
+        syringe.transform.localPosition = new Vector3(0, 1.6f, syringe.transform.localPosition.z);
         decend = false;
         endMicrogameRoutine = StartCoroutine(EndMicrogame(microgameTime));
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !decend)
         {
             decend = true;
-            StartCoroutine(Decend());
+            if ((artery.transform.localPosition.x - 0.15f) < syringe.transform.localPosition.x && syringe.transform.localPosition.x < (artery.transform.localPosition.x + 0.15f))
+            {
+                hit = true;
+                Debug.Log("Hit!");
+            }
+            StopCoroutine(endMicrogameRoutine);
+            StartCoroutine(EndMicrogame(0.5f));
         }
 
-        if (syringeTransform.localPosition.x > 300 && !decend)
+        if (decend && syringe.transform.localPosition.y > 0.7f)
+        {
+            syringe.transform.localPosition -= new Vector3(0, syringeSpeed * 2, 0);
+        }
+
+        if (syringe.transform.localPosition.x > 1 && !decend)
         {
             syringeMovingLeft = true;
         }
 
-        if (syringeTransform.localPosition.x < -300 && !decend)
+        if (syringe.transform.localPosition.x < -1 && !decend)
         {
             syringeMovingLeft = false;
         }
 
         if (syringeMovingLeft && !decend)
         {
-            syringeTransform.localPosition += new Vector3(-syringeSpeed, 0, 0);
+            syringe.transform.localPosition += new Vector3(-syringeSpeed, 0, 0);
         }
 
         else if (!syringeMovingLeft && !decend)
         {
-            syringeTransform.localPosition += new Vector3(syringeSpeed, 0, 0);
+            syringe.transform.localPosition += new Vector3(syringeSpeed, 0, 0);
         }
-    }
-
-    private IEnumerator Decend()
-    {
-        for (float t = 0f; t < 0.04f; t += Time.deltaTime)
-        {
-            syringeTransform.localPosition += new Vector3(0, -10, 0);
-            yield return null; // "wait for a frame"
-        }
-        StopCoroutine(endMicrogameRoutine);
-        StartCoroutine(EndMicrogame(0.5f));
-        yield return decend = false;
     }
 
     private IEnumerator EndMicrogame(float yieldTime)
@@ -86,8 +79,12 @@ public class Syringe : MonoBehaviour
         yield return new WaitForSeconds(yieldTime);
         if (hit)
         {
-
+            damage = -35;
         }
-        MICROGAMEHANDLER.instance.EndMicrogame(type, 0);
+        else
+        {
+            damage = 15;
+        }
+        MICROGAMEHANDLER.instance.EndMicrogame(type, damage);
     }
 }
