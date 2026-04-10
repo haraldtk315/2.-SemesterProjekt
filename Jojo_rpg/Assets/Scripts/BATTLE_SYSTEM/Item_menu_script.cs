@@ -32,6 +32,7 @@ public class Item_menu_script : MonoBehaviour
             InventoryItem item_info = GM.inventory[i];
             Item.GetComponentInChildren<TextMeshProUGUI>().text = item_info.itemData.displayName + "\n X: " + item_info.amount;
             Item.GetComponent<Image>().sprite = item_info.itemData.icon;
+            Item.GetComponent<Item_button_click>().Item = item_info;
         }
 
     }

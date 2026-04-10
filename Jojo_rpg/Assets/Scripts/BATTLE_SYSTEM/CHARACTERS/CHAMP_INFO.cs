@@ -76,6 +76,11 @@ public class CHAMP_INFO : MonoBehaviour
         BH.TARGET_CLICKED(this.gameObject);
     }
 
+    public void Item_used()
+    {
+        
+    }
+
     public void ON_HIT()
     {
         if (Team_player == true)

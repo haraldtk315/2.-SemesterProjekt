@@ -49,6 +49,7 @@ public class BATTLEHANDLER : MonoBehaviour
     public int ON_CURRENT_CHAMP = 0;
     public BASIC_ATTACKS Current_ATTACK;
     public SPECIALS Current_SPECIAL;
+    public InventoryItem Current_ITEM;
 
     //ENEMY INFORMATION
     [SerializeField] private int enemy_count = 0;
@@ -73,6 +74,7 @@ public class BATTLEHANDLER : MonoBehaviour
         SELECT_NORMAL,
         SELECT_SPECIAL,
         TARGET,
+        ITEM_SELECT,
         MICROGAME,
         BATTLE,
         NEXT,
@@ -337,6 +339,30 @@ public class BATTLEHANDLER : MonoBehaviour
 
                 MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].name + "\n" + " DAMAGE: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].damage.ToString();
                 MOVES_BUTTON[i].SetActive(true);
+            }
+        }
+
+        if (Current == STATEMACHINE.ITEM_SELECT)
+        {
+            MAIN_Buttons.SetActive(false);
+            SELECT_Buttons.SetActive(false);
+            Player_UI.SetActive(true);
+            ITEM_PANEL.SetActive(false);
+
+            Cam_holder.transform.position = Vector3.zero;
+            ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(false);
+
+            for (int i = 0; i < MONSTER_ORDER.Length; i++)
+            {
+                if (ORDER[i] == null || ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
+                {
+                    continue;
+                }
+
+                if (ORDER[i] != null)
+                {
+                    ORDER[i].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(true);
+                }
             }
         }
 
@@ -689,6 +715,14 @@ public class BATTLEHANDLER : MonoBehaviour
             }
             
         }
+
+        if (CURRENT_STATE == STATEMACHINE.ITEM_SELECT)
+        {
+            Target.GetComponent<CHAMP_INFO>().Item_used();
+            Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x + x_value, ORDER[ON_CURRENT_CHAMP].transform.position.y - y_value, ORDER[ON_CURRENT_CHAMP].transform.position.z + z_value);
+
+
+        }
     }
 
     //buttons
@@ -721,9 +755,14 @@ public class BATTLEHANDLER : MonoBehaviour
         ITEM_PANEL.SetActive(Item_enabled);
     }
 
-    public void Item_click()
+    public void Item_click(InventoryItem Item)
     {
         Debug.Log("The Button is working OMG no way This is so awesome, it is so cool. It is the most incredible button the world has ever seen");
+
+        Current_ITEM = Item;
+
+        CURRENT_STATE = STATEMACHINE.ITEM_SELECT;
+        StateMachine(CURRENT_STATE);
     }
 
     public void RUN()

@@ -5,6 +5,8 @@ public class Item_button_click : MonoBehaviour
 
     public BATTLEHANDLER BH;
 
+    public InventoryItem Item;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +27,6 @@ public class Item_button_click : MonoBehaviour
 
     public void ON_epic_button_click()
     {
-        BH.Item_click();
+        BH.Item_click(Item);
     }
 }
