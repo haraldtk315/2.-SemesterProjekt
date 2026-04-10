@@ -3,7 +3,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 using static UnityEngine.GraphicsBuffer;
 
 public class CHAMP_INFO : MonoBehaviour
@@ -182,19 +181,12 @@ public class CHAMP_INFO : MonoBehaviour
 
         if (Damage < 0)
         {
-            AUD.clip = Healing;
-            AUD.Play();
+            TARGET.GetComponent<CHAMP_INFO>().AUD.clip = TARGET.GetComponent<CHAMP_INFO>().Healing;
+            TARGET.GetComponent<CHAMP_INFO>().AUD.Play();
+            TARGET.GetComponent<CHAMP_INFO>().ANI.Play(HEAL);
 
-            ANI.Play(HEAL);
-
-            hp -= Damage;
-            GameObject hit_effekt = Instantiate(On_hit_effekt, transform.position, Quaternion.identity);
+            GameObject hit_effekt = Instantiate(On_hit_effekt, TARGET.transform.position, Quaternion.identity);
             hit_effekt.GetComponent<Text_hit_effekt>().hit(-Damage, false, true);
-
-            if (hp >= MaxHp)
-            {
-                hp = MaxHp;
-            }
         }
 
         if (Damage >= 0) 
