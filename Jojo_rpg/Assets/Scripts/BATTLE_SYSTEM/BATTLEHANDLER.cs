@@ -80,7 +80,8 @@ public class BATTLEHANDLER : MonoBehaviour
         NEXT,
         ENEMY,
         ENEMY_BATTLE, //THE ENEMY STATE ALONE WAS NOT ENOUGH TO MAKE SURE THE ENEMIES COULD HAVE THEIR OWN ANIMATIONS AND STUFF LIKE THAT SO WE NEED A LITTLE EXTRA STEP FOR ANIMATIONS
-        END
+        END,
+        WAITING
     }
     
     //EHM IF THINGS DON'T WORK IT IS BECAUSE IT ALWAYS STARTS AS INPUT!!!!!
@@ -739,9 +740,12 @@ public class BATTLEHANDLER : MonoBehaviour
             Target.GetComponent<CHAMP_INFO>().Item_used(Current_ITEM);
             Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x + x_value, ORDER[ON_CURRENT_CHAMP].transform.position.y - y_value, ORDER[ON_CURRENT_CHAMP].transform.position.z + z_value);
 
-            
+            WAIT_TIME = Target.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
+            CURRENT_STATE = STATEMACHINE.WAITING;
         }
     }
+
+    public 
 
     //buttons
     public void ATTACK()

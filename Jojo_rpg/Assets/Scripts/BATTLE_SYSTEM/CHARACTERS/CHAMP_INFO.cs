@@ -3,6 +3,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 using static UnityEngine.GraphicsBuffer;
 
 public class CHAMP_INFO : MonoBehaviour
@@ -178,18 +179,39 @@ public class CHAMP_INFO : MonoBehaviour
     //Basic ATTACK animation
     public void NORMAL_HIT(GameObject TARGET, int Damage = 0)
     {
-        ANI.Play(ATTACK);
 
-        int random = Random.Range(0, Hitsounds.Length);
-        AUD.clip = Hitsounds[random];
-        AUD.volume = (float)((Damage + 10) * 2.5f) / 100;
-        AUD.Play();
-
-        if (TARGET.GetComponent<CHAMP_INFO>().PAR != null) //Only here just incase the TARGET does not have a particle effekt.
+        if (Damage < 0)
         {
-            TARGET.GetComponent<CHAMP_INFO>().PAR.Play();
-            GameObject hit_effekt = Instantiate(On_hit_effekt, TARGET.transform.position, Quaternion.identity);
-            hit_effekt.GetComponent<Text_hit_effekt>().hit(Damage, TARGET.GetComponent<CHAMP_INFO>().MaxHp <= Damage);
+            AUD.clip = Healing;
+            AUD.Play();
+
+            ANI.Play(HEAL);
+
+            hp -= Damage;
+            GameObject hit_effekt = Instantiate(On_hit_effekt, transform.position, Quaternion.identity);
+            hit_effekt.GetComponent<Text_hit_effekt>().hit(-Damage, false, true);
+
+            if (hp >= MaxHp)
+            {
+                hp = MaxHp;
+            }
+        }
+
+        if (Damage >= 0) 
+        {
+            ANI.Play(ATTACK);
+
+            int random = Random.Range(0, Hitsounds.Length);
+            AUD.clip = Hitsounds[random];
+            AUD.volume = (float)((Damage + 10) * 2.5f) / 100;
+            AUD.Play();
+
+            if (TARGET.GetComponent<CHAMP_INFO>().PAR != null) //Only here just incase the TARGET does not have a particle effekt.
+            {
+                TARGET.GetComponent<CHAMP_INFO>().PAR.Play();
+                GameObject hit_effekt = Instantiate(On_hit_effekt, TARGET.transform.position, Quaternion.identity);
+                hit_effekt.GetComponent<Text_hit_effekt>().hit(Damage, TARGET.GetComponent<CHAMP_INFO>().MaxHp <= Damage);
+            }
         }
     }
 
