@@ -305,7 +305,7 @@ public class BATTLEHANDLER : MonoBehaviour
         }
 
         //SELECT SPECIAL MOVES
-        if (Current == STATEMACHINE.SELECT_SPECIAL) 
+        if (Current == STATEMACHINE.SELECT_SPECIAL)
         {
             SELECT_Buttons.SetActive(true);
             Player_UI.SetActive(false);
@@ -352,7 +352,7 @@ public class BATTLEHANDLER : MonoBehaviour
             Cam_holder.transform.position = Vector3.zero;
             ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(false);
 
-            for (int i = 0; i < MONSTER_ORDER.Length; i++)
+            for (int i = 0; i < ORDER.Length; i++)
             {
                 if (ORDER[i] == null || ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
                 {
@@ -399,6 +399,23 @@ public class BATTLEHANDLER : MonoBehaviour
                     if (MONSTER_ORDER[i] != null)
                     {
                         MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(true);
+
+                    }
+                }
+            }
+
+            if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.Party)
+            {
+                for (int i = 0; i < ORDER.Length; i++)
+                {
+                    if (ORDER[i] == null || ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
+                    {
+                        continue;
+                    }
+
+                    if (ORDER[i] != null)
+                    {
+                        ORDER[i].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(true);
 
                     }
                 }
@@ -718,7 +735,7 @@ public class BATTLEHANDLER : MonoBehaviour
 
         if (CURRENT_STATE == STATEMACHINE.ITEM_SELECT)
         {
-            Target.GetComponent<CHAMP_INFO>().Item_used();
+            Target.GetComponent<CHAMP_INFO>().Item_used(Current_ITEM);
             Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x + x_value, ORDER[ON_CURRENT_CHAMP].transform.position.y - y_value, ORDER[ON_CURRENT_CHAMP].transform.position.z + z_value);
 
 

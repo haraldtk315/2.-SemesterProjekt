@@ -23,6 +23,7 @@ public class CHAMP_INFO : MonoBehaviour
     //Audio
     public AudioSource AUD;
     public AudioClip[] Hitsounds;
+    public AudioClip Healing;
 
     //MANAGERS
     public GAMEMANAGER GM;
@@ -76,7 +77,7 @@ public class CHAMP_INFO : MonoBehaviour
         BH.TARGET_CLICKED(this.gameObject);
     }
 
-    public void Item_used()
+    public void Item_used(InventoryItem Item)
     {
         
     }

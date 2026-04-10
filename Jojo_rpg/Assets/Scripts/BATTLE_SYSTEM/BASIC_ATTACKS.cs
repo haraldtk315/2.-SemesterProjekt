@@ -13,7 +13,8 @@ public class BASIC_ATTACKS : ScriptableObject
     {
         SINGLE_HIT,
         SELF,
-        HIT_ALL
+        HIT_ALL,
+        Party
     }
 
     [TextArea]
