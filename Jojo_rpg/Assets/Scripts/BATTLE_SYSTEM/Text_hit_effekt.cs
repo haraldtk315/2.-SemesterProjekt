@@ -58,7 +58,7 @@ public class Text_hit_effekt : MonoBehaviour
     {
         TMP.text = Damage.ToString();
 
-        if (Overkill || heal == false)
+        if (Overkill && heal == false)
         {
             TMP.color = Color.red;
             TMP.text += "!";
