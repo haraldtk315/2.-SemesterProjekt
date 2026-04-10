@@ -54,16 +54,26 @@ public class Text_hit_effekt : MonoBehaviour
         TMP.text = MISS;
     }
 
-    public void hit(int Damage = 0, bool Overkill = false)
+    public void hit(int Damage = 0, bool Overkill = false, bool heal = false, bool focus = false)
     {
         TMP.text = Damage.ToString();
 
-        if (Overkill)
+        if (Overkill || heal == false)
         {
             TMP.color = Color.red;
             TMP.text += "!";
             TMP.fontStyle = TMPro.FontStyles.Bold;
             TMP.fontSize += 3;
+        }
+
+        if (heal)
+        {
+            TMP.color = Color.green;
+        }
+
+        if (focus)
+        {
+            TMP.color = Color.orange;
         }
     }
 }

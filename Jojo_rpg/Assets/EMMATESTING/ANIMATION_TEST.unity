@@ -319,6 +319,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Guard_guy
       objectReference: {fileID: 0}
+    - target: {fileID: 5156567506917586551, guid: 620d45e6efa996f4d83f30e04332427d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5359904077211983378, guid: 620d45e6efa996f4d83f30e04332427d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -515,15 +519,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 622957810369709534, guid: a59ebe726d51b03419dae3e4f23d968c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 133.89351
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 622957810369709534, guid: a59ebe726d51b03419dae3e4f23d968c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 207.82637
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 622957810369709534, guid: a59ebe726d51b03419dae3e4f23d968c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -254.99075
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 622957810369709534, guid: a59ebe726d51b03419dae3e4f23d968c, type: 3}
       propertyPath: m_LocalRotation.w

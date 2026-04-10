@@ -652,7 +652,7 @@ public class BATTLEHANDLER : MonoBehaviour
         //ANIMATION
         if(attack_HITS == true)
         {
-            if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.SINGLE_HIT) 
+            if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.SINGLE_HIT || Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.Party) 
             {
                 SENDER.GetComponent<CHAMP_INFO>().NORMAL_HIT(TARGET, Damage);
                 WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
@@ -735,10 +735,11 @@ public class BATTLEHANDLER : MonoBehaviour
 
         if (CURRENT_STATE == STATEMACHINE.ITEM_SELECT)
         {
+            Current_ITEM.amount--; //REMOVE ONE ITEM WHEN USED
             Target.GetComponent<CHAMP_INFO>().Item_used(Current_ITEM);
             Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x + x_value, ORDER[ON_CURRENT_CHAMP].transform.position.y - y_value, ORDER[ON_CURRENT_CHAMP].transform.position.z + z_value);
 
-
+            
         }
     }
 

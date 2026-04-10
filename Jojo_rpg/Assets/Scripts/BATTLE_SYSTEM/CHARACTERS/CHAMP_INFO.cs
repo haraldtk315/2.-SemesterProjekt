@@ -13,6 +13,7 @@ public class CHAMP_INFO : MonoBehaviour
     const string DEAD = "DEAD";
     const string ATTACK = "ATTACK";
     const string MISS = "MISS";
+    const string HEAL = "HEAL";
 
     //Sprites
     public SpriteRenderer SR;
@@ -79,7 +80,38 @@ public class CHAMP_INFO : MonoBehaviour
 
     public void Item_used(InventoryItem Item)
     {
-        
+        if (Item.itemData.Type == ItemData.ItemType.health)
+        {
+            AUD.clip = Healing;
+            AUD.Play();
+
+            ANI.Play(HEAL);
+
+            hp += Item.itemData.value;
+            GameObject hit_effekt = Instantiate(On_hit_effekt, transform.position, Quaternion.identity);
+            hit_effekt.GetComponent<Text_hit_effekt>().hit(Item.itemData.value, false, true);
+
+            if (hp >= MaxHp)
+            {
+                hp = MaxHp;
+            }
+        }
+
+        if (Item.itemData.Type == ItemData.ItemType.focus)
+        {
+            AUD.clip = Healing;
+            AUD.Play();
+
+            focus += Item.itemData.value;
+            GameObject hit_effekt = Instantiate(On_hit_effekt, transform.position, Quaternion.identity);
+            hit_effekt.GetComponent<Text_hit_effekt>().hit(Item.itemData.value, false, false, true);
+
+            if (focus >= MaxFocus)
+            {
+                focus = MaxFocus;
+            }
+        }
+
     }
 
     public void ON_HIT()
@@ -93,6 +125,11 @@ public class CHAMP_INFO : MonoBehaviour
         {
             dead = true;
             SR.enabled = false;
+        }
+
+        if (hp > MaxHp)
+        {
+            hp = MaxHp;
         }
     }
 
