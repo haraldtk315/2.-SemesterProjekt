@@ -12,6 +12,9 @@
 sysinfo.txt
 # Unity3D generated meta files
 *.pidb.meta
+# TextMesh Pro default fonts (auto-generated, not project-specific)
+Assets/TextMesh Pro/Examples & Extras/Resources/
+Assets/TextMesh Pro/Resources/Fonts & Materials/
 
 ###
 # VS/MD solution and project files
@@ -47,3 +50,5 @@ Thumbs.db
 *.dwlt
 *.dwlt
 .vsconfig
+
+
