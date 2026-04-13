@@ -745,8 +745,6 @@ public class BATTLEHANDLER : MonoBehaviour
         }
     }
 
-    public 
-
     //buttons
     public void ATTACK()
     {
