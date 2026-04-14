@@ -1463,15 +1463,15 @@ MonoBehaviour:
   X_RESTRICT_val: 0
   Z_RESTRICT_val: 0
   PREFABS:
-  - {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
-  - {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
-  - {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
+  - {fileID: 1706925449913843904, guid: c8245cca4c5bbcd4192b6258785ccefd, type: 3}
+  - {fileID: 5791932774335399605, guid: d61c123365474e4428dc742ceb354387, type: 3}
+  - {fileID: 2272294828065128067, guid: 1108007514aea174787f1981f0a3eeae, type: 3}
   random_PREFAB: 0
   random_x: 0
   random_z: 0
   RAY_HEIGHT: 10
-  Spawn_height: 0.5
-  PREFAB_lim: 1000
+  Spawn_height: -1
+  PREFAB_lim: 100
   OBJECTS: 0
   ALL_ON_STARTUP: 1
 --- !u!4 &335681839
@@ -1656,7 +1656,7 @@ Transform:
   m_GameObject: {fileID: 541392483}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalPosition: {x: 12, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4704,7 +4704,7 @@ Transform:
   m_GameObject: {fileID: 1307447618}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
