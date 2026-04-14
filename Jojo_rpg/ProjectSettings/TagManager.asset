@@ -8,6 +8,10 @@ TagManager:
   - BH
   - DH
   - Artery
+  - PLATFORM
+  - OBJECT
+  - ITEM_MENU
+  - GROUND
   layers:
   - Default
   - TransparentFX

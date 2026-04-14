@@ -30,6 +30,7 @@ public class BATTLEHANDLER : MonoBehaviour
     public float z_value = 0;
 
     public RawImage Texture;
+    public GameObject RENDER_CAM;
 
     //BUTTONS
     public GameObject MAIN_Buttons;
@@ -123,6 +124,7 @@ public class BATTLEHANDLER : MonoBehaviour
     private void RemoveText()
     {
         Texture.enabled = false;
+        RENDER_CAM.SetActive(false);
         Invoke("START_STATEMACHINE", 2f);
     }
 
@@ -348,7 +350,8 @@ public class BATTLEHANDLER : MonoBehaviour
             MAIN_Buttons.SetActive(false);
             SELECT_Buttons.SetActive(false);
             Player_UI.SetActive(true);
-            ITEM_PANEL.SetActive(false);
+            ITEM();
+            
 
             Cam_holder.transform.position = Vector3.zero;
             ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(false);
@@ -742,6 +745,9 @@ public class BATTLEHANDLER : MonoBehaviour
 
             WAIT_TIME = Target.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
             CURRENT_STATE = STATEMACHINE.WAITING;
+
+
+            Invoke("BACK", WAIT_TIME);
         }
     }
 
@@ -764,14 +770,13 @@ public class BATTLEHANDLER : MonoBehaviour
     public void ITEM()
     {
         Item_enabled = !Item_enabled;
-
+        
         Item_enable(Item_enabled);
     }
 
     public void Item_enable(bool enable)
     {
         Item_enabled = enable;
-
         ITEM_PANEL.SetActive(Item_enabled);
     }
 
