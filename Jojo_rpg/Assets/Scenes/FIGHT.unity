@@ -1463,15 +1463,15 @@ MonoBehaviour:
   X_RESTRICT_val: 0
   Z_RESTRICT_val: 0
   PREFABS:
-  - {fileID: 1706925449913843904, guid: c8245cca4c5bbcd4192b6258785ccefd, type: 3}
   - {fileID: 5791932774335399605, guid: d61c123365474e4428dc742ceb354387, type: 3}
+  - {fileID: 2272294828065128067, guid: 1108007514aea174787f1981f0a3eeae, type: 3}
   - {fileID: 2272294828065128067, guid: 1108007514aea174787f1981f0a3eeae, type: 3}
   random_PREFAB: 0
   random_x: 0
   random_z: 0
   RAY_HEIGHT: 10
   Spawn_height: -1
-  PREFAB_lim: 100
+  PREFAB_lim: 75
   OBJECTS: 0
   ALL_ON_STARTUP: 1
 --- !u!4 &335681839
