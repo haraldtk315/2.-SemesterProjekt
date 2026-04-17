@@ -263,6 +263,11 @@ public class BATTLEHANDLER : MonoBehaviour
             Player_UI.SetActive(true);
             Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x + x_value, ORDER[ON_CURRENT_CHAMP].transform.position.y - y_value, ORDER[ON_CURRENT_CHAMP].transform.position.z + z_value);
             ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(true);
+
+            for (int i = 0; i < MONSTER_ORDER.Length; i++)
+            {
+
+            }
         }
 
         //SELECT ATTACK MOVES
@@ -425,8 +430,7 @@ public class BATTLEHANDLER : MonoBehaviour
             {
                 TARGET_ENEMY = null;
 
-                CURRENT_STATE = STATEMACHINE.BATTLE;
-                StateMachine(STATEMACHINE.BATTLE);
+                TARGET_CLICKED(null);
             }
         }
 
@@ -674,16 +678,18 @@ public class BATTLEHANDLER : MonoBehaviour
         //WILL ATTACK HIT?
         bool attack_HITS = Check_if_attack_lands(acc);
 
+        int New_Damage = (int)((float)Damage * SENDER.GetComponent<CHAMP_INFO>().Damage_buff);
+
         //ANIMATION
-        if(attack_HITS == true)
+        if (attack_HITS == true)
         {
             if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.SINGLE_HIT || Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.Party) 
             {
-                SENDER.GetComponent<CHAMP_INFO>().NORMAL_HIT(TARGET, Damage);
+                SENDER.GetComponent<CHAMP_INFO>().NORMAL_HIT(TARGET, New_Damage);
                 WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
 
                 //DO DAMAGE TO TARGET (Could potentially be moved into the NORMAL_HIT() METHOD)
-                TARGET.GetComponent<CHAMP_INFO>().hp -= (int)((float)Damage * SENDER.GetComponent<CHAMP_INFO>().Damage_buff);
+                TARGET.GetComponent<CHAMP_INFO>().hp -= New_Damage;
                 SENDER.GetComponent<CHAMP_INFO>().focus += focus;
                 TARGET.GetComponent<CHAMP_INFO>().ON_HIT(); //MAKING SURE THE TARGET IS DEAD!!!
                 Debug.Log(TARGET.GetComponent<CHAMP_INFO>().Name + " GOT ATTACKED BY " + SENDER.GetComponent<CHAMP_INFO>().Name + " " + Damage.ToString() + " DAMAGE DEALT");
@@ -704,8 +710,8 @@ public class BATTLEHANDLER : MonoBehaviour
                 {
                     if (ORDER[i] != null)
                     {
-                        SENDER.GetComponent<CHAMP_INFO>().SELF_BUFF();
-                        SENDER.GetComponent<CHAMP_INFO>().Damage_buff = buff;
+                        ORDER[i].GetComponent<CHAMP_INFO>().SELF_BUFF();
+                        ORDER[i].GetComponent<CHAMP_INFO>().Damage_buff = buff;
 
                         WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
                     }

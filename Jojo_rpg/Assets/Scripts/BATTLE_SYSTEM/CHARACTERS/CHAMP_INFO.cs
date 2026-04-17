@@ -16,6 +16,7 @@ public class CHAMP_INFO : MonoBehaviour
     const string MISS = "MISS";
     const string HEAL = "HEAL";
     const string FOCUS = "FOCUS";
+    const string DEATH = "DEATH";
 
     //Sprites
     public SpriteRenderer SR;
@@ -157,7 +158,12 @@ public class CHAMP_INFO : MonoBehaviour
         if (hp <= 0)
         {
             dead = true;
-            SR.enabled = false;
+            ANI.Play(DEATH);
+
+            for (int i = 0; i < Out_sprites.Length; i++)
+            {
+                Out_sprites[i].GetComponent<SpriteRenderer>().sprite = SR.sprite;
+            }
         }
 
         if (hp > MaxHp)
