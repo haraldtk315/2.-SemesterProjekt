@@ -33,8 +33,29 @@ public class Item_menu_script : MonoBehaviour
             Item.GetComponentInChildren<TextMeshProUGUI>().text = item_info.itemData.displayName + "\n X: " + item_info.amount;
             Item.GetComponent<Image>().sprite = item_info.itemData.icon;
             Item.GetComponent<Item_button_click>().Item = item_info;
+
+            Items.Add(Item);
         }
 
+    }
+
+    private void OnEnable()
+    {
+        for (int i = 0; i < GM.inventory.Count; i++)
+        {
+            InventoryItem item_info = GM.inventory[i];
+
+            if (item_info.amount <= 0)
+            {
+                Items.Remove(Items[i]);
+            }
+            else
+            {
+                Items[i].GetComponentInChildren<TextMeshProUGUI>().text = item_info.itemData.displayName + "\n X: " + item_info.amount;
+                Items[i].GetComponent<Item_button_click>().Item = item_info;
+                Items[i].GetComponent<Image>().sprite = item_info.itemData.icon;
+            }
+        }
     }
 
     private void Start()

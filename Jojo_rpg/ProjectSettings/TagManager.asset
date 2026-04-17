@@ -8,6 +8,10 @@ TagManager:
   - BH
   - DH
   - Artery
+  - PLATFORM
+  - OBJECT
+  - ITEM_MENU
+  - GROUND
   layers:
   - Default
   - TransparentFX
@@ -42,6 +46,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Outline
+    uniqueID: 2625742029
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
