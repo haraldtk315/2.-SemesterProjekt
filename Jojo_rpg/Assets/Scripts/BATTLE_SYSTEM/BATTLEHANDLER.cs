@@ -110,7 +110,6 @@ public class BATTLEHANDLER : MonoBehaviour
         MAIN_Buttons.SetActive(false);
         Player_UI.SetActive(false);
 
-        //-Jeg kunne rigtig godt tænke mig at vi mpåske ikke brugte tags men referede til gameobjects istedet :D :D - harald
 
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
         DH = GameObject.FindGameObjectWithTag("DH").GetComponent<DIALOGUEHANDLER>();
