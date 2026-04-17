@@ -224,12 +224,14 @@ public class BATTLEHANDLER : MonoBehaviour
                 HEALTH_UI_FOR_PLAYERS[0].SetActive(true);
                 Ally.GetComponent<CHAMP_INFO>().Player_UI = HEALTH_UI_FOR_PLAYERS[0];
                 Ally.GetComponent<CHAMP_INFO>().Team_player = true;
+                Ally.GetComponent<CHAMP_INFO>().hp = GM.HP[0];
             }
             else
             {
                 GameObject Ally = Instantiate(GM.party[position_spawn], SPAWNS[position_spawn].transform.position, Quaternion.identity);
                 Ally.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
                 Ally.GetComponent<CHAMP_INFO>().Team_player = true;
+                Ally.GetComponent<CHAMP_INFO>().hp = GM.HP[position_spawn];
 
                 //player health and focus UI
                 HEALTH_UI_FOR_PLAYERS[position_spawn].SetActive(true);

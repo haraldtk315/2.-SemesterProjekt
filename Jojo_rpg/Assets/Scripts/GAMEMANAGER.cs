@@ -8,6 +8,7 @@ public class GAMEMANAGER : MonoBehaviour
     public static GAMEMANAGER instance;
 
     public GameObject[] party;
+    public int[] HP = { 0, 0, 0, 0, 0 };
     public List<InventoryItem> inventory = new List<InventoryItem>();
 
 
@@ -31,6 +32,14 @@ public class GAMEMANAGER : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
+            for (int i = 0; i < party.Length; i++)
+            {
+                if (party[i] != null)
+                {
+                    HP[i] = party[i].GetComponent<CHAMP_INFO>().MaxHp;
+                }
+            }
         }
         else
         {
