@@ -605,6 +605,14 @@ public class BATTLEHANDLER : MonoBehaviour
 
             if (win == true)
             {
+                for(int i = 0; i < GM.HP.Length; i++)
+                {
+                    if (ORDER[i] != null)
+                    {
+                        GM.HP[i] = ORDER[i].GetComponent<CHAMP_INFO>().hp;
+                    }
+                }
+
                 if (!string.IsNullOrEmpty(GAMEMANAGER.instance.currentNPCID))
                 {
                     GAMEMANAGER.instance.defeatedNPCs.Add(GAMEMANAGER.instance.currentNPCID);
