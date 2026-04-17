@@ -600,6 +600,14 @@ public class BATTLEHANDLER : MonoBehaviour
 
             if (lost == true)
             {
+                for (int i = 0; i < GM.HP.Length; i++)
+                {
+                    if (ORDER[i] != null)
+                    {
+                        GM.HP[i] = ORDER[i].GetComponent<CHAMP_INFO>().MaxHp;
+                    }
+                }
+
                 SceneManager.LoadScene("TITLE");
             }
 
