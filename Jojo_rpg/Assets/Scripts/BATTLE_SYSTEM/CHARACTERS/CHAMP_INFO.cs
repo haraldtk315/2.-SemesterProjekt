@@ -57,8 +57,8 @@ public class CHAMP_INFO : MonoBehaviour
     public GameObject Outline;
     public GameObject[] Out_sprites;
 
-    private float heal_pitch = 0.9f;
-    private float focus_pitch = 0.7f;
+    private float heal_pitch = 0.75f;
+    private float focus_pitch = 0.6f;
 
     private void Start()
     {
@@ -282,7 +282,7 @@ public class CHAMP_INFO : MonoBehaviour
         return ANI.GetCurrentAnimatorStateInfo(0).length;
     }
 
-    public void PlaySound(AudioClip Clip, float pitch = 1, float volume = 1)
+    public void PlaySound(AudioClip Clip, float pitch = 1, float volume = 0.8f)
     {
         AUD.pitch = pitch;
         AUD.volume = volume;

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77f1f27093a6224f850c6f4d9654084, type: 3}
   m_Name: La_Musette
   m_EditorClassIdentifier: Assembly-CSharp::BASIC_ATTACKS
-  name: La Musette
+  attackName: la Mussette
   damage: 5
   acc: 100
   focus: 30
