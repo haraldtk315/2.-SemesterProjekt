@@ -39,6 +39,7 @@ public class CHAMP_INFO : MonoBehaviour
     public int Party_order;
     public bool Team_player;
     public bool dead = false;
+    public string champID;
 
     public int hp;
     public int focus;
@@ -62,7 +63,7 @@ public class CHAMP_INFO : MonoBehaviour
     private void Start()
     {
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
-        BH = GameObject.FindGameObjectWithTag("BH").GetComponent<BATTLEHANDLER>();
+        BH = BATTLEHANDLER.instance;
         ANI = GetComponentInChildren<Animator>();
         SR = GetComponentInChildren<SpriteRenderer>();
         PAR = GetComponentInChildren<ParticleSystem>();

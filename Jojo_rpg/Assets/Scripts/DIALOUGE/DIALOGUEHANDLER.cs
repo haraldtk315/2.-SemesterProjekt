@@ -14,6 +14,8 @@ public class DIALOGUEHANDLER : MonoBehaviour
     private GameObject dialogueBox;
     private TextMeshProUGUI dialogueBoxText;
     private GameObject destroyAfterDialogueObject;
+    private GameObject partyRewardAfterDialogue;
+
 
     public float textSpeed;
 
@@ -53,7 +55,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
         }
     }
 
-    public void DialogueStart(string[] _dialogue, GameObject player, GameObject[] enemies = null, GameObject destroyAfterDialogue = null)
+    public void DialogueStart(string[] _dialogue, GameObject player, GameObject[] enemies = null, GameObject destroyAfterDialogue = null, GameObject partyReward = null)
     {
         if (!dialogueActive)
         {
@@ -62,6 +64,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
             currDialogueIndex = 0;
             ENEMIES = enemies;
             destroyAfterDialogueObject = destroyAfterDialogue;
+            partyRewardAfterDialogue = partyReward;
 
             if (player != null)
             {
@@ -134,8 +137,15 @@ public class DIALOGUEHANDLER : MonoBehaviour
         if (ShouldStartFight)
         {
             destroyAfterDialogueObject = null;
+            partyRewardAfterDialogue = null;
             SceneManager.LoadScene("FIGHT");
             return;
+        }
+
+        if (partyRewardAfterDialogue != null)
+        {
+            GAMEMANAGER.instance.AddPartyMember(partyRewardAfterDialogue);
+            partyRewardAfterDialogue = null;
         }
 
         if (destroyAfterDialogueObject != null)
