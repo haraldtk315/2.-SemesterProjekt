@@ -3,6 +3,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 
 public class CHAMP_INFO : MonoBehaviour
@@ -49,6 +50,12 @@ public class CHAMP_INFO : MonoBehaviour
     public GameObject On_hit_effekt;
     public GameObject Player_UI;
 
+    public GameObject Outline;
+    public GameObject[] Out_sprites;
+
+    private float heal_pitch = 0.9f;
+    private float focus_pitch = 0.7f;
+
     private void Start()
     {
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
@@ -60,6 +67,11 @@ public class CHAMP_INFO : MonoBehaviour
 
         //UI
         On_hit_effekt = BH.On_hit_text;
+
+        for (int i = 0; i < Out_sprites.Length; i++)
+        {
+            Out_sprites[i].GetComponent<SpriteRenderer>().sprite = SR.sprite;
+        }
     }
    
     
@@ -78,12 +90,30 @@ public class CHAMP_INFO : MonoBehaviour
         BH.TARGET_CLICKED(this.gameObject);
     }
 
+    private void OnMouseOver()
+    {
+        if (BH.CURRENT_STATE == BATTLEHANDLER.STATEMACHINE.ITEM_SELECT || BH.CURRENT_STATE == BATTLEHANDLER.STATEMACHINE.TARGET)
+        {
+            Debug.Log("Mouse over unit");
+
+            Outline.SetActive(true);
+        }
+        else
+        {
+            Outline.SetActive(false);
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        Outline.SetActive(false);
+    }
+
     public void Item_used(InventoryItem Item)
     {
         if (Item.itemData.Type == ItemData.ItemType.health)
         {
-            AUD.clip = Healing;
-            AUD.Play();
+            PlaySound(Healing, heal_pitch);
 
             ANI.Play(HEAL);
 
@@ -99,8 +129,7 @@ public class CHAMP_INFO : MonoBehaviour
 
         if (Item.itemData.Type == ItemData.ItemType.focus)
         {
-            AUD.clip = Healing;
-            AUD.Play();
+            PlaySound(Healing, focus_pitch);
 
             focus += Item.itemData.value;
             GameObject hit_effekt = Instantiate(On_hit_effekt, transform.position, Quaternion.identity);
@@ -181,8 +210,7 @@ public class CHAMP_INFO : MonoBehaviour
 
         if (Damage < 0)
         {
-            TARGET.GetComponent<CHAMP_INFO>().AUD.clip = TARGET.GetComponent<CHAMP_INFO>().Healing;
-            TARGET.GetComponent<CHAMP_INFO>().AUD.Play();
+            TARGET.GetComponent<CHAMP_INFO>().PlaySound(Healing, heal_pitch);
             TARGET.GetComponent<CHAMP_INFO>().ANI.Play(HEAL);
 
             GameObject hit_effekt = Instantiate(On_hit_effekt, TARGET.transform.position, Quaternion.identity);
@@ -194,9 +222,7 @@ public class CHAMP_INFO : MonoBehaviour
             ANI.Play(ATTACK);
 
             int random = Random.Range(0, Hitsounds.Length);
-            AUD.clip = Hitsounds[random];
-            AUD.volume = (float)((Damage + 10) * 2.5f) / 100;
-            AUD.Play();
+            PlaySound(Hitsounds[random], 1, (float)((Damage + 10) * 2.5f) / 100);
 
             if (TARGET.GetComponent<CHAMP_INFO>().PAR != null) //Only here just incase the TARGET does not have a particle effekt.
             {
@@ -239,5 +265,13 @@ public class CHAMP_INFO : MonoBehaviour
     public float GET_CURRENT_ANIMATION_LENGTH()
     {
         return ANI.GetCurrentAnimatorStateInfo(0).length;
+    }
+
+    public void PlaySound(AudioClip Clip, float pitch = 1, float volume = 1)
+    {
+        AUD.pitch = pitch;
+        AUD.volume = volume;
+        AUD.clip = Clip;
+        AUD.Play();
     }
 }

@@ -46,6 +46,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Outline
+    uniqueID: 2625742029
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
