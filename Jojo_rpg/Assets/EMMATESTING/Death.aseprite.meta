@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639120376543185231
+  platformSettingsDirtyTick: 639120383045133004
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -129,7 +129,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Death
     originalName: 
-    pivot: {x: 0.5, y: 1.1538461}
+    pivot: {x: 0.5, y: 1.25}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -138,7 +138,7 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 26
-      height: 13
+      height: 12
     spriteID: 3f7cbaacb63a36d45b6cc97ae863d7c0
     spriteBone: []
     spriteOutline: []
@@ -150,16 +150,16 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 1.1538461}
+    pivot: {x: 0.5, y: 1.25}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
       x: 4
-      y: 25
+      y: 24
       width: 26
-      height: 13
+      height: 12
     spriteID: d7fa3d6c312e84540bc78a0556b4647a
     spriteBone: []
     spriteOutline: []
@@ -168,7 +168,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 25}
+    uvTransform: {x: 4, y: 24}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
@@ -191,7 +191,7 @@ ScriptedImporter:
         x: 3
         y: 1
         width: 26
-        height: 13
+        height: 12
       spriteId: 3f7cbaacb63a36d45b6cc97ae863d7c0
     - name: Frame_1
       frameIndex: 1
@@ -200,7 +200,7 @@ ScriptedImporter:
         x: 3
         y: 1
         width: 26
-        height: 13
+        height: 12
       spriteId: d7fa3d6c312e84540bc78a0556b4647a
     linkedCells: []
     tileCells: []
