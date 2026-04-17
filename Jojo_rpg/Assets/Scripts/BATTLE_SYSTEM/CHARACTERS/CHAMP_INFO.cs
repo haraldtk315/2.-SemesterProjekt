@@ -163,6 +163,11 @@ public class CHAMP_INFO : MonoBehaviour
             {
                 Out_sprites[i].GetComponent<SpriteRenderer>().sprite = SR.sprite;
             }
+
+            if (hp <= -25)
+            {
+                Destroy(this.gameObject);
+            }
         }
 
         if (hp > MaxHp)
