@@ -264,6 +264,11 @@ public class BATTLEHANDLER : MonoBehaviour
             Player_UI.SetActive(true);
             Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x + x_value, ORDER[ON_CURRENT_CHAMP].transform.position.y - y_value, ORDER[ON_CURRENT_CHAMP].transform.position.z + z_value);
             ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(true);
+
+            for (int i = 0; i < MONSTER_ORDER.Length; i++)
+            {
+
+            }
         }
 
         //SELECT ATTACK MOVES
@@ -426,8 +431,7 @@ public class BATTLEHANDLER : MonoBehaviour
             {
                 TARGET_ENEMY = null;
 
-                CURRENT_STATE = STATEMACHINE.BATTLE;
-                StateMachine(STATEMACHINE.BATTLE);
+                TARGET_CLICKED(null);
             }
         }
 
