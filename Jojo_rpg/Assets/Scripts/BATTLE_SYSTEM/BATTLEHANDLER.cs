@@ -617,8 +617,8 @@ public class BATTLEHANDLER : MonoBehaviour
                         GM.party[i].GetComponent<CHAMP_INFO>().dead = false;
                     }
                 }
-                
 
+                SceneManager.UnloadSceneAsync("FIGHT");
                 SceneManager.LoadScene("TITLE");
             }
 
@@ -673,7 +673,7 @@ public class BATTLEHANDLER : MonoBehaviour
     }
 
     //THE BASIC ATTACK (Could potentially also work for the future special move)
-    public void TARGET_ATTACK(GameObject SENDER, GameObject TARGET, int Damage, int acc, int focus = 0, int buff = 1)
+    public void TARGET_ATTACK(GameObject SENDER, GameObject TARGET, int Damage, int acc, int focus = 0, float buff = 1f)
     {
         //ZOOM OUT CAM
         Cam_holder.transform.position = Vector3.zero;
