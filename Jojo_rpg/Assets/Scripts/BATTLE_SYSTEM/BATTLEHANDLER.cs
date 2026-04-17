@@ -435,7 +435,10 @@ public class BATTLEHANDLER : MonoBehaviour
 
             if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.HIT_ALL_PARTY)
             {
-                Target_enemies = ORDER;
+                TARGET_ENEMY = null;
+
+                CURRENT_STATE = STATEMACHINE.BATTLE;
+                StateMachine(STATEMACHINE.BATTLE);
             }
         }
 
@@ -668,7 +671,7 @@ public class BATTLEHANDLER : MonoBehaviour
     }
 
     //THE BASIC ATTACK (Could potentially also work for the future special move)
-    public void TARGET_ATTACK(GameObject SENDER, GameObject TARGET, int Damage, int acc, int focus = 0)
+    public void TARGET_ATTACK(GameObject SENDER, GameObject TARGET, int Damage, int acc, int focus = 0, int buff = 1)
     {
         //ZOOM OUT CAM
         Cam_holder.transform.position = Vector3.zero;
@@ -685,7 +688,7 @@ public class BATTLEHANDLER : MonoBehaviour
                 WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
 
                 //DO DAMAGE TO TARGET (Could potentially be moved into the NORMAL_HIT() METHOD)
-                TARGET.GetComponent<CHAMP_INFO>().hp -= Damage;
+                TARGET.GetComponent<CHAMP_INFO>().hp -= (int)((float)Damage * SENDER.GetComponent<CHAMP_INFO>().Damage_buff);
                 SENDER.GetComponent<CHAMP_INFO>().focus += focus;
                 TARGET.GetComponent<CHAMP_INFO>().ON_HIT(); //MAKING SURE THE TARGET IS DEAD!!!
                 Debug.Log(TARGET.GetComponent<CHAMP_INFO>().Name + " GOT ATTACKED BY " + SENDER.GetComponent<CHAMP_INFO>().Name + " " + Damage.ToString() + " DAMAGE DEALT");
@@ -705,6 +708,7 @@ public class BATTLEHANDLER : MonoBehaviour
                     if (ORDER[i] != null)
                     {
                         SENDER.GetComponent<CHAMP_INFO>().SELF_BUFF();
+                        SENDER.GetComponent<CHAMP_INFO>().Damage_buff = buff;
                     }
                 }
             }

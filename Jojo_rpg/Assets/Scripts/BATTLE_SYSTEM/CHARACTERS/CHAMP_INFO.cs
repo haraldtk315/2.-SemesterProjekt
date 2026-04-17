@@ -41,6 +41,8 @@ public class CHAMP_INFO : MonoBehaviour
 
     public int hp;
     public int focus;
+    public float Damage_buff = 1;
+    public int Shield_buff = 1;
 
     public float time;
 
