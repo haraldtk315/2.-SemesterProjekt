@@ -57,6 +57,7 @@ public class BATTLEHANDLER : MonoBehaviour
     public GameObject only_monster;
 
     public GameObject TARGET_ENEMY;
+    public GameObject[] Target_enemies;
     public BASIC_ATTACKS[] ENEMY_MOVES;
     public int Enemy_Attack;
     public int ON_TARGET_ENEMY = 0;
@@ -431,6 +432,11 @@ public class BATTLEHANDLER : MonoBehaviour
             {
 
             }
+
+            if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.HIT_ALL_PARTY)
+            {
+                Target_enemies = ORDER;
+            }
         }
 
         if (Current == STATEMACHINE.MICROGAME)
@@ -690,6 +696,17 @@ public class BATTLEHANDLER : MonoBehaviour
                 SENDER.GetComponent<CHAMP_INFO>().SELF_BUFF();
                 SENDER.GetComponent<CHAMP_INFO>().focus += focus;
                 Debug.Log(SENDER.GetComponent<CHAMP_INFO>().Name + " Buffed themselves, " + focus.ToString() + " Focus was gained");
+            }
+
+            if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.HIT_ALL_PARTY)
+            {
+                for(int i = 0; i < ORDER.Length; i++)
+                {
+                    if (ORDER[i] != null)
+                    {
+                        SENDER.GetComponent<CHAMP_INFO>().SELF_BUFF();
+                    }
+                }
             }
         }
 

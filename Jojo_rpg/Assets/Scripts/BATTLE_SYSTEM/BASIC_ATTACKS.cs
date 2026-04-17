@@ -14,7 +14,9 @@ public class BASIC_ATTACKS : ScriptableObject
         SINGLE_HIT,
         SELF,
         HIT_ALL,
-        Party
+        Party,
+        HIT_ALL_PARTY,
+        HIT_ALL_ENEMY
     }
 
     [TextArea]
