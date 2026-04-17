@@ -15,6 +15,7 @@ public class CHAMP_INFO : MonoBehaviour
     const string ATTACK = "ATTACK";
     const string MISS = "MISS";
     const string HEAL = "HEAL";
+    const string FOCUS = "FOCUS";
 
     //Sprites
     public SpriteRenderer SR;
@@ -131,7 +132,7 @@ public class CHAMP_INFO : MonoBehaviour
 
         if (Item.itemData.Type == ItemData.ItemType.focus)
         {
-            PlaySound(Healing, focus_pitch);
+            SELF_BUFF();
 
             focus += Item.itemData.value;
             GameObject hit_effekt = Instantiate(On_hit_effekt, transform.position, Quaternion.identity);
@@ -246,7 +247,8 @@ public class CHAMP_INFO : MonoBehaviour
 
     public void SELF_BUFF()
     {
-
+        PlaySound(Healing, focus_pitch);
+        ANI.Play("FOCUS");
     }
 
 

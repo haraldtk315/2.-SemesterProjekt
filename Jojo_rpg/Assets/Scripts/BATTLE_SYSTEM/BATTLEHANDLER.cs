@@ -613,9 +613,11 @@ public class BATTLEHANDLER : MonoBehaviour
                 {
                     if (ORDER[i] != null)
                     {
-                        GM.HP[i] = ORDER[i].GetComponent<CHAMP_INFO>().MaxHp;
+                        GM.HP[i] = GM.party[i].GetComponent<CHAMP_INFO>().MaxHp;
+                        GM.party[i].GetComponent<CHAMP_INFO>().dead = false;
                     }
                 }
+                
 
                 SceneManager.LoadScene("TITLE");
             }
@@ -699,6 +701,8 @@ public class BATTLEHANDLER : MonoBehaviour
                 SENDER.GetComponent<CHAMP_INFO>().SELF_BUFF();
                 SENDER.GetComponent<CHAMP_INFO>().focus += focus;
                 Debug.Log(SENDER.GetComponent<CHAMP_INFO>().Name + " Buffed themselves, " + focus.ToString() + " Focus was gained");
+
+                WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
             }
 
             if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.HIT_ALL_PARTY)
@@ -709,6 +713,8 @@ public class BATTLEHANDLER : MonoBehaviour
                     {
                         SENDER.GetComponent<CHAMP_INFO>().SELF_BUFF();
                         SENDER.GetComponent<CHAMP_INFO>().Damage_buff = buff;
+
+                        WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
                     }
                 }
             }
