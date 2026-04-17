@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6ac3aeea66da5844181e927f0b17349b
+guid: 90bd0972b24abcf469b1a48dcabed5a9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,51 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Housin_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21ddf46b68189aa42b8d97ae9f2ac5df
-      internalID: 1715404175
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Housin_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: efea7da60adb5394ab04c1ee536564e8
-      internalID: -249763695
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Housin_2
+      name: BergShad_0
       rect:
         serializedVersion: 2
         x: 0
@@ -156,30 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4d83471cdc30654c9185f240ddc6347
-      internalID: -1229199242
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Housin_3
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0a41e86c59f45a4c805b7af72e65c22
-      internalID: 1790560101
+      spriteID: addb922d75afd454abeac5e99989d084
+      internalID: -1325312154
       vertices: []
       indices: 
       edges: []
@@ -188,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ad3ac72d9c850a94d9485345f50ce3c1
+    spriteID: dd0377c9acebc224db0b0502b27a2abb
     internalID: 0
     vertices: []
     indices: 
@@ -200,10 +134,7 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Housin_0: 1715404175
-      Housin_1: -249763695
-      Housin_2: -1229199242
-      Housin_3: 1790560101
+      BergShad_0: -1325312154
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
