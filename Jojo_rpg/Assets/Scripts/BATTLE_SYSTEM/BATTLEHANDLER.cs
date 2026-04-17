@@ -265,9 +265,22 @@ public class BATTLEHANDLER : MonoBehaviour
             Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x + x_value, ORDER[ON_CURRENT_CHAMP].transform.position.y - y_value, ORDER[ON_CURRENT_CHAMP].transform.position.z + z_value);
             ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(true);
 
+            bool done = true;
             for (int i = 0; i < MONSTER_ORDER.Length; i++)
             {
+                if (MONSTER_ORDER[i] != null)
+                {
+                    if (MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().dead == false)
+                    {
+                        done = false;
+                    }
+                }
+            }
 
+            if (done == true)
+            {
+                CURRENT_STATE = STATEMACHINE.END;
+                StateMachine(STATEMACHINE.END);
             }
         }
 
