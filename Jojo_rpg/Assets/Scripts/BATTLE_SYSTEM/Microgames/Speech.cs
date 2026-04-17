@@ -25,7 +25,7 @@ public class Speech : MonoBehaviour
     private void OnEnable()
     {
         endMicrogameRoutine = StartCoroutine(EndMicrogame(microgameTime));
-        SetRemainingSentence(sentenceBank[UnityEngine.Random.Range(0, sentenceBank.Count)]);
+        SetRemainingSentence(sentenceBank[UnityEngine.Random.Range(1, sentenceBank.Count + 1)]);
     }
 
     // Update is called once per frame
@@ -39,8 +39,6 @@ public class Speech : MonoBehaviour
         if (Input.anyKeyDown)
         {
             string letter = Input.inputString;
-
-            Debug.Log(letter);
 
             if (letter.Length == 1)
             {
@@ -66,7 +64,7 @@ public class Speech : MonoBehaviour
     private IEnumerator EndMicrogame(float yieldTime)
     {
         yield return new WaitForSeconds(yieldTime);
-        MICROGAMEHANDLER.instance.EndMicrogame(0, 0);
+        MICROGAMEHANDLER.instance.EndMicrogame(type, 0);
     }
 
 }
