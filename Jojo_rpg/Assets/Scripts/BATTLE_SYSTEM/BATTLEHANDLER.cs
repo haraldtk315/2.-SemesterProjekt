@@ -96,17 +96,6 @@ public class BATTLEHANDLER : MonoBehaviour
 
     private void Start()
     {
-        // Singleton pattern
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
 
         MAIN_Buttons.SetActive(false);
         Player_UI.SetActive(false);
@@ -618,7 +607,6 @@ public class BATTLEHANDLER : MonoBehaviour
                     }
                 }
 
-                SceneManager.UnloadSceneAsync("FIGHT");
                 SceneManager.LoadScene("TITLE");
             }
 
