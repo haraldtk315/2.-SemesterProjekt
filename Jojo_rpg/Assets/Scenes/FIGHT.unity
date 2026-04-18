@@ -4162,6 +4162,7 @@ GameObject:
   - component: {fileID: 1147759007}
   - component: {fileID: 1147759006}
   - component: {fileID: 1147759009}
+  - component: {fileID: 1147759010}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -4297,6 +4298,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BUTTON_HOLDER
   ATTACK: {fileID: 0}
   SPECIALS: {fileID: 0}
+--- !u!114 &1147759010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147759004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73bb1d44794c7a7469998c0eb3f1beb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HAS_INFO
+  INFO: {fileID: 0}
+  CHAMP: {fileID: 0}
+  ITEM_INFO: {fileID: 0}
+  ITEM_DATA: {fileID: 0}
+  BUTTON_HOLD: {fileID: 0}
+  Text: 
+  ON_UI: 0
+  Info_type: 3
 --- !u!1 &1150297522
 GameObject:
   m_ObjectHideFlags: 0
@@ -5211,6 +5232,7 @@ GameObject:
   - component: {fileID: 1405585309}
   - component: {fileID: 1405585308}
   - component: {fileID: 1405585311}
+  - component: {fileID: 1405585312}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -5346,6 +5368,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BUTTON_HOLDER
   ATTACK: {fileID: 0}
   SPECIALS: {fileID: 0}
+--- !u!114 &1405585312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405585306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73bb1d44794c7a7469998c0eb3f1beb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HAS_INFO
+  INFO: {fileID: 0}
+  CHAMP: {fileID: 0}
+  ITEM_INFO: {fileID: 0}
+  ITEM_DATA: {fileID: 0}
+  BUTTON_HOLD: {fileID: 0}
+  Text: 
+  ON_UI: 0
+  Info_type: 3
 --- !u!1 &1421982067
 GameObject:
   m_ObjectHideFlags: 0
@@ -5359,6 +5401,7 @@ GameObject:
   - component: {fileID: 1421982070}
   - component: {fileID: 1421982069}
   - component: {fileID: 1421982072}
+  - component: {fileID: 1421982073}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -5494,6 +5537,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BUTTON_HOLDER
   ATTACK: {fileID: 0}
   SPECIALS: {fileID: 0}
+--- !u!114 &1421982073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421982067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73bb1d44794c7a7469998c0eb3f1beb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HAS_INFO
+  INFO: {fileID: 0}
+  CHAMP: {fileID: 0}
+  ITEM_INFO: {fileID: 0}
+  ITEM_DATA: {fileID: 0}
+  BUTTON_HOLD: {fileID: 0}
+  Text: 
+  ON_UI: 0
+  Info_type: 3
 --- !u!1 &1434997606
 GameObject:
   m_ObjectHideFlags: 0
@@ -7757,6 +7820,7 @@ GameObject:
   - component: {fileID: 2057827962}
   - component: {fileID: 2057827961}
   - component: {fileID: 2057827964}
+  - component: {fileID: 2057827965}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -7892,6 +7956,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BUTTON_HOLDER
   ATTACK: {fileID: 0}
   SPECIALS: {fileID: 0}
+--- !u!114 &2057827965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057827959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73bb1d44794c7a7469998c0eb3f1beb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HAS_INFO
+  INFO: {fileID: 0}
+  CHAMP: {fileID: 0}
+  ITEM_INFO: {fileID: 0}
+  ITEM_DATA: {fileID: 0}
+  BUTTON_HOLD: {fileID: 0}
+  Text: 
+  ON_UI: 0
+  Info_type: 3
 --- !u!1 &2075806857
 GameObject:
   m_ObjectHideFlags: 0

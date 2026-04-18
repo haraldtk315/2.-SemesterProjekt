@@ -10,7 +10,10 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public CHAMP_INFO CHAMP;
     public Item_button_click ITEM_INFO;
     public ItemData ITEM_DATA;
+    public BUTTON_HOLDER BUTTON_HOLD;
     public string Text;
+
+    public static bool ON_UI = false;
 
     public enum TYPE
     {
@@ -32,8 +35,37 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         INFO = GameObject.FindGameObjectWithTag("INFO").GetComponent<INFO_BOX>();
     }
 
+    private void OnMouseOver()
+    {
+        if (ON_UI == false)
+        {
+            if (Info_type == TYPE.SIMPLE_TEXT)
+            {
+                INFO.SHOW(Text, ON_UI);
+            }
+
+            if (Info_type == TYPE.CHAMP_INFO)
+            {
+                CHAMP = GetComponent<CHAMP_INFO>();
+                Text = string.Empty;
+                Text = CHAMP.Name + ": \n";
+                Text += "MAX HP: " + CHAMP.MaxHp.ToString() + "\n \n";
+                Text += "Description: \n";
+                Text += CHAMP.descripton;
+                INFO.SHOW(Text, ON_UI);
+            }
+
+            if (Info_type == TYPE.ITEM)
+            {
+
+            }
+        }
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
+        ON_UI = true;
+
         if (Info_type == TYPE.SIMPLE_TEXT)
         {
             Debug.Log("something is here");
@@ -56,12 +88,41 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         if (Info_type == TYPE.ATTACK_MOVE)
         {
+            BUTTON_HOLD = GetComponent<BUTTON_HOLDER>();
 
+            if (BUTTON_HOLD.ATTACK != null)
+            {
+                Text = BUTTON_HOLD.ATTACK.attackName + ": \n";
+                
+                if (BUTTON_HOLD.ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.SINGLE_HIT)
+                {
+                    Text += "A single hit move with a " + BUTTON_HOLD.ATTACK.acc.ToString() + "% Chance of hitting its target \n";
+                    Text += "When hitting this move gain " + BUTTON_HOLD.ATTACK.focus.ToString() + " focus";
+                }
+
+                if (BUTTON_HOLD.ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.SELF)
+                {
+                    Text += "A self buffing move with a " + BUTTON_HOLD.ATTACK.acc.ToString() + "% success rate \n";
+                    Text += "When using this move gain " + BUTTON_HOLD.ATTACK.focus.ToString() + " focus";
+                }
+
+                StopAllCoroutines();
+                StartCoroutine(StartTimer());
+            }
+
+            if (BUTTON_HOLD.SPECIALS != null)
+            {
+
+
+                StopAllCoroutines();
+                StartCoroutine(StartTimer());
+            }
         }
     }
 
     public IEnumerator StartTimer()
     {
+        ON_UI = true;
         yield return new WaitForSeconds(INFO.wait_time);
 
         INFO.INSTANT_SHOW(Text);
@@ -69,33 +130,10 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        ON_UI = false;
         StopAllCoroutines();
         INFO.HIDE();
         Debug.Log("NO MORE!");
-    }
-    
-    private void OnMouseOver()
-    {
-        if (Info_type == TYPE.SIMPLE_TEXT)
-        {
-            INFO.SHOW(Text);
-        }
-        
-        if (Info_type == TYPE.CHAMP_INFO)
-        {
-            CHAMP = GetComponent<CHAMP_INFO>();
-            Text = string.Empty;
-            Text = CHAMP.Name + ": \n";
-            Text += "MAX HP: " + CHAMP.MaxHp.ToString() + "\n \n";
-            Text += "Description: \n";
-            Text += CHAMP.descripton;
-            INFO.SHOW(Text);
-        }
-
-        if (Info_type == TYPE.ITEM)
-        {
-            
-        }
     }
 
     private void OnMouseExit()

@@ -40,8 +40,13 @@ public class INFO_BOX : MonoBehaviour
         }
     }
 
-    public void SHOW(string Text)
+    public void SHOW(string Text, bool ON_UI)
     {
+        if (ON_UI)
+        {
+            time = 0;
+        }
+
         time += Time.deltaTime;
 
         if (time > wait_time)
