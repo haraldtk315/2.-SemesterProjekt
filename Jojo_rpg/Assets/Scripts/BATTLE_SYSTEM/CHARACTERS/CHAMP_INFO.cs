@@ -37,6 +37,7 @@ public class CHAMP_INFO : MonoBehaviour
     public int MaxHp;
     public int MaxFocus;
     public int Level;
+    public string descripton;
     public int Party_order;
     public bool Team_player;
     public bool dead = false;
@@ -161,10 +162,12 @@ public class CHAMP_INFO : MonoBehaviour
 
             for (int i = 0; i < Out_sprites.Length; i++)
             {
+                Name = "Pile of bones";
+                descripton = "Not even a trace of flesh remain on these bones.\nRest in peace";
                 Out_sprites[i].GetComponent<SpriteRenderer>().sprite = SR.sprite;
             }
 
-            if (hp <= -25)
+            if (hp <= -MaxHp)
             {
                 Destroy(this.gameObject);
             }
