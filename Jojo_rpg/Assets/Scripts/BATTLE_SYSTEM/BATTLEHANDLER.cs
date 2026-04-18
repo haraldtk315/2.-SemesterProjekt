@@ -65,6 +65,8 @@ public class BATTLEHANDLER : MonoBehaviour
     public int CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE; //Major problems with animations on zombies since it is done insinde a for loop so we need a seperate state for the animation/attacks of monsters
     private bool forced_combat = false;
 
+    private bool EXPANDED = false; //for quickly changing size in the input state
+
     //STATEMACHINE
 
     float WAIT_TIME; //Used if we need small breaks between the states.
@@ -262,6 +264,7 @@ public class BATTLEHANDLER : MonoBehaviour
         {
             MAIN_Buttons.SetActive(true);
             Player_UI.SetActive(true);
+            EXPANDED = false;
             Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x + x_value, ORDER[ON_CURRENT_CHAMP].transform.position.y - y_value, ORDER[ON_CURRENT_CHAMP].transform.position.z + z_value);
             ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(true);
 
@@ -861,6 +864,20 @@ public class BATTLEHANDLER : MonoBehaviour
         StateMachine(CURRENT_STATE);
     }
 
+    public void EXPAND()
+    {
+        EXPANDED = !EXPANDED;
+
+        if (EXPANDED == false)
+        {
+            Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x + x_value, ORDER[ON_CURRENT_CHAMP].transform.position.y - y_value, ORDER[ON_CURRENT_CHAMP].transform.position.z + z_value);
+        }
+
+        if (EXPANDED == true)
+        {
+            Cam_holder.transform.position = Vector3.zero;
+        }
+    }
     public void RUN()
     {
         Item_enable(false);

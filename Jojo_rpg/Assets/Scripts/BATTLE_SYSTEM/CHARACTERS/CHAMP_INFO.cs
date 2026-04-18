@@ -285,7 +285,7 @@ public class CHAMP_INFO : MonoBehaviour
         return ANI.GetCurrentAnimatorStateInfo(0).length;
     }
 
-    public void PlaySound(AudioClip Clip, float pitch = 1, float volume = 0.8f)
+    public void PlaySound(AudioClip Clip, float pitch = 1, float volume = 0.75f)
     {
         AUD.pitch = pitch;
         AUD.volume = volume;

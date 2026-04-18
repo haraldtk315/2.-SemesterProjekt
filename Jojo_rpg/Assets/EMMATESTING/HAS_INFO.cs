@@ -16,7 +16,8 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         SIMPLE_TEXT,
         CHAMP_INFO,
-        ITEM
+        ITEM,
+        ATTACK_MOVE
     }
 
     public TYPE Info_type;
@@ -51,6 +52,11 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
             StopAllCoroutines();
             StartCoroutine(StartTimer());
+        }
+
+        if (Info_type == TYPE.ATTACK_MOVE)
+        {
+
         }
     }
 
