@@ -20,7 +20,7 @@ EditorUserSettings:
     RecentlyUsedSceneGuid-4:
       value: 5103020255075d5a55585d2147745c4446151a797b2a2568757a4962b5b0353e
       flags: 0
-    RecentlyUsedSceneGuid-5:
+    RecentlyUsedSceneGuid-2:
       value: 5454555f57540b5e0c0d082013755c44134f4b7c7b79256279714f6ab0e56360
       flags: 0
     UnityEditor.ShaderGraph.Blackboard:
@@ -43,8 +43,8 @@ EditorUserSettings:
   m_VCDebugCmd: 0
   m_VCDebugOut: 0
   m_SemanticMergeMode: 2
-  m_DesiredImportWorkerCount: 2
-  m_StandbyImportWorkerCount: 2
+  m_DesiredImportWorkerCount: 1
+  m_StandbyImportWorkerCount: 1
   m_IdleImportWorkerShutdownDelay: 60000
   m_VCShowFailedCheckout: 1
   m_VCOverwriteFailedCheckoutAssets: 1
