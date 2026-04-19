@@ -42,6 +42,7 @@ public class CHAMP_INFO : MonoBehaviour
     public int Party_order;
     public bool Team_player;
     public bool dead = false;
+    public string champID;
 
     public int hp;
     public int focus;
