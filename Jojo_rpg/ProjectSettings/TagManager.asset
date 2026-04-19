@@ -12,6 +12,7 @@ TagManager:
   - OBJECT
   - ITEM_MENU
   - GROUND
+  - INFO
   layers:
   - Default
   - TransparentFX

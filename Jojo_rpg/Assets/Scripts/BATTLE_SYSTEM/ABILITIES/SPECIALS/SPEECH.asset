@@ -16,7 +16,7 @@ MonoBehaviour:
   damage: 0
   acc: 0
   focus: 0
-  type: 3
+  type: 4
   Description: 
   cost: 60
   microgame: 3
