@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Speech : MonoBehaviour
@@ -12,8 +15,9 @@ public class Speech : MonoBehaviour
     
 
     private string remainingSentence = string.Empty;
-    private Dictionary<int, string> sentenceBank = new Dictionary<int, string>{ {1, "This is the first one"}, { 2, "This is the second one" } };
-
+    private int score;
+    private float buff;
+    private Dictionary<int, string> sentenceBank = new Dictionary<int, string>{ {1, "Stand proud soldiers!"}, { 2, "Remember what's at stake!" }, {3, "London will be free!" }, {4, "We must win this fight!" } };
     private Coroutine endMicrogameRoutine;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,6 +28,8 @@ public class Speech : MonoBehaviour
 
     private void OnEnable()
     {
+        score = 0;
+        buff = 1;
         endMicrogameRoutine = StartCoroutine(EndMicrogame(microgameTime));
         SetRemainingSentence(sentenceBank[UnityEngine.Random.Range(1, sentenceBank.Count + 1)]);
     }
@@ -45,6 +51,11 @@ public class Speech : MonoBehaviour
                 if (remainingSentence.IndexOf(letter) == 0)
                 {
                     LetterTyped();
+                    if (remainingSentence.Length == 0)
+                    {
+                        StopCoroutine(endMicrogameRoutine);
+                        StartCoroutine(EndMicrogame(0.2f));
+                    }
                 }
             }
         }
@@ -53,6 +64,8 @@ public class Speech : MonoBehaviour
     private void LetterTyped()
     {
         SetRemainingSentence(remainingSentence.Remove(0, 1));
+        score += 1;
+
     }
 
     private void SetRemainingSentence(string inputString)
@@ -64,8 +77,24 @@ public class Speech : MonoBehaviour
     private IEnumerator EndMicrogame(float yieldTime)
     {
         yield return new WaitForSeconds(yieldTime);
-        MICROGAMEHANDLER.instance.EndMicrogame(type, 0);
+        if (remainingSentence.Length == 0)
+        {
+            buff = 1.75f;
+        }
+        else if (score < 12)
+        {
+            buff = 1.2f;
+        }
+        else
+        {
+            buff = 1.35f;
+        }
+
+        Debug.Log($"{score}, {buff}");
+
+        MICROGAMEHANDLER.instance.EndMicrogame(type, 0, 100, 0, buff);
+        }
     }
 
-}
+
 
