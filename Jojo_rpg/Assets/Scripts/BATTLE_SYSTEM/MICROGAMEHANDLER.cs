@@ -16,9 +16,7 @@ public class MICROGAMEHANDLER : MonoBehaviour
         SPEECH
     }
 
-    public BATTLEHANDLER BH;
     public GameObject rapidPunchMicrogame;
-    public GameObject rapidPunchText;
     public GameObject syringeMicrogame;
     public GameObject speechMicrogame;
     public GameObject speechText;
@@ -40,7 +38,6 @@ public class MICROGAMEHANDLER : MonoBehaviour
 
         // Turns off all microgames on boot
         rapidPunchMicrogame.SetActive(false);
-        rapidPunchText.SetActive(false);
         syringeMicrogame.SetActive(false);
         speechMicrogame.SetActive(false);
         speechText.SetActive(false);
@@ -57,7 +54,6 @@ public class MICROGAMEHANDLER : MonoBehaviour
         if (microgame == MICROGAMES.RAPID_PUNCH)
         {
             rapidPunchMicrogame.SetActive(true);
-            rapidPunchText.SetActive(true);
         }
 
         if (microgame == MICROGAMES.SYRINGE)
@@ -72,12 +68,11 @@ public class MICROGAMEHANDLER : MonoBehaviour
         }
     }
 
-    public void EndMicrogame(MICROGAMES microgame, int damage, int acc = 100, int focus = 0, float buff = 1)
+    public void EndMicrogame(MICROGAMES microgame, int damage, int acc = 100, int focus = 0)
     {
         if (microgame == MICROGAMES.RAPID_PUNCH)
         {
             rapidPunchMicrogame.SetActive(false);
-            rapidPunchText.SetActive(false);
         }
 
         if (microgame == MICROGAMES.SYRINGE)
@@ -91,9 +86,9 @@ public class MICROGAMEHANDLER : MonoBehaviour
             speechText.SetActive(false);
         }
 
-        BH.CURRENT_STATE = BATTLEHANDLER.STATEMACHINE.BATTLE;
-        BH.StateMachine(BATTLEHANDLER.STATEMACHINE.BATTLE);
-        BH.TARGET_ATTACK(BH.ORDER[BH.ON_CURRENT_CHAMP], BH.TARGET_ENEMY, damage, acc, focus, buff);
+        BATTLEHANDLER.instance.CURRENT_STATE = BATTLEHANDLER.STATEMACHINE.BATTLE;
+        BATTLEHANDLER.instance.StateMachine(BATTLEHANDLER.STATEMACHINE.BATTLE);
+        BATTLEHANDLER.instance.TARGET_ATTACK(BATTLEHANDLER.instance.ORDER[BATTLEHANDLER.instance.ON_CURRENT_CHAMP], BATTLEHANDLER.instance.TARGET_ENEMY, damage, acc, focus);
     }
 
 

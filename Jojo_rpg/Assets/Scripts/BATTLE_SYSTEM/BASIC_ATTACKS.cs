@@ -20,7 +20,7 @@ public class BASIC_ATTACKS : ScriptableObject
     }
 
     [TextArea]
-    public string Description;
+    [SerializeField] string Description;
 
     public string Name
     {
