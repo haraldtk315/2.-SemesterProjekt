@@ -150,7 +150,6 @@ GameObject:
   - component: {fileID: 6369524932515202842}
   - component: {fileID: 5919312486505623477}
   - component: {fileID: 4574185215004306960}
-  - component: {fileID: 1153728227974711712}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -200,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -285,24 +284,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   BH: {fileID: 0}
-  Item:
-    itemData: {fileID: 0}
-    amount: 0
---- !u!114 &1153728227974711712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6436661989530509912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73bb1d44794c7a7469998c0eb3f1beb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HAS_INFO
-  INFO: {fileID: 0}
-  CHAMP: {fileID: 0}
-  ITEM_INFO: {fileID: 0}
-  ITEM_DATA: {fileID: 0}
-  Text: Potion
-  Info_type: 2

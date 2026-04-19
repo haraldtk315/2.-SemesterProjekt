@@ -16,7 +16,7 @@ public class NPC : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        // Hvis denne NPC lige har været i battle, så vis after battle dialogue automatisk
+        // Hvis denne NPC lige har været i battle, så vis after-battle dialogue automatisk
         if (!string.IsNullOrEmpty(npcID) &&
             GAMEMANAGER.instance.pendingPostBattleNPCID == npcID)
         {
