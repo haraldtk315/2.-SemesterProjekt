@@ -11,12 +11,16 @@ public class NPC : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        // Hvis denne NPC lige har været i battle, så vis after battle dialogue automatisk
         if (!string.IsNullOrEmpty(npcID) &&
             GAMEMANAGER.instance.pendingPostBattleNPCID == npcID)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            
+            if (recruitAfterBattle && partyReward != null)
+            {
+                GAMEMANAGER.instance.AddPartyMember(partyReward);
+            }
 
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
                 DIALOGUEHANDLER.instance.DialogueStart(
@@ -26,7 +30,6 @@ public class NPC : MonoBehaviour, IInteractable
                     destroyAfterBattle ? gameObject : null
                 );
             }
-
             GAMEMANAGER.instance.pendingPostBattleNPCID = null;
         }
     }
@@ -44,7 +47,7 @@ public class NPC : MonoBehaviour, IInteractable
 
         GAMEMANAGER.instance.SaveOverworldReturnPoint(player.transform, player.facing);
         GAMEMANAGER.instance.currentNPCID = npcID;
-
         DIALOGUEHANDLER.instance.DialogueStart(message, player.gameObject, enemies, null);
+        Destroy(gameObject);
     }
 }
