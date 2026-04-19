@@ -65,7 +65,7 @@ public class CHAMP_INFO : MonoBehaviour
     private void Start()
     {
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
-        BH = BATTLEHANDLER.instance;
+        BH = FindAnyObjectByType<BATTLEHANDLER>();
         ANI = GetComponentInChildren<Animator>();
         SR = GetComponentInChildren<SpriteRenderer>();
         PAR = GetComponentInChildren<ParticleSystem>();
