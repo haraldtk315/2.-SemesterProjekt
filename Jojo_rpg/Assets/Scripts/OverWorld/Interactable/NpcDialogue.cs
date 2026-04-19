@@ -7,11 +7,6 @@ public class NPC : MonoBehaviour, IInteractable
     public string[] messageAfterBattle;
     public GameObject[] enemies;
 
-    //partymechaninc
-    public GameObject partyReward;
-    public bool recruitAfterDialogue;
-    public bool recruitAfterBattle;
-
     public bool destroyAfterBattle = true;
 
     private void Start()
@@ -45,12 +40,6 @@ public class NPC : MonoBehaviour, IInteractable
         if (defeated)
         {
             return;
-        }
-
-        if (recruitAfterDialogue && partyReward != null)
-        {
-            GAMEMANAGER.instance.AddPartyMember(partyReward);
-
         }
 
         GAMEMANAGER.instance.SaveOverworldReturnPoint(player.transform, player.facing);
