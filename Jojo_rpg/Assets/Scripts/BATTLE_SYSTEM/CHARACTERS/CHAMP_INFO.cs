@@ -33,6 +33,7 @@ public class CHAMP_INFO : MonoBehaviour
     public GAMEMANAGER GM;
     public BATTLEHANDLER BH;
 
+    public string champID;
     public string Name;
     public int MaxHp;
     public int MaxFocus;

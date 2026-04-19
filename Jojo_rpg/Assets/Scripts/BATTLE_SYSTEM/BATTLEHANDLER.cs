@@ -52,6 +52,7 @@ public class BATTLEHANDLER : MonoBehaviour
     public SPECIALS Current_SPECIAL;
     public InventoryItem Current_ITEM;
 
+
     //ENEMY INFORMATION
     [SerializeField] private int enemy_count = 0;
     public GameObject only_monster;
@@ -633,6 +634,11 @@ public class BATTLEHANDLER : MonoBehaviour
                     win = false;
                 }
             }
+            if (GAMEMANAGER.instance.pendingPartyReward != null)
+            {
+                GAMEMANAGER.instance.AddPartyMember(GAMEMANAGER.instance.pendingPartyReward);
+                GAMEMANAGER.instance.pendingPartyReward = null;
+            }
 
             if (lost == true)
             {
@@ -657,6 +663,7 @@ public class BATTLEHANDLER : MonoBehaviour
                         GM.HP[i] = ORDER[i].GetComponent<CHAMP_INFO>().hp;
                     }
                 }
+
 
                 if (!string.IsNullOrEmpty(GAMEMANAGER.instance.currentNPCID))
                 {

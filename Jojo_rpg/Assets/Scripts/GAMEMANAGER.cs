@@ -23,10 +23,13 @@ public class GAMEMANAGER : MonoBehaviour
     // World state
     public HashSet<string> collectedPickups = new HashSet<string>();
     public HashSet<string> defeatedNPCs = new HashSet<string>();
+    public HashSet<string> removedNPCs = new HashSet<string>();
+    public HashSet<string> clearedObstacles = new HashSet<string>();
 
     //current npc battle
     public string currentNPCID;
     public string pendingPostBattleNPCID;
+    public GameObject pendingPartyReward;
 
     private void Awake()
     {

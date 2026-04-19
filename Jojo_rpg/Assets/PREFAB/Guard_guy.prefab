@@ -314,10 +314,12 @@ MonoBehaviour:
   Healing: {fileID: 0}
   GM: {fileID: 0}
   BH: {fileID: 0}
+  champID: Jack
   Name: Knight
   MaxHp: 30
   MaxFocus: 0
   Level: 0
+  descripton: 
   Party_order: 0
   Team_player: 0
   dead: 0
