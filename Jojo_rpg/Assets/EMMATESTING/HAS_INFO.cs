@@ -54,11 +54,6 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 Text += CHAMP.descripton;
                 INFO.SHOW(Text, ON_UI);
             }
-
-            if (Info_type == TYPE.ITEM)
-            {
-
-            }
         }
     }
 
@@ -80,7 +75,7 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
             Text = string.Empty;
             Text = ITEM_DATA.displayName + ": \n";
-            Text += ITEM_DATA.description;
+            Text += ITEM_DATA.description + " " + ITEM_DATA.value.ToString();
 
             StopAllCoroutines();
             StartCoroutine(StartTimer());
@@ -113,6 +108,10 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (BUTTON_HOLD.SPECIALS != null)
             {
                 Text = string.Empty;
+                Text = BUTTON_HOLD.SPECIALS.attackName + ": \n";
+                Text += "Cost: " + BUTTON_HOLD.SPECIALS.cost.ToString() + " Focus \n \n";
+                Text += "Description: \n";
+                Text += BUTTON_HOLD.SPECIALS.Description;
 
                 StopAllCoroutines();
                 StartCoroutine(StartTimer());
