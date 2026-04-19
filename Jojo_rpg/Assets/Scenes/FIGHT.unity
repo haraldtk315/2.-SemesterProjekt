@@ -4246,6 +4246,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1147759010}
+        m_TargetAssemblyTypeName: HAS_INFO, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1147759007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4316,7 +4328,6 @@ MonoBehaviour:
   ITEM_DATA: {fileID: 0}
   BUTTON_HOLD: {fileID: 0}
   Text: 
-  ON_UI: 0
   Info_type: 3
 --- !u!1 &1150297522
 GameObject:
@@ -5316,6 +5327,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1405585312}
+        m_TargetAssemblyTypeName: HAS_INFO, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1405585309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5386,7 +5409,6 @@ MonoBehaviour:
   ITEM_DATA: {fileID: 0}
   BUTTON_HOLD: {fileID: 0}
   Text: 
-  ON_UI: 0
   Info_type: 3
 --- !u!1 &1421982067
 GameObject:
@@ -5485,6 +5507,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1421982073}
+        m_TargetAssemblyTypeName: HAS_INFO, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1421982070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5555,7 +5589,6 @@ MonoBehaviour:
   ITEM_DATA: {fileID: 0}
   BUTTON_HOLD: {fileID: 0}
   Text: 
-  ON_UI: 0
   Info_type: 3
 --- !u!1 &1434997606
 GameObject:
@@ -7904,6 +7937,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2057827965}
+        m_TargetAssemblyTypeName: HAS_INFO, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2057827962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7974,7 +8019,6 @@ MonoBehaviour:
   ITEM_DATA: {fileID: 0}
   BUTTON_HOLD: {fileID: 0}
   Text: 
-  ON_UI: 0
   Info_type: 3
 --- !u!1 &2075806857
 GameObject:

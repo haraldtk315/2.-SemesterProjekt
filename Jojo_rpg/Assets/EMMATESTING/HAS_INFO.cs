@@ -112,7 +112,7 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
             if (BUTTON_HOLD.SPECIALS != null)
             {
-
+                Text = string.Empty;
 
                 StopAllCoroutines();
                 StartCoroutine(StartTimer());
@@ -122,7 +122,6 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public IEnumerator StartTimer()
     {
-        ON_UI = true;
         yield return new WaitForSeconds(INFO.wait_time);
 
         INFO.INSTANT_SHOW(Text);
@@ -131,6 +130,7 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         ON_UI = false;
+        BUTTON_HOLD = null;
         StopAllCoroutines();
         INFO.HIDE();
         Debug.Log("NO MORE!");
@@ -138,6 +138,14 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void OnMouseExit()
     {
+        BUTTON_HOLD = null;
+        INFO.HIDE();
+    }
+
+    public void ButtonClicked()
+    {
+        ON_UI = false;
+        BUTTON_HOLD = null;
         INFO.HIDE();
     }
 }
