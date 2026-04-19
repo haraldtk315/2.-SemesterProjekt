@@ -37,6 +37,7 @@ public class CHAMP_INFO : MonoBehaviour
     public int MaxHp;
     public int MaxFocus;
     public int Level;
+    public string descripton;
     public int Party_order;
     public bool Team_player;
     public bool dead = false;
@@ -57,8 +58,8 @@ public class CHAMP_INFO : MonoBehaviour
     public GameObject Outline;
     public GameObject[] Out_sprites;
 
-    private float heal_pitch = 0.9f;
-    private float focus_pitch = 0.7f;
+    private float heal_pitch = 0.75f;
+    private float focus_pitch = 0.6f;
 
     private void Start()
     {
@@ -161,7 +162,14 @@ public class CHAMP_INFO : MonoBehaviour
 
             for (int i = 0; i < Out_sprites.Length; i++)
             {
+                Name = "Pile of bones";
+                descripton = "Not even a trace of flesh remain on these bones.\nRest in peace";
                 Out_sprites[i].GetComponent<SpriteRenderer>().sprite = SR.sprite;
+            }
+
+            if (hp <= -MaxHp)
+            {
+                Destroy(this.gameObject);
             }
         }
 
@@ -277,7 +285,7 @@ public class CHAMP_INFO : MonoBehaviour
         return ANI.GetCurrentAnimatorStateInfo(0).length;
     }
 
-    public void PlaySound(AudioClip Clip, float pitch = 1, float volume = 1)
+    public void PlaySound(AudioClip Clip, float pitch = 1, float volume = 0.75f)
     {
         AUD.pitch = pitch;
         AUD.volume = volume;

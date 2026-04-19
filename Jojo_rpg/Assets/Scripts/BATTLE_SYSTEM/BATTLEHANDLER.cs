@@ -65,6 +65,8 @@ public class BATTLEHANDLER : MonoBehaviour
     public int CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE; //Major problems with animations on zombies since it is done insinde a for loop so we need a seperate state for the animation/attacks of monsters
     private bool forced_combat = false;
 
+    private bool EXPANDED = false; //for quickly changing size in the input state
+
     //STATEMACHINE
 
     float WAIT_TIME; //Used if we need small breaks between the states.
@@ -262,12 +264,26 @@ public class BATTLEHANDLER : MonoBehaviour
         {
             MAIN_Buttons.SetActive(true);
             Player_UI.SetActive(true);
+            EXPANDED = false;
             Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x + x_value, ORDER[ON_CURRENT_CHAMP].transform.position.y - y_value, ORDER[ON_CURRENT_CHAMP].transform.position.z + z_value);
             ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().TARGETINDICATOR.SetActive(true);
 
+            bool done = true;
             for (int i = 0; i < MONSTER_ORDER.Length; i++)
             {
+                if (MONSTER_ORDER[i] != null)
+                {
+                    if (MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().dead == false)
+                    {
+                        done = false;
+                    }
+                }
+            }
 
+            if (done == true)
+            {
+                CURRENT_STATE = STATEMACHINE.END;
+                StateMachine(STATEMACHINE.END);
             }
         }
 
@@ -297,8 +313,26 @@ public class BATTLEHANDLER : MonoBehaviour
                 MOVES_BUTTON[i].GetComponent<BUTTON_HOLDER>().ATTACK = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i];
                 MOVES_BUTTON[i].GetComponent<BUTTON_HOLDER>().SPECIALS = null;
 
-                MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].name + "\n" + " DAMAGE: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].damage.ToString();
-                MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text += "  |  " + "ACC: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].acc + "%";
+                MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].attackName + "\n";
+
+                if (ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].damage > 0)
+                {
+                    MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text += " DAMAGE: " + ((int)((float)ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].damage * ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().Damage_buff)).ToString();
+                }
+                else
+                {
+                    MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text += " FOCUS: " + ((int)((float)ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].focus * ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().Damage_buff)).ToString();
+                }
+
+                if (ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].acc < 100)
+                {
+                    MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text += "  |  " + "ACC: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].acc + "%";
+                }
+                else if (ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].damage > 0 && ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].focus > 0)
+                {
+                    MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text += "  |  " + "FOCUS: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].focus;
+                }
+                
                 MOVES_BUTTON[i].SetActive(true);
             }
         }
@@ -336,7 +370,8 @@ public class BATTLEHANDLER : MonoBehaviour
                 MOVES_BUTTON[i].GetComponent<BUTTON_HOLDER>().SPECIALS = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i];
                 MOVES_BUTTON[i].GetComponent<BUTTON_HOLDER>().ATTACK = null;
 
-                MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].name + "\n" + " DAMAGE: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].damage.ToString();
+                MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].attackName + "\n" + " DAMAGE: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].damage.ToString();
+                MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text += "  |  " + "COST: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].cost.ToString();
                 MOVES_BUTTON[i].SetActive(true);
             }
         }
@@ -674,6 +709,7 @@ public class BATTLEHANDLER : MonoBehaviour
         bool attack_HITS = Check_if_attack_lands(acc);
 
         int New_Damage = (int)((float)Damage * SENDER.GetComponent<CHAMP_INFO>().Damage_buff);
+        int New_Focus = (int)((float)focus * SENDER.GetComponent<CHAMP_INFO>().Damage_buff);
 
         //ANIMATION
         if (attack_HITS == true)
@@ -687,14 +723,14 @@ public class BATTLEHANDLER : MonoBehaviour
                 TARGET.GetComponent<CHAMP_INFO>().hp -= New_Damage;
                 SENDER.GetComponent<CHAMP_INFO>().focus += focus;
                 TARGET.GetComponent<CHAMP_INFO>().ON_HIT(); //MAKING SURE THE TARGET IS DEAD!!!
-                Debug.Log(TARGET.GetComponent<CHAMP_INFO>().Name + " GOT ATTACKED BY " + SENDER.GetComponent<CHAMP_INFO>().Name + " " + Damage.ToString() + " DAMAGE DEALT");
+                Debug.Log(TARGET.GetComponent<CHAMP_INFO>().Name + " GOT ATTACKED BY " + SENDER.GetComponent<CHAMP_INFO>().Name + " " + New_Damage.ToString() + " DAMAGE DEALT");
             }
 
             if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.SELF)
             {
                 SENDER.GetComponent<CHAMP_INFO>().SELF_BUFF();
-                SENDER.GetComponent<CHAMP_INFO>().focus += focus;
-                Debug.Log(SENDER.GetComponent<CHAMP_INFO>().Name + " Buffed themselves, " + focus.ToString() + " Focus was gained");
+                SENDER.GetComponent<CHAMP_INFO>().focus += New_Focus;
+                Debug.Log(SENDER.GetComponent<CHAMP_INFO>().Name + " Buffed themselves, " + New_Focus.ToString() + " Focus was gained");
 
                 WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
             }
@@ -828,6 +864,20 @@ public class BATTLEHANDLER : MonoBehaviour
         StateMachine(CURRENT_STATE);
     }
 
+    public void EXPAND()
+    {
+        EXPANDED = !EXPANDED;
+
+        if (EXPANDED == false)
+        {
+            Cam_holder.transform.position = new Vector3(ORDER[ON_CURRENT_CHAMP].transform.position.x + x_value, ORDER[ON_CURRENT_CHAMP].transform.position.y - y_value, ORDER[ON_CURRENT_CHAMP].transform.position.z + z_value);
+        }
+
+        if (EXPANDED == true)
+        {
+            Cam_holder.transform.position = Vector3.zero;
+        }
+    }
     public void RUN()
     {
         Item_enable(false);
