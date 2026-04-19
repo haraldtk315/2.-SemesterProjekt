@@ -103,8 +103,9 @@ public class BATTLEHANDLER : MonoBehaviour
         MAIN_Buttons.SetActive(false);
         Player_UI.SetActive(false);
 
-        GM = GAMEMANAGER.instance;
-        DH = DIALOGUEHANDLER.instance;
+
+        GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
+        DH = GameObject.FindGameObjectWithTag("DH").GetComponent<DIALOGUEHANDLER>();
         Cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         Cam_ani = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
 
@@ -670,12 +671,6 @@ public class BATTLEHANDLER : MonoBehaviour
                     GAMEMANAGER.instance.defeatedNPCs.Add(GAMEMANAGER.instance.currentNPCID);
                     GAMEMANAGER.instance.pendingPostBattleNPCID = GAMEMANAGER.instance.currentNPCID;
                     GAMEMANAGER.instance.currentNPCID = null;
-                }
-
-                if (GAMEMANAGER.instance.pendingPartyReward != null)
-                {
-                    GAMEMANAGER.instance.AddPartyMember(GAMEMANAGER.instance.pendingPartyReward);
-                    GAMEMANAGER.instance.pendingPartyReward = null;
                 }
 
                 SceneManager.LoadScene(GAMEMANAGER.instance.returnSceneName);

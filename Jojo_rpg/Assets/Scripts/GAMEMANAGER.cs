@@ -17,8 +17,6 @@ public class GAMEMANAGER : MonoBehaviour
     public Vector3 returnPlayerPosition;
     public Vector2 returnPlayerFacing;
     public bool shouldRestorePlayer = false;
-    public GameObject pendingPartyReward;
-    public HashSet<string> clearedObstacles = new HashSet<string>();
 
     // World state
     public HashSet<string> collectedPickups = new HashSet<string>();

@@ -73,12 +73,6 @@ public class NPC : MonoBehaviour, IInteractable
             return;
         }
 
-        if (recruitAfterDialogue && partyReward != null)
-        {
-            GAMEMANAGER.instance.AddPartyMember(partyReward);
-
-        }
-
         GAMEMANAGER.instance.SaveOverworldReturnPoint(player.transform, player.facing);
         GAMEMANAGER.instance.currentNPCID = npcID;
         GAMEMANAGER.instance.pendingPartyReward = partyReward;
