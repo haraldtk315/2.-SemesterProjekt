@@ -311,15 +311,23 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1af13db080bd1c349a4b91328db234c5, type: 3}
   - {fileID: 8300000, guid: d17d9533b848af945aa0f4ad13b7826c, type: 3}
   - {fileID: 8300000, guid: 6737311595f0c0d4dbe6d9389dbd2502, type: 3}
+  Healing: {fileID: 0}
   GM: {fileID: 0}
   BH: {fileID: 0}
+  champID: Jack
   Name: Knight
   MaxHp: 30
+  MaxFocus: 0
   Level: 0
+  descripton: 
   Party_order: 0
   Team_player: 0
   dead: 0
   hp: 30
+  focus: 0
+  Damage_buff: 1
+  Shield_buff: 1
+  time: 0
   ATTACKS:
   - {fileID: 11400000, guid: 127680fcd8ac1374cbc22230013d7272, type: 2}
   - {fileID: 11400000, guid: 8c1e3951ad0dca946b2d66596c69ffba, type: 2}
@@ -330,6 +338,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  On_hit_effekt: {fileID: 0}
+  Player_UI: {fileID: 0}
+  Outline: {fileID: 0}
+  Out_sprites: []
 --- !u!65 &7424394682109284057
 BoxCollider:
   m_ObjectHideFlags: 0

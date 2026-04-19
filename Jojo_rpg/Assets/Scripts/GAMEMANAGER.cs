@@ -21,10 +21,13 @@ public class GAMEMANAGER : MonoBehaviour
     // World state
     public HashSet<string> collectedPickups = new HashSet<string>();
     public HashSet<string> defeatedNPCs = new HashSet<string>();
+    public HashSet<string> removedNPCs = new HashSet<string>();
+    public HashSet<string> clearedObstacles = new HashSet<string>();
 
     //current npc battle
     public string currentNPCID;
     public string pendingPostBattleNPCID;
+    public GameObject pendingPartyReward;
 
     private void Awake()
     {
@@ -92,5 +95,47 @@ public class GAMEMANAGER : MonoBehaviour
     {
         InventoryItem existing = inventory.Find(i => i.itemData == itemData);
         return existing != null ? existing.amount : 0;
+    }
+    public bool AddPartyMember(GameObject newMember)
+    {
+        if (newMember == null)
+        {
+            Debug.LogWarning("Tried to add null party member.");
+            return false;
+        }
+
+        for (int i = 0; i < party.Length; i++)
+        {
+            if (party[i] == newMember)
+            {
+                Debug.Log(newMember.name + " is already in the party.");
+                return false;
+            }
+        }
+
+        for (int i = 0; i < party.Length; i++)
+        {
+            if (party[i] == null)
+            {
+                party[i] = newMember;
+
+                CHAMP_INFO champInfo = newMember.GetComponent<CHAMP_INFO>();
+                if (champInfo != null)
+                {
+                    HP[i] = champInfo.MaxHp;
+                }
+                else
+                {
+                    Debug.LogWarning(newMember.name + " has no CHAMP_INFO component.");
+                    HP[i] = 0;
+                }
+
+                Debug.Log(newMember.name + " added to party in slot " + i);
+                return true;
+            }
+        }
+
+        Debug.Log("Party is full.");
+        return false;
     }
 }

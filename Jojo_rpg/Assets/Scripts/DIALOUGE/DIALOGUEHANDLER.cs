@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,20 +12,22 @@ public class DIALOGUEHANDLER : MonoBehaviour
     public GameObject dialogueBoxPrefab;
     private GameObject dialogueBox;
     private TextMeshProUGUI dialogueBoxText;
+
     private GameObject destroyAfterDialogueObject;
+    private GameObject partyRewardAfterDialogue;
 
     public float textSpeed;
 
     private int currDialogueIndex;
     private string[] dialogue;
     private bool dialogueActive = false;
-    
+
     public GameObject[] ENEMIES;
 
     private InputAction nextAction;
     private PlayerControlToggle currentPlayerControls;
 
-    void Start()
+    private void Awake()
     {
         if (instance == null)
         {
@@ -38,7 +39,10 @@ public class DIALOGUEHANDLER : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+    }
 
+    private void Start()
+    {
         nextAction = InputSystem.actions.FindAction("Attack");
     }
 
@@ -53,7 +57,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
         }
     }
 
-    public void DialogueStart(string[] _dialogue, GameObject player, GameObject[] enemies = null, GameObject destroyAfterDialogue = null)
+    public void DialogueStart(string[] _dialogue, GameObject player, GameObject[] enemies = null, GameObject destroyAfterDialogue = null, GameObject partyReward = null)
     {
         if (!dialogueActive)
         {
@@ -62,6 +66,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
             currDialogueIndex = 0;
             ENEMIES = enemies;
             destroyAfterDialogueObject = destroyAfterDialogue;
+            partyRewardAfterDialogue = partyReward;
 
             if (player != null)
             {
@@ -117,7 +122,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
             currentPlayerControls = null;
         }
 
-        bool ShouldStartFight = false;
+        bool shouldStartFight = false;
 
         if (ENEMIES != null)
         {
@@ -125,21 +130,34 @@ public class DIALOGUEHANDLER : MonoBehaviour
             {
                 if (ENEMIES[i] != null)
                 {
-                    ShouldStartFight = true;
+                    shouldStartFight = true;
                     break;
                 }
             }
         }
 
-        if (ShouldStartFight)
+        if (shouldStartFight)
         {
             destroyAfterDialogueObject = null;
+            partyRewardAfterDialogue = null;
             SceneManager.LoadScene("FIGHT");
             return;
         }
 
+        if (partyRewardAfterDialogue != null)
+        {
+            GAMEMANAGER.instance.AddPartyMember(partyRewardAfterDialogue);
+            partyRewardAfterDialogue = null;
+        }
+
         if (destroyAfterDialogueObject != null)
         {
+            NPC npc = destroyAfterDialogueObject.GetComponent<NPC>();
+            if (npc != null && !string.IsNullOrEmpty(npc.npcID))
+            {
+                GAMEMANAGER.instance.removedNPCs.Add(npc.npcID);
+            }
+
             Destroy(destroyAfterDialogueObject);
             destroyAfterDialogueObject = null;
         }
