@@ -6,7 +6,7 @@ public class CameraFollow2D : MonoBehaviour
     public float smooth = 10f;
     public Vector3 offset = new Vector3(0, 0, -10);
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (!target) return;
         transform.position = Vector3.Lerp(transform.position, target.position + offset, smooth * Time.deltaTime);

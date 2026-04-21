@@ -6,6 +6,8 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class Syringe : MonoBehaviour
 {
+    public MICROGAMEHANDLER MH;
+
     public MICROGAMEHANDLER.MICROGAMES type;
     public GameObject syringe;
     public GameObject artery;
@@ -85,6 +87,6 @@ public class Syringe : MonoBehaviour
         {
             damage = 15;
         }
-        MICROGAMEHANDLER.instance.EndMicrogame(type, damage);
+        MH.EndMicrogame(type, damage);
     }
 }

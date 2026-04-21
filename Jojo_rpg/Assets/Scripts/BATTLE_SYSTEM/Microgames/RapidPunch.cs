@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class RapidPunch : MonoBehaviour
 {
+    public MICROGAMEHANDLER MH;
+
     public MICROGAMEHANDLER.MICROGAMES type;
     public int damagePerPunch;
     public float microgameTime;
@@ -35,7 +37,7 @@ public class RapidPunch : MonoBehaviour
     private IEnumerator EndMicrogame()
     {
         yield return new WaitForSeconds(microgameTime);
-        MICROGAMEHANDLER.instance.EndMicrogame(type, score * damagePerPunch);
+        MH.EndMicrogame(type, score * damagePerPunch);
     }
 
 }

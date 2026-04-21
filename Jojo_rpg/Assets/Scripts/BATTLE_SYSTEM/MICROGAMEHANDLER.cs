@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MICROGAMEHANDLER : MonoBehaviour
 {
-    public static MICROGAMEHANDLER instance;
-
     public enum MICROGAMES
     {
         RAPID_PUNCH,
@@ -26,30 +24,23 @@ public class MICROGAMEHANDLER : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Singleton pattern
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        // Turns off all microgames on boot
-        rapidPunchMicrogame.SetActive(false);
-        rapidPunchText.SetActive(false);
-        syringeMicrogame.SetActive(false);
-        speechMicrogame.SetActive(false);
-        speechText.SetActive(false);
+        DisableMicrogames();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void DisableMicrogames()
+    {
+        // Turns off all microgames
+        rapidPunchMicrogame.SetActive(false);
+        rapidPunchText.SetActive(false);
+        syringeMicrogame.SetActive(false);
+        speechMicrogame.SetActive(false);
+        speechText.SetActive(false);
     }
 
     public void StartMicrogame(MICROGAMES microgame)

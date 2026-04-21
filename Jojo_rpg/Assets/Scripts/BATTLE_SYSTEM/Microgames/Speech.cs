@@ -9,6 +9,8 @@ using UnityEngine;
 
 public class Speech : MonoBehaviour
 {
+    public MICROGAMEHANDLER MH;
+
     public MICROGAMEHANDLER.MICROGAMES type;
     public TextMeshProUGUI textUI;
     public float microgameTime;
@@ -92,7 +94,7 @@ public class Speech : MonoBehaviour
 
         Debug.Log($"{score}, {buff}");
 
-        MICROGAMEHANDLER.instance.EndMicrogame(type, 0, 100, 0, buff);
+        MH.EndMicrogame(type, 0, 100, 0, buff);
         }
     }
 

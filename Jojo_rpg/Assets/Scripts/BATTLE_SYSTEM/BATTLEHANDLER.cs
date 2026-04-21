@@ -20,6 +20,9 @@ public class BATTLEHANDLER : MonoBehaviour
     //DIALOGUEHANDLER
     public DIALOGUEHANDLER DH;
 
+    //MICROGAMEHANDLER
+    public MICROGAMEHANDLER MH;
+
     //Cam
     public Camera Cam;
     public GameObject Cam_holder;
@@ -474,7 +477,7 @@ public class BATTLEHANDLER : MonoBehaviour
         if (Current == STATEMACHINE.MICROGAME)
         {
             SPECIALS currentSpecial = (SPECIALS)Current_ATTACK;
-            MICROGAMEHANDLER.instance.StartMicrogame(currentSpecial.microgame);
+            MH.StartMicrogame(currentSpecial.microgame);
         }
 
         //DAMAGE HAPPENDS
