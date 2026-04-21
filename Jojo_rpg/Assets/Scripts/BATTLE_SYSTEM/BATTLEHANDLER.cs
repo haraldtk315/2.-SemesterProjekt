@@ -751,7 +751,7 @@ public class BATTLEHANDLER : MonoBehaviour
                 {
                     if (ORDER[i] != null)
                     {
-                        ORDER[i].GetComponent<CHAMP_INFO>().SELF_BUFF();
+                        ORDER[i].GetComponent<CHAMP_INFO>().SELF_BUFF(1);
                         ORDER[i].GetComponent<CHAMP_INFO>().Damage_buff = buff;
 
                         WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;

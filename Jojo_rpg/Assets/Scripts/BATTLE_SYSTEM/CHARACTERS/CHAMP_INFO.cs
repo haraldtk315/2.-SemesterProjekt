@@ -17,6 +17,7 @@ public class CHAMP_INFO : MonoBehaviour
     const string HEAL = "HEAL";
     const string FOCUS = "FOCUS";
     const string DEATH = "DEATH";
+    const string BUFF = "BUFF";
 
     //Sprites
     public SpriteRenderer SR;
@@ -59,6 +60,8 @@ public class CHAMP_INFO : MonoBehaviour
     public GameObject Outline;
     public GameObject[] Out_sprites;
 
+    public GameObject BUFF_INDICATOR;
+
     private float heal_pitch = 0.75f;
     private float focus_pitch = 0.6f;
 
@@ -87,6 +90,15 @@ public class CHAMP_INFO : MonoBehaviour
         ON_HIT(); // I think everything will still work without it, but it is much safer to check everyframe since it does not take that much processing power.
 
         time += Time.deltaTime / 2f; 
+
+        if (Damage_buff > 1)
+        {
+            BUFF_INDICATOR.SetActive(true);
+        }
+        else
+        {
+            BUFF_INDICATOR.SetActive(false);
+        }
     }
 
     private void OnMouseDown()
@@ -260,10 +272,18 @@ public class CHAMP_INFO : MonoBehaviour
         hit_effekt_miss.GetComponent<Text_hit_effekt>().Miss();
     }
 
-    public void SELF_BUFF()
+    public void SELF_BUFF(int BuffType = 0)
     {
         PlaySound(Healing, focus_pitch);
-        ANI.Play("FOCUS");
+        if (BuffType == 0)
+        {
+            ANI.Play(FOCUS);
+        }
+        
+        if (BuffType == 1)
+        {
+            ANI.Play(BUFF);
+        }
     }
 
 
