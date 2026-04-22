@@ -94,6 +94,7 @@ public class CHAMP_INFO : MonoBehaviour
         if (Damage_buff > 1)
         {
             BUFF_INDICATOR.SetActive(true);
+            BUFF_INDICATOR.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
         }
         else
         {
