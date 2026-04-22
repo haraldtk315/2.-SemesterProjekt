@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, IInteractable
 {
+    public bool HAS_ICON;
+
     public string npcID;
     public string[] message;
     public string[] messageAfterBattle;
@@ -82,7 +84,9 @@ public class NPC : MonoBehaviour, IInteractable
             player.gameObject,
             enemies,
             null,
-            null
+            null,
+            HAS_ICON,
+            this.gameObject
         );
     }
 }

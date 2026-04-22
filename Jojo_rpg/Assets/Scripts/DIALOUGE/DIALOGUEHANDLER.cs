@@ -12,6 +12,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
     public GameObject dialogueBoxPrefab;
     private GameObject dialogueBox;
     private TextMeshProUGUI dialogueBoxText;
+    public GameObject ICON_CAM;
 
     private GameObject destroyAfterDialogueObject;
     private GameObject partyRewardAfterDialogue;
@@ -26,6 +27,8 @@ public class DIALOGUEHANDLER : MonoBehaviour
 
     private InputAction nextAction;
     private PlayerControlToggle currentPlayerControls;
+
+    private GameObject ICON_CAM_PATH;
 
     private void Awake()
     {
@@ -57,7 +60,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
         }
     }
 
-    public void DialogueStart(string[] _dialogue, GameObject player, GameObject[] enemies = null, GameObject destroyAfterDialogue = null, GameObject partyReward = null)
+    public void DialogueStart(string[] _dialogue, GameObject player, GameObject[] enemies = null, GameObject destroyAfterDialogue = null, GameObject partyReward = null, bool ICON = false, GameObject ICON_OBJECT = null)
     {
         if (!dialogueActive)
         {
@@ -85,6 +88,13 @@ public class DIALOGUEHANDLER : MonoBehaviour
             if (canvas != null)
             {
                 dialogueBox.transform.SetParent(canvas.transform, false);
+            }
+
+            if (ICON == true)
+            {
+                Vector3 Pos = new Vector3(ICON_OBJECT.transform.position.x, ICON_OBJECT.transform.position.y + 0.1f, -100);
+                GameObject ICON_CAM_OBJECT = Instantiate(ICON_CAM, Pos, Quaternion.identity);
+                ICON_CAM_PATH = ICON_CAM_OBJECT;
             }
 
             dialogueBoxText.text = "";
@@ -160,6 +170,11 @@ public class DIALOGUEHANDLER : MonoBehaviour
 
             Destroy(destroyAfterDialogueObject);
             destroyAfterDialogueObject = null;
+        }
+
+        if (ICON_CAM_PATH != null)
+        {
+            Destroy(ICON_CAM_PATH);
         }
 
         ENEMIES = null;

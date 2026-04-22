@@ -12727,6 +12727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f17372304b0d8468a04722381085c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  HAS_ICON: 0
   npcID: zomb2
   message:
   - 
@@ -13077,6 +13078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f17372304b0d8468a04722381085c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  HAS_ICON: 1
   npcID: test npc1
   message:
   - ...
@@ -14037,6 +14039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f17372304b0d8468a04722381085c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  HAS_ICON: 0
   npcID: Jack
   message:
   - 'eyy '
@@ -14375,6 +14378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f17372304b0d8468a04722381085c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  HAS_ICON: 0
   npcID: p1
   message:
   - Where you came from
@@ -32048,6 +32052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f17372304b0d8468a04722381085c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  HAS_ICON: 0
   npcID: Path to city
   message:
   - WARNING!!!
@@ -32234,6 +32239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f17372304b0d8468a04722381085c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  HAS_ICON: 0
   npcID: paper
   message:
   - 'it''s said there is a '
@@ -32424,6 +32430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f17372304b0d8468a04722381085c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  HAS_ICON: 0
   npcID: Path to city
   message:
   - Since the beginning of time.
@@ -32619,6 +32626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f17372304b0d8468a04722381085c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  HAS_ICON: 0
   npcID: zomb1
   message:
   - I'm like a Zombie isn't that crazy

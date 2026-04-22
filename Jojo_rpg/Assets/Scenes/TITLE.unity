@@ -1210,6 +1210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DIALOGUEHANDLER
   dialogueBoxPrefab: {fileID: 6283736858765563332, guid: 15b077fac108065488584dea4f0a6e14, type: 3}
+  ICON_CAM: {fileID: 3679753080314405278, guid: d5e003d9e697a06468d9454a8de0d1b8, type: 3}
   textSpeed: 0.05
   ENEMIES:
   - {fileID: 0}
