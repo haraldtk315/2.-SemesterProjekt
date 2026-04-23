@@ -35,6 +35,8 @@ public class BATTLEHANDLER : MonoBehaviour
     public RawImage Texture;
     public GameObject RENDER_CAM;
 
+    public GameObject[] ICON_CAMS_UI;
+
     //BUTTONS
     public GameObject MAIN_Buttons;
     public GameObject SELECT_Buttons;
@@ -221,6 +223,10 @@ public class BATTLEHANDLER : MonoBehaviour
                 Ally.GetComponent<CHAMP_INFO>().Player_UI = HEALTH_UI_FOR_PLAYERS[0];
                 Ally.GetComponent<CHAMP_INFO>().Team_player = true;
                 Ally.GetComponent<CHAMP_INFO>().hp = GM.HP[0];
+
+                //ICON
+                Vector3 Pos = new Vector3(Ally.transform.position.x, Ally.transform.position.y + 0.1f, -100);
+                GameObject ICON_CAM_OBJECT = Instantiate(ICON_CAMS_UI[0], Pos, Quaternion.identity);
             }
             else
             {
@@ -234,6 +240,10 @@ public class BATTLEHANDLER : MonoBehaviour
                 Ally.GetComponent<CHAMP_INFO>().Player_UI = HEALTH_UI_FOR_PLAYERS[position_spawn];
 
                 ORDER[position_spawn] = Ally;
+
+                //ICON
+                Vector3 Pos = new Vector3(Ally.transform.position.x, Ally.transform.position.y + 0.1f, -100);
+                GameObject ICON_CAM_OBJECT = Instantiate(ICON_CAMS_UI[position_spawn], Pos, Quaternion.identity);
             }
         }
 

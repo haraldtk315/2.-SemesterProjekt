@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1998716041095846804}
   - component: {fileID: 2590557968683697957}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SPRITE (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 752941814422679776}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OUTLINE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 2768417985188535681}
   - component: {fileID: 1498513218669794516}
   - component: {fileID: 5167773254520178695}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HEALING
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5030,7 +5030,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1327608547035831320}
   - component: {fileID: 6030560696690919600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SPRITE (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5121,7 +5121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3752246457624865431}
   - component: {fileID: 856105217876806950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SPRITE (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5213,7 +5213,7 @@ GameObject:
   - component: {fileID: 4117514395971360480}
   - component: {fileID: 1907657170861739721}
   - component: {fileID: 7855220998180412343}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SPRITE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5331,7 +5331,7 @@ GameObject:
   - component: {fileID: 9055635444286887403}
   - component: {fileID: 3177860587670719854}
   - component: {fileID: 883124019932866483}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10167,7 +10167,7 @@ GameObject:
   - component: {fileID: 2064723860910790610}
   - component: {fileID: 2152946288829369312}
   - component: {fileID: 635506021008240980}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FOCUS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15061,7 +15061,7 @@ GameObject:
   - component: {fileID: 1427094038441878411}
   - component: {fileID: 1870010467208716290}
   - component: {fileID: 6621132322578114440}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BUFF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19954,7 +19954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2921297993143739303}
   - component: {fileID: 1249410203912193483}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20045,7 +20045,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8024621204478396512}
   - component: {fileID: 2042780632331727675}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SPRITE (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20138,6 +20138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BUFF_INDICATOR
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 8afd5f9665d8ace4ca8079137b769145, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8afd5f9665d8ace4ca8079137b769145, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -20212,6 +20216,10 @@ PrefabInstance:
     - target: {fileID: -2253911629886400664, guid: 5c8996c421a876c42ab82b6c7e9e6628, type: 3}
       propertyPath: m_Name
       value: MainCharacterFirstDraft
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 5c8996c421a876c42ab82b6c7e9e6628, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: 5c8996c421a876c42ab82b6c7e9e6628, type: 3}
       propertyPath: m_TagString

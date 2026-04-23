@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8204307903268321364}
   - component: {fileID: 2128469896128069114}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SPRITE (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 4067849224651388997}
   - component: {fileID: 3873453974549041560}
   - component: {fileID: 3007338561264504990}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4937,7 +4937,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7745173128678301089}
   - component: {fileID: 4430686733961620188}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SPRITE (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5028,7 +5028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1339597331671119184}
   - component: {fileID: 1170108176989270767}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SPRITE (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5118,7 +5118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8575086073088846227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OUTLINE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5155,7 +5155,7 @@ GameObject:
   - component: {fileID: 5093659316446599498}
   - component: {fileID: 4658323137676217862}
   - component: {fileID: 830960006850707419}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SPRITE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5271,7 +5271,7 @@ GameObject:
   - component: {fileID: 8266589952659543215}
   - component: {fileID: 2397483340927288806}
   - component: {fileID: 6841431494761624175}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HEALING
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10164,7 +10164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1727505914326371240}
   - component: {fileID: 5366727795879919841}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10255,7 +10255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4513785030082996547}
   - component: {fileID: 2863722929939022678}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SPRITE (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10348,6 +10348,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BUFF_INDICATOR
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 8afd5f9665d8ace4ca8079137b769145, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8afd5f9665d8ace4ca8079137b769145, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9
@@ -10422,6 +10426,10 @@ PrefabInstance:
     - target: {fileID: -2253911629886400664, guid: 98c7e7d6602998a43a487ed3abe6f123, type: 3}
       propertyPath: m_Name
       value: Monster_guy
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 98c7e7d6602998a43a487ed3abe6f123, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 98c7e7d6602998a43a487ed3abe6f123, type: 3}
       propertyPath: m_FlipX
