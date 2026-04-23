@@ -242,7 +242,7 @@ public class BATTLEHANDLER : MonoBehaviour
                 ORDER[position_spawn] = Ally;
 
                 //ICON
-                Vector3 Pos = new Vector3(Ally.transform.position.x, Ally.transform.position.y + 0.1f, -100);
+                Vector3 Pos = new Vector3(Ally.transform.position.x, Ally.transform.position.y + 0.1f, Ally.transform.position.z - 0.50f);
                 GameObject ICON_CAM_OBJECT = Instantiate(ICON_CAMS_UI[position_spawn], Pos, Quaternion.identity);
             }
         }

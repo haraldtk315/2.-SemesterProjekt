@@ -1430,6 +1430,10 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 8400000, guid: 57f778e0dd3b6244d9643d67ac3e6bf4, type: 2}
+    - target: {fileID: 5628165947852723777, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 57f778e0dd3b6244d9643d67ac3e6bf4, type: 2}
     - target: {fileID: 6839876899707929752, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -3060,14 +3064,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HEALTH_UI_display
       objectReference: {fileID: 0}
-    - target: {fileID: 4804399634333521434, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
-      propertyPath: ICON
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900651895612044931, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
-      propertyPath: m_Texture
-      value: 
-      objectReference: {fileID: 8400000, guid: d8d6ef3d17f47b84793bc991e098fded, type: 2}
     - target: {fileID: 6839876899707929752, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4862,6 +4858,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4900651895612044931, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: ef7c278648a9fe845b8bb8576bb3ec04, type: 2}
+    - target: {fileID: 5628165947852723777, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 8400000, guid: ef7c278648a9fe845b8bb8576bb3ec04, type: 2}
@@ -8233,6 +8233,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4900651895612044931, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: ff86d0de1f5ec204ebf572ddf79c56f5, type: 2}
+    - target: {fileID: 5628165947852723777, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 8400000, guid: ff86d0de1f5ec204ebf572ddf79c56f5, type: 2}
