@@ -11,7 +11,7 @@ public class CHAMP_INFO : MonoBehaviour
     //Animator
     public Animator ANI;
     const string IDLE = "IDLE";
-    const string DEAD = "DEAD";
+    const string DEAD = "DEAD"; //This is not used actually
     const string ATTACK = "ATTACK";
     const string MISS = "MISS";
     const string HEAL = "HEAL";
@@ -99,6 +99,12 @@ public class CHAMP_INFO : MonoBehaviour
         else
         {
             BUFF_INDICATOR.SetActive(false);
+        }
+
+        //Is here to fix a bug were you can heal a unit that is dead and make their sprite turn into the heal sprite
+        if (dead == true)
+        {
+            ANI.Play(DEATH);
         }
     }
 
