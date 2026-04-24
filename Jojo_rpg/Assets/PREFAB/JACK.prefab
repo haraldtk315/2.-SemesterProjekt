@@ -20330,7 +20330,7 @@ MonoBehaviour:
   Healing: {fileID: 8300000, guid: 969ae13f73cc74c4883707ee22a05976, type: 3}
   GM: {fileID: 0}
   BH: {fileID: 0}
-  champID: 
+  champID: Jack
   Name: Jack
   MaxHp: 60
   MaxFocus: 100
