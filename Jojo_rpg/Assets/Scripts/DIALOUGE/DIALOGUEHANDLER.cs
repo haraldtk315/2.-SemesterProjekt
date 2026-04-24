@@ -24,6 +24,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
     private bool dialogueActive = false;
 
     public GameObject[] ENEMIES;
+    private GameObject TALK_OBJECT;
 
     private InputAction nextAction;
     private PlayerControlToggle currentPlayerControls;
@@ -60,8 +61,10 @@ public class DIALOGUEHANDLER : MonoBehaviour
         }
     }
 
-    public void DialogueStart(string[] _dialogue, GameObject player, GameObject[] enemies = null, GameObject destroyAfterDialogue = null, GameObject partyReward = null, bool ICON = false, GameObject ICON_OBJECT = null)
+    public void DialogueStart(string[] _dialogue, GameObject player, GameObject[] enemies = null, GameObject destroyAfterDialogue = null, GameObject partyReward = null, bool ICON = false, GameObject OBJECT = null)
     {
+        TALK_OBJECT = OBJECT;
+
         if (!dialogueActive)
         {
             dialogueActive = true;
@@ -92,7 +95,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
 
             if (ICON == true)
             {
-                Vector3 Pos = new Vector3(ICON_OBJECT.transform.position.x, ICON_OBJECT.transform.position.y + 0.1f, -100);
+                Vector3 Pos = new Vector3(OBJECT.transform.position.x, OBJECT.transform.position.y + 0.1f, -100);
                 GameObject ICON_CAM_OBJECT = Instantiate(ICON_CAM, Pos, Quaternion.identity);
                 ICON_CAM_PATH = ICON_CAM_OBJECT;
             }
@@ -152,6 +155,16 @@ public class DIALOGUEHANDLER : MonoBehaviour
             partyRewardAfterDialogue = null;
             SceneManager.LoadScene("FIGHT");
             return;
+        }
+
+
+        //transfer scene
+        if (TALK_OBJECT != null)
+        {
+            if (TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS != string.Empty)
+            {
+                SceneManager.LoadScene(TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS);
+            }
         }
 
         if (partyRewardAfterDialogue != null)

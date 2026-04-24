@@ -259,7 +259,16 @@ public class BATTLEHANDLER : MonoBehaviour
         }
 
         //Forced_combat moment
-        if (!Player && forced_combat == true)
+        if (forced_combat == true && !Player && enemy_count == 1)
+        {
+            GameObject monster = Instantiate(DH.ENEMIES[0], SPAWNS_ENEMY[4].transform.position, Quaternion.identity);
+            monster.transform.eulerAngles = new Vector3(0, 180, 0);
+            monster.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
+            monster.GetComponent<CHAMP_INFO>().Team_player = false;
+
+            MONSTER_ORDER[position_spawn] = monster;
+        }
+        else if (!Player && forced_combat == true)
         {
             GameObject monster = Instantiate(DH.ENEMIES[position_spawn], SPAWNS_ENEMY[position_spawn].transform.position, Quaternion.identity);
             monster.transform.eulerAngles = new Vector3(0, 180, 0);

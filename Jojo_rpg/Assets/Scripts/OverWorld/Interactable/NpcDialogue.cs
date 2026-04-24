@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NPC : MonoBehaviour, IInteractable
 {
     public bool HAS_ICON;
+    public string TRANSFER_TO_THIS;
 
     public string npcID;
     public string[] message;
@@ -58,6 +60,11 @@ public class NPC : MonoBehaviour, IInteractable
                         GAMEMANAGER.instance.removedNPCs.Add(npcID);
                         Destroy(gameObject);
                     }
+                }
+
+                if (TRANSFER_TO_THIS != string.Empty)
+                {
+                    SceneManager.LoadScene(TRANSFER_TO_THIS);
                 }
             }
 
