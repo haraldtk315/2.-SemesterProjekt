@@ -5288,7 +5288,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6907215481846497109, guid: 5ec6d910c601fa8449a9de272dff9d5f, type: 3}
+  m_Sprite: {fileID: 1752151518, guid: 270f87035fdec484d8719d288a0139a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5308,7 +5308,7 @@ Animator:
   m_GameObject: {fileID: 5366087952969651428}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ec37de47d18ecd04da51effa161b7c97, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4209568b74428f24287ba7810f9baa4f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -20215,7 +20215,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2253911629886400664, guid: 5c8996c421a876c42ab82b6c7e9e6628, type: 3}
       propertyPath: m_Name
-      value: FROG_MENTOR
+      value: JACK
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: 5c8996c421a876c42ab82b6c7e9e6628, type: 3}
       propertyPath: m_Layer
@@ -20331,12 +20331,12 @@ MonoBehaviour:
   GM: {fileID: 0}
   BH: {fileID: 0}
   champID: 
-  Name: FROG
+  Name: Jack
   MaxHp: 60
   MaxFocus: 100
   Level: 0
-  descripton: A mysterious frog from the forrest.\nCurrently trying to teach you
-    martial arts
+  descripton: A fast, cocky with a huge love the great britain.\nA true hypeman for
+    a group!
   Party_order: 0
   Team_player: 0
   dead: 0
@@ -20350,7 +20350,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8c1e3951ad0dca946b2d66596c69ffba, type: 2}
   - {fileID: 11400000, guid: 73525379c3bbfdc4db4da6cec4ddc0c5, type: 2}
   - {fileID: 11400000, guid: ae72d8166e198ec48a3f99243145cad7, type: 2}
-  SPECIALS: []
+  SPECIALS:
+  - {fileID: 11400000, guid: 53b904e3253fcba4b92f01bd9bbdc6b0, type: 2}
+  - {fileID: 11400000, guid: 152205d3ebe3b6b448163cb239e2c09b, type: 2}
+  - {fileID: 11400000, guid: edc5b3569f34abf49877a205a9ce557a, type: 2}
+  - {fileID: 11400000, guid: 6a0d318107bcdb840a5c6eb51464a1d2, type: 2}
   On_hit_effekt: {fileID: 6696071498278047046, guid: 65df1a8dfb33df5458baadc1f6d57d39, type: 3}
   Player_UI: {fileID: 0}
   Outline: {fileID: 2532179721337690418}

@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/INTRO/INTRO_2.unity
     guid: 8963fe39f2995c943baff576ef8016f4
   - enabled: 1
+    path: Assets/Scenes/INTRO/INTRO_3.unity
+    guid: 72c8c0cd723c85149ad5b21195a2ac50
+  - enabled: 1
     path: Assets/Scenes/OVERWORLD.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1

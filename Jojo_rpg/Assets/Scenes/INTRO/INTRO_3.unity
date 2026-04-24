@@ -975,8 +975,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 1
-  TRANSFER_TO_THIS: INTRO_3
-  npcID: Last_frog
+  TRANSFER_TO_THIS: 
+  npcID: FROG_MENTOR_2
   message:
   - 'FROG: It seems like you are awake!'
   - 'FROG: The world is not safe anymore...'

@@ -1078,7 +1078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 1
   TRANSFER_TO_THIS: INTRO_2
-  npcID: test npc1
+  npcID: FROGGO
   message:
   - ...
   - 'FROG: Oh hey there little child *Ribbit*'

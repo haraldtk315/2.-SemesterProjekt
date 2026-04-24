@@ -65,6 +65,8 @@ public class CHAMP_INFO : MonoBehaviour
     private float heal_pitch = 0.75f;
     private float focus_pitch = 0.6f;
 
+    public string[] Talk_each_round;
+
     private void Start()
     {
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
