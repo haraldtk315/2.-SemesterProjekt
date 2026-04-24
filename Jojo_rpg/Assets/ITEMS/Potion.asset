@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Potion
   icon: {fileID: 5739031943852006050, guid: 08a6a35dfda3a914bbb4c3d7f3efe171, type: 3}
   Type: 0
-  value: 15
+  value: 25
   description: 'Use in case of an emergency!!!
 
 
