@@ -243,7 +243,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PATRIOT
+  m_Name: WERNER
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -315,7 +315,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -1812895233354458540, guid: 58d0b889a749c53409a98bfe3186ab6e, type: 3}
+  m_Motion: {fileID: -2817477391603697026, guid: 60a52dce8922a0f44afd55673c530a91, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

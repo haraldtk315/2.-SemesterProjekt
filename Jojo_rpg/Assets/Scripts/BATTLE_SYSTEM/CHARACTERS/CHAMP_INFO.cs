@@ -49,6 +49,9 @@ public class CHAMP_INFO : MonoBehaviour
     public float Damage_buff = 1;
     public int Shield_buff = 1;
 
+    public float height_from_ground;
+    public float height_cam;
+
     public float time;
 
     public BASIC_ATTACKS[] ATTACKS;

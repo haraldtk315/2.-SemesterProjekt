@@ -2266,8 +2266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   party:
   - {fileID: 380776666666102203, guid: a59ebe726d51b03419dae3e4f23d968c, type: 3}
-  - {fileID: 380776666666102203, guid: a59ebe726d51b03419dae3e4f23d968c, type: 3}
-  - {fileID: 0}
+  - {fileID: 380776666666102203, guid: ef0b7b469a9018245b59bfd4c87a0d24, type: 3}
+  - {fileID: 380776666666102203, guid: 71fb71bfe1a2cc04eaea1d10fd66e980, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   HP: 0000000000000000000000000000000000000000

@@ -217,6 +217,7 @@ public class BATTLEHANDLER : MonoBehaviour
             if (party_size == 1)
             {
                 GameObject Ally = Instantiate(SINGLE_PLAYER, SPAWNS[4].transform.position, Quaternion.identity);
+                Ally.transform.position += new Vector3(0, Ally.GetComponent<CHAMP_INFO>().height_from_ground, 0);
 
                 //Kinda messed up here but it should work ;3
                 ORDER[0] = Ally;
@@ -226,12 +227,14 @@ public class BATTLEHANDLER : MonoBehaviour
                 Ally.GetComponent<CHAMP_INFO>().hp = GM.HP[0];
 
                 //ICON
-                Vector3 Pos = new Vector3(Ally.transform.position.x, Ally.transform.position.y + 0.1f, Ally.transform.position.z - 0.50f);
+                Vector3 Pos = new Vector3(Ally.transform.position.x, Ally.transform.position.y + Ally.GetComponent<CHAMP_INFO>().height_cam, Ally.transform.position.z - 0.50f);
                 GameObject ICON_CAM_OBJECT = Instantiate(ICON_CAMS_UI[position_spawn], Pos, Quaternion.identity);
             }
             else
             {
                 GameObject Ally = Instantiate(GM.party[position_spawn], SPAWNS[position_spawn].transform.position, Quaternion.identity);
+                Ally.transform.position += new Vector3(0, Ally.GetComponent<CHAMP_INFO>().height_from_ground, 0);
+
                 Ally.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
                 Ally.GetComponent<CHAMP_INFO>().Team_player = true;
                 Ally.GetComponent<CHAMP_INFO>().hp = GM.HP[position_spawn];
@@ -243,7 +246,7 @@ public class BATTLEHANDLER : MonoBehaviour
                 ORDER[position_spawn] = Ally;
 
                 //ICON
-                Vector3 Pos = new Vector3(Ally.transform.position.x, Ally.transform.position.y + 0.1f, Ally.transform.position.z - 0.50f);
+                Vector3 Pos = new Vector3(Ally.transform.position.x, Ally.transform.position.y + Ally.GetComponent<CHAMP_INFO>().height_cam, Ally.transform.position.z - 0.50f);
                 GameObject ICON_CAM_OBJECT = Instantiate(ICON_CAMS_UI[position_spawn], Pos, Quaternion.identity);
             }
         }
