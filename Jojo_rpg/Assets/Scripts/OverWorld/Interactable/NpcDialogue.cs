@@ -27,8 +27,7 @@ public class NPC : MonoBehaviour, IInteractable
         }
 
         // Hvis denne NPC lige har været i battle, så vis after-battle dialogue
-        if (!string.IsNullOrEmpty(npcID) &&
-            GAMEMANAGER.instance.pendingPostBattleNPCID == npcID)
+        if (!string.IsNullOrEmpty(npcID) && GAMEMANAGER.instance.pendingPostBattleNPCID == npcID)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
 
