@@ -1,5 +1,6 @@
 using NUnit.Framework.Internal;
 using System.Linq.Expressions;
+using System.Threading;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -637,7 +638,7 @@ public class BATTLEHANDLER : MonoBehaviour
 
             Debug.Log("CURRENTLY IN ENEMY BATTLE STATE");
             Current_ATTACK = ENEMY_MOVES[Enemy_Attack];
-            TARGET_ATTACK(MONSTER_ORDER[ON_TARGET_ENEMY], ORDER[CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE], ENEMY_MOVES[Enemy_Attack].damage, ENEMY_MOVES[Enemy_Attack].acc, ENEMY_MOVES[Enemy_Attack].focus, ENEMY_MOVES[Enemy_Attack].damage_buff);
+            TARGET_ATTACK(MONSTER_ORDER[ON_TARGET_ENEMY], ORDER[CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE], ENEMY_MOVES[Enemy_Attack].damage, ENEMY_MOVES[Enemy_Attack].acc, ENEMY_MOVES[Enemy_Attack].focus, ENEMY_MOVES[Enemy_Attack].damage_buff, ENEMY_MOVES[Enemy_Attack].spawnable);
             Current_ATTACK = null;
 
             Invoke("STATEGOTOENEMY", WAIT_TIME);
@@ -738,7 +739,7 @@ public class BATTLEHANDLER : MonoBehaviour
     }
 
     //THE BASIC ATTACK (Could potentially also work for the future special move)
-    public void TARGET_ATTACK(GameObject SENDER, GameObject TARGET, int Damage, int acc, int focus = 0, float buff = 1f)
+    public void TARGET_ATTACK(GameObject SENDER, GameObject TARGET, int Damage, int acc, int focus = 0, float buff = 1f, GameObject SPAWN = null)
     {
         //ZOOM OUT CAM
         Cam_holder.transform.position = Vector3.zero;
@@ -830,7 +831,36 @@ public class BATTLEHANDLER : MonoBehaviour
                         MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().ON_HIT(); //MAKING SURE THE TARGET IS DEAD!!!
                     }
                 }
+            }
 
+            if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.SPAWN)
+            {
+                if (SENDER.GetComponent<CHAMP_INFO>().Team_player == true)
+                {
+
+                }
+
+                if (SENDER.GetComponent<CHAMP_INFO>().Team_player == false)
+                {
+                    for (int i = 0; i < MONSTER_ORDER.Length; i++)
+                    {
+                        if (MONSTER_ORDER[i] == null || MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
+                        {
+                            if (MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
+                            {
+                                Destroy(MONSTER_ORDER[i]);
+                            }
+
+                            GameObject Monster = Instantiate(SPAWN, SPAWNS_ENEMY[i].transform.position, Quaternion.identity);
+                            Monster.transform.position += new Vector3(0, Monster.GetComponent<CHAMP_INFO>().height_from_ground, 0);
+                            Monster.transform.eulerAngles = new Vector3(0, 180, 0);
+                            Monster.GetComponent<CHAMP_INFO>().Party_order = i;
+                            Monster.GetComponent<CHAMP_INFO>().Team_player = false;
+
+                            MONSTER_ORDER[i] = Monster;
+                        }
+                    }
+                }
             }
         }
 

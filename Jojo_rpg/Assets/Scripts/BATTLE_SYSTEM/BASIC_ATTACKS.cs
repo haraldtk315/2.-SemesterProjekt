@@ -8,6 +8,7 @@ public class BASIC_ATTACKS : ScriptableObject
     public int acc;
     public int focus;
     public float damage_buff;
+    public GameObject spawnable;
 
     public ATTACK_TYPE type;
     public enum ATTACK_TYPE
@@ -17,7 +18,8 @@ public class BASIC_ATTACKS : ScriptableObject
         HIT_ALL,
         Party,
         HIT_ALL_PARTY,
-        HIT_ALL_ENEMY
+        HIT_ALL_ENEMY,
+        SPAWN
     }
 
     [TextArea]

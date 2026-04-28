@@ -20339,7 +20339,7 @@ MonoBehaviour:
   Party_order: 0
   Team_player: 0
   dead: 0
-  hp: 200
+  hp: 250
   focus: 0
   Damage_buff: 1
   Shield_buff: 1
@@ -20351,6 +20351,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 777d1b5b9a2661e4bbb6f6bdc0fc0e05, type: 2}
   - {fileID: 11400000, guid: 4d2d839192d6f564faf2c0e969bf8cd7, type: 2}
   - {fileID: 11400000, guid: 7cec86dfdfa3d2c469d696efd82e8954, type: 2}
+  - {fileID: 11400000, guid: c77ee03f4f90f5148bc0a620fdd370ff, type: 2}
   SPECIALS: []
   On_hit_effekt: {fileID: 6696071498278047046, guid: 65df1a8dfb33df5458baadc1f6d57d39, type: 3}
   Player_UI: {fileID: 0}

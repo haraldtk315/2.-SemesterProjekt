@@ -89,13 +89,6 @@ public class CHAMP_INFO : MonoBehaviour
             Out_sprites[i].GetComponent<SpriteRenderer>().sprite = SR.sprite;
         }
     }
-
-    public void Awake()
-    {
-        y_pos = transform.position.y;
-    }
-
-
     private void Update()
     {
         ON_HIT(); // I think everything will still work without it, but it is much safer to check everyframe since it does not take that much processing power.
@@ -121,7 +114,8 @@ public class CHAMP_INFO : MonoBehaviour
 
         if (dead == false)
         {
-            transform.position = new Vector3(transform.position.x, height_from_ground, transform.position.z);
+            y_pos = transform.position.y;
+            transform.position = new Vector3(transform.position.x, y_pos, transform.position.z);
         }
     }
 
