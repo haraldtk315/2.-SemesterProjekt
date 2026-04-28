@@ -5288,9 +5288,9 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2215963801115421795, guid: 60a52dce8922a0f44afd55673c530a91, type: 3}
+  m_Sprite: {fileID: 720989932, guid: e93d433035a0cb84cba457ee1132a6fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.375, y: 1.9375}
@@ -5308,7 +5308,7 @@ Animator:
   m_GameObject: {fileID: 5366087952969651428}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b85269b67a39279418843669289ee37f, type: 2}
+  m_Controller: {fileID: 9100000, guid: e2ae68f229320e64599369651420a2ba, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -19970,7 +19970,7 @@ Transform:
   m_GameObject: {fileID: 8619122605633106518}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 1.2, z: 0}
+  m_LocalPosition: {x: 0.175, y: 1.25, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20152,11 +20152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8afd5f9665d8ace4ca8079137b769145, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.4
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8afd5f9665d8ace4ca8079137b769145, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.65
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8afd5f9665d8ace4ca8079137b769145, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20215,7 +20215,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2253911629886400664, guid: 5c8996c421a876c42ab82b6c7e9e6628, type: 3}
       propertyPath: m_Name
-      value: Werner_glanz
+      value: BIG_GOON
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: 5c8996c421a876c42ab82b6c7e9e6628, type: 3}
       propertyPath: m_Layer
@@ -20331,28 +20331,27 @@ MonoBehaviour:
   GM: {fileID: 0}
   BH: {fileID: 0}
   champID: 
-  Name: Werner Glanz
-  MaxHp: 60
+  Name: Terrance
+  MaxHp: 200
   MaxFocus: 100
   Level: 0
-  descripton: Cares for his people using his healing powers.
+  descripton: Ruler of this area. Oppresses the people of the city
   Party_order: 0
   Team_player: 0
   dead: 0
-  hp: 60
+  hp: 200
   focus: 0
   Damage_buff: 1
   Shield_buff: 1
-  height_from_ground: 0
-  height_cam: 0.5
+  height_from_ground: 1
+  height_cam: 0.1
   time: 0
   ATTACKS:
-  - {fileID: 11400000, guid: 127680fcd8ac1374cbc22230013d7272, type: 2}
-  - {fileID: 11400000, guid: 8c1e3951ad0dca946b2d66596c69ffba, type: 2}
-  - {fileID: 11400000, guid: 73525379c3bbfdc4db4da6cec4ddc0c5, type: 2}
-  - {fileID: 11400000, guid: ae72d8166e198ec48a3f99243145cad7, type: 2}
-  SPECIALS:
-  - {fileID: 11400000, guid: 152205d3ebe3b6b448163cb239e2c09b, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SPECIALS: []
   On_hit_effekt: {fileID: 6696071498278047046, guid: 65df1a8dfb33df5458baadc1f6d57d39, type: 3}
   Player_UI: {fileID: 0}
   Outline: {fileID: 2532179721337690418}
