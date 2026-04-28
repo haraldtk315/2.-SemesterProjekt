@@ -17,5 +17,6 @@ MonoBehaviour:
   acc: 100
   focus: 10
   damage_buff: 0
+  spawnable: {fileID: 3421477131056836205, guid: f5fe4f4ac31413b4ca20d086a9877a34, type: 3}
   type: 6
   Description: SPAWN PRISONERS TO HELP FIGHT

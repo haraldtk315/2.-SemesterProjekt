@@ -293,6 +293,20 @@ public class BATTLEHANDLER : MonoBehaviour
         //AWAITING INPUT FROM PLAYER
         if (Current == STATEMACHINE.INPUT)
         {
+            for(int i = ON_CURRENT_CHAMP; i < ORDER.Length; i++)
+            {
+                if (ORDER[ON_CURRENT_CHAMP] == null || ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().dead == true)
+                {
+                    continue;
+                }
+
+                if (ORDER[ON_CURRENT_CHAMP] != null || ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().dead == false)
+                {
+                    ON_CURRENT_CHAMP = i;
+                    break;
+                }
+            }
+
             MAIN_Buttons.SetActive(true);
             Player_UI.SetActive(true);
             EXPANDED = false;
@@ -617,6 +631,7 @@ public class BATTLEHANDLER : MonoBehaviour
                             */
                             CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE = j;
 
+                            ON_CURRENT_CHAMP = 0; //added this because of an error might not be needed
                             CURRENT_STATE = STATEMACHINE.ENEMY_BATTLE;
                             StateMachine(STATEMACHINE.ENEMY_BATTLE);
                             break;
@@ -846,7 +861,7 @@ public class BATTLEHANDLER : MonoBehaviour
                     {
                         if (MONSTER_ORDER[i] == null || MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
                         {
-                            if (MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
+                            if (MONSTER_ORDER[i] != null && MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
                             {
                                 Destroy(MONSTER_ORDER[i]);
                             }
