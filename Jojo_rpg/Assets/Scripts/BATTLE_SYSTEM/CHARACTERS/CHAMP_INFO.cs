@@ -70,6 +70,8 @@ public class CHAMP_INFO : MonoBehaviour
 
     public string[] Talk_each_round;
 
+    private float y_pos = 0;
+
     private void Start()
     {
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GAMEMANAGER>();
@@ -87,9 +89,13 @@ public class CHAMP_INFO : MonoBehaviour
             Out_sprites[i].GetComponent<SpriteRenderer>().sprite = SR.sprite;
         }
     }
-   
-    
-    
+
+    public void Awake()
+    {
+        y_pos = transform.position.y;
+    }
+
+
     private void Update()
     {
         ON_HIT(); // I think everything will still work without it, but it is much safer to check everyframe since it does not take that much processing power.
@@ -109,7 +115,13 @@ public class CHAMP_INFO : MonoBehaviour
         //Is here to fix a bug were you can heal a unit that is dead and make their sprite turn into the heal sprite
         if (dead == true)
         {
+            transform.position = new Vector3(transform.position.x, y_pos - height_from_ground, transform.position.z);
             ANI.Play(DEATH);
+        }
+
+        if (dead == false)
+        {
+            transform.position = new Vector3(transform.position.x, height_from_ground, transform.position.z);
         }
     }
 
@@ -296,6 +308,12 @@ public class CHAMP_INFO : MonoBehaviour
         {
             ANI.Play(BUFF);
         }
+    }
+
+    public void SELF_HEAL(int BuffType = 0)
+    {
+        PlaySound(Healing, heal_pitch);
+        ANI.Play(HEAL);
     }
 
 

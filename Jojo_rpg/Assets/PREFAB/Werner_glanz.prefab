@@ -20332,14 +20332,14 @@ MonoBehaviour:
   BH: {fileID: 0}
   champID: 
   Name: Werner Glanz
-  MaxHp: 60
+  MaxHp: 100
   MaxFocus: 100
   Level: 0
   descripton: Cares for his people using his healing powers.
   Party_order: 0
   Team_player: 0
   dead: 0
-  hp: 60
+  hp: 100
   focus: 0
   Damage_buff: 1
   Shield_buff: 1

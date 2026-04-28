@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f56cd65bb1cb36441a7642c56886f14f
+guid: 82d7839c5aef68f41b3eb3c42e780452
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,7 +36,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 16
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -76,7 +76,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
     spritePadding: 0
@@ -91,7 +91,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
     spritePadding: 0
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639129785165517907
+  platformSettingsDirtyTick: 639129787497457557
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: TerrancesBigBrotherGoon
+  - name: Frame_0
     originalName: 
-    pivot: {x: 0.50793654, y: 0}
+    pivot: {x: 0.49206352, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -139,7 +139,7 @@ ScriptedImporter:
       y: 4
       width: 63
       height: 64
-    spriteID: 3b9fe2f24ed032e4f86fbd8c14c96312
+    spriteID: 335867f6d93e2454ea012023e586b505
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -150,7 +150,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Frame_1
     originalName: 
-    pivot: {x: 0.50793654, y: 0}
+    pivot: {x: 0.49206352, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -160,7 +160,7 @@ ScriptedImporter:
       y: 76
       width: 63
       height: 64
-    spriteID: 4a1d554d3b269784c8602276f26c57aa
+    spriteID: c0498e92a4b4e9a4ca84eb94c2b5745f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -188,20 +188,20 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
+        x: 1
         y: 0
         width: 63
         height: 64
-      spriteId: 3b9fe2f24ed032e4f86fbd8c14c96312
+      spriteId: 335867f6d93e2454ea012023e586b505
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
-        x: 0
+        x: 1
         y: 0
         width: 63
         height: 64
-      spriteId: 4a1d554d3b269784c8602276f26c57aa
+      spriteId: c0498e92a4b4e9a4ca84eb94c2b5745f
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

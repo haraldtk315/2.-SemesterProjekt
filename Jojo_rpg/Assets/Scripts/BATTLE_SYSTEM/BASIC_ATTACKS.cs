@@ -7,6 +7,7 @@ public class BASIC_ATTACKS : ScriptableObject
     public int damage;
     public int acc;
     public int focus;
+    public float damage_buff;
 
     public ATTACK_TYPE type;
     public enum ATTACK_TYPE

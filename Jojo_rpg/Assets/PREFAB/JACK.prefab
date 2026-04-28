@@ -20332,7 +20332,7 @@ MonoBehaviour:
   BH: {fileID: 0}
   champID: Jack
   Name: Jack
-  MaxHp: 60
+  MaxHp: 45
   MaxFocus: 100
   Level: 0
   descripton: A fast, cocky with a huge love the great britain.\nA true hypeman for
@@ -20340,7 +20340,7 @@ MonoBehaviour:
   Party_order: 0
   Team_player: 0
   dead: 0
-  hp: 60
+  hp: 45
   focus: 0
   Damage_buff: 1
   Shield_buff: 1

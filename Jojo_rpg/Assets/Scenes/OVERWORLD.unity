@@ -11443,8 +11443,8 @@ MonoBehaviour:
   messageAfterBattle:
   - raarrww
   enemies:
-  - {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
-  - {fileID: 3421477131056836205, guid: 0138ff628718bf249a9610408bf97bcb, type: 3}
+  - {fileID: 380776666666102203, guid: d281095fc5096854f9605169df86a750, type: 3}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -15483,7 +15483,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 17
-      m_TileSpriteIndex: 34
+      m_TileSpriteIndex: 46
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -26333,7 +26333,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 23
-      m_TileSpriteIndex: 23
+      m_TileSpriteIndex: 34
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -30760,8 +30760,8 @@ Tilemap:
     m_Data: {fileID: -1892381893, guid: 020e4d647252f894f9bf60ad16a4bf1c, type: 3}
   - m_RefCount: 9
     m_Data: {fileID: -1238728893, guid: 020e4d647252f894f9bf60ad16a4bf1c, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1061511883, guid: 020e4d647252f894f9bf60ad16a4bf1c, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 6
     m_Data: {fileID: -1533630985, guid: 6c64e5c2ec93e6e49b0c7aac2c427dac, type: 3}
   - m_RefCount: 4
@@ -30783,7 +30783,7 @@ Tilemap:
   - m_RefCount: 171
     m_Data: {fileID: -379615849, guid: 020e4d647252f894f9bf60ad16a4bf1c, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -731663696, guid: 020e4d647252f894f9bf60ad16a4bf1c, type: 3}
+    m_Data: {fileID: 1061511883, guid: 020e4d647252f894f9bf60ad16a4bf1c, type: 3}
   - m_RefCount: 33
     m_Data: {fileID: 967083600, guid: 5e59338c291c1c742aca20af7d68edcc, type: 3}
   - m_RefCount: 13
@@ -30806,8 +30806,8 @@ Tilemap:
     m_Data: {fileID: -2119156800, guid: 020e4d647252f894f9bf60ad16a4bf1c, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -232084186, guid: 020e4d647252f894f9bf60ad16a4bf1c, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -731663696, guid: 020e4d647252f894f9bf60ad16a4bf1c, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 1896
     m_Data:

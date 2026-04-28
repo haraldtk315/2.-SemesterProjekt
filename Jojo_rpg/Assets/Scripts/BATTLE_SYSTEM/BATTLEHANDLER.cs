@@ -255,6 +255,7 @@ public class BATTLEHANDLER : MonoBehaviour
         if (!Player && forced_combat == false)
         {
             GameObject monster = Instantiate(only_monster, SPAWNS_ENEMY[position_spawn].transform.position, Quaternion.identity);
+            monster.transform.position += new Vector3(0, monster.GetComponent<CHAMP_INFO>().height_from_ground, 0);
             monster.transform.eulerAngles = new Vector3(0, 180, 0);
             monster.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
             monster.GetComponent<CHAMP_INFO>().Team_player = false;
@@ -266,6 +267,7 @@ public class BATTLEHANDLER : MonoBehaviour
         if (forced_combat == true && !Player && enemy_count == 1)
         {
             GameObject monster = Instantiate(DH.ENEMIES[0], SPAWNS_ENEMY[4].transform.position, Quaternion.identity);
+            monster.transform.position += new Vector3(0, monster.GetComponent<CHAMP_INFO>().height_from_ground, 0);
             monster.transform.eulerAngles = new Vector3(0, 180, 0);
             monster.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
             monster.GetComponent<CHAMP_INFO>().Team_player = false;
@@ -275,6 +277,7 @@ public class BATTLEHANDLER : MonoBehaviour
         else if (!Player && forced_combat == true)
         {
             GameObject monster = Instantiate(DH.ENEMIES[position_spawn], SPAWNS_ENEMY[position_spawn].transform.position, Quaternion.identity);
+            monster.transform.position += new Vector3(0, monster.GetComponent<CHAMP_INFO>().height_from_ground, 0);
             monster.transform.eulerAngles = new Vector3(0, 180, 0);
             monster.GetComponent<CHAMP_INFO>().Party_order = position_spawn;
             monster.GetComponent<CHAMP_INFO>().Team_player = false;
@@ -486,7 +489,9 @@ public class BATTLEHANDLER : MonoBehaviour
             //ATTACK HITS ALL
             if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.HIT_ALL)
             {
+                TARGET_ENEMY = null;
 
+                TARGET_CLICKED(null);
             }
 
             if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.HIT_ALL_PARTY)
@@ -528,7 +533,7 @@ public class BATTLEHANDLER : MonoBehaviour
             }
             else
             {
-                TARGET_ATTACK(ORDER[ON_CURRENT_CHAMP], TARGET_ENEMY, Current_ATTACK.damage, Current_ATTACK.acc, Current_ATTACK.focus);
+                TARGET_ATTACK(ORDER[ON_CURRENT_CHAMP], TARGET_ENEMY, Current_ATTACK.damage, Current_ATTACK.acc, Current_ATTACK.focus, Current_ATTACK.damage_buff);
             }
 
 
@@ -632,7 +637,7 @@ public class BATTLEHANDLER : MonoBehaviour
 
             Debug.Log("CURRENTLY IN ENEMY BATTLE STATE");
             Current_ATTACK = ENEMY_MOVES[Enemy_Attack];
-            TARGET_ATTACK(MONSTER_ORDER[ON_TARGET_ENEMY], ORDER[CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE], ENEMY_MOVES[Enemy_Attack].damage, ENEMY_MOVES[Enemy_Attack].acc);
+            TARGET_ATTACK(MONSTER_ORDER[ON_TARGET_ENEMY], ORDER[CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE], ENEMY_MOVES[Enemy_Attack].damage, ENEMY_MOVES[Enemy_Attack].acc, ENEMY_MOVES[Enemy_Attack].focus, ENEMY_MOVES[Enemy_Attack].damage_buff);
             Current_ATTACK = null;
 
             Invoke("STATEGOTOENEMY", WAIT_TIME);
@@ -761,8 +766,24 @@ public class BATTLEHANDLER : MonoBehaviour
 
             if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.SELF)
             {
-                SENDER.GetComponent<CHAMP_INFO>().SELF_BUFF();
+                if (New_Focus > 0)
+                {
+                    SENDER.GetComponent<CHAMP_INFO>().SELF_BUFF();
+                }
+                
+                if (New_Damage < 0)
+                {
+                    SENDER.GetComponent<CHAMP_INFO>().SELF_HEAL();
+                }
+
+                if (buff > 0)
+                {
+                    SENDER.GetComponent<CHAMP_INFO>().SELF_BUFF(1);
+                    SENDER.GetComponent<CHAMP_INFO>().Damage_buff = buff;
+                }
+
                 SENDER.GetComponent<CHAMP_INFO>().focus += New_Focus;
+                SENDER.GetComponent<CHAMP_INFO>().hp += New_Damage;
                 Debug.Log(SENDER.GetComponent<CHAMP_INFO>().Name + " Buffed themselves, " + New_Focus.ToString() + " Focus was gained");
 
                 WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
@@ -780,6 +801,36 @@ public class BATTLEHANDLER : MonoBehaviour
                         WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
                     }
                 }
+            }
+
+            if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.HIT_ALL)
+            {
+                for (int i = 0; i < ORDER.Length; i++)
+                {
+                    if (ORDER[i] != null && ORDER[i] != SENDER)
+                    {
+                        SENDER.GetComponent<CHAMP_INFO>().NORMAL_HIT(ORDER[i], New_Damage);
+                        WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
+
+                        ORDER[i].GetComponent<CHAMP_INFO>().hp -= New_Damage;
+                        SENDER.GetComponent<CHAMP_INFO>().focus += focus;
+                        ORDER[i].GetComponent<CHAMP_INFO>().ON_HIT(); //MAKING SURE THE TARGET IS DEAD!!!
+                    }
+                }
+
+                for (int i = 0; i < MONSTER_ORDER.Length; i++)
+                {
+                    if (MONSTER_ORDER[i] != null && MONSTER_ORDER[i] != SENDER)
+                    {
+                        SENDER.GetComponent<CHAMP_INFO>().NORMAL_HIT(ORDER[i], New_Damage);
+                        WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
+
+                        MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().hp -= New_Damage;
+                        SENDER.GetComponent<CHAMP_INFO>().focus += focus;
+                        MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().ON_HIT(); //MAKING SURE THE TARGET IS DEAD!!!
+                    }
+                }
+
             }
         }
 

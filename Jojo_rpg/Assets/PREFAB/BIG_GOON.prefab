@@ -83,7 +83,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7706064918710859254, guid: 5c8996c421a876c42ab82b6c7e9e6628, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.375, y: 1.9375}
@@ -5103,7 +5103,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7706064918710859254, guid: 5c8996c421a876c42ab82b6c7e9e6628, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.375, y: 1.9375}
@@ -5194,7 +5194,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7706064918710859254, guid: 5c8996c421a876c42ab82b6c7e9e6628, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.375, y: 1.9375}
@@ -5288,7 +5288,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 720989932, guid: e93d433035a0cb84cba457ee1132a6fc, type: 3}
+  m_Sprite: {fileID: 3013644021862830078, guid: 82d7839c5aef68f41b3eb3c42e780452, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -5308,7 +5308,7 @@ Animator:
   m_GameObject: {fileID: 5366087952969651428}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e2ae68f229320e64599369651420a2ba, type: 2}
+  m_Controller: {fileID: 9100000, guid: 138f7d9cc47eb0942b9739b3209e09bf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -19970,7 +19970,7 @@ Transform:
   m_GameObject: {fileID: 8619122605633106518}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.175, y: 1.25, z: 0}
+  m_LocalPosition: {x: -0.35, y: 2.25, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20118,7 +20118,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7706064918710859254, guid: 5c8996c421a876c42ab82b6c7e9e6628, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.375, y: 1.9375}
@@ -20152,11 +20152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8afd5f9665d8ace4ca8079137b769145, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8afd5f9665d8ace4ca8079137b769145, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8afd5f9665d8ace4ca8079137b769145, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20332,7 +20332,7 @@ MonoBehaviour:
   BH: {fileID: 0}
   champID: 
   Name: Terrance
-  MaxHp: 200
+  MaxHp: 250
   MaxFocus: 100
   Level: 0
   descripton: Ruler of this area. Oppresses the people of the city
@@ -20343,14 +20343,14 @@ MonoBehaviour:
   focus: 0
   Damage_buff: 1
   Shield_buff: 1
-  height_from_ground: 1
+  height_from_ground: 0.95
   height_cam: 0.1
   time: 0
   ATTACKS:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 7cec86dfdfa3d2c469d696efd82e8954, type: 2}
+  - {fileID: 11400000, guid: 777d1b5b9a2661e4bbb6f6bdc0fc0e05, type: 2}
+  - {fileID: 11400000, guid: 4d2d839192d6f564faf2c0e969bf8cd7, type: 2}
+  - {fileID: 11400000, guid: 7cec86dfdfa3d2c469d696efd82e8954, type: 2}
   SPECIALS: []
   On_hit_effekt: {fileID: 6696071498278047046, guid: 65df1a8dfb33df5458baadc1f6d57d39, type: 3}
   Player_UI: {fileID: 0}
