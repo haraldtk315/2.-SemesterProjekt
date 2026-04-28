@@ -1997,6 +1997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Syringe
   MH: {fileID: 0}
+  microgameClockTimer: {fileID: 0}
   type: 1
   syringe: {fileID: 1080326772}
   artery: {fileID: 1559073045}
@@ -2012,6 +2013,7 @@ GameObject:
   m_Component:
   - component: {fileID: 504614831}
   - component: {fileID: 504614832}
+  - component: {fileID: 504614833}
   m_Layer: 0
   m_Name: SYRINGE
   m_TagString: Untagged
@@ -2050,11 +2052,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Syringe
   MH: {fileID: 1826950139}
+  microgameClockTimer: {fileID: 1277878621}
   type: 1
   syringe: {fileID: 1517141465}
   artery: {fileID: 1668321499}
   microgameTime: 4
   syringeSpeed: 0.015
+--- !u!95 &504614833
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504614830}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d16633f44dc4a145b7bbb75a2f744f6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &541392483
 GameObject:
   m_ObjectHideFlags: 0
@@ -4753,6 +4778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Speech
   MH: {fileID: 1826950139}
+  microgameClockTimer: {fileID: 1277878621}
   type: 3
   textUI: {fileID: 21388473}
   microgameTime: 5
@@ -7235,9 +7261,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MICROGAMEHANDLER
   BH: {fileID: 915982187}
+  microgameClock: {fileID: 803276290}
   rapidPunchMicrogame: {fileID: 1911301525}
   rapidPunchText: {fileID: 768068845}
   syringeMicrogame: {fileID: 504614830}
+  syringeAnimationController: {fileID: 504614833}
   speechMicrogame: {fileID: 1175349610}
   speechText: {fileID: 21388471}
 --- !u!1 &1851445841
@@ -7488,6 +7516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RapidPunch
   MH: {fileID: 1826950139}
+  microgameClockTimer: {fileID: 1277878621}
   type: 0
   damagePerPunch: 3
   microgameTime: 2

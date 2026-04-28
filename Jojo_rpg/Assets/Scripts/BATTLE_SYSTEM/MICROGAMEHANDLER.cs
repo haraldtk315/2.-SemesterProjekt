@@ -15,9 +15,15 @@ public class MICROGAMEHANDLER : MonoBehaviour
     }
 
     public BATTLEHANDLER BH;
+
+    public GameObject microgameClock;
+
     public GameObject rapidPunchMicrogame;
     public GameObject rapidPunchText;
+
     public GameObject syringeMicrogame;
+    public Animator syringeAnimationController;
+
     public GameObject speechMicrogame;
     public GameObject speechText;
 
@@ -54,6 +60,7 @@ public class MICROGAMEHANDLER : MonoBehaviour
         if (microgame == MICROGAMES.SYRINGE)
         {
             syringeMicrogame.SetActive(true);
+            syringeAnimationController.Play("SyringeEnter");
         }
 
         if (microgame == MICROGAMES.SPEECH)
@@ -61,6 +68,8 @@ public class MICROGAMEHANDLER : MonoBehaviour
             speechMicrogame.SetActive(true);
             speechText.SetActive(true);
         }
+
+        microgameClock.SetActive(true);
     }
 
     public void EndMicrogame(MICROGAMES microgame, int damage, int acc = 100, int focus = 0, float buff = 1)
@@ -73,7 +82,7 @@ public class MICROGAMEHANDLER : MonoBehaviour
 
         if (microgame == MICROGAMES.SYRINGE)
         {
-            syringeMicrogame.SetActive(false);
+            syringeAnimationController.Play("SyringeExit");
         }
 
         if (microgame == MICROGAMES.SPEECH)
@@ -82,10 +91,11 @@ public class MICROGAMEHANDLER : MonoBehaviour
             speechText.SetActive(false);
         }
 
+        microgameClock.SetActive(false);
+
         BH.CURRENT_STATE = BATTLEHANDLER.STATEMACHINE.BATTLE;
         BH.StateMachine(BATTLEHANDLER.STATEMACHINE.BATTLE);
         BH.TARGET_ATTACK(BH.ORDER[BH.ON_CURRENT_CHAMP], BH.TARGET_ENEMY, damage, acc, focus, buff);
     }
-
 
 }

@@ -10,12 +10,13 @@ using UnityEngine;
 public class Speech : MonoBehaviour
 {
     public MICROGAMEHANDLER MH;
+    public TextMeshProUGUI microgameClockTimer;
 
     public MICROGAMEHANDLER.MICROGAMES type;
     public TextMeshProUGUI textUI;
     public float microgameTime;
-    
 
+    private float timeRemaining;
     private string remainingSentence = string.Empty;
     private int score;
     private float buff;
@@ -33,12 +34,15 @@ public class Speech : MonoBehaviour
         score = 0;
         buff = 1;
         endMicrogameRoutine = StartCoroutine(EndMicrogame(microgameTime));
+        timeRemaining = microgameTime;
         SetRemainingSentence(sentenceBank[UnityEngine.Random.Range(1, sentenceBank.Count + 1)]);
     }
 
     // Update is called once per frame
     void Update()
     {
+        timeRemaining -= Time.deltaTime;
+        microgameClockTimer.text = $"{Mathf.CeilToInt(timeRemaining)}";
         CheckInput();
     }
 

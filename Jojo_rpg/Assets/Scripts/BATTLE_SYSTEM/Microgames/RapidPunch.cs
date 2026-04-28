@@ -1,14 +1,17 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class RapidPunch : MonoBehaviour
 {
     public MICROGAMEHANDLER MH;
+    public TextMeshProUGUI microgameClockTimer;
 
     public MICROGAMEHANDLER.MICROGAMES type;
     public int damagePerPunch;
     public float microgameTime;
 
+    private float timeRemaining;
     private int score;
     private bool leftPunch;
 
@@ -17,11 +20,15 @@ public class RapidPunch : MonoBehaviour
         score = 0;
         leftPunch = true;
         StartCoroutine(EndMicrogame());
+        timeRemaining = microgameTime;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        timeRemaining -= Time.deltaTime;
+        microgameClockTimer.text = $"{Mathf.CeilToInt(timeRemaining)}";
         if (Input.GetKeyDown(KeyCode.A) && leftPunch)
         {
             score += 1;
