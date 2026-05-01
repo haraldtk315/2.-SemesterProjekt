@@ -20327,7 +20327,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1af13db080bd1c349a4b91328db234c5, type: 3}
   - {fileID: 8300000, guid: d17d9533b848af945aa0f4ad13b7826c, type: 3}
   - {fileID: 8300000, guid: 6737311595f0c0d4dbe6d9389dbd2502, type: 3}
-  Healing: {fileID: 8300000, guid: 969ae13f73cc74c4883707ee22a05976, type: 3}
+  Healing: {fileID: 8300000, guid: 5609f523bbd0a6846b58841ae6cde0bd, type: 3}
   GM: {fileID: 0}
   BH: {fileID: 0}
   champID: Jack
