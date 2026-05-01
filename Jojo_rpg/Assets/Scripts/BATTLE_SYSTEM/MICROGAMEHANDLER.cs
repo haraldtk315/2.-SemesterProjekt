@@ -17,6 +17,7 @@ public class MICROGAMEHANDLER : MonoBehaviour
     public BATTLEHANDLER BH;
 
     public GameObject microgameClock;
+    public Animator microgameClockAnimationController;
 
     public GameObject rapidPunchMicrogame;
     public GameObject rapidPunchText;
@@ -51,6 +52,8 @@ public class MICROGAMEHANDLER : MonoBehaviour
 
     public void StartMicrogame(MICROGAMES microgame)
     {
+        microgameClock.SetActive(true);
+        microgameClockAnimationController.Play("ClockEnter");
         if (microgame == MICROGAMES.RAPID_PUNCH)
         {
             rapidPunchMicrogame.SetActive(true);
@@ -68,12 +71,12 @@ public class MICROGAMEHANDLER : MonoBehaviour
             speechMicrogame.SetActive(true);
             speechText.SetActive(true);
         }
-
-        microgameClock.SetActive(true);
     }
 
     public void EndMicrogame(MICROGAMES microgame, int damage, int acc = 100, int focus = 0, float buff = 1)
     {
+        microgameClockAnimationController.Play("ClockExit");
+
         if (microgame == MICROGAMES.RAPID_PUNCH)
         {
             rapidPunchMicrogame.SetActive(false);
@@ -91,11 +94,18 @@ public class MICROGAMEHANDLER : MonoBehaviour
             speechText.SetActive(false);
         }
 
-        microgameClock.SetActive(false);
-
         BH.CURRENT_STATE = BATTLEHANDLER.STATEMACHINE.BATTLE;
         BH.StateMachine(BATTLEHANDLER.STATEMACHINE.BATTLE);
         BH.TARGET_ATTACK(BH.ORDER[BH.ON_CURRENT_CHAMP], BH.TARGET_ENEMY, damage, acc, focus, buff);
     }
 
+    private void EnableClock()
+    {
+
+    }
+
+    private void DisableClock()
+    {
+        microgameClock.SetActive(false);
+    }
 }

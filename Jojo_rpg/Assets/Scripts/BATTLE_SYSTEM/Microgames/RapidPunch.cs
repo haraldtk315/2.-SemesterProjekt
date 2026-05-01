@@ -11,6 +11,8 @@ public class RapidPunch : MonoBehaviour
     public int damagePerPunch;
     public float microgameTime;
 
+    public Animator protagAnimator;
+
     private float timeRemaining;
     private int score;
     private bool leftPunch;
@@ -29,13 +31,15 @@ public class RapidPunch : MonoBehaviour
     {
         timeRemaining -= Time.deltaTime;
         microgameClockTimer.text = $"{Mathf.CeilToInt(timeRemaining)}";
-        if (Input.GetKeyDown(KeyCode.A) && leftPunch)
+        if (Input.GetMouseButtonDown(0) && leftPunch)
         {
+            protagAnimator.SetTrigger("LeftTrigger");
             score += 1;
             leftPunch = false;
         }
-        if (Input.GetKeyDown(KeyCode.D) && !leftPunch)
+        if (Input.GetMouseButtonDown(1) && !leftPunch)
         {
+            protagAnimator.SetTrigger("RightTrigger");
             score += 1;
             leftPunch = true;
         }
