@@ -148,7 +148,6 @@ public class DIALOGUEHANDLER : MonoBehaviour
                 }
             }
         }
-
         if (shouldStartFight)
         {
             destroyAfterDialogueObject = null;
