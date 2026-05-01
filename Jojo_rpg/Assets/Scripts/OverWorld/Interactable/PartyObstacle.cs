@@ -8,19 +8,30 @@ public class PartyObstacle : MonoBehaviour, IInteractable
     public string[] blockedMessage;
     public string[] clearedMessage;
 
+    [Header("Movement")]
+    public float gridSize = 1f;
+
+    private bool hasMoved = false;
+
     private void Start()
     {
         if (!string.IsNullOrEmpty(obstacleID) &&
             GAMEMANAGER.instance.clearedObstacles.Contains(obstacleID))
         {
-            Destroy(gameObject);
+            hasMoved = true;
+            enabled = false;
         }
     }
 
     public void Interact(PlayerInteract player)
     {
+        if (hasMoved)
+            return;
+
         if (HasPartyMember(requiredPartyMemberID))
         {
+            hasMoved = true;
+
             if (!string.IsNullOrEmpty(obstacleID))
             {
                 GAMEMANAGER.instance.clearedObstacles.Add(obstacleID);
@@ -37,16 +48,26 @@ public class PartyObstacle : MonoBehaviour, IInteractable
             }
             else
             {
-                Destroy(gameObject);
+                ClearObstacle();
             }
         }
         else
         {
             if (blockedMessage != null && blockedMessage.Length > 0)
             {
-                DIALOGUEHANDLER.instance.DialogueStart(blockedMessage, player.gameObject);
+                DIALOGUEHANDLER.instance.DialogueStart(
+                    blockedMessage,
+                    player.gameObject
+                );
             }
         }
+    }
+
+    public void ClearObstacle()
+    {
+        transform.position += new Vector3(0f, gridSize, 0f);
+
+        enabled = false;
     }
 
     private bool HasPartyMember(string memberID)

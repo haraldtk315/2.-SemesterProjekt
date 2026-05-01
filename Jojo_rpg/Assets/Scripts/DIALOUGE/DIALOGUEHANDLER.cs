@@ -174,13 +174,24 @@ public class DIALOGUEHANDLER : MonoBehaviour
 
         if (destroyAfterDialogueObject != null)
         {
-            NPC npc = destroyAfterDialogueObject.GetComponent<NPC>();
-            if (npc != null && !string.IsNullOrEmpty(npc.npcID))
+            PartyObstacle obstacle = destroyAfterDialogueObject.GetComponent<PartyObstacle>();
+
+            if (obstacle != null)
             {
-                GAMEMANAGER.instance.removedNPCs.Add(npc.npcID);
+                obstacle.ClearObstacle();
+            }
+            else
+            {
+                NPC npc = destroyAfterDialogueObject.GetComponent<NPC>();
+
+                if (npc != null && !string.IsNullOrEmpty(npc.npcID))
+                {
+                    GAMEMANAGER.instance.removedNPCs.Add(npc.npcID);
+                }
+
+                Destroy(destroyAfterDialogueObject);
             }
 
-            Destroy(destroyAfterDialogueObject);
             destroyAfterDialogueObject = null;
         }
 
