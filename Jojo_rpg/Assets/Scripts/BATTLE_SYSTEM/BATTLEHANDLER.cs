@@ -858,9 +858,6 @@ public class BATTLEHANDLER : MonoBehaviour
 
                 if (SENDER.GetComponent<CHAMP_INFO>().Team_player == false)
                 {
-                    SENDER.GetComponent<CHAMP_INFO>().MISS_ATTACK();
-                    WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
-
                     for (int i = 0; i < MONSTER_ORDER.Length; i++)
                     {
                         if (MONSTER_ORDER[i] == null || MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().dead == true)
