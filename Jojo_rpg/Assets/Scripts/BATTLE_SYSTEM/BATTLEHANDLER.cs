@@ -290,6 +290,12 @@ public class BATTLEHANDLER : MonoBehaviour
 
     public void StateMachine(STATEMACHINE Current)
     {
+        if (Current == STATEMACHINE.DIALOGUE)
+        {
+            CURRENT_STATE = STATEMACHINE.INPUT;
+            StateMachine(STATEMACHINE.INPUT);
+        }
+
         //AWAITING INPUT FROM PLAYER
         if (Current == STATEMACHINE.INPUT)
         {

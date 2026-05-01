@@ -20332,7 +20332,7 @@ MonoBehaviour:
   BH: {fileID: 0}
   champID: 
   Name: FROG
-  MaxHp: 60
+  MaxHp: 100
   MaxFocus: 100
   Level: 0
   descripton: A mysterious frog from the forrest.\nCurrently trying to teach you
@@ -20340,7 +20340,7 @@ MonoBehaviour:
   Party_order: 0
   Team_player: 0
   dead: 0
-  hp: 60
+  hp: 100
   focus: 0
   Damage_buff: 1
   Shield_buff: 1
@@ -20348,10 +20348,10 @@ MonoBehaviour:
   height_cam: 0
   time: 0
   ATTACKS:
-  - {fileID: 11400000, guid: 127680fcd8ac1374cbc22230013d7272, type: 2}
-  - {fileID: 11400000, guid: 8c1e3951ad0dca946b2d66596c69ffba, type: 2}
-  - {fileID: 11400000, guid: 73525379c3bbfdc4db4da6cec4ddc0c5, type: 2}
-  - {fileID: 11400000, guid: ae72d8166e198ec48a3f99243145cad7, type: 2}
+  - {fileID: 11400000, guid: 669a860e0da435e489ff20a6679eb889, type: 2}
+  - {fileID: 11400000, guid: 669a860e0da435e489ff20a6679eb889, type: 2}
+  - {fileID: 11400000, guid: 669a860e0da435e489ff20a6679eb889, type: 2}
+  - {fileID: 11400000, guid: 669a860e0da435e489ff20a6679eb889, type: 2}
   SPECIALS: []
   On_hit_effekt: {fileID: 6696071498278047046, guid: 65df1a8dfb33df5458baadc1f6d57d39, type: 3}
   Player_UI: {fileID: 0}
