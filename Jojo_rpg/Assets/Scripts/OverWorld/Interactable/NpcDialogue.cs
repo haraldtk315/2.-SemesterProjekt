@@ -13,8 +13,8 @@ public class NPC : MonoBehaviour, IInteractable
     public GameObject[] enemies;
 
     public GameObject partyReward;
-
     public bool destroyAfterBattleDialogue = true;
+    public bool joinPartyWithoutBattle = false;
 
     private void Start()
     {
@@ -81,6 +81,23 @@ public class NPC : MonoBehaviour, IInteractable
             return;
         }
 
+        // Hvis NPC skal joine party uden kamp
+        if (joinPartyWithoutBattle)
+        {
+            DIALOGUEHANDLER.instance.DialogueStart(
+                message,
+                player.gameObject,
+                null, // ingen enemies = ingen kamp
+                destroyAfterBattleDialogue ? gameObject : null,
+                partyReward,
+                HAS_ICON,
+                gameObject
+            );
+
+            return;
+        }
+
+        // Normal NPC med kamp
         GAMEMANAGER.instance.SaveOverworldReturnPoint(player.transform, player.facing);
         GAMEMANAGER.instance.currentNPCID = npcID;
         GAMEMANAGER.instance.pendingPartyReward = partyReward;
@@ -92,7 +109,7 @@ public class NPC : MonoBehaviour, IInteractable
             null,
             null,
             HAS_ICON,
-            this.gameObject
+            gameObject
         );
     }
 }
