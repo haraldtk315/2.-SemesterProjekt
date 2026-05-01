@@ -1,16 +1,21 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FADE : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public float alpha = 0;
+    public Image Fade;
+
+    private void Start()
     {
-        
+        Fade = GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        alpha += Time.deltaTime / 100;
+
+        Fade.color = new Color(0, 0, 0, alpha);
     }
 }
