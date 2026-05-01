@@ -1082,6 +1082,7 @@ MonoBehaviour:
   message:
   - ...
   - 'FROG: Oh hey there little child *Ribbit*'
+  - 'FROG: What has happend to you?'
   - 'FROG: Are you lost?'
   - 'FROG: Too scared to speak...'
   - 'FROG: You look like someone who has been through a lot...'
@@ -2946,7 +2947,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7706064918710859254, guid: 5c8996c421a876c42ab82b6c7e9e6628, type: 3}
+  m_Sprite: {fileID: 111739616398866961, guid: db0acc5ec4401874995435cc29b9718c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3387,7 +3388,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2

@@ -397,6 +397,12 @@ public class BATTLEHANDLER : MonoBehaviour
                     continue;
                 }
 
+                if (ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i] == null)
+                {
+                    MOVES_BUTTON[i].SetActive(false);
+                    continue;
+                }
+
                 if (ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].cost <= ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().focus)
                 {
                     MOVES_BUTTON[i].GetComponent<Button>().enabled = true;
@@ -404,12 +410,6 @@ public class BATTLEHANDLER : MonoBehaviour
                 else
                 {
                     MOVES_BUTTON[i].GetComponent<Button>().enabled = false;
-                }
-
-                if (ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i] == null)
-                {
-                    MOVES_BUTTON[i].SetActive(false);
-                    continue;
                 }
 
                 //Takes the script on the button and ands the attack into the button script, so that we can use that information later
