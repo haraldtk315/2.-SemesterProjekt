@@ -20362,7 +20362,10 @@ MonoBehaviour:
   - {fileID: 143785145963278099}
   - {fileID: 8633016426109196608}
   BUFF_INDICATOR: {fileID: 4394364569268847222}
-  Talk_each_round: []
+  Talk_each_round:
+  - 'FROG: It is time to learn how to fight. Use your ATTACKS to attack me!'
+  - 'FROG: ATTACKS give you focus! Keep attacking me! '
+  - 'FROG: You fight well little one!!! '
 --- !u!65 &-6396718981686823676
 BoxCollider:
   m_ObjectHideFlags: 0
