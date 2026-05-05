@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.Loading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,6 +7,7 @@ public class NPC : MonoBehaviour, IInteractable
 {
     public bool HAS_ICON;
     public string TRANSFER_TO_THIS;
+    public GameObject FADE;
 
     public string npcID;
     public string[] message;
@@ -63,12 +66,24 @@ public class NPC : MonoBehaviour, IInteractable
 
                 if (TRANSFER_TO_THIS != string.Empty)
                 {
-                    SceneManager.LoadScene(TRANSFER_TO_THIS);
+                    if (FADE != null)
+                    {
+                        Debug.Log("FADE");
+                        Instantiate(FADE, Vector3.zero, Quaternion.identity);
+                    }
+
+                    Debug.Log("INVOKE_LOADING");
+                    Invoke("Loading", 1000f);
                 }
             }
 
             GAMEMANAGER.instance.pendingPostBattleNPCID = null;
         }
+    }
+
+    public void Loading()
+    {
+        SceneManager.LoadScene(TRANSFER_TO_THIS);
     }
 
     public void Interact(PlayerInteract player)

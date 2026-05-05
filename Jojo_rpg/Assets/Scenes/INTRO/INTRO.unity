@@ -401,6 +401,7 @@ MonoBehaviour:
   - need jack
   clearedMessage:
   - have jack
+  gridSize: 1
 --- !u!1 &613839912
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  FADE: {fileID: 0}
   npcID: zomb2
   message:
   - 
@@ -744,6 +746,7 @@ MonoBehaviour:
   - {fileID: 0}
   partyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
+  joinPartyWithoutBattle: 0
 --- !u!1 &696252482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 1
   TRANSFER_TO_THIS: INTRO_2
+  FADE: {fileID: 9126982459725653670, guid: c6071e8c84687874b8e7ddf64276c2a7, type: 3}
   npcID: FROGGO
   message:
   - ...
@@ -1098,6 +1102,7 @@ MonoBehaviour:
   - {fileID: 0}
   partyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
+  joinPartyWithoutBattle: 0
 --- !u!1 &761658564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,6 +1256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  FADE: {fileID: 0}
   npcID: Goon
   message:
   - RAHHHHHH
@@ -1265,6 +1271,7 @@ MonoBehaviour:
   - {fileID: 0}
   partyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
+  joinPartyWithoutBattle: 0
 --- !u!1 &920424185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  FADE: {fileID: 0}
   npcID: Jack
   message:
   - 'eyy '
@@ -1615,6 +1623,7 @@ MonoBehaviour:
   - {fileID: 0}
   partyReward: {fileID: 5156567506917586551, guid: 620d45e6efa996f4d83f30e04332427d, type: 3}
   destroyAfterBattleDialogue: 1
+  joinPartyWithoutBattle: 0
 --- !u!1 &1212891524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,7 +1737,7 @@ GameObject:
   - component: {fileID: 1218470489}
   - component: {fileID: 1218470488}
   m_Layer: 5
-  m_Name: Image
+  m_Name: NIGHT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1766,7 +1775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.49019608}
+  m_Color: {r: 0.24313727, g: 0.24313727, b: 0.24313727, a: 0.49019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2013,6 +2022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  FADE: {fileID: 0}
   npcID: p1
   message:
   - Where you came from
@@ -2027,6 +2037,7 @@ MonoBehaviour:
   - {fileID: 0}
   partyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
+  joinPartyWithoutBattle: 0
 --- !u!1 &1367258973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,6 +2217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  FADE: {fileID: 0}
   npcID: Path to city
   message:
   - WARNING!!!
@@ -2220,6 +2232,7 @@ MonoBehaviour:
   - {fileID: 0}
   partyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
+  joinPartyWithoutBattle: 0
 --- !u!1 &1830499813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,6 +2407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  FADE: {fileID: 0}
   npcID: paper
   message:
   - 'it''s said there is a '
@@ -2408,6 +2422,7 @@ MonoBehaviour:
   - {fileID: 0}
   partyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
+  joinPartyWithoutBattle: 0
 --- !u!114 &1849912088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2620,6 +2635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  FADE: {fileID: 0}
   npcID: Path to city
   message:
   - Since the beginning of time.
@@ -2637,6 +2653,7 @@ MonoBehaviour:
   - {fileID: 0}
   partyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
+  joinPartyWithoutBattle: 0
 --- !u!1 &1936664260
 GameObject:
   m_ObjectHideFlags: 0
@@ -2817,6 +2834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  FADE: {fileID: 0}
   npcID: zomb1
   message:
   - I'm like a Zombie isn't that crazy
@@ -2833,6 +2851,7 @@ MonoBehaviour:
   - {fileID: 0}
   partyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
+  joinPartyWithoutBattle: 0
 --- !u!1 &2021103726
 GameObject:
   m_ObjectHideFlags: 0
@@ -3425,6 +3444,26 @@ PrefabInstance:
       propertyPath: m_TileSpriteArray.Array.data[60].m_Data
       value: 
       objectReference: {fileID: 2083738828}
+    - target: {fileID: 7308997684389246168, guid: bb36bb79c6f395648b348f5a3a850718, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[62].m_Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308997684389246168, guid: bb36bb79c6f395648b348f5a3a850718, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[64].m_Data
+      value: 
+      objectReference: {fileID: -1440982643, guid: a3da8b837e65702449474487852245d9, type: 3}
+    - target: {fileID: 7308997684389246168, guid: bb36bb79c6f395648b348f5a3a850718, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[62].m_RefCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308997684389246168, guid: bb36bb79c6f395648b348f5a3a850718, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[64].m_RefCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308997684389246168, guid: bb36bb79c6f395648b348f5a3a850718, type: 3}
+      propertyPath: m_Tiles.Array.data[455].second.m_TileSpriteIndex
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 8175687082879923560, guid: bb36bb79c6f395648b348f5a3a850718, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
