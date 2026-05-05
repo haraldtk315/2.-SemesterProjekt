@@ -13,6 +13,7 @@ TagManager:
   - ITEM_MENU
   - GROUND
   - INFO
+  - Canvas
   layers:
   - Default
   - TransparentFX

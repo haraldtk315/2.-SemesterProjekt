@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 365957783}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -727,6 +727,7 @@ MonoBehaviour:
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
   FADE: {fileID: 0}
+  DisplayText_on_fade: 
   npcID: zomb2
   message:
   - 
@@ -1082,6 +1083,7 @@ MonoBehaviour:
   HAS_ICON: 1
   TRANSFER_TO_THIS: INTRO_2
   FADE: {fileID: 9126982459725653670, guid: c6071e8c84687874b8e7ddf64276c2a7, type: 3}
+  DisplayText_on_fade: You Rested...
   npcID: FROGGO
   message:
   - ...
@@ -1257,6 +1259,7 @@ MonoBehaviour:
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
   FADE: {fileID: 0}
+  DisplayText_on_fade: 
   npcID: Goon
   message:
   - RAHHHHHH
@@ -1606,6 +1609,7 @@ MonoBehaviour:
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
   FADE: {fileID: 0}
+  DisplayText_on_fade: 
   npcID: Jack
   message:
   - 'eyy '
@@ -2023,6 +2027,7 @@ MonoBehaviour:
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
   FADE: {fileID: 0}
+  DisplayText_on_fade: 
   npcID: p1
   message:
   - Where you came from
@@ -2218,6 +2223,7 @@ MonoBehaviour:
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
   FADE: {fileID: 0}
+  DisplayText_on_fade: 
   npcID: Path to city
   message:
   - WARNING!!!
@@ -2408,6 +2414,7 @@ MonoBehaviour:
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
   FADE: {fileID: 0}
+  DisplayText_on_fade: 
   npcID: paper
   message:
   - 'it''s said there is a '
@@ -2636,6 +2643,7 @@ MonoBehaviour:
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
   FADE: {fileID: 0}
+  DisplayText_on_fade: 
   npcID: Path to city
   message:
   - Since the beginning of time.
@@ -2835,6 +2843,7 @@ MonoBehaviour:
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
   FADE: {fileID: 0}
+  DisplayText_on_fade: 
   npcID: zomb1
   message:
   - I'm like a Zombie isn't that crazy

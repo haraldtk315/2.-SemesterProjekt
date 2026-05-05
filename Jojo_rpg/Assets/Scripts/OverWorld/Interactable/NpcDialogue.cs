@@ -8,6 +8,7 @@ public class NPC : MonoBehaviour, IInteractable
     public bool HAS_ICON;
     public string TRANSFER_TO_THIS;
     public GameObject FADE;
+    public string DisplayText_on_fade;
 
     public string npcID;
     public string[] message;
@@ -66,24 +67,13 @@ public class NPC : MonoBehaviour, IInteractable
 
                 if (TRANSFER_TO_THIS != string.Empty)
                 {
-                    if (FADE != null)
-                    {
-                        Debug.Log("FADE");
-                        Instantiate(FADE, Vector3.zero, Quaternion.identity);
-                    }
-
                     Debug.Log("INVOKE_LOADING");
-                    Invoke("Loading", 1000f);
+                    SceneManager.LoadScene(TRANSFER_TO_THIS);
                 }
             }
 
             GAMEMANAGER.instance.pendingPostBattleNPCID = null;
         }
-    }
-
-    public void Loading()
-    {
-        SceneManager.LoadScene(TRANSFER_TO_THIS);
     }
 
     public void Interact(PlayerInteract player)
@@ -124,7 +114,8 @@ public class NPC : MonoBehaviour, IInteractable
             null,
             null,
             HAS_ICON,
-            gameObject
+            gameObject,
+            DisplayText_on_fade
         );
     }
 }

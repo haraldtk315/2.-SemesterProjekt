@@ -30,6 +30,10 @@ public class DIALOGUEHANDLER : MonoBehaviour
     private PlayerControlToggle currentPlayerControls;
 
     private GameObject ICON_CAM_PATH;
+    public GameObject FADE;
+
+    //EMMA ADDING EXTRA STUFF DON'T MIND ME <3
+    private string Fade_text;
 
     private void Awake()
     {
@@ -61,9 +65,10 @@ public class DIALOGUEHANDLER : MonoBehaviour
         }
     }
 
-    public void DialogueStart(string[] _dialogue, GameObject player, GameObject[] enemies = null, GameObject destroyAfterDialogue = null, GameObject partyReward = null, bool ICON = false, GameObject OBJECT = null)
+    public void DialogueStart(string[] _dialogue, GameObject player, GameObject[] enemies = null, GameObject destroyAfterDialogue = null, GameObject partyReward = null, bool ICON = false, GameObject OBJECT = null, string Fade_out = null)
     {
         TALK_OBJECT = OBJECT;
+        Fade_text = Fade_out;
 
         if (!dialogueActive)
         {
@@ -152,7 +157,20 @@ public class DIALOGUEHANDLER : MonoBehaviour
         {
             destroyAfterDialogueObject = null;
             partyRewardAfterDialogue = null;
-            SceneManager.LoadScene("FIGHT");
+            
+            if (FADE != null)
+            {
+                Debug.Log("FADE");
+                GameObject dark = Instantiate(FADE, Vector3.zero, Quaternion.identity) as GameObject;
+
+                if (GameObject.FindGameObjectWithTag("Canvas") == true)
+                {
+                    dark.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                    dark.GetComponent<FADE>().TEXT.text = Fade_text;
+                }
+            }
+
+            Invoke("LoadFight", 1f);
             return;
         }
 
@@ -162,7 +180,15 @@ public class DIALOGUEHANDLER : MonoBehaviour
         {
             if (TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS != string.Empty)
             {
-                SceneManager.LoadScene(TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS);
+                if (FADE != null)
+                {
+                    Debug.Log("FADE");
+                    GameObject dark = Instantiate(FADE, Vector3.zero, Quaternion.identity) as GameObject;
+                    dark.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                    dark.GetComponent<FADE>().TEXT.text = Fade_text;
+                }
+
+                Invoke("loading", 3f);
             }
         }
 
@@ -223,5 +249,15 @@ public class DIALOGUEHANDLER : MonoBehaviour
             StopAllCoroutines();
             dialogueBoxText.text = dialogue[currDialogueIndex];
         }
+    }
+
+    public void loading()
+    {
+        SceneManager.LoadScene(TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS);
+    }
+
+    public void LoadFight()
+    {
+        SceneManager.LoadScene("FIGHT");
     }
 }
