@@ -33,13 +33,13 @@ public class RapidPunch : MonoBehaviour
         microgameClockTimer.text = $"{Mathf.CeilToInt(timeRemaining)}";
         if (Input.GetMouseButtonDown(0) && leftPunch)
         {
-            protagAnimator.SetTrigger("LeftTrigger");
+            protagAnimator.Play("PunchLRelease");
             score += 1;
             leftPunch = false;
         }
         if (Input.GetMouseButtonDown(1) && !leftPunch)
         {
-            protagAnimator.SetTrigger("RightTrigger");
+            protagAnimator.Play("PunchRRelease");
             score += 1;
             leftPunch = true;
         }
