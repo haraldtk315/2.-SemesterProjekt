@@ -68,7 +68,8 @@ public class CHAMP_INFO : MonoBehaviour
     private float heal_pitch = 0.75f;
     private float focus_pitch = 0.6f;
 
-    public string[] Talk_each_round;
+    public string[][] Talk_each_round;
+    public int On_this_dial = 0;
 
     private float y_pos = 0;
 

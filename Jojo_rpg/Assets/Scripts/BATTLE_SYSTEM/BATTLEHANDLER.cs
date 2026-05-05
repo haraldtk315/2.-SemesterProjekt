@@ -73,6 +73,7 @@ public class BATTLEHANDLER : MonoBehaviour
     private bool forced_combat = false;
 
     private bool EXPANDED = false; //for quickly changing size in the input state
+    private string[] Current_dial; //To store information
 
     //STATEMACHINE
 
@@ -292,6 +293,14 @@ public class BATTLEHANDLER : MonoBehaviour
     {
         if (Current == STATEMACHINE.DIALOGUE)
         {
+            for (int i = 0; i < MONSTER_ORDER.Length; i++)
+            {
+                Current_dial = MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().Talk_each_round[MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().On_this_dial];
+                MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().On_this_dial++;
+            }
+
+            //DIALOGUEHANDLER.instance.DialogueStart(Current_dial);
+
             CURRENT_STATE = STATEMACHINE.INPUT;
             StateMachine(STATEMACHINE.INPUT);
         }
