@@ -129,7 +129,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: UnionJackWIP
     originalName: 
-    pivot: {x: 0.4827586, y: 0.58181816}
+    pivot: {x: 0.4827586, y: 0.50793654}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -138,7 +138,7 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 29
-      height: 55
+      height: 63
     spriteID: d88373280f72c1d4abd6b608fe066fdf
     spriteBone: []
     spriteOutline: []
@@ -148,27 +148,6 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Frame_1
-    originalName: 
-    pivot: {x: 0.4827586, y: 0.58181816}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 67
-      width: 29
-      height: 55
-    spriteID: c14d736dabe35bf4f8a7c8e846e1e9b3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 67}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
@@ -184,24 +163,15 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Frame_0
+    - name: UnionJackWIP
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 2
         y: 0
         width: 29
-        height: 55
+        height: 63
       spriteId: d88373280f72c1d4abd6b608fe066fdf
-    - name: Frame_1
-      frameIndex: 1
-      additiveSortOrder: 0
-      cellRect:
-        x: 2
-        y: 0
-        width: 29
-        height: 55
-      spriteId: c14d736dabe35bf4f8a7c8e846e1e9b3
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
