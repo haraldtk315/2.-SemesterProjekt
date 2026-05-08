@@ -17,6 +17,7 @@ public class NPC : MonoBehaviour, IInteractable
     public GameObject[] enemies;
 
     public GameObject partyReward;
+    public GameObject secondPartyReward;
     public bool destroyAfterBattleDialogue = true;
     public bool joinPartyWithoutBattle = false;
 
@@ -45,7 +46,8 @@ public class NPC : MonoBehaviour, IInteractable
                         player,
                         null,
                         destroyAfterBattleDialogue ? gameObject : null,
-                        partyReward
+                        partyReward,
+                        secondPartyReward
                     );
                 }
                 else
@@ -95,6 +97,7 @@ public class NPC : MonoBehaviour, IInteractable
                 null, // ingen enemies = ingen kamp
                 destroyAfterBattleDialogue ? gameObject : null,
                 partyReward,
+                secondPartyReward,
                 HAS_ICON,
                 gameObject
             );
@@ -106,11 +109,13 @@ public class NPC : MonoBehaviour, IInteractable
         GAMEMANAGER.instance.SaveOverworldReturnPoint(player.transform, player.facing);
         GAMEMANAGER.instance.currentNPCID = npcID;
         GAMEMANAGER.instance.pendingPartyReward = partyReward;
+        GAMEMANAGER.instance.pendingSecondPartyReward = secondPartyReward;
 
         DIALOGUEHANDLER.instance.DialogueStart(
             message,
             player.gameObject,
             enemies,
+            null,
             null,
             null,
             HAS_ICON,
