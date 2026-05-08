@@ -20362,10 +20362,33 @@ MonoBehaviour:
   - {fileID: 143785145963278099}
   - {fileID: 8633016426109196608}
   BUFF_INDICATOR: {fileID: 4394364569268847222}
-  Talk_each_round:
-  - 'FROG: It is time to learn how to fight. Use your ATTACKS to attack me!'
-  - 'FROG: ATTACKS give you focus! Keep attacking me! '
-  - 'FROG: You fight well little one!!! '
+  Dial_1:
+  - 'Frog: You sure have grown little boy!!!'
+  - 'Frog: Can''t believe you were just a child when I met you'
+  - 'Frog: SHOW ME YOUR MOVES!! I HAVE TAUGHT YOU!!!'
+  - 'Frog: Press "Attack" to hit me!'
+  Dial_2:
+  - 'Frog: When you Attack you build up focus.'
+  - 'Frog: Try and hit me again to gain more!'
+  - 'Frog: I recommend using "La Musette" or "Meditate" to build up focus quickly!'
+  Dial_3:
+  - 'Frog: Remember that you also have your "Items" '
+  - 'Frog: You might have picked up some already! '
+  - 'Frog: Try and use a focus potion! '
+  - 'Frog: It is the yellow like potion in your inventory '
+  - 'Frog: It will fully restore your focus! '
+  - 'Frog: Don''t worry if you didn''t pick one up '
+  - 'Frog: I sneaked one into your pockets before our duel! '
+  Dial_4:
+  - 'Frog: You fight well little boy!'
+  - 'Frog: Once you are ready'
+  - 'Frog: Try using "Lediha". This is the true power I have taught you'
+  - 'Frog: Once you have used it, press A and D repeatedly to hit me!!!'
+  Dial_5:
+  - 'Frog: I think you are ready!'
+  - 'Frog: You have done well my child... I am so proud of you.'
+  - 'Frog: You will do great things in life'
+  On_this_dial: 0
 --- !u!65 &-6396718981686823676
 BoxCollider:
   m_ObjectHideFlags: 0

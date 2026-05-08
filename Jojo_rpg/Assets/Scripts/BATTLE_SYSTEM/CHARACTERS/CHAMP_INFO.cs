@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
@@ -68,7 +69,18 @@ public class CHAMP_INFO : MonoBehaviour
     private float heal_pitch = 0.75f;
     private float focus_pitch = 0.6f;
 
-    public string[][] Talk_each_round;
+    //It is impossible to display an Array of an string array
+    public string[] Dial_1;
+    public string[] Dial_2;
+    public string[] Dial_3;
+    public string[] Dial_4;
+    public string[] Dial_5;
+
+    public Dictionary<int, string[]> Lines_Combat = new Dictionary<int, string[]>();
+
+    //string Dial = string.Join("::", Dial_1);
+    //string[] Dial_arr = Dial.Split("::");
+
     public int On_this_dial = 0;
 
     private float y_pos = 0;
@@ -89,6 +101,16 @@ public class CHAMP_INFO : MonoBehaviour
         {
             Out_sprites[i].GetComponent<SpriteRenderer>().sprite = SR.sprite;
         }
+    }
+
+    private void Awake()
+    {
+        //For some reason unity does not support an array in a string array
+        Lines_Combat.Add(0, Dial_1);
+        Lines_Combat.Add(1, Dial_2);
+        Lines_Combat.Add(2, Dial_3);
+        Lines_Combat.Add(3, Dial_4);
+        Lines_Combat.Add(4, Dial_5);
     }
     private void Update()
     {

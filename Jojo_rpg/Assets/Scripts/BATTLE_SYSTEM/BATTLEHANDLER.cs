@@ -293,14 +293,6 @@ public class BATTLEHANDLER : MonoBehaviour
     {
         if (Current == STATEMACHINE.DIALOGUE)
         {
-            for (int i = 0; i < MONSTER_ORDER.Length; i++)
-            {
-                Current_dial = MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().Talk_each_round[MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().On_this_dial];
-                MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().On_this_dial++;
-            }
-
-            //DIALOGUEHANDLER.instance.DialogueStart(Current_dial);
-
             CURRENT_STATE = STATEMACHINE.INPUT;
             StateMachine(STATEMACHINE.INPUT);
         }
@@ -308,7 +300,9 @@ public class BATTLEHANDLER : MonoBehaviour
         //AWAITING INPUT FROM PLAYER
         if (Current == STATEMACHINE.INPUT)
         {
-            for(int i = ON_CURRENT_CHAMP; i < ORDER.Length; i++)
+            DIAL();
+
+            for (int i = ON_CURRENT_CHAMP; i < ORDER.Length; i++)
             {
                 if (ORDER[ON_CURRENT_CHAMP] == null || ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().dead == true)
                 {
@@ -769,6 +763,35 @@ public class BATTLEHANDLER : MonoBehaviour
         START_STATEMACHINE();
     }
 
+    private void DIAL()
+    {
+        for (int i = 0; i < MONSTER_ORDER.Length; i++)
+        {
+            if (MONSTER_ORDER[i] == null)
+            {
+                continue;
+            }
+
+            Current_dial = MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().Lines_Combat[MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().On_this_dial];
+
+            if (Current_dial != null)
+            {
+                GameObject talking_enemy = MONSTER_ORDER[i];
+                MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().On_this_dial++;
+                
+                DIALOGUEHANDLER.instance.DialogueStart(
+                    Current_dial,
+                    talking_enemy,
+                    null,
+                    null,
+                    null,
+                    true,
+                    talking_enemy,
+                    null
+                    );
+            }
+        }
+    }
     //THE BASIC ATTACK (Could potentially also work for the future special move)
     public void TARGET_ATTACK(GameObject SENDER, GameObject TARGET, int Damage, int acc, int focus = 0, float buff = 1f, GameObject SPAWN = null)
     {
