@@ -772,9 +772,17 @@ public class BATTLEHANDLER : MonoBehaviour
                 continue;
             }
 
-            Current_dial = MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().Lines_Combat[MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().On_this_dial];
+            if (MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().talks == false)
+            {
+                continue;
+            }
 
-            if (Current_dial != null)
+            if (MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().On_this_dial < MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().Lines_Combat.Count)
+            {
+                Current_dial = MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().Lines_Combat[MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().On_this_dial];
+            }
+
+            if (Current_dial != null && MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().On_this_dial <= MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().Lines_Combat.Count)
             {
                 GameObject talking_enemy = MONSTER_ORDER[i];
                 MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().On_this_dial++;
@@ -782,6 +790,23 @@ public class BATTLEHANDLER : MonoBehaviour
                 DIALOGUEHANDLER.instance.DialogueStart(
                     Current_dial,
                     talking_enemy,
+                    null,
+                    null,
+                    null,
+                    null,
+                    true,
+                    talking_enemy,
+                    null
+                    );
+            }
+            else
+            {
+                GameObject talking_enemy = MONSTER_ORDER[i];
+
+                DIALOGUEHANDLER.instance.DialogueStart(
+                    talking_enemy.GetComponent<CHAMP_INFO>().Random_lines[Random.Range(0, talking_enemy.GetComponent<CHAMP_INFO>().Random_lines.Count)],
+                    talking_enemy,
+                    null,
                     null,
                     null,
                     null,

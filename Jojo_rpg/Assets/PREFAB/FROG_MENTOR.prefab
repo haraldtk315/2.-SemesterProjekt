@@ -20362,32 +20362,38 @@ MonoBehaviour:
   - {fileID: 143785145963278099}
   - {fileID: 8633016426109196608}
   BUFF_INDICATOR: {fileID: 4394364569268847222}
+  talks: 1
   Dial_1:
-  - 'Frog: You sure have grown little boy!!!'
-  - 'Frog: Can''t believe you were just a child when I met you'
-  - 'Frog: SHOW ME YOUR MOVES!! I HAVE TAUGHT YOU!!!'
-  - 'Frog: Press "Attack" to hit me!'
+  - 'FROG: You sure have grown little boy!!!'
+  - Can't believe you were just a child when I met you
+  - SHOW ME YOUR MOVES!! I HAVE TAUGHT YOU!!!
+  - Press "Attack" to hit me!
   Dial_2:
-  - 'Frog: When you Attack you build up focus.'
-  - 'Frog: Try and hit me again to gain more!'
-  - 'Frog: I recommend using "La Musette" or "Meditate" to build up focus quickly!'
+  - 'FROG: When you Attack you build up focus.'
+  - Try and hit me again to gain more!
+  - I recommend using "La Musette" or "Meditate" to build up focus quickly!
   Dial_3:
-  - 'Frog: Remember that you also have your "Items" '
-  - 'Frog: You might have picked up some already! '
-  - 'Frog: Try and use a focus potion! '
-  - 'Frog: It is the yellow like potion in your inventory '
-  - 'Frog: It will fully restore your focus! '
-  - 'Frog: Don''t worry if you didn''t pick one up '
-  - 'Frog: I sneaked one into your pockets before our duel! '
+  - 'FROG: Remember that you also have your "Items" '
+  - 'You might have picked up some already! '
+  - 'Try and use a focus potion! '
+  - 'It is the yellow like potion in your inventory '
+  - 'It will fully restore your focus! '
+  - 'Don''t worry if you didn''t pick one up '
+  - 'I sneaked one into your pockets before our duel! '
   Dial_4:
-  - 'Frog: You fight well little boy!'
-  - 'Frog: Once you are ready'
-  - 'Frog: Try using "Lediha". This is the true power I have taught you'
-  - 'Frog: Once you have used it, press A and D repeatedly to hit me!!!'
+  - 'FROG: You fight well little boy!'
+  - Once you are ready
+  - Try using "Lediha". This is the true power I have taught you
+  - Once you have used it, press A and D repeatedly to hit me!!!
   Dial_5:
-  - 'Frog: I think you are ready!'
-  - 'Frog: You have done well my child... I am so proud of you.'
-  - 'Frog: You will do great things in life'
+  - 'FROG: You didn''t hit me hard enough!'
+  - Remember to really spam The A and D when using Rapid punch
+  Ran_1:
+  - 'FROG: Remember to spam A and D when using "RAPID PUNCH"'
+  Ran_2:
+  - 'FROG: Remember to spam A and D when using "RAPID PUNCH"'
+  Ran_3:
+  - 'FROG: Remember to spam A and D when using "RAPID PUNCH"'
   On_this_dial: 0
 --- !u!65 &-6396718981686823676
 BoxCollider:

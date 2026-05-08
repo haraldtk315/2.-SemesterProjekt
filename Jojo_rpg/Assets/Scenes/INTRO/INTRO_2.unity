@@ -312,7 +312,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -854,6 +854,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &696252482
@@ -1195,14 +1196,14 @@ MonoBehaviour:
   npcID: Last_frog
   message:
   - 'FROG: It seems like you are awake!'
-  - 'FROG: I tended your wounds Little child. '
-  - 'FROG: The world is not safe anymore...'
-  - 'FROG: The balance of power has shifted little child...'
-  - 'FROG: The world truly more then ever need a hero'
-  - 'FROG: You problably do not expect this of little old me.'
-  - 'FROG: But I am a master among few in martial arts'
-  - 'FROG: I can teach you little child'
-  - 'FROG: So that you can protect the people you love.'
+  - 'I tended your wounds Little child. '
+  - The world is not safe anymore...
+  - The balance of power has shifted little child...
+  - The world truly more then ever need a hero
+  - You problably do not expect this of little old me.
+  - But I am a master among few in martial arts
+  - I can teach you little child
+  - So that you can protect the people you love.
   messageAfterBattle: []
   enemies:
   - {fileID: 380776666666102203, guid: b819f22bbc9e0bc4caaebd9d5cb10754, type: 3}
@@ -1211,6 +1212,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &920424185
@@ -1639,6 +1641,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 5156567506917586551, guid: 620d45e6efa996f4d83f30e04332427d, type: 3}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &1212891524
@@ -1979,6 +1982,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &1367258973
@@ -2310,6 +2314,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &1830499813
@@ -2501,6 +2506,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &1895220032
@@ -2699,6 +2705,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &1936664260
@@ -2898,6 +2905,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &2021103726

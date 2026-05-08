@@ -136,7 +136,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
             Destroy(dialogueBox);
         }
 
-        if (currentPlayerControls != null && TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS == null)
+        if (currentPlayerControls != null && TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS == string.Empty)
         {
             currentPlayerControls.EnableControls();
             currentPlayerControls = null;

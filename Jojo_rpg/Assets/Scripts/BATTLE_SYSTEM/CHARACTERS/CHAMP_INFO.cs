@@ -69,6 +69,8 @@ public class CHAMP_INFO : MonoBehaviour
     private float heal_pitch = 0.75f;
     private float focus_pitch = 0.6f;
 
+    public bool talks = false;
+
     //It is impossible to display an Array of an string array
     public string[] Dial_1;
     public string[] Dial_2;
@@ -76,7 +78,12 @@ public class CHAMP_INFO : MonoBehaviour
     public string[] Dial_4;
     public string[] Dial_5;
 
+    public string[] Ran_1;
+    public string[] Ran_2;
+    public string[] Ran_3;
+
     public Dictionary<int, string[]> Lines_Combat = new Dictionary<int, string[]>();
+    public Dictionary<int, string[]> Random_lines = new Dictionary<int, string[]>();
 
     //string Dial = string.Join("::", Dial_1);
     //string[] Dial_arr = Dial.Split("::");
@@ -111,6 +118,10 @@ public class CHAMP_INFO : MonoBehaviour
         Lines_Combat.Add(2, Dial_3);
         Lines_Combat.Add(3, Dial_4);
         Lines_Combat.Add(4, Dial_5);
+
+        Random_lines.Add(0, Ran_1);
+        Random_lines.Add(1, Ran_2);
+        Random_lines.Add(2, Ran_3);
     }
     private void Update()
     {
