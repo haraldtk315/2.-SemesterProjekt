@@ -16,6 +16,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
 
     private GameObject destroyAfterDialogueObject;
     private GameObject partyRewardAfterDialogue;
+    private GameObject secondPartyRewardAfterDialogue;
 
     public float textSpeed;
 
@@ -65,7 +66,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
         }
     }
 
-    public void DialogueStart(string[] _dialogue, GameObject player, GameObject[] enemies = null, GameObject destroyAfterDialogue = null, GameObject partyReward = null, bool ICON = false, GameObject OBJECT = null, string Fade_out = null)
+    public void DialogueStart(string[] _dialogue, GameObject player, GameObject[] enemies = null, GameObject destroyAfterDialogue = null, GameObject partyReward = null, GameObject secondPartyreward = null, bool ICON = false, GameObject OBJECT = null, string Fade_out = null)
     {
         TALK_OBJECT = OBJECT;
         Fade_text = Fade_out;
@@ -78,6 +79,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
             ENEMIES = enemies;
             destroyAfterDialogueObject = destroyAfterDialogue;
             partyRewardAfterDialogue = partyReward;
+            secondPartyRewardAfterDialogue = secondPartyreward;
 
             if (player != null)
             {
@@ -196,6 +198,12 @@ public class DIALOGUEHANDLER : MonoBehaviour
         {
             GAMEMANAGER.instance.AddPartyMember(partyRewardAfterDialogue);
             partyRewardAfterDialogue = null;
+        }
+
+        if (secondPartyRewardAfterDialogue != null)
+        {
+            GAMEMANAGER.instance.AddPartyMember(secondPartyRewardAfterDialogue);
+            secondPartyRewardAfterDialogue = null;
         }
 
         if (destroyAfterDialogueObject != null)

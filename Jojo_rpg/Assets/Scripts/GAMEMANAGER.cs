@@ -28,6 +28,8 @@ public class GAMEMANAGER : MonoBehaviour
     public string currentNPCID;
     public string pendingPostBattleNPCID;
     public GameObject pendingPartyReward;
+    public GameObject pendingSecondPartyReward;
+    
 
     private void Awake()
     {
