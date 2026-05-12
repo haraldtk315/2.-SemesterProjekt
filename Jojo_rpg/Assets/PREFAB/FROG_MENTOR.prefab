@@ -20332,7 +20332,7 @@ MonoBehaviour:
   BH: {fileID: 0}
   champID: 
   Name: FROG
-  MaxHp: 100
+  MaxHp: 75
   MaxFocus: 100
   Level: 0
   descripton: A mysterious frog from the forrest.\nCurrently trying to teach you
@@ -20340,7 +20340,7 @@ MonoBehaviour:
   Party_order: 0
   Team_player: 0
   dead: 0
-  hp: 100
+  hp: 60
   focus: 0
   Damage_buff: 1
   Shield_buff: 1
@@ -20364,16 +20364,16 @@ MonoBehaviour:
   BUFF_INDICATOR: {fileID: 4394364569268847222}
   talks: 1
   Dial_1:
-  - 'FROG: You sure have grown little boy!!!'
+  - 'Frog: You sure have grown little boy!!!'
   - Can't believe you were just a child when I met you
   - SHOW ME YOUR MOVES!! I HAVE TAUGHT YOU!!!
   - Press "Attack" to hit me!
   Dial_2:
-  - 'FROG: When you Attack you build up focus.'
+  - 'Frog: When you Attack you build up focus.'
   - Try and hit me again to gain more!
   - I recommend using "La Musette" or "Meditate" to build up focus quickly!
   Dial_3:
-  - 'FROG: Remember that you also have your "Items" '
+  - 'Frog: Remember that you also have your "Items" '
   - 'You might have picked up some already! '
   - 'Try and use a focus potion! '
   - 'It is the yellow like potion in your inventory '
@@ -20381,19 +20381,19 @@ MonoBehaviour:
   - 'Don''t worry if you didn''t pick one up '
   - 'I sneaked one into your pockets before our duel! '
   Dial_4:
-  - 'FROG: You fight well little boy!'
+  - 'Frog: You fight well little boy!'
   - Once you are ready
   - Try using "Lediha". This is the true power I have taught you
-  - Once you have used it, press A and D repeatedly to hit me!!!
+  - Once you have used it, press right and left mouse button repeatedly to hit me!!!
   Dial_5:
-  - 'FROG: You didn''t hit me hard enough!'
-  - Remember to really spam The A and D when using Rapid punch
+  - 'Frog: You didn''t hit me hard enough!'
+  - Remember to really spam right and left mouse button when using Rapid punch
   Ran_1:
-  - 'FROG: Remember to spam A and D when using "RAPID PUNCH"'
+  - 'Frog: Remember to use right and left mouse button when using "RAPID PUNCH"'
   Ran_2:
-  - 'FROG: Remember to spam A and D when using "RAPID PUNCH"'
+  - 'Frog: Remember to use right and left mouse button when using "RAPID PUNCH"'
   Ran_3:
-  - 'FROG: Remember to spam A and D when using "RAPID PUNCH"'
+  - 'Frog: Remember to use right and left mouse button when using "RAPID PUNCH"'
   On_this_dial: 0
 --- !u!65 &-6396718981686823676
 BoxCollider:
