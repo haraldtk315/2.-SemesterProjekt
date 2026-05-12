@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 430383498}
   - component: {fileID: 430383497}
   - component: {fileID: 430383499}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Tile_Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23590,7 +23590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 550400785}
   - component: {fileID: 550400786}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RestoreOverworld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23932,7 +23932,7 @@ GameObject:
   - component: {fileID: 772119143}
   - component: {fileID: 772119145}
   - component: {fileID: 772119144}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TilemapGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27243,7 +27243,7 @@ GameObject:
   - component: {fileID: 1570386009}
   - component: {fileID: 1570386011}
   - component: {fileID: 1570386010}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62763,7 +62763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2012801881}
   - component: {fileID: 2012801880}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BoardManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63335,7 +63335,7 @@ GameObject:
   - component: {fileID: 2134532563}
   - component: {fileID: 2134532565}
   - component: {fileID: 2134532564}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ForeGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
