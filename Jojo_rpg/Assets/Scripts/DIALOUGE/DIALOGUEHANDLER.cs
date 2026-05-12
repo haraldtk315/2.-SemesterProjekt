@@ -136,10 +136,23 @@ public class DIALOGUEHANDLER : MonoBehaviour
             Destroy(dialogueBox);
         }
 
-        if (currentPlayerControls != null && TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS == string.Empty)
+        
+        if (currentPlayerControls != null)
         {
-            currentPlayerControls.EnableControls();
-            currentPlayerControls = null;
+            if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<NPC>(out NPC npc))
+            {
+                if (npc.TRANSFER_TO_THIS == string.Empty)
+                {
+                    currentPlayerControls.EnableControls();
+                    currentPlayerControls = null;
+                }
+            }
+
+            if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<PartyObstacle>(out PartyObstacle party))
+            {
+                currentPlayerControls.EnableControls();
+                currentPlayerControls = null;
+            }
         }
 
         bool shouldStartFight = false;
@@ -180,14 +193,17 @@ public class DIALOGUEHANDLER : MonoBehaviour
         //transfer scene
         if (TALK_OBJECT != null)
         {
-            if (TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS != string.Empty)
+            if (TALK_OBJECT.TryGetComponent<NPC>(out NPC npc))
             {
-                if (FADE != null)
+                if (npc.TRANSFER_TO_THIS != string.Empty)
                 {
-                    Debug.Log("FADE");
-                    GameObject dark = Instantiate(FADE, Vector3.zero, Quaternion.identity) as GameObject;
-                    dark.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
-                    dark.GetComponent<FADE>().TEXT.text = Fade_text;
+                    if (FADE != null)
+                    {
+                        Debug.Log("FADE");
+                        GameObject dark = Instantiate(FADE, Vector3.zero, Quaternion.identity) as GameObject;
+                        dark.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                        dark.GetComponent<FADE>().TEXT.text = Fade_text;
+                    }
                 }
 
                 Invoke("loading", 3f);
@@ -261,7 +277,15 @@ public class DIALOGUEHANDLER : MonoBehaviour
 
     public void loading()
     {
-        SceneManager.LoadScene(TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS);
+        if (TALK_OBJECT.TryGetComponent<NPC>(out NPC npc))
+        {
+            if (npc.New_player_cords != Vector3.zero)
+            {
+                GAMEMANAGER.instance.returnPlayerPosition = TALK_OBJECT.GetComponent<NPC>().New_player_cords;
+            }
+
+            SceneManager.LoadScene(TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS);
+        }
     }
 
     public void LoadFight()

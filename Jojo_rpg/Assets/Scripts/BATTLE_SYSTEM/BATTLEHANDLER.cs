@@ -714,7 +714,7 @@ public class BATTLEHANDLER : MonoBehaviour
 
             if (win == true)
             {
-                for(int i = 0; i < GM.HP.Length; i++)
+                for (int i = 0; i < GM.HP.Length; i++)
                 {
                     if (ORDER[i] != null)
                     {
@@ -722,15 +722,7 @@ public class BATTLEHANDLER : MonoBehaviour
                     }
                 }
 
-
-                if (!string.IsNullOrEmpty(GAMEMANAGER.instance.currentNPCID))
-                {
-                    GAMEMANAGER.instance.defeatedNPCs.Add(GAMEMANAGER.instance.currentNPCID);
-                    GAMEMANAGER.instance.pendingPostBattleNPCID = GAMEMANAGER.instance.currentNPCID;
-                    GAMEMANAGER.instance.currentNPCID = null;
-                }
-
-                SceneManager.LoadScene(GAMEMANAGER.instance.returnSceneName);
+                NewMethod();
             }
 
             if (win == false && lost == false)
@@ -740,6 +732,18 @@ public class BATTLEHANDLER : MonoBehaviour
                 Invoke("STATEGOTOINPUT", 2f);
             }
         }
+    }
+
+    private static void NewMethod()
+    {
+        if (!string.IsNullOrEmpty(GAMEMANAGER.instance.currentNPCID))
+        {
+            GAMEMANAGER.instance.defeatedNPCs.Add(GAMEMANAGER.instance.currentNPCID);
+            GAMEMANAGER.instance.pendingPostBattleNPCID = GAMEMANAGER.instance.currentNPCID;
+            GAMEMANAGER.instance.currentNPCID = null;
+        }
+
+        SceneManager.LoadScene(GAMEMANAGER.instance.returnSceneName);
     }
 
     //ALL THE GOTO STATE METHODS

@@ -43,6 +43,10 @@ public class PartyObstacle : MonoBehaviour, IInteractable
                     clearedMessage,
                     player.gameObject,
                     null,
+                    null,
+                    null,
+                    null,
+                    false,
                     gameObject
                 );
             }
@@ -57,7 +61,13 @@ public class PartyObstacle : MonoBehaviour, IInteractable
             {
                 DIALOGUEHANDLER.instance.DialogueStart(
                     blockedMessage,
-                    player.gameObject
+                    player.gameObject,
+                    null,
+                    null,
+                    null,
+                    null,
+                    false,
+                    gameObject
                 );
             }
         }

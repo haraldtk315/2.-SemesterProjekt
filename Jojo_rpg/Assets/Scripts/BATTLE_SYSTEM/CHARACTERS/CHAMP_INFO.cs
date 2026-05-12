@@ -82,6 +82,9 @@ public class CHAMP_INFO : MonoBehaviour
     public string[] Ran_2;
     public string[] Ran_3;
 
+    public string[] On_death_dial;
+    public string[] On_end_dial;
+
     public Dictionary<int, string[]> Lines_Combat = new Dictionary<int, string[]>();
     public Dictionary<int, string[]> Random_lines = new Dictionary<int, string[]>();
 

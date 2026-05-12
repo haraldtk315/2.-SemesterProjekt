@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 public class NPC : MonoBehaviour, IInteractable
 {
     public bool HAS_ICON;
+
     public string TRANSFER_TO_THIS;
+    public Vector3 New_player_cords;
+
     public GameObject FADE;
     public string DisplayText_on_fade;
 
@@ -47,7 +50,10 @@ public class NPC : MonoBehaviour, IInteractable
                         null,
                         destroyAfterBattleDialogue ? gameObject : null,
                         partyReward,
-                        secondPartyReward
+                        secondPartyReward,
+                        HAS_ICON,
+                        gameObject,
+                        null
                     );
                 }
                 else

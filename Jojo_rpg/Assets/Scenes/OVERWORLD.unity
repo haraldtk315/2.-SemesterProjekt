@@ -416,6 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 1
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: zomb1
@@ -26642,8 +26643,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f17372304b0d8468a04722381085c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
-  HAS_ICON: 0
+  HAS_ICON: 1
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: Jack
@@ -27000,6 +27002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: p1
@@ -27125,6 +27128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: Victor Taylor
@@ -62096,6 +62100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: Path to city
@@ -62255,6 +62260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: paper
@@ -62593,6 +62599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: Path to city
@@ -63307,6 +63314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: test npc1
