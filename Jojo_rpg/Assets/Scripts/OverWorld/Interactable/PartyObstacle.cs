@@ -3,7 +3,7 @@ using UnityEngine;
 public class PartyObstacle : MonoBehaviour, IInteractable
 {
     public string obstacleID;
-    public string requiredPartyMemberID = "jack";
+    public string requiredPartyMemberID;
 
     public string[] blockedMessage;
     public string[] clearedMessage;
@@ -15,8 +15,7 @@ public class PartyObstacle : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        if (!string.IsNullOrEmpty(obstacleID) &&
-            GAMEMANAGER.instance.clearedObstacles.Contains(obstacleID))
+        if (!string.IsNullOrEmpty(obstacleID) && GAMEMANAGER.instance.clearedObstacles.Contains(obstacleID))
         {
             hasMoved = true;
             enabled = false;
@@ -47,11 +46,9 @@ public class PartyObstacle : MonoBehaviour, IInteractable
                     null,
                     null,
                     false,
-                    gameObject
+                    gameObject,
+                    null
                 );
-            }
-            else
-            {
                 ClearObstacle();
             }
         }
@@ -77,7 +74,7 @@ public class PartyObstacle : MonoBehaviour, IInteractable
     {
         transform.position += new Vector3(0f, gridSize, 0f);
 
-        enabled = false;
+        enabled = true;
     }
 
     private bool HasPartyMember(string memberID)
