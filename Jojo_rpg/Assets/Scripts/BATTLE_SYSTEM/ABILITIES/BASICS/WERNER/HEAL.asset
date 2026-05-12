@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77f1f27093a6224f850c6f4d9654084, type: 3}
+  m_Name: HEAL
+  m_EditorClassIdentifier: Assembly-CSharp::BASIC_ATTACKS
+  attackName: Small bandage
+  damage: -5
+  acc: 100
+  focus: 5
+  damage_buff: 0
+  spawnable: {fileID: 0}
+  type: 3
+  Description: Small bandage to heal the smallest wounds

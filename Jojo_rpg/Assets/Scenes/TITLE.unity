@@ -2267,7 +2267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   party:
   - {fileID: 380776666666102203, guid: a59ebe726d51b03419dae3e4f23d968c, type: 3}
-  - {fileID: 0}
+  - {fileID: 380776666666102203, guid: 71fb71bfe1a2cc04eaea1d10fd66e980, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -2282,6 +2282,7 @@ MonoBehaviour:
   currentNPCID: 
   pendingPostBattleNPCID: 
   pendingPartyReward: {fileID: 0}
+  pendingSecondPartyReward: {fileID: 0}
 --- !u!4 &2024807291
 Transform:
   m_ObjectHideFlags: 0

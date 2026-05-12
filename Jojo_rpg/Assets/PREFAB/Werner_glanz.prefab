@@ -20347,10 +20347,10 @@ MonoBehaviour:
   height_cam: 0.5
   time: 0
   ATTACKS:
-  - {fileID: 11400000, guid: 127680fcd8ac1374cbc22230013d7272, type: 2}
-  - {fileID: 11400000, guid: 8c1e3951ad0dca946b2d66596c69ffba, type: 2}
-  - {fileID: 11400000, guid: 73525379c3bbfdc4db4da6cec4ddc0c5, type: 2}
-  - {fileID: 11400000, guid: ae72d8166e198ec48a3f99243145cad7, type: 2}
+  - {fileID: 11400000, guid: 6e320072f934471469942640ad7548d6, type: 2}
+  - {fileID: 11400000, guid: 488bd0a6b1b01124fac81afa4601cbeb, type: 2}
+  - {fileID: 11400000, guid: 97d36b2693f1f0c40a6c530f8d60a2d0, type: 2}
+  - {fileID: 11400000, guid: b62753ddd6c84b14a881a93484a23421, type: 2}
   SPECIALS:
   - {fileID: 11400000, guid: 152205d3ebe3b6b448163cb239e2c09b, type: 2}
   On_hit_effekt: {fileID: 6696071498278047046, guid: 65df1a8dfb33df5458baadc1f6d57d39, type: 3}
@@ -20362,7 +20362,18 @@ MonoBehaviour:
   - {fileID: 143785145963278099}
   - {fileID: 8633016426109196608}
   BUFF_INDICATOR: {fileID: 4394364569268847222}
-  Talk_each_round: []
+  talks: 0
+  Dial_1: []
+  Dial_2: []
+  Dial_3: []
+  Dial_4: []
+  Dial_5: []
+  Ran_1: []
+  Ran_2: []
+  Ran_3: []
+  On_death_dial: []
+  On_end_dial: []
+  On_this_dial: 0
 --- !u!65 &-6396718981686823676
 BoxCollider:
   m_ObjectHideFlags: 0
