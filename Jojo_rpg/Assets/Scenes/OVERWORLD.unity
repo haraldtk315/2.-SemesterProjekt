@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 430383498}
   - component: {fileID: 430383497}
   - component: {fileID: 430383499}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: Tile_Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

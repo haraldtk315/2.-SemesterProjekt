@@ -31,6 +31,16 @@ public class GridMovement2D : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
+        if (x > 0)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+
+        if (x < 0)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+
         if (Mathf.Abs(x) > 0.01f) y = 0f; 
 
         Vector2 raw = new Vector2(x, y);
