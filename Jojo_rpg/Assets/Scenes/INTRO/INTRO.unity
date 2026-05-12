@@ -746,6 +746,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &696252482
@@ -1103,6 +1104,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &761658564
@@ -1273,6 +1275,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &920424185
@@ -1626,6 +1629,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 5156567506917586551, guid: 620d45e6efa996f4d83f30e04332427d, type: 3}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &1212891524
@@ -2041,6 +2045,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &1367258973
@@ -2237,6 +2242,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &1830499813
@@ -2428,6 +2434,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!114 &1849912088
@@ -2660,6 +2667,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &1936664260
@@ -2859,6 +2867,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   partyReward: {fileID: 0}
+  secondPartyReward: {fileID: 0}
   destroyAfterBattleDialogue: 1
   joinPartyWithoutBattle: 0
 --- !u!1 &2021103726
@@ -3441,9 +3450,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2512314197337323585, guid: bb36bb79c6f395648b348f5a3a850718, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5056461696785266657, guid: bb36bb79c6f395648b348f5a3a850718, type: 3}
       propertyPath: m_Name
       value: INTRO_WORLD
+      objectReference: {fileID: 0}
+    - target: {fileID: 5056461696785266657, guid: bb36bb79c6f395648b348f5a3a850718, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388611218192036741, guid: bb36bb79c6f395648b348f5a3a850718, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446975203634059324, guid: bb36bb79c6f395648b348f5a3a850718, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7308997684389246168, guid: bb36bb79c6f395648b348f5a3a850718, type: 3}
       propertyPath: m_TileAssetArray.Array.data[65].m_Data
@@ -3512,6 +3537,10 @@ PrefabInstance:
     - target: {fileID: 8175687082879923560, guid: bb36bb79c6f395648b348f5a3a850718, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8196512965696825489, guid: bb36bb79c6f395648b348f5a3a850718, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
