@@ -15,6 +15,8 @@ public class GAMEMANAGER : MonoBehaviour
     // Return to overworld
     public string returnSceneName;
     public Vector3 returnPlayerPosition;
+    public Vector3 returnJackPosition;
+    public Vector3 returnWernerPosition;
     public Vector2 returnPlayerFacing;
     public bool shouldRestorePlayer = false;
 
@@ -52,11 +54,12 @@ public class GAMEMANAGER : MonoBehaviour
         }
     }
     
-    public void SaveOverworldReturnPoint(Transform playerTransform, Vector2 facing)
+    public void SaveOverworldReturnPoint(Transform playerTransform, Vector2 facing, Transform jackTransform, Transform wernerTransform)
     {
-
         returnSceneName = SceneManager.GetActiveScene().name;
         returnPlayerPosition = playerTransform.position;
+        returnJackPosition = jackTransform.position;
+        returnWernerPosition = wernerTransform.position;
         returnPlayerFacing = facing;
         shouldRestorePlayer = true;
     }

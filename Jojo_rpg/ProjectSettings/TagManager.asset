@@ -14,6 +14,8 @@ TagManager:
   - GROUND
   - INFO
   - Canvas
+  - Jack
+  - Werner
   layers:
   - Default
   - TransparentFX

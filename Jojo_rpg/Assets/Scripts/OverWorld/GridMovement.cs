@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class GridMovement2D : MonoBehaviour
 {
@@ -7,6 +9,10 @@ public class GridMovement2D : MonoBehaviour
     private float gridSize = 1f;       
     public LayerMask obstacleMask;
     public bool isPlayer;
+    public GameObject leader;
+    public GameObject follower;
+    public float lookDist;
+    public SpriteRenderer partySprite;
 
     [Header("Optional")]
     private bool allowHoldToMove = true;
@@ -15,6 +21,7 @@ public class GridMovement2D : MonoBehaviour
     private Vector2 input;
     private bool isMoving;
     private Rigidbody2D rb;
+    private bool canMove;
 
     private float lastInputTime;
 
@@ -25,22 +32,26 @@ public class GridMovement2D : MonoBehaviour
 
     void Update()
     {
+        canMove = true;
         if (isMoving) return;
 
        
    
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
-
-        if (x > 0)
+        if (isPlayer)
         {
-            this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            if (x > 0)
+            {
+                partySprite.flipX = false;
+            }
+
+            if (x < 0)
+            {
+                partySprite.flipX = true;
+            }
         }
 
-        if (x < 0)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
-        }
 
         if (Mathf.Abs(x) > 0.01f) y = 0f; 
 
@@ -62,19 +73,63 @@ public class GridMovement2D : MonoBehaviour
 
             // opdater retning med det samme
             GetComponent<PlayerInteract>()?.SetFacing(input);
+            if (isPlayer)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, input, lookDist, obstacleMask);
+                if (!hit)
+                {
+                    TryMove(input);
+                }
+                else
+                {
+                    canMove = false;
+                }
+                if (follower)
+                {
+                    follower.GetComponent<GridMovement2D>().SequencingMoves(canMove);
+                } 
+            }
+        }
+    }
 
+    public void SequencingMoves(bool leaderCanMove)
+    {
+        if (leaderCanMove)
+        {
             TryMove(input);
+        }
+        else
+        {
+            canMove = false;
+        }
+
+        if (follower)
+        {
+            follower.GetComponent<GridMovement2D>().SequencingMoves(leaderCanMove);
         }
     }
 
     private void TryMove(Vector2 dir)
     {
         Vector2 start = rb.position;
+        Vector2 target;
         if (isPlayer)
         {
-           
+            target = start + dir * gridSize;
         }
-        Vector2 target = start + dir * gridSize;
+        else
+        {
+            if ((transform.position - leader.transform.position).x > 0)
+            {
+                partySprite.flipX = true;
+            }
+
+            if ((transform.position - leader.transform.position).x < 0)
+            {
+                partySprite.flipX = false;
+            }
+            target = leader.transform.position;
+        }
         // Check om der er en collider på vejen
 
         float radius = 0.2f;

@@ -16,8 +16,10 @@ public class OVERWORLDRESTORE : MonoBehaviour
         yield return null;
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject jack = GameObject.FindGameObjectWithTag("Jack");
+        GameObject werner = GameObject.FindGameObjectWithTag("Werner");
 
-        if(player != null) 
+        if (player != null) 
         {
             player.transform.position = GAMEMANAGER.instance.returnPlayerPosition;
 
@@ -28,6 +30,17 @@ public class OVERWORLDRESTORE : MonoBehaviour
             }
 
         }
+
+        if (jack != null)
+        {
+            jack.transform.position = GAMEMANAGER.instance.returnJackPosition;
+        }
+
+        if (werner != null)
+        {
+            werner.transform.position = GAMEMANAGER.instance.returnWernerPosition;
+        }
+
         GAMEMANAGER.instance.shouldRestorePlayer = false;
     }
 }

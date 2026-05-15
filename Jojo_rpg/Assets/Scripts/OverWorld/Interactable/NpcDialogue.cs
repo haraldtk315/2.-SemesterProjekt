@@ -21,6 +21,7 @@ public class NPC : MonoBehaviour, IInteractable
 
     public GameObject partyReward;
     public GameObject secondPartyReward;
+
     public bool destroyAfterBattleDialogue = true;
     public bool joinPartyWithoutBattle = false;
 
@@ -111,8 +112,10 @@ public class NPC : MonoBehaviour, IInteractable
             return;
         }
 
+        GameObject jack = GameObject.FindGameObjectWithTag("Jack");
+        GameObject werner = GameObject.FindGameObjectWithTag("Werner");
         // Normal NPC med kamp
-        GAMEMANAGER.instance.SaveOverworldReturnPoint(player.transform, player.facing);
+        GAMEMANAGER.instance.SaveOverworldReturnPoint(player.transform, player.facing, jack.transform, werner.transform);
         GAMEMANAGER.instance.currentNPCID = npcID;
         GAMEMANAGER.instance.pendingPartyReward = partyReward;
         GAMEMANAGER.instance.pendingSecondPartyReward = secondPartyReward;

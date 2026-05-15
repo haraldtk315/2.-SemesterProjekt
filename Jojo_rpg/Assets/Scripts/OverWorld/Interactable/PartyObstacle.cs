@@ -11,7 +11,7 @@ public class PartyObstacle : MonoBehaviour, IInteractable
     [Header("Movement")]
     public float gridSize = 1f;
 
-    private bool hasMoved = false;
+    public bool hasMoved = false;
 
     private void Start()
     {

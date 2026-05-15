@@ -224,7 +224,10 @@ public class DIALOGUEHANDLER : MonoBehaviour
                 {
                     GAMEMANAGER.instance.removedNPCs.Add(npc.npcID);
                 }
-
+                GameObject jack = GameObject.FindGameObjectWithTag("Jack");
+                GameObject werner = GameObject.FindGameObjectWithTag("Werner");
+                jack.GetComponentInChildren<SpriteRenderer>().enabled = true;
+                werner.GetComponent<SpriteRenderer>().enabled = true;
                 Destroy(destroyAfterDialogueObject);
             }
 
