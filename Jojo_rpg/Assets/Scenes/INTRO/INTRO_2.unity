@@ -559,6 +559,7 @@ MonoBehaviour:
   pickupID: BLAAHAJ2
   itemData: {fileID: 11400000, guid: 5fd95b6a49543df46970473e7b278a85, type: 2}
   amount: 1
+  playerObject: {fileID: 2021103726}
 --- !u!212 &613839915
 SpriteRenderer:
   serializedVersion: 2
@@ -834,6 +835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: zomb2
@@ -1191,6 +1193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 1
   TRANSFER_TO_THIS: INTRO_3
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 9126982459725653670, guid: c6071e8c84687874b8e7ddf64276c2a7, type: 3}
   DisplayText_on_fade: 5 Years later...
   npcID: Last_frog
@@ -1265,6 +1268,7 @@ MonoBehaviour:
   pickupID: BLAAHAJ
   itemData: {fileID: 11400000, guid: 497f16b5c006015469134abb9673db2f, type: 2}
   amount: 1
+  playerObject: {fileID: 2021103726}
 --- !u!212 &920424188
 SpriteRenderer:
   serializedVersion: 2
@@ -1624,6 +1628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: Jack
@@ -1968,6 +1973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: p1
@@ -2300,6 +2306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: Path to city
@@ -2492,6 +2499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: paper
@@ -2688,6 +2696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: Path to city
@@ -2889,6 +2898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   HAS_ICON: 0
   TRANSFER_TO_THIS: 
+  New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
   DisplayText_on_fade: 
   npcID: zomb1

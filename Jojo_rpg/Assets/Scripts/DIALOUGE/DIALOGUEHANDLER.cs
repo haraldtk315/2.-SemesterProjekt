@@ -136,23 +136,21 @@ public class DIALOGUEHANDLER : MonoBehaviour
             Destroy(dialogueBox);
         }
 
-        
         if (currentPlayerControls != null)
         {
             if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<NPC>(out NPC npc))
             {
                 if (npc.TRANSFER_TO_THIS == string.Empty)
                 {
-                    currentPlayerControls.EnableControls();
                     currentPlayerControls = null;
                 }
             }
 
             if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<PartyObstacle>(out PartyObstacle party))
             {
-                currentPlayerControls.EnableControls();
                 currentPlayerControls = null;
             }
+            currentPlayerControls.EnableControls();
         }
 
         bool shouldStartFight = false;
@@ -188,7 +186,6 @@ public class DIALOGUEHANDLER : MonoBehaviour
             Invoke("LoadFight", 1f);
             return;
         }
-
 
         //transfer scene
         if (TALK_OBJECT != null)

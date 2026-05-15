@@ -168,6 +168,7 @@ MonoBehaviour:
   pickupID: Potion1
   itemData: {fileID: 11400000, guid: 497f16b5c006015469134abb9673db2f, type: 2}
   amount: 1
+  playerObject: {fileID: 2021103726}
 --- !u!212 &16694498
 SpriteRenderer:
   serializedVersion: 2
@@ -23644,6 +23645,7 @@ MonoBehaviour:
   pickupID: Potion
   itemData: {fileID: 11400000, guid: 5fd95b6a49543df46970473e7b278a85, type: 2}
   amount: 1
+  playerObject: {fileID: 2021103726}
 --- !u!212 &668462848
 SpriteRenderer:
   serializedVersion: 2
@@ -26042,6 +26044,7 @@ MonoBehaviour:
   pickupID: Potion2
   itemData: {fileID: 11400000, guid: 497f16b5c006015469134abb9673db2f, type: 2}
   amount: 1
+  playerObject: {fileID: 2021103726}
 --- !u!212 &920424188
 SpriteRenderer:
   serializedVersion: 2
@@ -26186,6 +26189,7 @@ MonoBehaviour:
   pickupID: Potion
   itemData: {fileID: 11400000, guid: 497f16b5c006015469134abb9673db2f, type: 2}
   amount: 1
+  playerObject: {fileID: 2021103726}
 --- !u!212 &953774795
 SpriteRenderer:
   serializedVersion: 2
@@ -26330,6 +26334,7 @@ MonoBehaviour:
   pickupID: Potion
   itemData: {fileID: 11400000, guid: 497f16b5c006015469134abb9673db2f, type: 2}
   amount: 1
+  playerObject: {fileID: 2021103726}
 --- !u!212 &990605521
 SpriteRenderer:
   serializedVersion: 2
@@ -62300,6 +62305,7 @@ MonoBehaviour:
   pickupID: Potion
   itemData: {fileID: 11400000, guid: 497f16b5c006015469134abb9673db2f, type: 2}
   amount: 1
+  playerObject: {fileID: 2021103726}
 --- !u!212 &1883057526
 SpriteRenderer:
   serializedVersion: 2
@@ -62638,6 +62644,7 @@ MonoBehaviour:
   pickupID: Potion
   itemData: {fileID: 11400000, guid: 5fd95b6a49543df46970473e7b278a85, type: 2}
   amount: 1
+  playerObject: {fileID: 2021103726}
 --- !u!212 &1969780044
 SpriteRenderer:
   serializedVersion: 2

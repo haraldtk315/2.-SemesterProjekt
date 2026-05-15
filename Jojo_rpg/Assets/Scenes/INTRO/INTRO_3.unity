@@ -349,6 +349,7 @@ MonoBehaviour:
   pickupID: BLAAHAJ2
   itemData: {fileID: 11400000, guid: 5fd95b6a49543df46970473e7b278a85, type: 2}
   amount: 1
+  playerObject: {fileID: 2021103726}
 --- !u!212 &613839915
 SpriteRenderer:
   serializedVersion: 2
@@ -1058,6 +1059,7 @@ MonoBehaviour:
   pickupID: BLAAHAJ
   itemData: {fileID: 11400000, guid: 497f16b5c006015469134abb9673db2f, type: 2}
   amount: 1
+  playerObject: {fileID: 2021103726}
 --- !u!212 &920424188
 SpriteRenderer:
   serializedVersion: 2

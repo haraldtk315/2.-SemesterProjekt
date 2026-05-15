@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Potion
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemID: Potion
-  displayName: Potion
+  displayName: Health Potion
   icon: {fileID: 5739031943852006050, guid: 08a6a35dfda3a914bbb4c3d7f3efe171, type: 3}
   Type: 0
-  value: 25
+  value: 50
   description: 'Use in case of an emergency!!!
 
 
