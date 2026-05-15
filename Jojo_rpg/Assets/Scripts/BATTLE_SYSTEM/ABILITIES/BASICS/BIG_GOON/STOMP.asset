@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: STOMP
   m_EditorClassIdentifier: Assembly-CSharp::BASIC_ATTACKS
   attackName: BIG STOMP
-  damage: 10
+  damage: 5
   acc: 100
   focus: 10
+  damage_buff: 0
+  spawnable: {fileID: 0}
   type: 2
   Description: A GIANT STOMP. MAKES AN EARTHQUAKE OF DAMAGE TO ALL.
