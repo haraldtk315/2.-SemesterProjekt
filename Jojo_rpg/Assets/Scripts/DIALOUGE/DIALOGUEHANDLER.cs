@@ -138,19 +138,8 @@ public class DIALOGUEHANDLER : MonoBehaviour
 
         if (currentPlayerControls != null)
         {
-            if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<NPC>(out NPC npc))
-            {
-                if (npc.TRANSFER_TO_THIS == string.Empty)
-                {
-                    currentPlayerControls = null;
-                }
-            }
-
-            if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<PartyObstacle>(out PartyObstacle party))
-            {
-                currentPlayerControls = null;
-            }
             currentPlayerControls.EnableControls();
+            currentPlayerControls = null;
         }
 
         bool shouldStartFight = false;
