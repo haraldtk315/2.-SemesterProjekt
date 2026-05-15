@@ -5,7 +5,8 @@ public class GridMovement2D : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed = 5f;      
     private float gridSize = 1f;       
-    public LayerMask obstacleMask;    
+    public LayerMask obstacleMask;
+    public bool isPlayer;
 
     [Header("Optional")]
     private bool allowHoldToMove = true;
@@ -69,8 +70,11 @@ public class GridMovement2D : MonoBehaviour
     private void TryMove(Vector2 dir)
     {
         Vector2 start = rb.position;
+        if (isPlayer)
+        {
+           
+        }
         Vector2 target = start + dir * gridSize;
-
         // Check om der er en collider på vejen
 
         float radius = 0.2f;
