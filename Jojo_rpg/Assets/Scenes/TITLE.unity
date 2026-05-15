@@ -423,7 +423,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3183963cb8f3a8d47a6086bdee60847d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MUSICMANAGER
-  THEMES: []
+  audioSource: {fileID: 377960950}
+  menuMusic: {fileID: 0}
+  IntroTheme: {fileID: 0}
+  OverWorldTheme: {fileID: 0}
+  battleTheme: {fileID: 8300000, guid: bf12752a393805e439664d9bfaa85124, type: 3}
 --- !u!82 &377960950
 AudioSource:
   m_ObjectHideFlags: 0
@@ -439,7 +443,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

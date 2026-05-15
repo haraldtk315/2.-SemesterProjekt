@@ -1,30 +1,53 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MUSICMANAGER : MonoBehaviour
 {
-    public static MUSICMANAGER instance;
+    public AudioSource audioSource;
 
-    public AudioClip[] THEMES;
+    public AudioClip menuMusic;
+    public AudioClip IntroTheme;
+    public AudioClip OverWorldTheme;
+    public AudioClip battleTheme;
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    //hvorfor laver du singleton på denne mpåde? -harald
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        PlayMusicForScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        PlayMusicForScene(scene.name);
+    }
+
+    private void PlayMusicForScene(string sceneName)
+    {
+        if (sceneName == "TITLE")
+        {
+            ChangeMusic(menuMusic);
+        }
+        else if (sceneName == "OVERWORLD")
+        {
+            ChangeMusic(OverWorldTheme);
+        }
+        else if (sceneName == "FIGHT")
+        {
+            ChangeMusic(battleTheme);
+        }
+    }
+
+    private void ChangeMusic(AudioClip newClip)
+    {
+        if (audioSource.clip == newClip)
+            return;
+
+        audioSource.clip = newClip;
+        audioSource.Play();
     }
 }
