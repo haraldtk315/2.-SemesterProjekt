@@ -20332,14 +20332,14 @@ MonoBehaviour:
   BH: {fileID: 0}
   champID: 
   Name: Terrance
-  MaxHp: 250
+  MaxHp: 100
   MaxFocus: 100
   Level: 0
   descripton: Ruler of this area. Oppresses the people of the city
   Party_order: 0
   Team_player: 0
   dead: 0
-  hp: 250
+  hp: 100
   focus: 0
   Damage_buff: 1
   Shield_buff: 1
@@ -20362,7 +20362,18 @@ MonoBehaviour:
   - {fileID: 143785145963278099}
   - {fileID: 8633016426109196608}
   BUFF_INDICATOR: {fileID: 4394364569268847222}
-  Talk_each_round: []
+  talks: 0
+  Dial_1: []
+  Dial_2: []
+  Dial_3: []
+  Dial_4: []
+  Dial_5: []
+  Ran_1: []
+  Ran_2: []
+  Ran_3: []
+  On_death_dial: []
+  On_end_dial: []
+  On_this_dial: 0
 --- !u!65 &-6396718981686823676
 BoxCollider:
   m_ObjectHideFlags: 0

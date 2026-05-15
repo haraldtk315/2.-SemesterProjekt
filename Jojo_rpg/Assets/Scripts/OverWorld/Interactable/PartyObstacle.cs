@@ -94,7 +94,6 @@ public class PartyObstacle : MonoBehaviour, IInteractable
             if (info.champID == memberID)
                 return true;
         }
-
         return false;
     }
 }
