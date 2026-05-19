@@ -2277,7 +2277,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   HP: 0000000000000000000000000000000000000000
-  inventory: []
+  inventory:
+  - itemData: {fileID: 11400000, guid: 497f16b5c006015469134abb9673db2f, type: 2}
+    amount: 5
+  - itemData: {fileID: 11400000, guid: 5fd95b6a49543df46970473e7b278a85, type: 2}
+    amount: 5
   returnSceneName: 
   returnPlayerPosition: {x: 0, y: 0, z: 0}
   returnJackPosition: {x: 0, y: 0, z: 0}
