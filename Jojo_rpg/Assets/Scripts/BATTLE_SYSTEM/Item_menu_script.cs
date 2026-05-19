@@ -47,7 +47,10 @@ public class Item_menu_script : MonoBehaviour
 
             if (item_info.amount <= 0)
             {
-                Items.Remove(Items[i]);
+                Destroy(Items[i].gameObject);
+                GM.inventory.Remove(GM.inventory[i]);
+                //Items.Remove(Items[i]);
+
             }
             else
             {
@@ -55,6 +58,12 @@ public class Item_menu_script : MonoBehaviour
                 Items[i].GetComponent<Item_button_click>().Item = item_info;
                 Items[i].GetComponent<Image>().sprite = item_info.itemData.icon;
             }
+        }
+
+        if (GM.inventory.Count == 0)
+        {
+            Debug.Log("Inventory is Empty");
+            No_items_text.gameObject.SetActive(true);
         }
     }
 
