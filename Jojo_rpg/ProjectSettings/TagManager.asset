@@ -16,6 +16,7 @@ TagManager:
   - Canvas
   - Jack
   - Werner
+  - Jack_Overworld
   layers:
   - Default
   - TransparentFX
