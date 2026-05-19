@@ -138,29 +138,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
 
         if (currentPlayerControls != null)
         {
-            if (currentPlayerControls != null)
-            {
-                //CHECKING FOR IF TALKING WITH NPC
-                if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<NPC>(out NPC npc))
-                {
-                    if (npc.TRANSFER_TO_THIS == string.Empty)
-                    {
-                        currentPlayerControls.EnableControls();
-                        currentPlayerControls = null;
-                    }
-                }
-                else if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<PickupItem>(out PickupItem potion))
-                {
-                    currentPlayerControls.EnableControls();
-                    currentPlayerControls = null;
-                    Destroy(TALK_OBJECT.gameObject);
-                }
-                else if (TALK_OBJECT != false)
-                {
-                    currentPlayerControls.EnableControls();
-                    currentPlayerControls = null;
-                }
-            }
+            Invoke("DELAY_FIX", 0.5f);
         }
 
         bool shouldStartFight = false;
@@ -290,7 +268,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
 
     public void loading()
     {
-        if (TALK_OBJECT.TryGetComponent<NPC>(out NPC npc))
+        if (TALK_OBJECT != null && TALK_OBJECT.TryGetComponent<NPC>(out NPC npc))
         {
             if (npc.New_player_cords != Vector3.zero)
             {
@@ -307,5 +285,43 @@ public class DIALOGUEHANDLER : MonoBehaviour
     public void LoadFight()
     {
         SceneManager.LoadScene("FIGHT");
+    }
+
+    public void DELAY_FIX()
+    {
+        if (currentPlayerControls != null)
+        {
+            //CHECKING FOR IF TALKING WITH NPC
+            if (TALK_OBJECT == null)
+            {
+                currentPlayerControls.EnableControls();
+                currentPlayerControls = null;
+                TALK_OBJECT = null;
+            }
+            else if (TALK_OBJECT != null && TALK_OBJECT.TryGetComponent<NPC>(out NPC npc))
+            {
+                if (npc.TRANSFER_TO_THIS == string.Empty && npc.enemies == null)
+                {
+                    Debug.Log("NPC DIAL IS HERE!!!");
+                    currentPlayerControls.EnableControls();
+                    currentPlayerControls = null;
+                    TALK_OBJECT = null;
+                }
+            }
+            else if (TALK_OBJECT != null && TALK_OBJECT.TryGetComponent<PickupItem>(out PickupItem potion))
+            {
+                currentPlayerControls.EnableControls();
+                currentPlayerControls = null;
+                Destroy(TALK_OBJECT.gameObject);
+                TALK_OBJECT = null;
+            }
+            else if (TALK_OBJECT != null)
+            {
+                Debug.Log("NO SCRIPTO FOUNDO");
+                currentPlayerControls.EnableControls();
+                currentPlayerControls = null;
+                TALK_OBJECT = null;
+            }
+        }
     }
 }

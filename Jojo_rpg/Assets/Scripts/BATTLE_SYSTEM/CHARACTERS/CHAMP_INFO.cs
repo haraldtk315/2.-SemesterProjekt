@@ -142,6 +142,11 @@ public class CHAMP_INFO : MonoBehaviour
             BUFF_INDICATOR.SetActive(false);
         }
 
+        if (focus > MaxFocus)
+        {
+            focus = MaxFocus;
+        }
+
         //Is here to fix a bug were you can heal a unit that is dead and make their sprite turn into the heal sprite
         if (dead == true)
         {

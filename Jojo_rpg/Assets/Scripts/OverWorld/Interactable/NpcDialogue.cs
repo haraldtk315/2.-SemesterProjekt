@@ -71,6 +71,7 @@ public class NPC : MonoBehaviour, IInteractable
                     {
                         GAMEMANAGER.instance.removedNPCs.Add(npcID);
                         Destroy(gameObject);
+                        DIALOGUEHANDLER.instance.TALK_OBJECT = null;
                     }
                 }
 
