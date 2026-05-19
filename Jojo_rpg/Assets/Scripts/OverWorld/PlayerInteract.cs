@@ -1,3 +1,4 @@
+using System.Xml.Serialization;
 using UnityEngine;
 
 public interface IInteractable
@@ -10,11 +11,17 @@ public class PlayerInteract : MonoBehaviour
     [Header("Grid / Range")]
     public float gridSize = 1f;
     public LayerMask interactMask;
+    public SpriteRenderer spacebarIcon;
 
     public Vector2 facing = Vector2.down;
 
     [Header("Debug")]
     public bool drawGizmos = true;
+
+    public void Start()
+    {
+        spacebarIcon.enabled = false;
+    }
 
     void Update()
     {
@@ -27,6 +34,22 @@ public class PlayerInteract : MonoBehaviour
     public void SetFacing(Vector2 dir)
     {
         if (dir != Vector2.zero) facing = dir.normalized;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Interactable"))
+        {
+            spacebarIcon.enabled = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Interactable"))
+        {
+            spacebarIcon.enabled = false;
+        }
     }
 
     void TryInteract()

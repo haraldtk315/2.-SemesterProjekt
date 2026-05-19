@@ -16,6 +16,7 @@ TagManager:
   - Canvas
   - Jack
   - Werner
+  - Interactable
   - Jack_Overworld
   layers:
   - Default
