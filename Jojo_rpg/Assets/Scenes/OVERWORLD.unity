@@ -27385,8 +27385,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1800511771
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5359036148826517927, guid: d67b1ae8741ba434ca0cac1b4590836c, type: 3}
@@ -27428,7 +27428,6 @@ GameObject:
   - component: {fileID: 1107087512}
   m_Layer: 8
   m_Name: Jack
-  m_TagString: Interactable
   m_TagString: Jack_Overworld
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64486,8 +64485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05777880fb01d44da1e569cd2da2af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControlToggle
---- !u!68 &2021103735
-EdgeCollider2D:
+--- !u!61 &2021103735
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -64520,26 +64519,18 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.15625}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.59999996}
+    oldSize: {x: 1.5, y: 1.5625}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.5, y: 1.5625}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.4734112, y: -0.43284}
-  - {x: -2.1040611, y: -0.63455546}
-  - {x: -1.9762905, y: 0.37569553}
-  - {x: -0.41594866, y: -0.07991415}
-  - {x: -0.68525696, y: 1.3701111}
-  - {x: 0.35536286, y: 1.3477888}
-  - {x: 0.22992885, y: -0.007417619}
-  - {x: 1.5748036, y: 0.17908439}
-  - {x: 1.5549093, y: -0.58902246}
-  - {x: 0.2156198, y: -0.36287767}
-  - {x: 0.35919374, y: -1.611147}
-  - {x: -0.66408813, y: -1.490423}
-  - {x: -0.4895293, y: -0.4430818}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &2027735423
 GameObject:
   m_ObjectHideFlags: 0
@@ -65023,7 +65014,7 @@ MonoBehaviour:
   npcID: test npc1
   message:
   - Somewhere in between those bushes
-  - An entry i hidden...
+  - An entry is hidden...
   messageAfterBattle: []
   enemies:
   - {fileID: 0}
