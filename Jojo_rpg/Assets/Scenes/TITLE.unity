@@ -1222,6 +1222,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  TALK_OBJECT: {fileID: 0}
   FADE: {fileID: 9126982459725653670, guid: c6071e8c84687874b8e7ddf64276c2a7, type: 3}
 --- !u!4 &891574645
 Transform:
@@ -2276,9 +2277,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   HP: 0000000000000000000000000000000000000000
-  inventory:
-  - itemData: {fileID: 11400000, guid: 5fd95b6a49543df46970473e7b278a85, type: 2}
-    amount: 1
+  inventory: []
   returnSceneName: 
   returnPlayerPosition: {x: 0, y: 0, z: 0}
   returnJackPosition: {x: 0, y: 0, z: 0}

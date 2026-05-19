@@ -631,7 +631,7 @@ MonoBehaviour:
   TRANSFER_TO_THIS: 
   New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
-  DisplayText_on_fade: 
+  DisplayText_on_fade: A ZOMBIE ATTACKS
   npcID: zomb1
   message:
   - hurhhh?!
@@ -27303,7 +27303,7 @@ MonoBehaviour:
   TRANSFER_TO_THIS: 
   New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
-  DisplayText_on_fade: 
+  DisplayText_on_fade: THE TEST OF CURAGE HAS BEGUN
   npcID: Jack
   message:
   - Well now... and who exactly are you supposed to be?
@@ -28033,7 +28033,7 @@ MonoBehaviour:
   TRANSFER_TO_THIS: 
   New_player_cords: {x: 0, y: 0, z: 0}
   FADE: {fileID: 0}
-  DisplayText_on_fade: 
+  DisplayText_on_fade: THE FINAL HURDLE HAS BEGUN!!!
   npcID: Victor Taylor
   message:
   - ARHAHAHA WHO DARE COME CHALLENGE ME!!!
