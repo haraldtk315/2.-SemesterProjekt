@@ -140,6 +140,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
         {
             if (currentPlayerControls != null)
             {
+                //CHECKING FOR IF TALKING WITH NPC
                 if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<NPC>(out NPC npc))
                 {
                     if (npc.TRANSFER_TO_THIS == string.Empty)
@@ -148,12 +149,36 @@ public class DIALOGUEHANDLER : MonoBehaviour
                         currentPlayerControls = null;
                     }
                 }
+                else if (TALK_OBJECT != false)
+                {
+                    currentPlayerControls.EnableControls();
+                    currentPlayerControls = null;
+                }
 
+                /*
+                //CHECKING FOR IF INTERACTING WITH PARTYOBSTACLE
                 if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<PartyObstacle>(out PartyObstacle party))
                 {
                     currentPlayerControls.EnableControls();
                     currentPlayerControls = null;
                 }
+
+                //CHECKING IF PICKING UP ITEM
+                if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<PickupItem>(out PickupItem pickup))
+                {
+                    Debug.Log("I WAS HERE");
+                    currentPlayerControls.EnableControls();
+                    currentPlayerControls = null;
+                }
+
+                
+                if (TALK_OBJECT != false)
+                {
+                    Debug.Log("I DID NOT SEND A TALK_OBJECT TO DIAL_START");
+                    currentPlayerControls.EnableControls();
+                    currentPlayerControls = null;
+                }
+                */
             }
         }
 
