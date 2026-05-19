@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77f1f27093a6224f850c6f4d9654084, type: 3}
   m_Name: GiANT GRAB
   m_EditorClassIdentifier: Assembly-CSharp::BASIC_ATTACKS
-  attackName: Bear hug
+  attackName: "B\xE4renumarmung"
   damage: 10
   acc: 95
   focus: 10
   damage_buff: 0
   spawnable: {fileID: 0}
   type: 0
-  Description: A hug of a giant. always "accidentally" does damage
+  Description: A hug from a gentle giant. always "accidentally" does damage
