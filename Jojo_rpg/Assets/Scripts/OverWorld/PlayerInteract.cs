@@ -69,7 +69,9 @@ public class PlayerInteract : MonoBehaviour
         Vector2 targetPos = origin + facing * gridSize;
 
         Collider2D hit = Physics2D.OverlapCircle(targetPos, 0.15f, interactMask);
-        if (!hit) return;
+
+        if (!hit)
+            return;
 
         IInteractable interactable = hit.GetComponent<IInteractable>();
 
