@@ -40,6 +40,10 @@ public class MUSICMANAGER : MonoBehaviour
         {
             ChangeMusic(battleTheme);
         }
+        else if (sceneName == "Intro" || sceneName == "INTRO_2" || sceneName == "INTRO_3")
+        {
+            ChangeMusic(IntroTheme);
+        }
     }
 
     private void ChangeMusic(AudioClip newClip)
