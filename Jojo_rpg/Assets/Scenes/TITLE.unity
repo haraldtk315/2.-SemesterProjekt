@@ -424,10 +424,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MUSICMANAGER
   audioSource: {fileID: 377960950}
-  menuMusic: {fileID: 0}
+  menuMusic: {fileID: 8300000, guid: 831fda392012f9343b0a176c67c40813, type: 3}
   IntroTheme: {fileID: 0}
-  OverWorldTheme: {fileID: 0}
-  battleTheme: {fileID: 8300000, guid: bf12752a393805e439664d9bfaa85124, type: 3}
+  OverWorldTheme: {fileID: 8300000, guid: 6e8613bf294f43549966609c4fa9af5e, type: 3}
+  battleTheme: {fileID: 8300000, guid: 82934a7807d94594e8f62a624761fdbd, type: 3}
 --- !u!82 &377960950
 AudioSource:
   m_ObjectHideFlags: 0
@@ -441,7 +441,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0

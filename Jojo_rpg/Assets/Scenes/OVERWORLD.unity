@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 42914944}
   - component: {fileID: 42914943}
   m_Layer: 8
-  m_Name: Houses (3)
+  m_Name: Houses 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
