@@ -95,6 +95,18 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     Text += "When hitting this move gain " + BUTTON_HOLD.ATTACK.focus.ToString() + " focus";
                 }
 
+                if (BUTTON_HOLD.ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.HIT_ALL_ENEMY)
+                {
+                    Text += "A cleaving move with a " + BUTTON_HOLD.ATTACK.acc.ToString() + "% chance of hitting all enemy targets \n";
+                    Text += "When hitting this move gain " + BUTTON_HOLD.ATTACK.focus.ToString() + " focus";
+                }
+
+                if (BUTTON_HOLD.ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.HIT_ALL)
+                {
+                    Text += "A dangerous move, that hits everyone (including your own guys) with a " + BUTTON_HOLD.ATTACK.acc.ToString() + "% chance of hitting \n";
+                    Text += "When hitting this move gain " + BUTTON_HOLD.ATTACK.focus.ToString() + " focus";
+                }
+
                 if (BUTTON_HOLD.ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.SELF)
                 {
                     Text += "A self buffing move with a " + BUTTON_HOLD.ATTACK.acc.ToString() + "% success rate \n";

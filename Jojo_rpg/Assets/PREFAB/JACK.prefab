@@ -20344,19 +20344,16 @@ MonoBehaviour:
   focus: 0
   Damage_buff: 1
   Shield_buff: 1
-  height_from_ground: 1
-  height_cam: 2
+  height_from_ground: 1.05
+  height_cam: 1
   time: 0
   ATTACKS:
-  - {fileID: 11400000, guid: 127680fcd8ac1374cbc22230013d7272, type: 2}
-  - {fileID: 11400000, guid: 8c1e3951ad0dca946b2d66596c69ffba, type: 2}
-  - {fileID: 11400000, guid: 73525379c3bbfdc4db4da6cec4ddc0c5, type: 2}
-  - {fileID: 11400000, guid: ae72d8166e198ec48a3f99243145cad7, type: 2}
+  - {fileID: 11400000, guid: b048891969f0fba4ea7b94008bb0723f, type: 2}
+  - {fileID: 11400000, guid: d46f5a7c43f9f2b4b8f64e74ad7b26d4, type: 2}
+  - {fileID: 11400000, guid: a890c762d0846b245a37cb9d836553f6, type: 2}
+  - {fileID: 11400000, guid: 1a7cb1ef2d1da8b409ea6626d8e3622b, type: 2}
   SPECIALS:
   - {fileID: 11400000, guid: 53b904e3253fcba4b92f01bd9bbdc6b0, type: 2}
-  - {fileID: 11400000, guid: 152205d3ebe3b6b448163cb239e2c09b, type: 2}
-  - {fileID: 11400000, guid: edc5b3569f34abf49877a205a9ce557a, type: 2}
-  - {fileID: 11400000, guid: 6a0d318107bcdb840a5c6eb51464a1d2, type: 2}
   On_hit_effekt: {fileID: 6696071498278047046, guid: 65df1a8dfb33df5458baadc1f6d57d39, type: 3}
   Player_UI: {fileID: 0}
   Outline: {fileID: 2532179721337690418}
