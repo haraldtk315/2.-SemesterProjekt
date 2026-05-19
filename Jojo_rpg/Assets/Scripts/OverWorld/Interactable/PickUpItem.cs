@@ -24,7 +24,7 @@ public class PickupItem : MonoBehaviour, IInteractable
         GAMEMANAGER.instance.collectedPickups.Add(pickupID);
         pickupText[0] = $"Picked up {itemData.displayName}";
         pickupText[1] = $"{itemData.description}" + $" {itemData.value}";
-        DIALOGUEHANDLER.instance.DialogueStart(pickupText, playerObject, null, null, null, null, false, gameObject);
-        Destroy(gameObject);
+        DIALOGUEHANDLER.instance.DialogueStart(pickupText, playerObject, null, null, null, null, false, this.gameObject);
+        //Destroy(gameObject);
     }
 }

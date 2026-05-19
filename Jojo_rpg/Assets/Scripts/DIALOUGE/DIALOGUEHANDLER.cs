@@ -25,7 +25,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
     private bool dialogueActive = false;
 
     public GameObject[] ENEMIES;
-    private GameObject TALK_OBJECT;
+    public GameObject TALK_OBJECT;
 
     private InputAction nextAction;
     private PlayerControlToggle currentPlayerControls;
@@ -149,36 +149,17 @@ public class DIALOGUEHANDLER : MonoBehaviour
                         currentPlayerControls = null;
                     }
                 }
+                else if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<PickupItem>(out PickupItem potion))
+                {
+                    currentPlayerControls.EnableControls();
+                    currentPlayerControls = null;
+                    Destroy(TALK_OBJECT.gameObject);
+                }
                 else if (TALK_OBJECT != false)
                 {
                     currentPlayerControls.EnableControls();
                     currentPlayerControls = null;
                 }
-
-                /*
-                //CHECKING FOR IF INTERACTING WITH PARTYOBSTACLE
-                if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<PartyObstacle>(out PartyObstacle party))
-                {
-                    currentPlayerControls.EnableControls();
-                    currentPlayerControls = null;
-                }
-
-                //CHECKING IF PICKING UP ITEM
-                if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<PickupItem>(out PickupItem pickup))
-                {
-                    Debug.Log("I WAS HERE");
-                    currentPlayerControls.EnableControls();
-                    currentPlayerControls = null;
-                }
-
-                
-                if (TALK_OBJECT != false)
-                {
-                    Debug.Log("I DID NOT SEND A TALK_OBJECT TO DIAL_START");
-                    currentPlayerControls.EnableControls();
-                    currentPlayerControls = null;
-                }
-                */
             }
         }
 
