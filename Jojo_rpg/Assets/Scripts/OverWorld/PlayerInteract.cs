@@ -1,4 +1,3 @@
-using System.Xml.Serialization;
 using UnityEngine;
 
 public interface IInteractable
@@ -20,11 +19,16 @@ public class PlayerInteract : MonoBehaviour
 
     public void Start()
     {
-        spacebarIcon.enabled = false;
+        if (spacebarIcon != null)
+        {
+            spacebarIcon.enabled = false;
+        }
     }
 
     void Update()
     {
+        UpdateSpacebarIcon();
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TryInteract();
@@ -33,23 +37,30 @@ public class PlayerInteract : MonoBehaviour
 
     public void SetFacing(Vector2 dir)
     {
-        if (dir != Vector2.zero) facing = dir.normalized;
-    }
+        if (dir == Vector2.zero)
+            return;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Interactable"))
+        if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
         {
-            spacebarIcon.enabled = true;
+            facing = dir.x > 0 ? Vector2.right : Vector2.left;
+        }
+        else
+        {
+            facing = dir.y > 0 ? Vector2.up : Vector2.down;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    void UpdateSpacebarIcon()
     {
-        if (other.CompareTag("Interactable"))
-        {
-            spacebarIcon.enabled = false;
-        }
+        if (spacebarIcon == null)
+            return;
+
+        Vector2 origin = transform.position;
+        Vector2 targetPos = origin + facing * gridSize;
+
+        Collider2D hit = Physics2D.OverlapCircle(targetPos, 0.15f, interactMask);
+
+        spacebarIcon.enabled = hit != null;
     }
 
     void TryInteract()
@@ -57,19 +68,21 @@ public class PlayerInteract : MonoBehaviour
         Vector2 origin = transform.position;
         Vector2 targetPos = origin + facing * gridSize;
 
-        // overlap et lille område foran spilleren
         Collider2D hit = Physics2D.OverlapCircle(targetPos, 0.15f, interactMask);
         if (!hit) return;
 
-        // kald Interact på objektet
-        var interactable = hit.GetComponent<IInteractable>();
+        IInteractable interactable = hit.GetComponent<IInteractable>();
+
         if (interactable != null)
+        {
             interactable.Interact(this);
+        }
     }
 
     void OnDrawGizmosSelected()
     {
         if (!drawGizmos) return;
+
         Gizmos.color = Color.yellow;
         Vector3 p = transform.position + (Vector3)(facing.normalized * gridSize);
         Gizmos.DrawWireSphere(p, 0.15f);

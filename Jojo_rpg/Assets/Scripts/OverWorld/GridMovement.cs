@@ -115,6 +115,7 @@ public class GridMovement2D : MonoBehaviour
         Vector2 target;
         if (isPlayer)
         {
+            GetComponent<PlayerInteract>()?.SetFacing(input);
             target = start + dir * gridSize;
         }
         else
