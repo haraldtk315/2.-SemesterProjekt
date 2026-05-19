@@ -425,7 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MUSICMANAGER
   audioSource: {fileID: 377960950}
   menuMusic: {fileID: 8300000, guid: 831fda392012f9343b0a176c67c40813, type: 3}
-  IntroTheme: {fileID: 0}
+  IntroTheme: {fileID: 8300000, guid: 6e8613bf294f43549966609c4fa9af5e, type: 3}
   OverWorldTheme: {fileID: 8300000, guid: 6e8613bf294f43549966609c4fa9af5e, type: 3}
   battleTheme: {fileID: 8300000, guid: 82934a7807d94594e8f62a624761fdbd, type: 3}
 --- !u!82 &377960950
