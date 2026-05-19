@@ -624,7 +624,22 @@ public class BATTLEHANDLER : MonoBehaviour
                         Enemy_Attack = 0;
                     }
 
+                    
                     //ATTACK
+                    int amount = 0;
+                    for (int k = 0; k < ORDER.Length; k++)
+                    {
+                        if (ORDER[k] == null || ORDER[k].GetComponent<CHAMP_INFO>().dead == true)
+                        {
+                            continue;
+                        }
+
+                        if (ORDER[k] != null && ORDER[k].GetComponent<CHAMP_INFO>().dead == false)
+                        {
+                            amount++;
+                        }
+                    }
+
                     for (int j = 0; j < ORDER.Length; j++)
                     {
                         if (ORDER[j] == null || ORDER[j].GetComponent<CHAMP_INFO>().dead == true)
@@ -639,7 +654,41 @@ public class BATTLEHANDLER : MonoBehaviour
                             ORDER[j].GetComponent<CHAMP_INFO>().hp -= ENEMY_MOVES[Enemy_Attack].damage;
                             ORDER[j].GetComponent<CHAMP_INFO>().ON_HIT(); //TO MAKE SURE THEY UPDATE THEIR BOOLEANS
                             */
-                            CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE = j;
+
+                            int random_num = Random.Range(0, amount);
+
+                            if (random_num == 0)
+                            {
+                                CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE = j;
+                            }
+
+                            if (random_num >= 1)
+                            {
+                                j++;
+                                for (int CHECK = j; CHECK < ORDER.Length; CHECK++)
+                                {
+                                    if (ORDER[CHECK] == null || ORDER[CHECK].GetComponent<CHAMP_INFO>().dead == true)
+                                    {
+                                        continue;
+                                    }
+
+                                    if (ORDER[CHECK] != null && ORDER[CHECK].GetComponent<CHAMP_INFO>().dead == false)
+                                    {
+                                        random_num--;
+                                        if (random_num == 0)
+                                        {
+                                            CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE = CHECK;
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            continue;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            //CURRENTLY_ATTACKING_THISGUY_FROM_ENEMY_STATE = j;
 
                             ON_CURRENT_CHAMP = 0; //added this because of an error might not be needed
                             CURRENT_STATE = STATEMACHINE.ENEMY_BATTLE;
