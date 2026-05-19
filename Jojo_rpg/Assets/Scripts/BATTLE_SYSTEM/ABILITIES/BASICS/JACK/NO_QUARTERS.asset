@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: NO_QUARTERS
   m_EditorClassIdentifier: Assembly-CSharp::BASIC_ATTACKS
   attackName: No Quarters
-  damage: 69
-  acc: 67
+  damage: 25
+  acc: 50
   focus: 25
   damage_buff: 0
   spawnable: {fileID: 0}

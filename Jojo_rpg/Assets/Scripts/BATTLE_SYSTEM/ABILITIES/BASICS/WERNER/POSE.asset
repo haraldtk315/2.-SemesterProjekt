@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BASIC_ATTACKS
   attackName: POSE
   damage: 0
-  acc: 0
+  acc: 100
   focus: 10
   damage_buff: 1.25
   spawnable: {fileID: 0}
   type: 1
-  Description: Does a pose and buffs next attacks
+  Description: Does a pose and buffs next attacks for rest of combat
