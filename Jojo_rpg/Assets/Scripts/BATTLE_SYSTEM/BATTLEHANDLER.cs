@@ -875,7 +875,7 @@ public class BATTLEHANDLER : MonoBehaviour
 
             if (Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.HIT_ALL_PARTY)
             {
-                for(int i = 0; i < ORDER.Length; i++)
+                for (int i = 0; i < ORDER.Length; i++)
                 {
                     if (ORDER[i] != null)
                     {
@@ -883,6 +883,22 @@ public class BATTLEHANDLER : MonoBehaviour
                         ORDER[i].GetComponent<CHAMP_INFO>().Damage_buff = buff;
 
                         WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
+                    }
+                }
+            }
+
+            if(Current_ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.HIT_ALL_ENEMY)
+            {
+                for (int i = 0; i < MONSTER_ORDER.Length; i++)
+                {
+                    if (MONSTER_ORDER[i] != null && MONSTER_ORDER[i] != SENDER)
+                    {
+                        SENDER.GetComponent<CHAMP_INFO>().NORMAL_HIT(MONSTER_ORDER[i], New_Damage);
+                        WAIT_TIME = SENDER.GetComponent<CHAMP_INFO>().GET_CURRENT_ANIMATION_LENGTH() + Extra_time;
+
+                        MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().hp -= New_Damage;
+                        SENDER.GetComponent<CHAMP_INFO>().focus += focus;
+                        MONSTER_ORDER[i].GetComponent<CHAMP_INFO>().ON_HIT(); //MAKING SURE THE TARGET IS DEAD!!!
                     }
                 }
             }

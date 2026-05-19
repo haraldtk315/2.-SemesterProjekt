@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FOR_BRITANNIA
   m_EditorClassIdentifier: Assembly-CSharp::BASIC_ATTACKS
   attackName: FOR BRITANNIA!!!
-  damage: 100
-  acc: 1
+  damage: 65
+  acc: 15
   focus: 100
   damage_buff: 0
   spawnable: {fileID: 0}
