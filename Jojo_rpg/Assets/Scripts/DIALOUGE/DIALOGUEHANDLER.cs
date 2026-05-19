@@ -138,8 +138,23 @@ public class DIALOGUEHANDLER : MonoBehaviour
 
         if (currentPlayerControls != null)
         {
-            currentPlayerControls.EnableControls();
-            currentPlayerControls = null;
+            if (currentPlayerControls != null)
+            {
+                if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<NPC>(out NPC npc))
+                {
+                    if (npc.TRANSFER_TO_THIS == string.Empty)
+                    {
+                        currentPlayerControls.EnableControls();
+                        currentPlayerControls = null;
+                    }
+                }
+
+                if (TALK_OBJECT != false && TALK_OBJECT.TryGetComponent<PartyObstacle>(out PartyObstacle party))
+                {
+                    currentPlayerControls.EnableControls();
+                    currentPlayerControls = null;
+                }
+            }
         }
 
         bool shouldStartFight = false;
@@ -273,7 +288,10 @@ public class DIALOGUEHANDLER : MonoBehaviour
                 GAMEMANAGER.instance.returnPlayerPosition = TALK_OBJECT.GetComponent<NPC>().New_player_cords;
             }
 
-            SceneManager.LoadScene(TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS);
+            if (TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS != string.Empty)
+            {
+                SceneManager.LoadScene(TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS);
+            }
         }
     }
 
