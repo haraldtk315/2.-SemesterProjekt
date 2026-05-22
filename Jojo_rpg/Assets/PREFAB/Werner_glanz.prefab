@@ -20343,7 +20343,7 @@ MonoBehaviour:
   focus: 0
   Damage_buff: 1
   Shield_buff: 1
-  height_from_ground: 0
+  height_from_ground: 0.1
   height_cam: 0.5
   time: 0
   ATTACKS:

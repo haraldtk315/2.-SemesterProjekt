@@ -10561,7 +10561,7 @@ MonoBehaviour:
   focus: 0
   Damage_buff: 1
   Shield_buff: 1
-  height_from_ground: 0
+  height_from_ground: 0.5
   height_cam: 0
   time: 0
   ATTACKS:
@@ -10583,7 +10583,18 @@ MonoBehaviour:
   - {fileID: 3064771653973493138}
   - {fileID: 6815345214115907499}
   BUFF_INDICATOR: {fileID: 5991454128179639811}
-  Talk_each_round: []
+  talks: 0
+  Dial_1: []
+  Dial_2: []
+  Dial_3: []
+  Dial_4: []
+  Dial_5: []
+  Ran_1: []
+  Ran_2: []
+  Ran_3: []
+  On_death_dial: []
+  On_end_dial: []
+  On_this_dial: 0
 --- !u!65 &6946313584576756745
 BoxCollider:
   m_ObjectHideFlags: 0
