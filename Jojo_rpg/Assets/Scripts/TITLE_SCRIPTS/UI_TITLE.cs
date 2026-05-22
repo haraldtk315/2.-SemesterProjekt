@@ -7,6 +7,7 @@ public class UI_TITLE : MonoBehaviour
     private const string OVERWORLD = "OVERWORLD";
     private const string DIALOGUE = "DIALOGUE";
     private const string INTRO = "INTRO";
+    private const string PROLOGUE = "PROLOGUE";
 
     public void TestBattleSystem()
     {
@@ -26,6 +27,11 @@ public class UI_TITLE : MonoBehaviour
     public void TestDIALOGUE()
     {
         SceneManager.LoadScene(DIALOGUE);
+    }
+
+    public void TestPROLOGUE()
+    {
+        SceneManager.LoadScene(PROLOGUE);
     }
 }
 
