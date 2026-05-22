@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/OUTRO.unity
     guid: f5d557e8ff3e99d4699960fabb60c03c
   - enabled: 1
-    path: Assets/Scenes/prologue.unity
+    path: Assets/Scenes/PROLOGUE.unity
     guid: 22e8b919c2b3fee4f91b4b8a0e037199
   - enabled: 1
     path: Assets/Scenes/DIALOGUE.unity
