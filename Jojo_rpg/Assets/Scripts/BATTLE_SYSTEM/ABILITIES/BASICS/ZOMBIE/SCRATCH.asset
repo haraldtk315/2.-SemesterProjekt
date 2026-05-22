@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BASIC_ATTACKS
   attackName: 
   damage: 5
-  acc: 95
+  acc: 100
   focus: 0
+  damage_buff: 0
+  spawnable: {fileID: 0}
   type: 0
   Description: SCARY SCRATCHES
