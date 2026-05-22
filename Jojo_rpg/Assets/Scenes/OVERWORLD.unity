@@ -27666,29 +27666,36 @@ MonoBehaviour:
   message:
   - (Walking up the road you notice 2 men standing near a sign)
   - (One of them, a giant man with a fine suit, and a armband with a cross on it)
-  - (The other a shorter, skinnier man wearing an officers uniform, wielding a giant
-    flag depicting the union jack)
+  - (The other, a shorter, skinnier man wearing a soldiers uniform)
+  - (It seems like he is holding a flag depicting the union jack)
   - 'Jack: Well now... and who exactly are you supposed to be?'
-  - 'Werner: Leave him alone you dumpkorpf. Was ist wrong with ein young junge walking
+  - 'Werner: Leave him alone you dummkorpf. What ist wrong with ein young Kind walking
     around?'
   - 'Jack: Oh come on now Werner, the kid is litererally looking at me'
   - 'Jack: Rather intimidating now that i get a proper look at them... I mean the
-    kid''s silent Werner, and they''re just begging for a beatdown'
+    kid''s silent Werner'
+  - 'Jack: and they''re just begging for a beatdown'
   - 'Werner: You really feel ze need for beating up ein Kind at a time like zis??'
   - 'Werner: Du bist wirklich ein hoffnungsloser Fall (You are truly a hopeless case)'
-  - 'Jack: Come on then kid, show me what you''ve got'
-  - 'Jack: Just know that you''re chicken if you turn around now'
-  - 'Werner: I''m not taking part in your games Jack, i''m ztaying out of zhis'
+  - 'Jack: Just know that you''re a traitor to Britannia if you deny me this duel,
+    Werner '
+  - 'Jack: And besides, he might be a potential candidate for the rebellion!'
+  - 'Jack: Come on then, show me what you''ve got kid '
+  - 'Werner: I''m not taking part in your games Jack, I''m staying out of zhis'
+  - 'Werner: Don''t hold back on Jack, Kid!'
   messageAfterBattle:
-  - ...Damn it
-  - "Well, I\u2019ll give you this... you hit harder than you look."
-  - Seems I was wrong about you.
-  - "You\u2019re still young, still reckless, and still far too quiet for my liking..."
-  - "but you\u2019ve got spine."
-  - Not many can put me on the ground and still be standing after.
-  - "Fine. You\u2019ve earned my respect."
-  - "I\u2019ll join you... just don\u2019t expect me to go easy on you from here
-    on out."
+  - 'Jack: ...Damn it'
+  - "Jack: Well, I\u2019ll give you this... you hit harder than you look."
+  - 'Werner: Well done Kid! That''ll show zat idiot not to mess with strangers'
+  - 'Werner: Why don''t you join us? It''z dangerous to go alone you know'
+  - 'Werner: Ze rebellion dispatched us to deal wit-'
+  - 'Jack: Shuuuush, don''t go revealing too much now!'
+  - 'Werner: You mentioned them firs-...'
+  - 'Jack: WE DON''T KNOW TOo much about them, but I do agree, we should group up'
+  - 'Jack: I don''t know why, but after that ass kicking, I feel like I can trust
+    you'
+  - 'Jack: (under his breadth) Besides I need to know where you are for round 2...'
+  - 'Both: Lead the way kid!'
   enemies:
   - {fileID: 380776666666102203, guid: 81626ee011c04a14f830d81372cf7ea2, type: 3}
   - {fileID: 0}
@@ -64020,7 +64027,7 @@ MonoBehaviour:
   DisplayText_on_fade: 
   npcID: Path to city
   message:
-  - 'This road leads to Westoning '
+  - This road leads to Westoning
   messageAfterBattle: []
   enemies:
   - {fileID: 0}
