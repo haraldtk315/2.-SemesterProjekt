@@ -20353,6 +20353,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b62753ddd6c84b14a881a93484a23421, type: 2}
   SPECIALS:
   - {fileID: 11400000, guid: 152205d3ebe3b6b448163cb239e2c09b, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   On_hit_effekt: {fileID: 6696071498278047046, guid: 65df1a8dfb33df5458baadc1f6d57d39, type: 3}
   Player_UI: {fileID: 0}
   Outline: {fileID: 2532179721337690418}
