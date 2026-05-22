@@ -311,7 +311,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1af13db080bd1c349a4b91328db234c5, type: 3}
   - {fileID: 8300000, guid: d17d9533b848af945aa0f4ad13b7826c, type: 3}
   - {fileID: 8300000, guid: 6737311595f0c0d4dbe6d9389dbd2502, type: 3}
-  Healing: {fileID: 8300000, guid: 5609f523bbd0a6846b58841ae6cde0bd, type: 3}
+  Healing: {fileID: 8300000, guid: 6584a4f17ba26934aa467dce34761e4e, type: 3}
   GM: {fileID: 0}
   BH: {fileID: 0}
   champID: Jack
@@ -345,7 +345,18 @@ MonoBehaviour:
   Outline: {fileID: 0}
   Out_sprites: []
   BUFF_INDICATOR: {fileID: 0}
-  Talk_each_round: []
+  talks: 0
+  Dial_1: []
+  Dial_2: []
+  Dial_3: []
+  Dial_4: []
+  Dial_5: []
+  Ran_1: []
+  Ran_2: []
+  Ran_3: []
+  On_death_dial: []
+  On_end_dial: []
+  On_this_dial: 0
 --- !u!65 &7424394682109284057
 BoxCollider:
   m_ObjectHideFlags: 0
