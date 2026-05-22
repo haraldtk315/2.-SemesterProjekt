@@ -20345,7 +20345,7 @@ MonoBehaviour:
   Damage_buff: 1
   Shield_buff: 1
   height_from_ground: 1.1
-  height_cam: 0.6
+  height_cam: -0.35
   time: 0
   ATTACKS:
   - {fileID: 11400000, guid: b048891969f0fba4ea7b94008bb0723f, type: 2}

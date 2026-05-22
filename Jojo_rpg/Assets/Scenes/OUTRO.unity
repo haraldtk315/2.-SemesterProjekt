@@ -2266,17 +2266,36 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Congratulations on saving the city of London
+  m_text: 'Congratulations on liberating the city!!
 
 
-    You have defeated the
-    tyrant!
+    You have defeated the tyrant
+    of Harlington!
 
 
-    THANK YOU FOR PLAYING!!!
+    But he is just one of many lords in these areas...
+
+
+    A
+    dangerous terror looms over the rest of Brittania
+
+
+    Will you free the rest
+    of London?
+
+
+    Or will you back off and hide like a coward..
 
 
     To be continued...
+
+
+    THANK
+    YOU FOR PLAYING OUR DEMO!!!
+
+
+    - Sincerely the F.O.A.R team
+
 
 
 '
@@ -2372,7 +2391,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   trans: {fileID: 1971066279}
-  val: -1000
+  val: -1850
+  textSpeed: 20
 --- !u!1 &1980660730
 GameObject:
   m_ObjectHideFlags: 0
