@@ -9,8 +9,7 @@ public class STORYTELLER : MonoBehaviour
     public string[] Narrator4;
     public int ON_THIS;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
         DIALOGUEHANDLER.instance.DialogueStart(Narrator1, this.gameObject, null);
     }
