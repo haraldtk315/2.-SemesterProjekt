@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: acdabff22b1e3ec4dbb41796e285065f, type: 2}
+    - target: {fileID: 3626916397498700004, guid: 60a52dce8922a0f44afd55673c530a91, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 60a52dce8922a0f44afd55673c530a91, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -196,6 +200,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 821349b8004760948b0c17063cbac259, type: 2}
+    - target: {fileID: 3626916397498700004, guid: 5c8996c421a876c42ab82b6c7e9e6628, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5c8996c421a876c42ab82b6c7e9e6628, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -2205,6 +2213,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnionJackWIP
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 58d0b889a749c53409a98bfe3186ab6e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 58d0b889a749c53409a98bfe3186ab6e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -2638,7 +2650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   trans: {fileID: 1971066279}
   val: -1850
-  textSpeed: 20
+  textSpeed: 25
 --- !u!1 &1980660730
 GameObject:
   m_ObjectHideFlags: 0
