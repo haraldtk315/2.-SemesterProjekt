@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SPAWN
   m_EditorClassIdentifier: Assembly-CSharp::BASIC_ATTACKS
   attackName: SPAWN GOONS
-  damage: 20
+  damage: 0
   acc: 100
   focus: 10
   damage_buff: 0

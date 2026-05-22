@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: STRONG
   m_EditorClassIdentifier: Assembly-CSharp::BASIC_ATTACKS
   attackName: BIG_HIT
-  damage: 15
+  damage: 20
   acc: 100
   focus: 10
   damage_buff: 0

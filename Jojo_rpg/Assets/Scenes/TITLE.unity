@@ -180,7 +180,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 163880713}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -425,8 +425,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MUSICMANAGER
   audioSource: {fileID: 377960950}
   menuMusic: {fileID: 8300000, guid: 831fda392012f9343b0a176c67c40813, type: 3}
-  IntroTheme: {fileID: 8300000, guid: 1693a2acd4ff861458802d7d27238672, type: 3}
-  OverWorldTheme: {fileID: 8300000, guid: 1693a2acd4ff861458802d7d27238672, type: 3}
+  IntroTheme: {fileID: 8300000, guid: 6e8613bf294f43549966609c4fa9af5e, type: 3}
+  OverWorldTheme: {fileID: 8300000, guid: 6e8613bf294f43549966609c4fa9af5e, type: 3}
   battleTheme: {fileID: 8300000, guid: 82934a7807d94594e8f62a624761fdbd, type: 3}
 --- !u!82 &377960950
 AudioSource:
@@ -1239,6 +1239,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1066331397
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5906773403917730402, guid: 0861a3d0340284a4e86f8bebb5e2252f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906773403917730402, guid: 0861a3d0340284a4e86f8bebb5e2252f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906773403917730402, guid: 0861a3d0340284a4e86f8bebb5e2252f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906773403917730402, guid: 0861a3d0340284a4e86f8bebb5e2252f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906773403917730402, guid: 0861a3d0340284a4e86f8bebb5e2252f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906773403917730402, guid: 0861a3d0340284a4e86f8bebb5e2252f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906773403917730402, guid: 0861a3d0340284a4e86f8bebb5e2252f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906773403917730402, guid: 0861a3d0340284a4e86f8bebb5e2252f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906773403917730402, guid: 0861a3d0340284a4e86f8bebb5e2252f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906773403917730402, guid: 0861a3d0340284a4e86f8bebb5e2252f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591712745304698606, guid: 0861a3d0340284a4e86f8bebb5e2252f, type: 3}
+      propertyPath: m_Name
+      value: BOARD_TITLEpro
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0861a3d0340284a4e86f8bebb5e2252f, type: 3}
 --- !u!1 &1103830995
 GameObject:
   m_ObjectHideFlags: 0
@@ -2278,10 +2335,8 @@ MonoBehaviour:
   - {fileID: 0}
   HP: 0000000000000000000000000000000000000000
   inventory:
-  - itemData: {fileID: 11400000, guid: 497f16b5c006015469134abb9673db2f, type: 2}
-    amount: 5
   - itemData: {fileID: 11400000, guid: 5fd95b6a49543df46970473e7b278a85, type: 2}
-    amount: 5
+    amount: 1
   returnSceneName: 
   returnPlayerPosition: {x: 0, y: 0, z: 0}
   returnJackPosition: {x: 0, y: 0, z: 0}
@@ -2364,3 +2419,4 @@ SceneRoots:
   - {fileID: 377960951}
   - {fileID: 2070915510}
   - {fileID: 769576097}
+  - {fileID: 1066331397}
