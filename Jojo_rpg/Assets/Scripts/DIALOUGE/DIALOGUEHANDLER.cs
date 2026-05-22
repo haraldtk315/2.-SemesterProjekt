@@ -138,7 +138,62 @@ public class DIALOGUEHANDLER : MonoBehaviour
 
         if (currentPlayerControls != null)
         {
-            Invoke("DELAY_FIX", 0.5f);
+            if (currentPlayerControls != null)
+            {
+                //CHECKING FOR IF TALKING WITH NPC
+                if (TALK_OBJECT == null)
+                {
+                    currentPlayerControls.EnableControls();
+                    currentPlayerControls = null;
+                    TALK_OBJECT = null;
+                }
+                else if (TALK_OBJECT != null && TALK_OBJECT.TryGetComponent<PickupItem>(out PickupItem potion))
+                {
+                    currentPlayerControls.EnableControls();
+                    currentPlayerControls = null;
+                    Destroy(TALK_OBJECT.gameObject);
+                    TALK_OBJECT = null;
+                }
+                else if (TALK_OBJECT != null && TALK_OBJECT.TryGetComponent<NPC>(out NPC npc))
+                {
+                    bool something = false;
+                    if (npc.enemies != null)
+                    {
+                        for (int i = 0; i < npc.enemies.Length; i++)
+                        {
+                            if (npc.enemies[i] != null)
+                            {
+                                something = true;
+                            }
+                        }
+
+                        if (something == true)
+                        {
+                            Invoke("DELAY_FIX", 1f);
+                        }
+                        else
+                        {
+                            currentPlayerControls.EnableControls();
+                            currentPlayerControls = null;
+                            TALK_OBJECT = null;
+                        }
+                    }
+                    else
+                    {
+                        currentPlayerControls.EnableControls();
+                        currentPlayerControls = null;
+                        TALK_OBJECT = null;
+                    }
+                }
+                else if (TALK_OBJECT != null)
+                {
+                    Debug.Log("NO SCRIPTO FOUNDO");
+
+                    currentPlayerControls.EnableControls();
+                    currentPlayerControls = null;
+                    TALK_OBJECT = null;
+                }
+            }
         }
 
         bool shouldStartFight = false;
@@ -286,42 +341,10 @@ public class DIALOGUEHANDLER : MonoBehaviour
     {
         SceneManager.LoadScene("FIGHT");
     }
-
     public void DELAY_FIX()
     {
-        if (currentPlayerControls != null)
-        {
-            //CHECKING FOR IF TALKING WITH NPC
-            if (TALK_OBJECT == null)
-            {
-                currentPlayerControls.EnableControls();
-                currentPlayerControls = null;
-                TALK_OBJECT = null;
-            }
-            else if (TALK_OBJECT != null && TALK_OBJECT.TryGetComponent<NPC>(out NPC npc))
-            {
-                if (npc.TRANSFER_TO_THIS == string.Empty && npc.enemies == null)
-                {
-                    Debug.Log("NPC DIAL IS HERE!!!");
-                    currentPlayerControls.EnableControls();
-                    currentPlayerControls = null;
-                    TALK_OBJECT = null;
-                }
-            }
-            else if (TALK_OBJECT != null && TALK_OBJECT.TryGetComponent<PickupItem>(out PickupItem potion))
-            {
-                currentPlayerControls.EnableControls();
-                currentPlayerControls = null;
-                Destroy(TALK_OBJECT.gameObject);
-                TALK_OBJECT = null;
-            }
-            else if (TALK_OBJECT != null)
-            {
-                Debug.Log("NO SCRIPTO FOUNDO");
-                currentPlayerControls.EnableControls();
-                currentPlayerControls = null;
-                TALK_OBJECT = null;
-            }
-        }
+        currentPlayerControls.EnableControls();
+        currentPlayerControls = null;
+        TALK_OBJECT = null;
     }
 }
