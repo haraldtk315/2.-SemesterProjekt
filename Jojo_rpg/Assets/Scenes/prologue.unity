@@ -151,6 +151,9 @@ MonoBehaviour:
   Narrator1:
   - 'Once upon a time. London was a beautiful city filled with life. '
   - 'Children roamed the streets and people lived a happy life '
+  - The world was truly at peace!
+  - That was until...
+  - Malakith attacked!!
   Narrator2: []
   Narrator3: []
   Narrator4: []
@@ -529,7 +532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2047867308
 RectTransform:
   m_ObjectHideFlags: 0
