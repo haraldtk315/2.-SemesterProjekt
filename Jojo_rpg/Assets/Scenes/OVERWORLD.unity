@@ -27664,15 +27664,21 @@ MonoBehaviour:
   DisplayText_on_fade: THE TEST OF COURAGE HAS BEGUN!!
   npcID: Jack
   message:
-  - Well now... and who exactly are you supposed to be?
-  - You look a little young to be wandering around here alone.
-  - Then again, maybe that empty stare is just hiding how scared you really are.
-  - "Hm. Silent too. I can\u2019t tell if that means you\u2019ve got discipline,
-    or if you\u2019ve got nothing worth saying."
-  - "Either way, I\u2019m not interested in joining some alone and scared brat. "
-  - "If you want me to take you seriously, you\u2019ll have to prove your self."
-  - "So come on then, show me what you\u2019ve got."
-  - Or turn around now and save yourself the embarrassment.
+  - (Walking up the road you notice 2 men standing near a sign)
+  - (One of them, a giant man with a fine suit, and a armband with a cross on it)
+  - (The other a shorter, skinnier man wearing an officers uniform, wielding a giant
+    flag depicting the union jack)
+  - 'Jack: Well now... and who exactly are you supposed to be?'
+  - 'Werner: Leave him alone you dumpkorpf. Was ist wrong with ein young junge walking
+    around?'
+  - 'Jack: Oh come on now Werner, the kid is litererally looking at me'
+  - 'Jack: Rather intimidating now that i get a proper look at them... I mean the
+    kid''s silent Werner, and they''re just begging for a beatdown'
+  - 'Werner: You really feel ze need for beating up ein Kind at a time like zis??'
+  - 'Werner: Du bist wirklich ein hoffnungsloser Fall (You are truly a hopeless case)'
+  - 'Jack: Come on then kid, show me what you''ve got'
+  - 'Jack: Just know that you''re chicken if you turn around now'
+  - 'Werner: I''m not taking part in your games Jack, i''m ztaying out of zhis'
   messageAfterBattle:
   - ...Damn it
   - "Well, I\u2019ll give you this... you hit harder than you look."
@@ -27762,7 +27768,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1006559825, guid: 852c20483e5dc8145a0704136df9e732, type: 3}
+  m_Sprite: {fileID: -5139617102416056509, guid: 60a52dce8922a0f44afd55673c530a91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -27829,8 +27835,8 @@ Transform:
   m_GameObject: {fileID: 1139140604}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.57, y: -7.41, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -26.48, y: -7.44, z: 0}
+  m_LocalScale: {x: 0.5279, y: 0.5279, z: 0.5279}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

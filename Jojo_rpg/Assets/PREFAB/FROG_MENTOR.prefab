@@ -20372,12 +20372,14 @@ MonoBehaviour:
   - 'Frog: When you Attack you build up focus.'
   - Try and hit me again to gain more!
   - I recommend using "La Musette" or "Meditate" to build up focus quickly!
+  - If any other attacks or abilities catch your eyes, remember to hover over them!
+  - A little tooltip will appear and give a description of the attack
   Dial_3:
   - 'Frog: Remember that you also have your "Items" '
   - 'You might have picked up some already! '
   - 'Try and use a focus potion! '
   - 'It is the yellow like potion in your inventory '
-  - 'It will fully restore your focus! '
+  - 'It will restore some of your focus! '
   - 'Don''t worry if you didn''t pick one up '
   - 'I sneaked one into your pockets before our duel! '
   Dial_4:
@@ -20395,6 +20397,8 @@ MonoBehaviour:
   - 'Frog: Remember to use right and left mouse button when using "RAPID PUNCH"'
   Ran_3:
   - 'Frog: Remember to use right and left mouse button when using "RAPID PUNCH"'
+  On_death_dial: []
+  On_end_dial: []
   On_this_dial: 0
 --- !u!65 &-6396718981686823676
 BoxCollider:
