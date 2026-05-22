@@ -15,7 +15,7 @@ MonoBehaviour:
   attackName: No Quarters
   damage: 25
   acc: 50
-  focus: 25
+  focus: 10
   damage_buff: 0
   spawnable: {fileID: 0}
   type: 0
