@@ -36,6 +36,8 @@ public class DIALOGUEHANDLER : MonoBehaviour
     //EMMA ADDING EXTRA STUFF DON'T MIND ME <3
     private string Fade_text;
 
+    public bool Scene_transitioning = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -145,14 +147,14 @@ public class DIALOGUEHANDLER : MonoBehaviour
                 {
                     currentPlayerControls.EnableControls();
                     currentPlayerControls = null;
-                    TALK_OBJECT = null;
+                    //TALK_OBJECT = null;
                 }
                 else if (TALK_OBJECT != null && TALK_OBJECT.TryGetComponent<PickupItem>(out PickupItem potion))
                 {
                     currentPlayerControls.EnableControls();
                     currentPlayerControls = null;
                     Destroy(TALK_OBJECT.gameObject);
-                    TALK_OBJECT = null;
+                    //TALK_OBJECT = null;
                 }
                 else if (TALK_OBJECT != null && TALK_OBJECT.TryGetComponent<NPC>(out NPC npc))
                 {
@@ -173,16 +175,30 @@ public class DIALOGUEHANDLER : MonoBehaviour
                         }
                         else
                         {
-                            currentPlayerControls.EnableControls();
-                            currentPlayerControls = null;
-                            TALK_OBJECT = null;
+                            if (npc.TRANSFER_TO_THIS != null)
+                            {
+
+                            }
+                            else
+                            {
+                                currentPlayerControls.EnableControls();
+                                currentPlayerControls = null;
+                                //TALK_OBJECT = null;
+                            }
                         }
                     }
                     else
                     {
-                        currentPlayerControls.EnableControls();
-                        currentPlayerControls = null;
-                        TALK_OBJECT = null;
+                        if (npc.TRANSFER_TO_THIS != null)
+                        {
+
+                        }
+                        else
+                        {
+                            currentPlayerControls.EnableControls();
+                            currentPlayerControls = null;
+                            //TALK_OBJECT = null;
+                        }
                     }
                 }
                 else if (TALK_OBJECT != null)
@@ -191,7 +207,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
 
                     currentPlayerControls.EnableControls();
                     currentPlayerControls = null;
-                    TALK_OBJECT = null;
+                    //TALK_OBJECT = null;
                 }
             }
         }
@@ -333,6 +349,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
             if (TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS != string.Empty)
             {
                 SceneManager.LoadScene(TALK_OBJECT.GetComponent<NPC>().TRANSFER_TO_THIS);
+                TALK_OBJECT = null;
             }
         }
     }
