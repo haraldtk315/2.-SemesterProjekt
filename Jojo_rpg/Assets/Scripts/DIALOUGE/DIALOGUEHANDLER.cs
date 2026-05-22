@@ -36,8 +36,6 @@ public class DIALOGUEHANDLER : MonoBehaviour
     //EMMA ADDING EXTRA STUFF DON'T MIND ME <3
     private string Fade_text;
 
-    public bool Scene_transitioning = false;
-
     private void Awake()
     {
         if (instance == null)
@@ -175,7 +173,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
                         }
                         else
                         {
-                            if (npc.TRANSFER_TO_THIS != null)
+                            if (npc.TRANSFER_TO_THIS != string.Empty)
                             {
 
                             }
@@ -189,7 +187,7 @@ public class DIALOGUEHANDLER : MonoBehaviour
                     }
                     else
                     {
-                        if (npc.TRANSFER_TO_THIS != null)
+                        if (npc.TRANSFER_TO_THIS != string.Empty)
                         {
 
                         }
