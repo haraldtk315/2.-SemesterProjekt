@@ -85,6 +85,11 @@ public class DIALOGUEHANDLER : MonoBehaviour
             {
                 currentPlayerControls = player.GetComponent<PlayerControlToggle>();
 
+                if (player.TryGetComponent<STORYTELLER>(out STORYTELLER story))
+                {
+                    TALK_OBJECT = story.gameObject;
+                }
+
                 if (currentPlayerControls != null)
                 {
                     currentPlayerControls.DisableControls();
@@ -134,6 +139,12 @@ public class DIALOGUEHANDLER : MonoBehaviour
         if (dialogueBox != null)
         {
             Destroy(dialogueBox);
+        }
+
+        if (TALK_OBJECT != null && TALK_OBJECT.TryGetComponent<STORYTELLER>(out STORYTELLER TELLER))
+        {
+            TELLER.ON_THIS++;
+            TELLER.STARTDIAL();
         }
 
         if (currentPlayerControls != null)
