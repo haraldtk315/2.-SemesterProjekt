@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e10df3affe01ee54b98d91ee0eb4c614
+guid: 2d74c94a63b2be548953f0fa70281934
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6336470581051851077
-    second: SpeechStandHole_0
+      213: 4419224813902091291
+    second: SpeechProudBlock_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpeechStandHole_0
+      name: SpeechProudBlock_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 34
-        height: 18
+        width: 27
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5410f41eb6aafe750800000000000000
-      internalID: 6336470581051851077
+      spriteID: b14d93fdd8d345d30800000000000000
+      internalID: 4419224813902091291
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SpeechStandHole_0: 6336470581051851077
+      SpeechProudBlock_0: 4419224813902091291
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

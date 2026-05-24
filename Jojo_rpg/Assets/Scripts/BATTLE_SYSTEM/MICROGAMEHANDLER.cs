@@ -73,7 +73,8 @@ public class MICROGAMEHANDLER : MonoBehaviour
 
         if (microgame == MICROGAMES.SPEECH)
         {
-            speechMicrogame.SetActive(true);
+            microgameMouse.SetActive(true);
+            microgameMouseAnimationController.Play("MouseEnter 1");
             speechText.SetActive(true);
         }
     }
@@ -95,7 +96,6 @@ public class MICROGAMEHANDLER : MonoBehaviour
         if (microgame == MICROGAMES.SPEECH)
         {
             speechMicrogame.SetActive(false);
-            speechText.SetActive(false);
         }
 
         BH.CURRENT_STATE = BATTLEHANDLER.STATEMACHINE.BATTLE;
@@ -120,5 +120,11 @@ public class MICROGAMEHANDLER : MonoBehaviour
         syringeMicrogame.SetActive(true);
         syringeAnimationController.Play("SyringeEnter");
         SyringeText.SetActive(false);
+    }
+
+    public void EnableSpeech()
+    {
+        speechMicrogame.SetActive(true);
+        speechText.SetActive(false);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class MicrogameMouse : MonoBehaviour
 {
     public MICROGAMEHANDLER microgameHandler;
+    public RectTransform rectTransform;
 
     private void DisableMouse()
     {
@@ -12,6 +13,7 @@ public class MicrogameMouse : MonoBehaviour
 
     private void InitiateSyringeSequence()
     {
+        rectTransform.anchoredPosition = Vector3.zero;
         transform.localScale = new Vector3(1, 1, 1);
         transform.localRotation = new Quaternion(0, 0, 0, 0);
         microgameHandler.EnableSyringe();
@@ -21,9 +23,20 @@ public class MicrogameMouse : MonoBehaviour
 
     private void InitiateRapidPunchSequence()
     {
+        rectTransform.anchoredPosition = Vector3.zero;
         transform.localScale = new Vector3(1, 1, 1);
         transform.localRotation = new Quaternion(0, 0, 0, 0);
         microgameHandler.EnableRapidPunch();
+        EnableClock();
+        DisableMouse();
+    }
+
+    private void InitiateSpeechSequence()
+    {
+        rectTransform.anchoredPosition = Vector3.zero;
+        transform.localScale = new Vector3(1, 1, 1);
+        transform.localRotation = new Quaternion(0, 0, 0, 0);
+        microgameHandler.EnableSpeech();
         EnableClock();
         DisableMouse();
     }

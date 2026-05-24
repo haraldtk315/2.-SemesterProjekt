@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e10df3affe01ee54b98d91ee0eb4c614
+guid: fb4833e673d9c104fae0ff8f02f3d89f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6336470581051851077
-    second: SpeechStandHole_0
+      213: -1486724050308982727
+    second: SpeechSoldiersHole_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpeechStandHole_0
+      name: SpeechSoldiersHole_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 34
+        width: 44
         height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5410f41eb6aafe750800000000000000
-      internalID: 6336470581051851077
+      spriteID: 9389d4e6a581e5be0800000000000000
+      internalID: -1486724050308982727
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SpeechStandHole_0: 6336470581051851077
+      SpeechSoldiersHole_0: -1486724050308982727
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

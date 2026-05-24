@@ -16,6 +16,8 @@ public class Speech : MonoBehaviour
     public TextMeshProUGUI textUI;
     public float microgameTime;
 
+    public DraggableBlock[] draggableBlocks = new DraggableBlock[3];
+
     private float timeRemaining;
     private string remainingSentence = string.Empty;
     private int score;
@@ -35,7 +37,13 @@ public class Speech : MonoBehaviour
         buff = 1;
         endMicrogameRoutine = StartCoroutine(EndMicrogame(microgameTime));
         timeRemaining = microgameTime;
-        SetRemainingSentence(sentenceBank[UnityEngine.Random.Range(1, sentenceBank.Count + 1)]);
+
+        foreach (DraggableBlock block in draggableBlocks)
+        {
+            block.transform.position = new Vector3(UnityEngine.Random.Range(25, 600), UnityEngine.Random.Range(25, 400), 0);
+        }
+
+        //SetRemainingSentence(sentenceBank[UnityEngine.Random.Range(1, sentenceBank.Count + 1)]);
     }
 
     // Update is called once per frame
@@ -43,57 +51,66 @@ public class Speech : MonoBehaviour
     {
         timeRemaining -= Time.deltaTime;
         microgameClockTimer.text = $"{Mathf.CeilToInt(timeRemaining)}";
-        CheckInput();
+        //CheckInput();
     }
 
-    private void CheckInput()
-    {
-        if (Input.anyKeyDown)
-        {
-            string letter = Input.inputString;
+    //private void CheckInput()
+    //{
+    //    if (Input.anyKeyDown)
+    //    {
+    //        string letter = Input.inputString;
 
-            if (letter.Length == 1)
-            {
-                if (remainingSentence.IndexOf(letter) == 0)
-                {
-                    LetterTyped();
-                    if (remainingSentence.Length == 0)
-                    {
-                        StopCoroutine(endMicrogameRoutine);
-                        StartCoroutine(EndMicrogame(0.2f));
-                    }
-                }
-            }
-        }
-    }
+    //        if (letter.Length == 1)
+    //        {
+    //            if (remainingSentence.IndexOf(letter) == 0)
+    //            {
+    //                LetterTyped();
+    //                if (remainingSentence.Length == 0)
+    //                {
+    //                    StopCoroutine(endMicrogameRoutine);
+    //                    StartCoroutine(EndMicrogame(0.2f));
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
 
-    private void LetterTyped()
-    {
-        SetRemainingSentence(remainingSentence.Remove(0, 1));
-        score += 1;
+    //private void LetterTyped()
+    //{
+    //    SetRemainingSentence(remainingSentence.Remove(0, 1));
+    //    score += 1;
 
-    }
+    //}
 
-    private void SetRemainingSentence(string inputString)
-    {
-        remainingSentence = inputString;
-        textUI.text = remainingSentence;
-    }
+    //private void SetRemainingSentence(string inputString)
+    //{
+    //    remainingSentence = inputString;
+    //    textUI.text = remainingSentence;
+    //}
 
     private IEnumerator EndMicrogame(float yieldTime)
     {
         yield return new WaitForSeconds(yieldTime);
-        if (remainingSentence.Length == 0)
+        
+        foreach (DraggableBlock block in draggableBlocks)
+        {
+            if (block.isSnapped)
+            {
+                score += 1;
+            }
+        }
+
+        if (score == 3)
         {
             buff = 1.75f;
         }
-        else if (score < 12)
+        else if (score == 2)
         {
-            buff = 1.2f;
+            buff = 1.35f;
         }
         else
         {
-            buff = 1.35f;
+            buff = 1.1f;
         }
 
         Debug.Log($"{score}, {buff}");
