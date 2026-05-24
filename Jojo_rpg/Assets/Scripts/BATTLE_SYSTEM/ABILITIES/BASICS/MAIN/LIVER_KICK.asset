@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BASIC_ATTACKS
   attackName: Liver KICK!
   damage: 25
-  acc: 35
+  acc: 40
   focus: 25
   damage_buff: 0
   spawnable: {fileID: 0}

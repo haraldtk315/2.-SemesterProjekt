@@ -16,7 +16,10 @@ MonoBehaviour:
   damage: 0
   acc: 0
   focus: 0
+  damage_buff: 0
+  spawnable: {fileID: 0}
   type: 0
-  Description: 
+  Description: Press right and left mouse button repeatedly to gain extra damage
+    with this move!!!
   cost: 60
   microgame: 0

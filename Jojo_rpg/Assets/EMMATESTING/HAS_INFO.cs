@@ -113,6 +113,13 @@ public class HAS_INFO : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     Text += "When using this move gain " + BUTTON_HOLD.ATTACK.focus.ToString() + " focus";
                 }
 
+                if (BUTTON_HOLD.ATTACK.type == BASIC_ATTACKS.ATTACK_TYPE.Party)
+                {
+                    Text += "A healing move with a " + BUTTON_HOLD.ATTACK.acc.ToString() + "% success rate \n";
+                    Text += "heals for " + (-BUTTON_HOLD.ATTACK.damage).ToString() + " damage \n";
+                    Text += "When using this move gain " + BUTTON_HOLD.ATTACK.focus.ToString() + " focus";
+                }
+
                 StopAllCoroutines();
                 StartCoroutine(StartTimer());
             }

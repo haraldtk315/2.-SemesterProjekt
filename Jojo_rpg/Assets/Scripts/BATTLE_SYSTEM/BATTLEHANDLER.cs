@@ -374,6 +374,10 @@ public class BATTLEHANDLER : MonoBehaviour
                 {
                     MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text += " DAMAGE: " + ((int)((float)ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].damage * ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().Damage_buff)).ToString();
                 }
+                else if (ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].damage < 0)
+                {
+                    MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text += " HEALS: " + ((int)((float)-ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].damage * ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().Damage_buff)).ToString();
+                }
                 else
                 {
                     MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text += " FOCUS: " + ((int)((float)ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().ATTACKS[i].focus * ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().Damage_buff)).ToString();
@@ -425,8 +429,8 @@ public class BATTLEHANDLER : MonoBehaviour
                 MOVES_BUTTON[i].GetComponent<BUTTON_HOLDER>().SPECIALS = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i];
                 MOVES_BUTTON[i].GetComponent<BUTTON_HOLDER>().ATTACK = null;
 
-                MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].attackName + "\n" + " DAMAGE: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].damage.ToString();
-                MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text += "  |  " + "COST: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].cost.ToString();
+                MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text = ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].attackName + "\n";
+                MOVES_BUTTON[i].GetComponentInChildren<TextMeshProUGUI>().text += "COST: " + ORDER[ON_CURRENT_CHAMP].GetComponent<CHAMP_INFO>().SPECIALS[i].cost.ToString();
                 MOVES_BUTTON[i].SetActive(true);
             }
         }
