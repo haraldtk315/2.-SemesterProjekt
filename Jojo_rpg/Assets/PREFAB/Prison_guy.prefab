@@ -10550,14 +10550,14 @@ MonoBehaviour:
   BH: {fileID: 0}
   champID: 
   Name: ZOMBIE
-  MaxHp: 10
+  MaxHp: 15
   MaxFocus: 0
   Level: 0
   descripton: Previously a normal person\nnow a flesh eating monster
   Party_order: 0
   Team_player: 0
   dead: 0
-  hp: 10
+  hp: 15
   focus: 0
   Damage_buff: 1
   Shield_buff: 1

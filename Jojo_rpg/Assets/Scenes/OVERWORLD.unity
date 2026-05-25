@@ -1167,11 +1167,11 @@ MonoBehaviour:
   obstacleID: Boulder_1
   requiredPartyMemberID: Jack
   blockedMessage:
-  - You try to push the rock, but it doesnt seem to budge.
-  - maybe if you find some to help you, the rock can be removed.
+  - (You try to push the rock, but it doesnt seem to budge)
+  - (Maybe if you find some to help you, the rock can be removed)
   clearedMessage:
-  - You try to push the rock, but you now have the help of a party member.
-  - The boulder rolls away, and clears a path for you to continue.
+  - (With the help from your party, you push the rock)
+  - (The boulder rolls to the side)
   gridSize: 1
   hasMoved: 0
 --- !u!1 &430383495
