@@ -20365,11 +20365,11 @@ MonoBehaviour:
   talks: 1
   Dial_1:
   - 'Frog: You sure have grown my boy!'
-  - Can't believe you were just a child when I met you. *ribbit*
+  - Can't believe you were just a child when I met you. *Ribbit*
   - SHOW ME WHAT I'VE TAUGHT YOU!!!
   - Press "Attack" to hit me!
   Dial_2:
-  - 'Frog: When you Attack you build up focus.'
+  - 'Frog: When you "Attack", you build up focus.'
   - Try and hit me again to gain more!
   - I recommend using "La Musette" or "Meditate" to build up focus quickly!
   - '*Ribbit*'

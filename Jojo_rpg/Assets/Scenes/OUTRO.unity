@@ -2644,7 +2644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   trans: {fileID: 1971066279}
-  val: -1850
+  val: -1600
   textSpeed: 25
 --- !u!1 &1980660730
 GameObject:
