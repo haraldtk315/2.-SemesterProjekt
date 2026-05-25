@@ -3369,10 +3369,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HEALTH_UI_display
       objectReference: {fileID: 0}
-    - target: {fileID: 4804399634333521434, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
-      propertyPath: FOCUS_TEXT
-      value: 
-      objectReference: {fileID: 768113161}
     - target: {fileID: 6839876899707929752, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3384,10 +3380,6 @@ PrefabInstance:
     - target: {fileID: 6989981797725256593, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8458480779494429005, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
-      propertyPath: m_Name
-      value: FOCUS_NUM
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3404,17 +3396,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2902995324064296869, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
   m_PrefabInstance: {fileID: 768113158}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &768113161 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2096133200428010939, guid: c981bb70ef179e6459f65f42d0411812, type: 3}
-  m_PrefabInstance: {fileID: 768113158}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &773135031
 GameObject:
   m_ObjectHideFlags: 0
