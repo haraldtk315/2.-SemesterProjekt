@@ -267,6 +267,9 @@ public class CHAMP_INFO : MonoBehaviour
         //health text
         Player_UI.GetComponent<PLAYER_UI>().HP_TEXT.text = hp.ToString() + "/" + MaxHp.ToString();
 
+        //focus text
+        Player_UI.GetComponent<PLAYER_UI>().FOCUS_TEXT.text = focus.ToString() + "/" + MaxFocus.ToString();
+
         //Focus Sliders
         Player_UI.GetComponent<PLAYER_UI>().FOCUS_SLIDE.maxValue = MaxFocus;
         Player_UI.GetComponent<PLAYER_UI>().FOCUS_SLIDE.minValue = 0;
