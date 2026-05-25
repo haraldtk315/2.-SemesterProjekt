@@ -2524,35 +2524,30 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Congratulations on liberating the city!!
+  m_text: 'The great tyrant of Harlington has been defeated.
 
 
-    You have defeated the tyrant
-    of Harlington!
+    He was just one
+    of many lords in these areas
 
 
-    But he is just one of many lords in these areas...
+    A dangerous terror looms over the rest of
+    Brittania
 
 
-    A
-    dangerous terror looms over the rest of Brittania
+    Will you free the rest of London?
 
 
-    Will you free the rest
-    of London?
+    Or will you back off
+    and hide like a coward..?
 
 
-    Or will you back off and hide like a coward..
+
+    Thanks for playing.
 
 
-    To be continued...
-
-
-    THANK
-    YOU FOR PLAYING OUR DEMO!!!
-
-
-    - Sincerely the F.O.A.R team
+    - Sincerely the F.O.A.R
+    team
 
 
 
