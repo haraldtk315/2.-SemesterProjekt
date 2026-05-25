@@ -236,23 +236,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   Narrator1:
-  - 'Once upon a time. London was a beautiful city filled with life. '
-  - 'Children roamed the streets and people lived a happy life '
-  - The world was truly at peace!
-  - That was until...
-  - Malakith attacked!!
+  - (Once upon a time, London was a beautiful city filled with life.)
+  - (Children roamed the streets and people lived a happy life.)
+  - (The world was truly at peace!)
+  - (That was until...)
+  - (Malakith attacked!)
   Narrator2:
-  - The city was set ablaze!!!
-  - The farmers died and turned into undead monsters
-  - The few that survived became slaves.
-  - all except for one child
+  - (The city was set ablaze!!!)
+  - (They slaughtered the townspeople.)
+  - (And turned them into undead monsters using a mysterious dark power.)
+  - (The few that survived became slaves.)
+  - (All except for one child.)
   Narrator3:
-  - Scared and alone
-  - The child ran into the forrest
+  - (Scared and alone.)
+  - (The child ran into the nearby forrest.)
   Narrator4:
-  - To escape from this hellish reality
-  - There was only one thought on the child's mind
-  - SURVIVE!
+  - (Wishing to escape from this hellish reality.)
+  - (There was only one thought on the child's mind.)
+  - (SURVIVE!)
   ON_THIS: 0
   GOOD_TOWN: {fileID: 3773522769883482900}
   Destroyed_town: {fileID: 46569422}

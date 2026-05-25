@@ -878,15 +878,19 @@ MonoBehaviour:
   npcID: Last_frog
   message:
   - 'Frog: It seems like you are awake!'
-  - 'I tended your wounds Little child. '
+  - 'I tended your wounds little child. *Ribbit* '
   - The world is not safe anymore...
-  - The balance of power has shifted little child...
-  - The world truly more then ever needs a hero
+  - The balance of power has shifted, little child...
+  - The world truly more than ever needs a hero.
   - You problably do not expect this of little old me.
-  - But I am a master among few in martial arts
-  - I can teach you little child
-  - So that you can protect the people you love.
-  - LET YOUR TRAINING BEGIN!!!
+  - But I am a master among few in the anciet art of Lediha.
+  - My people learned to harness an organism's latent powers.
+  - I can teach you little child.
+  - So that you can protect the people you love. *Ribbit*
+  - I sense the passion for justice within your being.
+  - However, in order to master Lediha you'll need immense focus.
+  - Do you think you have what it takes?
+  - LET YOUR TRAINING BEGIN!
   messageAfterBattle: []
   enemies:
   - {fileID: 380776666666102203, guid: b819f22bbc9e0bc4caaebd9d5cb10754, type: 3}

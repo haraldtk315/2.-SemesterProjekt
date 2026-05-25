@@ -20364,39 +20364,42 @@ MonoBehaviour:
   BUFF_INDICATOR: {fileID: 4394364569268847222}
   talks: 1
   Dial_1:
-  - 'Frog: You sure have grown little boy!!!'
-  - Can't believe you were just a child when I met you
-  - SHOW ME YOUR MOVES!! I HAVE TAUGHT YOU!!!
+  - 'Frog: You sure have grown my boy!'
+  - Can't believe you were just a child when I met you. *ribbit*
+  - SHOW ME WHAT I'VE TAUGHT YOU!!!
   - Press "Attack" to hit me!
   Dial_2:
   - 'Frog: When you Attack you build up focus.'
   - Try and hit me again to gain more!
   - I recommend using "La Musette" or "Meditate" to build up focus quickly!
+  - '*Ribbit*'
   - If any other attacks or abilities catch your eyes, remember to hover over them!
   - A little tooltip will appear and give a description of the attack
   Dial_3:
   - 'Frog: Remember that you also have your "Items" '
   - 'You might have picked up some already! '
   - 'Try and use a focus potion! '
-  - 'It is the yellow like potion in your inventory '
+  - 'It is the yellow potion in your inventory. '
   - 'It will restore some of your focus! '
-  - 'Don''t worry if you didn''t pick one up '
+  - 'Don''t worry if you didn''t pick one up. *Ribbit* '
   - 'I sneaked one into your pockets before our duel! '
+  - (The old Frog winked at you.)
   Dial_4:
-  - 'Frog: You fight well little boy!'
-  - Once you are ready
-  - Try using "Lediha". This is the true power I have taught you
-  - Once you have used it, press right and left mouse button repeatedly to hit me!!!
+  - 'Frog: You fight well my boy!'
+  - Once you are ready,
+  - try using "Lediha". This is the true power I have taught you.
+  - Once you have used it, press right and left mouse button repeatedly to hit me!
+    *Ribbit*
   Dial_5:
   - 'Frog: You didn''t hit me hard enough!'
-  - Remember to really spam right and left mouse button when using Rapid punch
+  - Remember to really spam right and left mouse button when using Rapid Punch
   - Try and build up your focus again and hit me!
   Ran_1:
-  - 'Frog: Remember to use right and left mouse button when using "RAPID PUNCH"'
+  - 'Frog: Remember to use right and left mouse button when using Rapid Punch'
   Ran_2:
-  - 'Frog: Remember to use right and left mouse button when using "RAPID PUNCH"'
+  - 'Frog: Remember to use right and left mouse button when using Rapid Punch'
   Ran_3:
-  - 'Frog: Remember to use right and left mouse button when using "RAPID PUNCH"'
+  - 'Frog: Remember to use right and left mouse button when using Rapid Punch'
   On_death_dial: []
   On_end_dial: []
   On_this_dial: 0

@@ -980,14 +980,14 @@ MonoBehaviour:
   npcID: FROGGO
   message:
   - ...
-  - 'Frog: Oh hey there little child *Ribbit*'
+  - 'Frog: Oh hey there little child *ribbit*'
   - What has happend to you?
   - Are you lost?
   - Too scared to speak...
   - You look like someone who has been through a lot...
-  - For now... You can stay here as long as you like
-  - Don't worry... I will protect you
-  - For now just sleep. I will explain everything to you tommorow.
+  - For now... You can stay here as long as you like.
+  - Don't worry... I will protect you.
+  - For now just sleep. I will explain everything to you tomorrow.
   messageAfterBattle: []
   enemies:
   - {fileID: 0}

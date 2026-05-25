@@ -654,17 +654,20 @@ MonoBehaviour:
   DisplayText_on_fade: You ventured out of the forrest...
   npcID: FROG_MENTOR_2
   message:
-  - 'Frog: You really gave me a hard fight!'
+  - 'Frog: Your strength continues to surprise me.'
   - I think the time has come...
-  - I can't keep you in this forrest forever...
+  - I can't keep you in this forrest forever... *Ribbit*
   - When I first saw you...
-  - Just a little wounded child
+  - A wounded little child.
   - Now a strong warrior!
   - You have to venture out to deafeat Malakith and his henchmen!
+  - Correct my greatest mistake... *Ribbit*
   - Take back the village you lost!
-  - You will find many friends along the way!!!
+  - There are others out there who wish to end Malakith's tyranny.
+  - Despite your strength, you'll need the help of others.
+  - I'll miss really miss you. *Ribbit*
+  - Please be careful out there.
   - NOW GO!!!
-  - And may the power of lediha only strengthen you more!
   messageAfterBattle: []
   enemies:
   - {fileID: 0}
