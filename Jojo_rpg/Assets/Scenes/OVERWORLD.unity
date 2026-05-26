@@ -971,9 +971,9 @@ MonoBehaviour:
   DisplayText_on_fade: 
   npcID: paper
   message:
-  - A legend is told about a frog in the woods
-  - It's said that the frog has magical powers
-  - 'Maybe just a myth, no one seems to confirm this story '
+  - A legend is told about a frog in the woods.
+  - It's said that the frog has magical powers.
+  - Maybe just a myth, no one seems to confirm this story.
   messageAfterBattle: []
   enemies:
   - {fileID: 0}
@@ -1167,10 +1167,10 @@ MonoBehaviour:
   obstacleID: Boulder_1
   requiredPartyMemberID: Jack
   blockedMessage:
-  - (You try to push the rock, but it doesnt seem to budge)
-  - (Maybe if you find some to help you, the rock can be removed)
+  - (You try to push the boulder, but it doesnt seem to budge)
+  - (Maybe if you find some to help you, the boulder can be removed)
   clearedMessage:
-  - (With the help from your party, you push the rock)
+  - (With the help from your party, you push the boulder)
   - (The boulder rolls to the side)
   gridSize: 1
   hasMoved: 0
@@ -28252,10 +28252,10 @@ MonoBehaviour:
   DisplayText_on_fade: 
   npcID: p1
   message:
-  - They came at night
-  - Destroyed everything, and killed many
-  - The survivors fled into the woods, but no one have seen any of them since
-  - That was 5 years ago, what a tragedy
+  - They came at night.
+  - Destroyed everything, and killed many.
+  - The survivors fled into the woods, but no one have seen any of them since.
+  - That was 5 years ago, what a tragedy.
   messageAfterBattle: []
   enemies:
   - {fileID: 0}
@@ -28471,7 +28471,7 @@ MonoBehaviour:
   npcID: Victor Taylor
   message:
   - ARHAHAHA WHO DARE COME CHALLENGE ME!!!
-  - SOME PUNNY LITTLE HUMANS ARHAHA!!
+  - SOME PUNY LITTLE HUMANS ARHAHA!!
   - COME AT ME THEN AAAAAARHHHHHHH!!!!!!!
   messageAfterBattle:
   - RAAWRRR
@@ -63744,8 +63744,8 @@ MonoBehaviour:
   DisplayText_on_fade: 
   npcID: paper
   message:
-  - It is said that in Harlington a fearfull creature resides
-  - Continue at your own risk
+  - It is said that in Harlington a fearfull creature resides.
+  - Continue at your own risk.
   messageAfterBattle: []
   enemies:
   - {fileID: 0}
