@@ -27826,10 +27826,10 @@ MonoBehaviour:
   DisplayText_on_fade: THE TEST OF COURAGE HAS BEGUN!!
   npcID: Jack
   message:
-  - (Walking up the road you notice 2 men standing near a sign)
+  - (Walking up the road you notice two men standing near a sign)
   - (One of them, a giant man with a fine suit, and a armband with a cross on it)
   - (The other, a shorter, skinnier man wearing a soldiers uniform)
-  - (It seems like he is holding a flag depicting the union jack)
+  - (It seems like he is holding a flag depicting the Union Jack)
   - 'Jack: Well now... and who exactly are you supposed to be?'
   - 'Werner: Leave him alone you dummkorpf. What ist wrong with ein young Kind walking
     around?'
@@ -27856,7 +27856,7 @@ MonoBehaviour:
   - 'Jack: WE DON''T KNOW TOo much about them, but I do agree, we should group up'
   - 'Jack: I don''t know why, but after that ass kicking, I feel like I can trust
     you'
-  - 'Jack: (under his breadth) Besides I need to know where you are for round 2...'
+  - 'Jack: (under his breath) Besides I need to know where you are for round 2...'
   - 'Both: Lead the way kid!'
   enemies:
   - {fileID: 380776666666102203, guid: 81626ee011c04a14f830d81372cf7ea2, type: 3}
@@ -28475,13 +28475,6 @@ MonoBehaviour:
   - COME AT ME THEN AAAAAARHHHHHHH!!!!!!!
   messageAfterBattle:
   - RAAWRRR
-  - You were lucky this time.
-  - But i was only one of many.
-  - The further you go towards central london
-  - The more evil, slaughter, fear and death you will find.
-  - You will not last a minute against my superior.
-  - 'And even if you are lucky. '
-  - My master Malakith will annihilate you and your friends.
   enemies:
   - {fileID: 380776666666102203, guid: d281095fc5096854f9605169df86a750, type: 3}
   - {fileID: 0}
@@ -63744,7 +63737,7 @@ MonoBehaviour:
   DisplayText_on_fade: 
   npcID: paper
   message:
-  - It is said that in Harlington a fearfull creature resides.
+  - It is said that in Harlington a fearful creature resides.
   - Continue at your own risk.
   messageAfterBattle: []
   enemies:
