@@ -15,7 +15,7 @@ MonoBehaviour:
   attackName: Wide slash
   damage: 5
   acc: 95
-  focus: 20
+  focus: 5
   damage_buff: 0
   spawnable: {fileID: 0}
   type: 5

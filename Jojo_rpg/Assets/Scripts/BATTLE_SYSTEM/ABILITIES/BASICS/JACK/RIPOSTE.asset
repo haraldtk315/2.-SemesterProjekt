@@ -15,7 +15,7 @@ MonoBehaviour:
   attackName: Riposte!
   damage: 10
   acc: 95
-  focus: 10
+  focus: 20
   damage_buff: 0
   spawnable: {fileID: 0}
   type: 0
