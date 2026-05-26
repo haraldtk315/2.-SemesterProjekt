@@ -19,7 +19,7 @@ MonoBehaviour:
   damage_buff: 0
   spawnable: {fileID: 0}
   type: 3
-  Description: Press the left mouse to inject a syringe to heal allies, be careful
-    though missing it makes it deal damage instead.
+  Description: Press the left mouse to inject a syringe to heal allies.\nBe careful
+    though, missing it makes it deal damage instead.
   cost: 30
   microgame: 1

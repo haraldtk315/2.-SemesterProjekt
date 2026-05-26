@@ -9038,7 +9038,7 @@ MonoBehaviour:
   microgameClockTimer: {fileID: 1277878621}
   type: 3
   textUI: {fileID: 0}
-  microgameTime: 5
+  microgameTime: 10
   draggableBlocks:
   - {fileID: 1274449198}
   - {fileID: 740382469}

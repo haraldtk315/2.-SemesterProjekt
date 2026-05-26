@@ -16,7 +16,10 @@ MonoBehaviour:
   damage: 0
   acc: 0
   focus: 0
+  damage_buff: 0
+  spawnable: {fileID: 0}
   type: 4
-  Description: 
+  Description: Drag the words into the correct boxes using left click. \nDon't fumble
+    your words!
   cost: 60
   microgame: 3

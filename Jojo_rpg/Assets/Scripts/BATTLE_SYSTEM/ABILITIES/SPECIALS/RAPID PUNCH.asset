@@ -20,6 +20,6 @@ MonoBehaviour:
   spawnable: {fileID: 0}
   type: 0
   Description: Press right and left mouse button repeatedly to gain extra damage
-    with this move!!!
+    with this move! \nRemember to alternate your punches!
   cost: 60
   microgame: 0
