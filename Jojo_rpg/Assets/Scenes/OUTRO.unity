@@ -2537,8 +2537,7 @@ MonoBehaviour:
 
     Will you free the rest of London?
 
-
-    Or will you back off
+    or will you back down
     and hide like a coward..?
 
 
@@ -2644,7 +2643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   trans: {fileID: 1971066279}
   val: -1600
-  textSpeed: 25
+  textSpeed: 30
 --- !u!1 &1980660730
 GameObject:
   m_ObjectHideFlags: 0
